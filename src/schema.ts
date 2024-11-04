@@ -1,9 +1,4 @@
-export type PlainString = string
-
-type Name = {
-  text: PlainString;
-  lettersOnly: boolean;
-};
+import { Static, Type } from "@sinclair/typebox";
 
 /**
  * Dates are expected to be in ISO8601 format yyyy-mm-dd
@@ -41,158 +36,170 @@ export const months = [
   "12 - December",
 ];
 
-type Suffix =
-  | {
-    text:
-    | "Jr."
-    | "Sr."
-    | "II"
-    | "III"
-    | "IV"
-    | "V"
-    | "VI"
-    | "VII"
-    | "VIII"
-    | "IX"
-    | "X";
-  }
-  | {
-    text: "Other";
-    explanation: PlainString;
-  };
+// type Suffix =
+//   | {
+//     text:
+//     | "Jr."
+//     | "Sr."
+//     | "II"
+//     | "III"
+//     | "IV"
+//     | "V"
+//     | "VI"
+//     | "VII"
+//     | "VIII"
+//     | "IX"
+//     | "X";
+//   }
+//   | {
+//     text: "Other";
+//     explanation: PlainString;
+//   };
 
-export type DateRange = {
-  from: {
-    date: Date;
-    estimated: boolean;
-  };
-  to?: {
-    date: Date;
-    estimated: boolean;
-    present: boolean;
-  };
-};
+const PhoneNumber = Type.Object({
+  countryCode: Type.String(),
+  number: Type.String(),
+  extension: Type.Object(Type.String()),
+  type: Type.Union([
+    Type.Literal("day"),
+    Type.Literal("night"),
+    Type.Literal("dayOrNight"),
+    Type.Literal("extension"),
+    Type.Literal("international"),
+    Type.Literal("dsn"),
+    Type.Literal("unknown")
+  ]),
+  location: Type.Union([
+    Type.Literal("cell"),
+    Type.Literal("home"),
+    Type.Literal("work")
+  ])
+})
 
-export type AdditionalName = {
-  firstName: Name;
-  lastName: Name;
-  middleName?: Name;
-  suffix?: Suffix;
-  range: DateRange;
-};
+const EmailAddress = Type.Object({
+  email: Type.String(),
+  type: Type.Union([Type.Literal('personal'), Type.Literal('work')])
+})
 
-export type PhoneNumberType = "day" | "night" | "dayOrNight" | "extension" | "international" | "dsn" | "unknown"
-
-export type PhoneNumber = {
-  countryCode: string
-  number: string
-  extension?: string
-  type: PhoneNumberType
-  location: "cell" | "home" | "work"
-}
-
-export type EmailAddress = {
-  email: string
-  type: "personal" | "work"
-}
-
-export type IdentityDocument = {
-  hasItem: "yes" | "no" | "dontKnow";
-  explanation: string;
-  number: string;
-  lastName: Name;
-  firstName: Name;
-  middleName: Name;
-  suffix?: Suffix;
-  issueDate: Date;
-  expirationDate: Date;
-  isMostRecent: boolean
-  isMostRecentExplanation: string;
-}
-
-export type USCitizenshipStatus = "citizenByBirth" | "citizenByBirthBornToParentsInForeignCountry" | "naturalizedCitizen" | "derizedCitizen" | "notACitizen" | "nationalByBirth" | "nationalByBirthBornToParentsInForeignCountry"
+const USCitizenshipStatus = Type.Union([
+  Type.Literal("citizenByBirth"),
+  Type.Literal("citizenByBirthBornToParentsInForeignCountry"),
+  Type.Literal('naturalizedCitizen'),
+  Type.Literal("derivedCitizen"),
+  Type.Literal("notACitizen"),
+  Type.Literal("nationalByBirth"),
+  Type.Literal("nationalByBirthBornToParentsInForeignCountry"),
+])
 
 export type BornAbroadDocument = "FS-240" | "DS-1350" | "FS-545" | "N-560/N-561" | "Other"
 
-export type PVQ = {
-  version: number;
-  generalInformation: {
-    lastName: Name;
-    firstName: Name;
-    middleName?: Name;
-    suffix?: Suffix;
-    pronouns?: string;
-    dateOfBirth: string;
-    dateOfBirthEstimated: boolean;
-    dateOfBirthEstimatedExplanation?: string;
-    bornInUsa: boolean;
-    placeOfBirthCity: string;
-    placeOfBirthCounty?: string;
-    placeOfBirthStateOrTerritory?: string;
-    placeOfBirthCountry?: string;
-    ssn?: string;
-    noSsn: boolean;
-    noSsnExplanation?: string;
-    hadAdditionalNames: boolean;
-    additionalNames: AdditionalName[];
-    contactInformation: {
-      phoneNumbers: PhoneNumber[],
-      emailAddresses: EmailAddress[]
-    }
-  };
-  passport: {
-    book: IdentityDocument;
-    card: IdentityDocument;
-  };
-  usCitizenship: {
-    status: USCitizenshipStatus
-    bornAbroad?: {
-      document: BornAbroadDocument
-      documentTitle: string
-      serialNumber: {
-        text: string
-      } | {
-        notApplicable: true
-      }
-      issueDate: Date
-    }
-  }
-  additionalCitizenships: {
-    otherCountryCitizen: boolean;
-  };
-  otherFederalEmployment: {
-    fedEmploymentMoreThanFiveYearsAgo: boolean;
-  };
-  usMilitary: {
-    everServed: boolean;
-  };
-  policeRecord: {
-    chargedWithCrimeLastFiveYears: boolean;
-    onProbationLastFiveYears: boolean;
-    onParoleLastFiveYears: boolean;
-  };
-  drugActivity: {
-    usedIllegalDrugLastFiveYears: boolean;
-  };
-  marijuana: {
-    usedLast90Days: boolean;
-  };
-  priorInvestigations: {
-    priorInvestigationLastFiveYears: boolean;
-  };
-  itSystems: {
-    illegallyAccessedLastFiveYears: boolean;
-  };
-  protectedInformation: {
-    illegallyAccessedLastFiveYears: boolean;
-  };
-  associations: {
-    memberOfTreasonousOrganization: boolean
-  },
-  psychologicalHealth: {
-    everMentallyIncompetent: boolean
-    mentalConsultationOrdered: boolean,
-    hospitalized: boolean,
-    diagnosedWithDisorder: boolean,
-  },
-}
+const Name = Type.Object({
+  text: Type.String(),
+  lettersOnly: Type.Boolean()
+})
+
+const Suffix = Type.Object({})
+
+const DateRange = Type.Object({
+  from: Type.Object({
+    date: Type.String(),
+    estimated: Type.Boolean(),
+  }),
+  to: Type.Object({
+    date: Type.String(),
+    estimated: Type.Boolean(),
+    present: Type.Boolean(),
+  }),
+});
+
+const DateOfBirth = Type.Object({
+  date: Type.String(),
+  estimated: Type.Boolean(),
+  estimatedExplanation: Type.Optional(Type.Boolean())
+})
+
+const PlaceOfBirth = Type.Object({
+  bornInUsa: Type.Boolean(),
+  city: Type.String(),
+  country: Type.Optional(Type.String()),
+  stateOrTerritory: Type.Optional(Type.String()),
+  county: Type.Optional(Type.String())
+})
+
+const SSN = Type.Object({
+  ssn: Type.Optional(Type.String()),
+  noSsn: Type.Boolean(),
+  noSsnExplanation: Type.String()
+})
+
+const AdditionalName = Type.Object({
+  firstName: Name,
+  lastName: Name,
+  middleName: Type.Optional(Name),
+  suffix: Type.Optional(Suffix),
+  range: DateRange
+})
+
+const ContactInformation = Type.Object({
+  phoneNumbers: Type.Array(PhoneNumber),
+  emailAddresses: Type.Array(EmailAddress)
+})
+
+const IdentityDocument = Type.Object({
+  hasItem: Type.Union([Type.Literal('yes'), Type.Literal('no'), Type.Literal('dontKnow')]),
+  explanation: Type.String(),
+  number: Type.String(),
+  lastName: Name,
+  firstName: Name,
+  middleName: Name,
+  suffix: Type.Optional(Suffix),
+  issueDate: Type.String(),
+  expirationDate: Type.String(),
+  isMostRecent: Type.Boolean(),
+  isMostRecentExplanation: Type.String(),
+})
+
+const BornAbroad = Type.Object({
+
+})
+
+const PVQSchema = Type.Object({
+  version: Type.Number(),
+  // Section 01
+  generalInformation: Type.Object({
+    lastName: Name,
+    firstName: Name,
+    middleName: Type.Optional(Name),
+    suffix: Type.Optional(Suffix),
+    pronouns: Type.Optional(Type.String()),
+    dateOfBirth: DateOfBirth,
+    placeOfBirth: PlaceOfBirth,
+    ssn: SSN,
+    hadAdditionalNames: Type.Boolean(),
+    additionalNames: Type.Array(AdditionalName),
+    contactInformation: ContactInformation
+  }),
+  // Section 02
+  passport: Type.Object({
+    book: IdentityDocument,
+    card: IdentityDocument
+  }),
+  // Section 03
+  usCitizenship: Type.Object({
+    status: USCitizenshipStatus,
+    bornAbroad: BornAbroad
+  }),
+  additionalCitizenships: Type.Object({}),
+  otherFederalEmployment: Type.Object({}),
+  usMilitary: Type.Object({}),
+  policeRecord: Type.Object({}),
+  drugActivity: Type.Object({}),
+  marijuana: Type.Object({}),
+  priorInvestigations: Type.Object({}),
+  itSystems: Type.Object({}),
+  protectedInformation: Type.Object({}),
+  associates: Type.Object({}),
+  psychologicalHealth: Type.Object({})
+})
+
+export type PVQ = Static<typeof PVQSchema>

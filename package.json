@@ -8,5 +8,8 @@
   "author": "DDS",
   "devDependencies": {
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.33.17"
   }
 }
