@@ -15,6 +15,9 @@
   "devDependencies": {
     "typescript": "^5.6.3"
   },
+  "files": [
+    "lib/**/*"
+  ],
   "dependencies": {
     "@sinclair/typebox": "^0.33.17"
   }
