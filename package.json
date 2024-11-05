@@ -5,6 +5,12 @@
   "keywords": [
     "pvq"
   ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "exports": {
+    "import": "./lib/index.js"
+  },
   "author": "DDS",
   "devDependencies": {
     "typescript": "^5.6.3"

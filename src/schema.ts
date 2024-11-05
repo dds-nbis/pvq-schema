@@ -163,7 +163,7 @@ const BornAbroad = Type.Object({
 
 })
 
-const PVQSchema = Type.Object({
+export const PVQSchema = Type.Object({
   version: Type.Number(),
   // Section 01
   generalInformation: Type.Object({
