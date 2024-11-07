@@ -1,0 +1,672 @@
+{
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "number"
+    },
+    "generalInformation": {
+      "type": "object",
+      "properties": {
+        "lastName": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "lettersOnly": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "text",
+            "lettersOnly"
+          ]
+        },
+        "firstName": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "lettersOnly": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "text",
+            "lettersOnly"
+          ]
+        },
+        "middleName": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "lettersOnly": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "text",
+            "lettersOnly"
+          ]
+        },
+        "suffix": {
+          "type": "object",
+          "properties": {}
+        },
+        "pronouns": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "estimated": {
+              "type": "boolean"
+            },
+            "estimatedExplanation": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "date",
+            "estimated"
+          ]
+        },
+        "placeOfBirth": {
+          "type": "object",
+          "properties": {
+            "bornInUsa": {
+              "type": "boolean"
+            },
+            "city": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "stateOrTerritory": {
+              "type": "string"
+            },
+            "county": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "bornInUsa",
+            "city"
+          ]
+        },
+        "ssn": {
+          "type": "object",
+          "properties": {
+            "ssn": {
+              "type": "string"
+            },
+            "noSsn": {
+              "type": "boolean"
+            },
+            "noSsnExplanation": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "noSsn",
+            "noSsnExplanation"
+          ]
+        },
+        "hadAdditionalNames": {
+          "type": "boolean"
+        },
+        "additionalNames": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "lettersOnly": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "text",
+                  "lettersOnly"
+                ]
+              },
+              "lastName": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "lettersOnly": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "text",
+                  "lettersOnly"
+                ]
+              },
+              "middleName": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "lettersOnly": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "text",
+                  "lettersOnly"
+                ]
+              },
+              "suffix": {
+                "type": "object",
+                "properties": {}
+              },
+              "range": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string"
+                      },
+                      "estimated": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "date",
+                      "estimated"
+                    ]
+                  },
+                  "to": {
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string"
+                      },
+                      "estimated": {
+                        "type": "boolean"
+                      },
+                      "present": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "date",
+                      "estimated",
+                      "present"
+                    ]
+                  }
+                },
+                "required": [
+                  "from",
+                  "to"
+                ]
+              }
+            },
+            "required": [
+              "firstName",
+              "lastName",
+              "range"
+            ]
+          }
+        },
+        "contactInformation": {
+          "type": "object",
+          "properties": {
+            "phoneNumbers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "countryCode": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "string"
+                  },
+                  "extension": {
+                    "type": "object",
+                    "properties": {
+                      "type": "string"
+                    },
+                    "required": [
+                      "type"
+                    ]
+                  },
+                  "type": {
+                    "anyOf": [
+                      {
+                        "const": "day",
+                        "type": "string"
+                      },
+                      {
+                        "const": "night",
+                        "type": "string"
+                      },
+                      {
+                        "const": "dayOrNight",
+                        "type": "string"
+                      },
+                      {
+                        "const": "extension",
+                        "type": "string"
+                      },
+                      {
+                        "const": "international",
+                        "type": "string"
+                      },
+                      {
+                        "const": "dsn",
+                        "type": "string"
+                      },
+                      {
+                        "const": "unknown",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "location": {
+                    "anyOf": [
+                      {
+                        "const": "cell",
+                        "type": "string"
+                      },
+                      {
+                        "const": "home",
+                        "type": "string"
+                      },
+                      {
+                        "const": "work",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "countryCode",
+                  "number",
+                  "extension",
+                  "type",
+                  "location"
+                ]
+              }
+            },
+            "emailAddresses": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "anyOf": [
+                      {
+                        "const": "personal",
+                        "type": "string"
+                      },
+                      {
+                        "const": "work",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "email",
+                  "type"
+                ]
+              }
+            }
+          },
+          "required": [
+            "phoneNumbers",
+            "emailAddresses"
+          ]
+        }
+      },
+      "required": [
+        "lastName",
+        "firstName",
+        "dateOfBirth",
+        "placeOfBirth",
+        "ssn",
+        "hadAdditionalNames",
+        "additionalNames",
+        "contactInformation"
+      ]
+    },
+    "passport": {
+      "type": "object",
+      "properties": {
+        "book": {
+          "type": "object",
+          "properties": {
+            "hasItem": {
+              "anyOf": [
+                {
+                  "const": "yes",
+                  "type": "string"
+                },
+                {
+                  "const": "no",
+                  "type": "string"
+                },
+                {
+                  "const": "dontKnow",
+                  "type": "string"
+                }
+              ]
+            },
+            "explanation": {
+              "type": "string"
+            },
+            "number": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "lettersOnly": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "text",
+                "lettersOnly"
+              ]
+            },
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "lettersOnly": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "text",
+                "lettersOnly"
+              ]
+            },
+            "middleName": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "lettersOnly": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "text",
+                "lettersOnly"
+              ]
+            },
+            "suffix": {
+              "type": "object",
+              "properties": {}
+            },
+            "issueDate": {
+              "type": "string"
+            },
+            "expirationDate": {
+              "type": "string"
+            },
+            "isMostRecent": {
+              "type": "boolean"
+            },
+            "isMostRecentExplanation": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hasItem",
+            "explanation",
+            "number",
+            "lastName",
+            "firstName",
+            "middleName",
+            "issueDate",
+            "expirationDate",
+            "isMostRecent",
+            "isMostRecentExplanation"
+          ]
+        },
+        "card": {
+          "type": "object",
+          "properties": {
+            "hasItem": {
+              "anyOf": [
+                {
+                  "const": "yes",
+                  "type": "string"
+                },
+                {
+                  "const": "no",
+                  "type": "string"
+                },
+                {
+                  "const": "dontKnow",
+                  "type": "string"
+                }
+              ]
+            },
+            "explanation": {
+              "type": "string"
+            },
+            "number": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "lettersOnly": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "text",
+                "lettersOnly"
+              ]
+            },
+            "firstName": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "lettersOnly": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "text",
+                "lettersOnly"
+              ]
+            },
+            "middleName": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "lettersOnly": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "text",
+                "lettersOnly"
+              ]
+            },
+            "suffix": {
+              "type": "object",
+              "properties": {}
+            },
+            "issueDate": {
+              "type": "string"
+            },
+            "expirationDate": {
+              "type": "string"
+            },
+            "isMostRecent": {
+              "type": "boolean"
+            },
+            "isMostRecentExplanation": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hasItem",
+            "explanation",
+            "number",
+            "lastName",
+            "firstName",
+            "middleName",
+            "issueDate",
+            "expirationDate",
+            "isMostRecent",
+            "isMostRecentExplanation"
+          ]
+        }
+      },
+      "required": [
+        "book",
+        "card"
+      ]
+    },
+    "usCitizenship": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "anyOf": [
+            {
+              "const": "citizenByBirth",
+              "type": "string"
+            },
+            {
+              "const": "citizenByBirthBornToParentsInForeignCountry",
+              "type": "string"
+            },
+            {
+              "const": "naturalizedCitizen",
+              "type": "string"
+            },
+            {
+              "const": "derivedCitizen",
+              "type": "string"
+            },
+            {
+              "const": "notACitizen",
+              "type": "string"
+            },
+            {
+              "const": "nationalByBirth",
+              "type": "string"
+            },
+            {
+              "const": "nationalByBirthBornToParentsInForeignCountry",
+              "type": "string"
+            }
+          ]
+        },
+        "bornAbroad": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "status",
+        "bornAbroad"
+      ]
+    },
+    "additionalCitizenships": {
+      "type": "object",
+      "properties": {}
+    },
+    "otherFederalEmployment": {
+      "type": "object",
+      "properties": {}
+    },
+    "usMilitary": {
+      "type": "object",
+      "properties": {}
+    },
+    "policeRecord": {
+      "type": "object",
+      "properties": {}
+    },
+    "drugActivity": {
+      "type": "object",
+      "properties": {}
+    },
+    "marijuana": {
+      "type": "object",
+      "properties": {}
+    },
+    "priorInvestigations": {
+      "type": "object",
+      "properties": {}
+    },
+    "itSystems": {
+      "type": "object",
+      "properties": {}
+    },
+    "protectedInformation": {
+      "type": "object",
+      "properties": {}
+    },
+    "associates": {
+      "type": "object",
+      "properties": {}
+    },
+    "psychologicalHealth": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "required": [
+    "version",
+    "generalInformation",
+    "passport",
+    "usCitizenship",
+    "additionalCitizenships",
+    "otherFederalEmployment",
+    "usMilitary",
+    "policeRecord",
+    "drugActivity",
+    "marijuana",
+    "priorInvestigations",
+    "itSystems",
+    "protectedInformation",
+    "associates",
+    "psychologicalHealth"
+  ]
+}

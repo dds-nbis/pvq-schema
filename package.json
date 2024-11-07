@@ -6,7 +6,7 @@
     "pvq"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && node scripts/genSchema.mjs"
   },
   "exports": {
     "import": "./lib/index.js"
