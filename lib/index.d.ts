@@ -59,7 +59,10 @@ export declare const AdditionalName: import("@sinclair/typebox").TObject<{
         text: import("@sinclair/typebox").TString;
         lettersOnly: import("@sinclair/typebox").TBoolean;
     }>>;
-    suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{}>>;
+    suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+        text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+        explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    }>>;
     range: import("@sinclair/typebox").TObject<{
         from: import("@sinclair/typebox").TObject<{
             date: import("@sinclair/typebox").TString;
@@ -101,7 +104,10 @@ export declare const IdentityDocument: import("@sinclair/typebox").TObject<{
         text: import("@sinclair/typebox").TString;
         lettersOnly: import("@sinclair/typebox").TBoolean;
     }>;
-    suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{}>>;
+    suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+        text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+        explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    }>>;
     issueDate: import("@sinclair/typebox").TString;
     expirationDate: import("@sinclair/typebox").TString;
     isMostRecent: import("@sinclair/typebox").TBoolean;
@@ -122,7 +128,10 @@ export declare const PVQSchema: import("@sinclair/typebox").TObject<{
             text: import("@sinclair/typebox").TString;
             lettersOnly: import("@sinclair/typebox").TBoolean;
         }>>;
-        suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{}>>;
+        suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+            explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        }>>;
         pronouns: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
         dateOfBirth: import("@sinclair/typebox").TObject<{
             date: import("@sinclair/typebox").TString;
@@ -155,7 +164,10 @@ export declare const PVQSchema: import("@sinclair/typebox").TObject<{
                 text: import("@sinclair/typebox").TString;
                 lettersOnly: import("@sinclair/typebox").TBoolean;
             }>>;
-            suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{}>>;
+            suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+                explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>>;
             range: import("@sinclair/typebox").TObject<{
                 from: import("@sinclair/typebox").TObject<{
                     date: import("@sinclair/typebox").TString;
@@ -199,7 +211,10 @@ export declare const PVQSchema: import("@sinclair/typebox").TObject<{
                 text: import("@sinclair/typebox").TString;
                 lettersOnly: import("@sinclair/typebox").TBoolean;
             }>;
-            suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{}>>;
+            suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+                explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>>;
             issueDate: import("@sinclair/typebox").TString;
             expirationDate: import("@sinclair/typebox").TString;
             isMostRecent: import("@sinclair/typebox").TBoolean;
@@ -221,7 +236,10 @@ export declare const PVQSchema: import("@sinclair/typebox").TObject<{
                 text: import("@sinclair/typebox").TString;
                 lettersOnly: import("@sinclair/typebox").TBoolean;
             }>;
-            suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{}>>;
+            suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+                explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>>;
             issueDate: import("@sinclair/typebox").TString;
             expirationDate: import("@sinclair/typebox").TString;
             isMostRecent: import("@sinclair/typebox").TBoolean;
