@@ -39,17 +39,17 @@ export const months = [
 // type Suffix =
 //   | {
 //     text:
-//     | "Jr."
-//     | "Sr."
-//     | "II"
-//     | "III"
-//     | "IV"
-//     | "V"
-//     | "VI"
-//     | "VII"
-//     | "VIII"
-//     | "IX"
-//     | "X";
+//     | Type.Literal("Jr.")
+//     | Type.Literal("Sr.")
+//     | Type.Literal("II")
+//     | Type.Literal("III")
+//     | Type.Literal("IV")
+//     | Type.Literal("V")
+//     | Type.Literal("VI")
+//     | Type.Literal("VII")
+//     | Type.Literal("VIII")
+//     | Type.Literal("IX")
+//     | Type.Literal("X")
 //   }
 //   | {
 //     text: "Other";
@@ -98,7 +98,23 @@ export const Name = Type.Object({
   lettersOnly: Type.Boolean()
 })
 
-const Suffix = Type.Object({})
+const Suffix = Type.Object({
+  text: Type.Union([
+    Type.Literal("X"),
+    Type.Literal("IX"),
+    Type.Literal("VIII"),
+    Type.Literal("VII"),
+    Type.Literal("VI"),
+    Type.Literal("IV"),
+    Type.Literal("V"),
+    Type.Literal("III"),
+    Type.Literal("II"),
+    Type.Literal("Sr."),
+    Type.Literal("Jr."),
+    Type.Literal("Other")
+  ]),
+  explanation: Type.Optional(Type.String())
+})
 
 export const DateRange = Type.Object({
   from: Type.Object({
