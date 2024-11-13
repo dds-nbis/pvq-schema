@@ -4,7 +4,7 @@ export declare const months: string[];
 export declare const PhoneNumber: import("@sinclair/typebox").TObject<{
     countryCode: import("@sinclair/typebox").TString;
     number: import("@sinclair/typebox").TString;
-    extension: import("@sinclair/typebox").TObject<import("@sinclair/typebox").TString>;
+    extension: import("@sinclair/typebox").TString;
     type: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"day">, import("@sinclair/typebox").TLiteral<"night">, import("@sinclair/typebox").TLiteral<"dayOrNight">, import("@sinclair/typebox").TLiteral<"extension">, import("@sinclair/typebox").TLiteral<"international">, import("@sinclair/typebox").TLiteral<"dsn">, import("@sinclair/typebox").TLiteral<"unknown">]>;
     location: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"cell">, import("@sinclair/typebox").TLiteral<"home">, import("@sinclair/typebox").TLiteral<"work">]>;
 }>;
@@ -76,7 +76,7 @@ export declare const ContactInformation: import("@sinclair/typebox").TObject<{
     phoneNumbers: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
         countryCode: import("@sinclair/typebox").TString;
         number: import("@sinclair/typebox").TString;
-        extension: import("@sinclair/typebox").TObject<import("@sinclair/typebox").TString>;
+        extension: import("@sinclair/typebox").TString;
         type: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"day">, import("@sinclair/typebox").TLiteral<"night">, import("@sinclair/typebox").TLiteral<"dayOrNight">, import("@sinclair/typebox").TLiteral<"extension">, import("@sinclair/typebox").TLiteral<"international">, import("@sinclair/typebox").TLiteral<"dsn">, import("@sinclair/typebox").TLiteral<"unknown">]>;
         location: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"cell">, import("@sinclair/typebox").TLiteral<"home">, import("@sinclair/typebox").TLiteral<"work">]>;
     }>>;
@@ -172,7 +172,7 @@ export declare const PVQSchema: import("@sinclair/typebox").TObject<{
             phoneNumbers: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
                 countryCode: import("@sinclair/typebox").TString;
                 number: import("@sinclair/typebox").TString;
-                extension: import("@sinclair/typebox").TObject<import("@sinclair/typebox").TString>;
+                extension: import("@sinclair/typebox").TString;
                 type: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"day">, import("@sinclair/typebox").TLiteral<"night">, import("@sinclair/typebox").TLiteral<"dayOrNight">, import("@sinclair/typebox").TLiteral<"extension">, import("@sinclair/typebox").TLiteral<"international">, import("@sinclair/typebox").TLiteral<"dsn">, import("@sinclair/typebox").TLiteral<"unknown">]>;
                 location: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"cell">, import("@sinclair/typebox").TLiteral<"home">, import("@sinclair/typebox").TLiteral<"work">]>;
             }>>;
