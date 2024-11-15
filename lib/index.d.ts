@@ -13,7 +13,6 @@ export declare const EmailAddress: import("@sinclair/typebox").TObject<{
     type: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"personal">, import("@sinclair/typebox").TLiteral<"work">]>;
 }>;
 export declare const USCitizenshipStatus: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"citizenByBirth">, import("@sinclair/typebox").TLiteral<"citizenByBirthBornToParentsInForeignCountry">, import("@sinclair/typebox").TLiteral<"naturalizedCitizen">, import("@sinclair/typebox").TLiteral<"derivedCitizen">, import("@sinclair/typebox").TLiteral<"notACitizen">, import("@sinclair/typebox").TLiteral<"nationalByBirth">, import("@sinclair/typebox").TLiteral<"nationalByBirthBornToParentsInForeignCountry">]>;
-export type BornAbroadDocument = "FS-240" | "DS-1350" | "FS-545" | "N-560/N-561" | "Other";
 export declare const Name: import("@sinclair/typebox").TObject<{
     text: import("@sinclair/typebox").TString;
     lettersOnly: import("@sinclair/typebox").TBoolean;
@@ -75,6 +74,24 @@ export declare const AdditionalName: import("@sinclair/typebox").TObject<{
         }>;
     }>;
 }>;
+export declare const FullName: import("@sinclair/typebox").TObject<{
+    firstName: import("@sinclair/typebox").TObject<{
+        text: import("@sinclair/typebox").TString;
+        lettersOnly: import("@sinclair/typebox").TBoolean;
+    }>;
+    lastName: import("@sinclair/typebox").TObject<{
+        text: import("@sinclair/typebox").TString;
+        lettersOnly: import("@sinclair/typebox").TBoolean;
+    }>;
+    middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+        text: import("@sinclair/typebox").TString;
+        lettersOnly: import("@sinclair/typebox").TBoolean;
+    }>>;
+    suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+        text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+        explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    }>>;
+}>;
 export declare const ContactInformation: import("@sinclair/typebox").TObject<{
     phoneNumbers: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
         countryCode: import("@sinclair/typebox").TString;
@@ -112,6 +129,112 @@ export declare const IdentityDocument: import("@sinclair/typebox").TObject<{
     expirationDate: import("@sinclair/typebox").TString;
     isMostRecent: import("@sinclair/typebox").TBoolean;
     isMostRecentExplanation: import("@sinclair/typebox").TString;
+}>;
+export declare const BornAbroadDocument: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"FS-240">, import("@sinclair/typebox").TLiteral<"DS-1350">, import("@sinclair/typebox").TLiteral<"FS-545">, import("@sinclair/typebox").TLiteral<"N-560/N-561">, import("@sinclair/typebox").TLiteral<"Other">]>;
+export declare const NaturalizedCitizen: import("@sinclair/typebox").TObject<{
+    alienRegistrationNumber: import("@sinclair/typebox").TString;
+    naturalizationCerfiticateNumber: import("@sinclair/typebox").TString;
+    issueDate: import("@sinclair/typebox").TString;
+    name: import("@sinclair/typebox").TObject<{
+        firstName: import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TString;
+            lettersOnly: import("@sinclair/typebox").TBoolean;
+        }>;
+        lastName: import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TString;
+            lettersOnly: import("@sinclair/typebox").TBoolean;
+        }>;
+        middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TString;
+            lettersOnly: import("@sinclair/typebox").TBoolean;
+        }>>;
+        suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+            explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        }>>;
+    }>;
+}>;
+export declare const DerivedCitizen: import("@sinclair/typebox").TObject<{
+    alienRegistrationNumber: import("@sinclair/typebox").TString;
+    permanentResidentCardNumber: import("@sinclair/typebox").TString;
+    citizenshipCertificateNumber: import("@sinclair/typebox").TObject<{
+        text: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        notApplicable: import("@sinclair/typebox").TBoolean;
+        notApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    }>;
+    citizenshipCertificateName: import("@sinclair/typebox").TObject<{
+        firstName: import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TString;
+            lettersOnly: import("@sinclair/typebox").TBoolean;
+        }>;
+        lastName: import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TString;
+            lettersOnly: import("@sinclair/typebox").TBoolean;
+        }>;
+        middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TString;
+            lettersOnly: import("@sinclair/typebox").TBoolean;
+        }>>;
+        suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+            explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        }>>;
+    }>;
+    issueDate: import("@sinclair/typebox").TString;
+}>;
+export declare const ResidenceStatus: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"permanentResident">, import("@sinclair/typebox").TLiteral<"asylum/refugee">, import("@sinclair/typebox").TLiteral<"nonimmigrant">, import("@sinclair/typebox").TLiteral<"temporaryProtectedStatus">, import("@sinclair/typebox").TLiteral<"deferredActionForChildhoodArrivals">, import("@sinclair/typebox").TLiteral<"other">]>;
+export declare const LegalResidencyDocument: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"i94">, import("@sinclair/typebox").TLiteral<"visaCard">, import("@sinclair/typebox").TLiteral<"i20">, import("@sinclair/typebox").TLiteral<"ds2019">, import("@sinclair/typebox").TLiteral<"Other">]>;
+export declare const NonCitizen: import("@sinclair/typebox").TObject<{
+    residenceStatus: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"permanentResident">, import("@sinclair/typebox").TLiteral<"asylum/refugee">, import("@sinclair/typebox").TLiteral<"nonimmigrant">, import("@sinclair/typebox").TLiteral<"temporaryProtectedStatus">, import("@sinclair/typebox").TLiteral<"deferredActionForChildhoodArrivals">, import("@sinclair/typebox").TLiteral<"other">]>;
+    otherExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    dateEnteredUS: import("@sinclair/typebox").TObject<{
+        date: import("@sinclair/typebox").TString;
+        estimated: import("@sinclair/typebox").TBoolean;
+    }>;
+    whereEnteredUS: import("@sinclair/typebox").TObject<{
+        city: import("@sinclair/typebox").TString;
+        stateOrTerritory: import("@sinclair/typebox").TString;
+    }>;
+    countriesOfCitizenship: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>;
+    alienRegistrationNumber: import("@sinclair/typebox").TObject<{
+        text: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        notApplicable: import("@sinclair/typebox").TBoolean;
+        notApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    }>;
+    employmentAuthorizationCardExpiration: import("@sinclair/typebox").TObject<{
+        date: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        notApplicable: import("@sinclair/typebox").TBoolean;
+        notApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    }>;
+    legalResidency: import("@sinclair/typebox").TObject<{
+        document: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"i94">, import("@sinclair/typebox").TLiteral<"visaCard">, import("@sinclair/typebox").TLiteral<"i20">, import("@sinclair/typebox").TLiteral<"ds2019">, import("@sinclair/typebox").TLiteral<"Other">]>>;
+        title: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        number: import("@sinclair/typebox").TObject<{
+            text: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            notApplicable: import("@sinclair/typebox").TBoolean;
+            notApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        }>;
+        issueDate: import("@sinclair/typebox").TString;
+        expirationDate: import("@sinclair/typebox").TString;
+        name: import("@sinclair/typebox").TObject<{
+            firstName: import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TString;
+                lettersOnly: import("@sinclair/typebox").TBoolean;
+            }>;
+            lastName: import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TString;
+                lettersOnly: import("@sinclair/typebox").TBoolean;
+            }>;
+            middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TString;
+                lettersOnly: import("@sinclair/typebox").TBoolean;
+            }>>;
+            suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+                explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>>;
+        }>;
+    }>;
 }>;
 export declare const PVQSchema: import("@sinclair/typebox").TObject<{
     version: import("@sinclair/typebox").TNumber;
@@ -248,7 +371,141 @@ export declare const PVQSchema: import("@sinclair/typebox").TObject<{
     }>;
     usCitizenship: import("@sinclair/typebox").TObject<{
         status: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"citizenByBirth">, import("@sinclair/typebox").TLiteral<"citizenByBirthBornToParentsInForeignCountry">, import("@sinclair/typebox").TLiteral<"naturalizedCitizen">, import("@sinclair/typebox").TLiteral<"derivedCitizen">, import("@sinclair/typebox").TLiteral<"notACitizen">, import("@sinclair/typebox").TLiteral<"nationalByBirth">, import("@sinclair/typebox").TLiteral<"nationalByBirthBornToParentsInForeignCountry">]>;
-        bornAbroad: import("@sinclair/typebox").TObject<{}>;
+        bornAbroad: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            document: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"FS-240">, import("@sinclair/typebox").TLiteral<"DS-1350">, import("@sinclair/typebox").TLiteral<"FS-545">, import("@sinclair/typebox").TLiteral<"N-560/N-561">, import("@sinclair/typebox").TLiteral<"Other">]>;
+            formTitle: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            serialNumber: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            serialNumberNotApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            issueDate: import("@sinclair/typebox").TObject<{
+                date: import("@sinclair/typebox").TString;
+                estimated: import("@sinclair/typebox").TBoolean;
+            }>;
+            issuedInUS: import("@sinclair/typebox").TBoolean;
+            issuedInCity: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            issuedInCountry: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            name: import("@sinclair/typebox").TObject<{
+                firstName: import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>;
+                lastName: import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>;
+                middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>>;
+                suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+                    explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                }>>;
+            }>;
+            militaryInstallationName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+        }>>;
+        naturalizedCitizen: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            alienRegistrationNumber: import("@sinclair/typebox").TString;
+            naturalizationCerfiticateNumber: import("@sinclair/typebox").TString;
+            issueDate: import("@sinclair/typebox").TString;
+            name: import("@sinclair/typebox").TObject<{
+                firstName: import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>;
+                lastName: import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>;
+                middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>>;
+                suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+                    explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                }>>;
+            }>;
+        }>>;
+        derivedCitizen: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            alienRegistrationNumber: import("@sinclair/typebox").TString;
+            permanentResidentCardNumber: import("@sinclair/typebox").TString;
+            citizenshipCertificateNumber: import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                notApplicable: import("@sinclair/typebox").TBoolean;
+                notApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>;
+            citizenshipCertificateName: import("@sinclair/typebox").TObject<{
+                firstName: import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>;
+                lastName: import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>;
+                middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TString;
+                    lettersOnly: import("@sinclair/typebox").TBoolean;
+                }>>;
+                suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+                    explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                }>>;
+            }>;
+            issueDate: import("@sinclair/typebox").TString;
+        }>>;
+        nonCitizen: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+            residenceStatus: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"permanentResident">, import("@sinclair/typebox").TLiteral<"asylum/refugee">, import("@sinclair/typebox").TLiteral<"nonimmigrant">, import("@sinclair/typebox").TLiteral<"temporaryProtectedStatus">, import("@sinclair/typebox").TLiteral<"deferredActionForChildhoodArrivals">, import("@sinclair/typebox").TLiteral<"other">]>;
+            otherExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            dateEnteredUS: import("@sinclair/typebox").TObject<{
+                date: import("@sinclair/typebox").TString;
+                estimated: import("@sinclair/typebox").TBoolean;
+            }>;
+            whereEnteredUS: import("@sinclair/typebox").TObject<{
+                city: import("@sinclair/typebox").TString;
+                stateOrTerritory: import("@sinclair/typebox").TString;
+            }>;
+            countriesOfCitizenship: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>;
+            alienRegistrationNumber: import("@sinclair/typebox").TObject<{
+                text: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                notApplicable: import("@sinclair/typebox").TBoolean;
+                notApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>;
+            employmentAuthorizationCardExpiration: import("@sinclair/typebox").TObject<{
+                date: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                notApplicable: import("@sinclair/typebox").TBoolean;
+                notApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>;
+            legalResidency: import("@sinclair/typebox").TObject<{
+                document: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"i94">, import("@sinclair/typebox").TLiteral<"visaCard">, import("@sinclair/typebox").TLiteral<"i20">, import("@sinclair/typebox").TLiteral<"ds2019">, import("@sinclair/typebox").TLiteral<"Other">]>>;
+                title: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                number: import("@sinclair/typebox").TObject<{
+                    text: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                    notApplicable: import("@sinclair/typebox").TBoolean;
+                    notApplicableExplanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                }>;
+                issueDate: import("@sinclair/typebox").TString;
+                expirationDate: import("@sinclair/typebox").TString;
+                name: import("@sinclair/typebox").TObject<{
+                    firstName: import("@sinclair/typebox").TObject<{
+                        text: import("@sinclair/typebox").TString;
+                        lettersOnly: import("@sinclair/typebox").TBoolean;
+                    }>;
+                    lastName: import("@sinclair/typebox").TObject<{
+                        text: import("@sinclair/typebox").TString;
+                        lettersOnly: import("@sinclair/typebox").TBoolean;
+                    }>;
+                    middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                        text: import("@sinclair/typebox").TString;
+                        lettersOnly: import("@sinclair/typebox").TBoolean;
+                    }>>;
+                    suffix: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
+                        text: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"X">, import("@sinclair/typebox").TLiteral<"IX">, import("@sinclair/typebox").TLiteral<"VIII">, import("@sinclair/typebox").TLiteral<"VII">, import("@sinclair/typebox").TLiteral<"VI">, import("@sinclair/typebox").TLiteral<"IV">, import("@sinclair/typebox").TLiteral<"V">, import("@sinclair/typebox").TLiteral<"III">, import("@sinclair/typebox").TLiteral<"II">, import("@sinclair/typebox").TLiteral<"Sr.">, import("@sinclair/typebox").TLiteral<"Jr.">, import("@sinclair/typebox").TLiteral<"Other">]>;
+                        explanation: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                    }>>;
+                }>;
+            }>;
+        }>>;
     }>;
     additionalCitizenships: import("@sinclair/typebox").TObject<{}>;
     otherFederalEmployment: import("@sinclair/typebox").TObject<{}>;

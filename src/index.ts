@@ -91,8 +91,6 @@ export const USCitizenshipStatus = Type.Union([
   Type.Literal("nationalByBirthBornToParentsInForeignCountry"),
 ])
 
-export type BornAbroadDocument = "FS-240" | "DS-1350" | "FS-545" | "N-560/N-561" | "Other"
-
 export const Name = Type.Object({
   text: Type.String(),
   lettersOnly: Type.Boolean()
@@ -156,6 +154,13 @@ export const AdditionalName = Type.Object({
   range: DateRange
 })
 
+export const FullName = Type.Object({
+  firstName: Name,
+  lastName: Name,
+  middleName: Type.Optional(Name),
+  suffix: Type.Optional(Suffix),
+})
+
 export const ContactInformation = Type.Object({
   phoneNumbers: Type.Array(PhoneNumber),
   emailAddresses: Type.Array(EmailAddress)
@@ -175,8 +180,81 @@ export const IdentityDocument = Type.Object({
   isMostRecentExplanation: Type.String(),
 })
 
-const BornAbroad = Type.Object({
+export const BornAbroadDocument = Type.Union([Type.Literal("FS-240"), Type.Literal("DS-1350"), Type.Literal("FS-545"), Type.Literal("N-560/N-561"), Type.Literal("Other")])
 
+const BornAbroad = Type.Object({
+  document: BornAbroadDocument,
+  formTitle: Type.Optional(Type.String()),
+  serialNumber: Type.Optional(Type.String()),
+  serialNumberNotApplicableExplanation: Type.Optional(Type.String()),
+  issueDate: Type.Object({
+    date: Type.String(),
+    estimated: Type.Boolean()
+  }),
+  issuedInUS: Type.Boolean(),
+  issuedInCity: Type.Optional(Type.String()),
+  issuedInCountry: Type.Optional(Type.String()),
+  name: FullName,
+  militaryInstallationName: Type.Optional(Type.Boolean()),
+})
+
+export const NaturalizedCitizen = Type.Object({
+  alienRegistrationNumber: Type.String(),
+  naturalizationCerfiticateNumber: Type.String(),
+  issueDate: Type.String(),
+  name: FullName,
+})
+
+export const DerivedCitizen = Type.Object({
+  alienRegistrationNumber: Type.String(),
+  permanentResidentCardNumber: Type.String(),
+  citizenshipCertificateNumber: Type.Object({
+    text: Type.Optional(Type.String()),
+    notApplicable: Type.Boolean(),
+    notApplicableExplanation: Type.Optional(Type.String())
+  }),
+  citizenshipCertificateName: FullName,
+  issueDate: Type.String()
+})
+
+export const ResidenceStatus = Type.Union([Type.Literal('permanentResident'), Type.Literal('asylum/refugee'), Type.Literal('nonimmigrant'), Type.Literal('temporaryProtectedStatus'), Type.Literal('deferredActionForChildhoodArrivals'), Type.Literal('other')])
+
+export const LegalResidencyDocument = Type.Union([Type.Literal("i94"), Type.Literal("visaCard"), Type.Literal("i20"), Type.Literal("ds2019"), Type.Literal("Other")])
+
+export const NonCitizen = Type.Object({
+  residenceStatus: ResidenceStatus,
+  otherExplanation: Type.Optional(Type.String()),
+  dateEnteredUS: Type.Object({
+    date: Type.String(),
+    estimated: Type.Boolean()
+  }),
+  whereEnteredUS: Type.Object({
+    city: Type.String(),
+    stateOrTerritory: Type.String()
+  }),
+  countriesOfCitizenship: Type.Array(Type.String()),
+  alienRegistrationNumber: Type.Object({
+    text: Type.Optional(Type.String()),
+    notApplicable: Type.Boolean(),
+    notApplicableExplanation: Type.Optional(Type.String())
+  }),
+  employmentAuthorizationCardExpiration: Type.Object({
+    date: Type.Optional(Type.String()),
+    notApplicable: Type.Boolean(),
+    notApplicableExplanation: Type.Optional(Type.String())
+  }),
+  legalResidency: Type.Object({
+    document: Type.Optional(LegalResidencyDocument),
+    title: Type.Optional(Type.String()),
+    number: Type.Object({
+      text: Type.Optional(Type.String()),
+      notApplicable: Type.Boolean(),
+      notApplicableExplanation: Type.Optional(Type.String())
+    }),
+    issueDate: Type.String(),
+    expirationDate: Type.String(),
+    name: FullName
+  })
 })
 
 export const PVQSchema = Type.Object({
@@ -203,7 +281,10 @@ export const PVQSchema = Type.Object({
   // Section 03
   usCitizenship: Type.Object({
     status: USCitizenshipStatus,
-    bornAbroad: BornAbroad
+    bornAbroad: Type.Optional(BornAbroad),
+    naturalizedCitizen: Type.Optional(NaturalizedCitizen),
+    derivedCitizen: Type.Optional(DerivedCitizen),
+    nonCitizen: Type.Optional(NonCitizen)
   }),
   additionalCitizenships: Type.Object({}),
   otherFederalEmployment: Type.Object({}),
