@@ -236,6 +236,23 @@ export declare const NonCitizen: import("@sinclair/typebox").TObject<{
         }>;
     }>;
 }>;
+export declare const AdditionalCountryCitizenship: import("@sinclair/typebox").TObject<{
+    country: import("@sinclair/typebox").TString;
+    how: import("@sinclair/typebox").TString;
+    when: import("@sinclair/typebox").TObject<{
+        from: import("@sinclair/typebox").TObject<{
+            date: import("@sinclair/typebox").TString;
+            estimated: import("@sinclair/typebox").TBoolean;
+        }>;
+        to: import("@sinclair/typebox").TObject<{
+            date: import("@sinclair/typebox").TString;
+            estimated: import("@sinclair/typebox").TBoolean;
+            present: import("@sinclair/typebox").TBoolean;
+        }>;
+    }>;
+    issuedPassport: import("@sinclair/typebox").TBoolean;
+    stillActive: import("@sinclair/typebox").TBoolean;
+}>;
 export declare const PVQSchema: import("@sinclair/typebox").TObject<{
     version: import("@sinclair/typebox").TNumber;
     generalInformation: import("@sinclair/typebox").TObject<{
@@ -507,7 +524,26 @@ export declare const PVQSchema: import("@sinclair/typebox").TObject<{
             }>;
         }>>;
     }>;
-    additionalCitizenships: import("@sinclair/typebox").TObject<{}>;
+    additionalCitizenships: import("@sinclair/typebox").TObject<{
+        citizenOfAnotherCountry: import("@sinclair/typebox").TBoolean;
+        countries: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+            country: import("@sinclair/typebox").TString;
+            how: import("@sinclair/typebox").TString;
+            when: import("@sinclair/typebox").TObject<{
+                from: import("@sinclair/typebox").TObject<{
+                    date: import("@sinclair/typebox").TString;
+                    estimated: import("@sinclair/typebox").TBoolean;
+                }>;
+                to: import("@sinclair/typebox").TObject<{
+                    date: import("@sinclair/typebox").TString;
+                    estimated: import("@sinclair/typebox").TBoolean;
+                    present: import("@sinclair/typebox").TBoolean;
+                }>;
+            }>;
+            issuedPassport: import("@sinclair/typebox").TBoolean;
+            stillActive: import("@sinclair/typebox").TBoolean;
+        }>>;
+    }>;
     otherFederalEmployment: import("@sinclair/typebox").TObject<{}>;
     usMilitary: import("@sinclair/typebox").TObject<{}>;
     policeRecord: import("@sinclair/typebox").TObject<{}>;

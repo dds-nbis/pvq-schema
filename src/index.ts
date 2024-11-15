@@ -257,6 +257,14 @@ export const NonCitizen = Type.Object({
   })
 })
 
+export const AdditionalCountryCitizenship = Type.Object({
+  country: Type.String(),
+  how: Type.String(),
+  when: DateRange,
+  issuedPassport: Type.Boolean(),
+  stillActive: Type.Boolean()
+})
+
 export const PVQSchema = Type.Object({
   version: Type.Number(),
   // Section 01
@@ -286,7 +294,11 @@ export const PVQSchema = Type.Object({
     derivedCitizen: Type.Optional(DerivedCitizen),
     nonCitizen: Type.Optional(NonCitizen)
   }),
-  additionalCitizenships: Type.Object({}),
+  // Section 04
+  additionalCitizenships: Type.Object({
+    citizenOfAnotherCountry: Type.Boolean(),
+    countries: Type.Array(AdditionalCountryCitizenship),
+  }),
   otherFederalEmployment: Type.Object({}),
   usMilitary: Type.Object({}),
   policeRecord: Type.Object({}),
