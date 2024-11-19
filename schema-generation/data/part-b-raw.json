@@ -1,0 +1,2068 @@
+{
+  "Continuation of Section 04 - Additional Citizenships/Foreign Passports Questions": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "This section also asks for information regarding any foreign (non-U.S.) passports you currently hold or have previously held.\\n\\nFor the following questions the term \\"foreign\\" means non-U.S. (that is, outside of the 50 U.S. states, District of Columbia, and U.S. territories). Many non-U.S. countries issue \\"identity cards\\" which can be used for international travel. Some of these identity cards cannot be used for international travel and are issued for other reasons (for example, as identification, to claim benefits, to digitally sign documents, etc.). For this question, only list an identity card if it can be used for international travel, even if you have never used it for international travel. Consider the term \\"identity card\\" to include all identity documents, citizenship cards, registration documents, foreign visas, or other similar documents that can be used for international travel."
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Foreign Passport or Identity Card. Country of Origin.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Foreign Passport or Identity Card. Country of Origin.",
+      "questions": [],
+      "prologue": "[2] Branch Auto Populate for Affirmative Answer on Foreign Passport or Identity Card with Access to Document."
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Foreign Passport or Identity Card. Country of Origin.",
+      "questions": [],
+      "prologue": "Where was this document issued?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Foreign Passport or Identity Card. Country of Origin.",
+      "questions": [],
+      "prologue": "What name is used on this document?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Foreign Passport or Identity Card. Use of Foreign Passport or Identity Card.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Use of Foreign Passport or Identity Card. Used for Travel.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Use of Foreign Passport or Identity Card. Used for Travel.",
+      "questions": [],
+      "prologue": "When did you travel to this country?"
+    },
+    {
+      "condition": "Branch Auto Populate for Selection of “Other” on Length of Foreign Travel on Foreign Passport or Identity Card.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Purpose of Travel.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card for Selection of “Other” for Purpose of Travel.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Questioned by Foreign Entity.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card for Affirmative Answer on Questioned by Other Entity.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Encounters with Police.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card for Affirmative Answer on Police Interaction.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Foreign Government Encounters.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Affirmative Answer Foreign Government Encounters.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Suspicious Activity.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Affirmative Answer Suspicious Activity.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Foreign Contact Interest.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Affirmative Answer Foreign Contact Interest.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Request for Classified/Sensitive Information.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Affirmative Answer Request for Classified/Sensitive Information Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Threatened, Coerced, Pressured.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card Affirmative Answer for Threatened, Coerced, Pressured. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card Affirmative Answer for Threatened, Coerced, Pressured. Explanation.",
+      "questions": [],
+      "prologue": "[2] Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Additional Instance."
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Intentions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Intentions.",
+      "questions": [],
+      "prologue": "[2] Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card for Intent to Keep Document."
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card. Affirmative Answer to Intend to Use.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Foreign Travel on Foreign Passport or Identity Card for a Negative Answer to Intend to Keep.",
+      "questions": [],
+      "prologue": ""
+    }
+  ],
+  "Continuation of Section 07 - Employment": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "This section asks questions regarding any foreign service you have had, as applicable. If you have foreign service then we want to collect information regarding your work and any foreign nationals you keep in contact with from your time serving in that foreign government.\\n\\nFor this section:\\n\\n• Foreign -- means non-U.S. -- that is, outside of the 50 U.S. states, District of Columbia, and U.S. territories.\\n\\n• Foreign service -- is work performed for a non-U.S. government and its agencies. Examples of foreign agencies and disciplines include foreign embassies, consulates, military or armed forces, intelligence services, diplomatic services, and security services.\\n\\n• Foreign national -- is any person who is not a citizen or national of the U.S."
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Name.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Selection of “Other” in Name of Foreign Government. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Additional Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Additional Questions.",
+      "questions": [],
+      "prologue": "When did you serve in this foreign agency?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Reason Service Ended.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Further Contact.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Service. Further Contact. Contact’s Information.",
+      "questions": [],
+      "prologue": "What is their name?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Contact Frequency Selection of “Other” from Dropdown Menu. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government Further Contact Location.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Contact Location in the U.S.",
+      "questions": [],
+      "prologue": "What is their address?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Contact Location Not in the U.S.",
+      "questions": [],
+      "prologue": "Where are they located?\\n\\nPlease provide physical address [ Text ] (not mailing address)."
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Contact Relationship. Another Instance of Contact with Foreign Service National.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Ever Served in Foreign Government. Another Instance or Service.",
+      "questions": [],
+      "prologue": ""
+    }
+  ],
+  "Continuation of Section 11 - Police Record": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "Continuation of Question 11.1.B This question asks for information regarding offenses where you received a document listing criminal charges and were requested to appear in criminal court. These documents are typically for offenses such as misdemeanors, felonies, or their equivalents. The written documents could include citations, summonses, tickets, complaints, arrest warrants, or indictments."
+    },
+    {
+      "questions": [],
+      "prologue": "[1] Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Date and Location of Incident"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Incident Location in U.S.",
+      "questions": [],
+      "prologue": "Where did it occur?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Incident Location Not in the U.S.",
+      "questions": [],
+      "prologue": "Where did it occur?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Additional Questions",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Law Enforcement Agency in the U.S. Address.",
+      "questions": [],
+      "prologue": "What is the address for this law enforcement agency?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Law Enforcement Agency Not in the U.S.",
+      "questions": [],
+      "prologue": "Where is this law enforcement agency located?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Additional Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Arrested.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Arrested Another Law Enforcement Agency.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Arrested Another Law Enforcement Agency. Location in the U.S.",
+      "questions": [],
+      "prologue": "What is the address for this law enforcement agency?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Arrested Another Law Enforcement Agency. Location Not in the U.S.",
+      "questions": [],
+      "prologue": "Where is this law enforcement agency located?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Additional Questions Court Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Additional Questions Court Details.",
+      "questions": [],
+      "prologue": "[2] Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Additional Questions Details. Fined Question."
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Additional Affirmative Answer for Fined.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Additional Affirmative Answer for Fined Paid in Full.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Fined Not Paid in Full. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Additional Questions Details. Fined Question Fine not paid.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Location in the U.S.",
+      "questions": [],
+      "prologue": "What is this court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Location Not in the U.S.",
+      "questions": [],
+      "prologue": "Where is this court located?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Charge.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance . Charge Selection of “Other” in Dropdown Menu. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of “Other” in Dropdown Menu.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Dismissed.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of On Trial.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Not Sentenced.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced. Selection of “Other” Type of Sentence in Dropdown.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced.",
+      "questions": [],
+      "prologue": "When were you incarcerated?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced. Imprisoned. Location of Facility.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced. Location of Facility in the U.S.",
+      "questions": [],
+      "prologue": "What is the address of this facility?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced. Location of Facility Not in the U.S.",
+      "questions": [],
+      "prologue": "Where is this facility located?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced. Imprisoned. Additional Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Sentenced. Imprisoned. Parole or Supervised Release.",
+      "questions": [],
+      "prologue": "What are or were the dates of your parole or supervised release?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Probation Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome Selection of Guilty, Probation Dates.",
+      "questions": [],
+      "prologue": "What are or were the dates of your probation?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Any other Charge for the Offense Listed. Case Closed Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Any other Instances. Case Closed Date.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Any other Instances. Case Not Closed Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer to Any of the Police Record Questions Above. Any other Offense to Report.",
+      "questions": [],
+      "prologue": ""
+    }
+  ],
+  "Section 19 - Use of Alcohol and Rehabilitative Actions": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "This section asks for information regarding the extent of your alcohol consumption, its impacts on your personal and professional activities, if any, and any actions you have taken to overcome alcohol-related concerns, as applicable."
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Use of Alcohol Negatively Impacting.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Use of Alcohol Negatively Impacting.",
+      "questions": [],
+      "prologue": "When was your life negatively affected?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Use of Alcohol Negatively Impacting.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment with Selection of “Other” Answer.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Additional Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Affirmative to Getting Counseling Ordered. Dates and Name of Provider",
+      "questions": [],
+      "prologue": "When did you get this counseling or treatment?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Provider Phone Numbers.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Provider’s email Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Provider Location.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Provider Location in the U.S.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Provider Location on a Military Installation. Name of Military Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Provider Location Not in the U.S.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Provider Location on Military Installation. Zip Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Ordered Treatment Completed.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Negative Answer for Ordered Treatment Completed. Status.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Negative Answer to Getting Counseling Ordered. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Additional Instance.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Ordered Counseling or Treatment. Additional Instance.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Selection of “Other” in Dropdown Option.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Additional Questions.",
+      "questions": [],
+      "prologue": "When did you get this counseling or treatment?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Branch Auto Populate Affirmative Answer for Provider Still Practicing.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Provider Phone Numbers.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Provider Email Addresses.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Provider Location.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Provider Still Practicing in US. Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Provider on a Military Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Provider Address Not in the U.S.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Provider Address Not in the U.S.",
+      "questions": [],
+      "prologue": "Please provide physical address [ Text ] (not mailing address)"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Provider on Military Installation or Diplomatic Facility. Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Counseling Completed Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Voluntarily Received Counseling or Treatment in Past Five Years. Counseling Not Completed",
+      "questions": [],
+      "prologue": ""
+    }
+  ],
+  "Section 20 - Relationship Status": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "This section asks for information regarding your current relationship status. We also ask for general information regarding former legally-recognized spouses or partners, as applicable. For purposes of this form, the term \\"committed, spouse-like relationship\\" is defined as a relationship between two people who are not in a legally-recognized marriage, union, or domestic partnership, present themselves as a couple, and live together continuously."
+    },
+    {
+      "questions": [],
+      "prologue": "[1] Branch Auto Populate for Relationship Status of in a Marriage/Union/Domestic Partnership/Common Law Marriage/Committed Spouse-Like Relationship/Separated.\\n\\nWhat is the name of your spouse or partner?"
+    },
+    {
+      "condition": "Branch Auto Populate Place of Birth for Spouse or Partner.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Place of Birth in U.S. for Spouse or Partner.",
+      "questions": [],
+      "prologue": "Where were they born?"
+    },
+    {
+      "condition": "Branch Auto Populate for Place of Birth Not in U.S for Spouse or Partner.",
+      "questions": [],
+      "prologue": "Where were they born?"
+    },
+    {
+      "condition": "Branch Auto Populate Citizenship for Spouse or Partner.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner U.S. Citizen Born Abroad",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Other Documentation for Spouse or Partner U.S. Citizen Born Abroad",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Other Documentation for Spouse or Partner U.S. Citizen Born Abroad",
+      "questions": [],
+      "prologue": "[4] Branch Auto Populate Other Documentation for Spouse or Partner U.S. Citizen Born Abroad. Document Serial Numbers"
+    },
+    {
+      "condition": "Branch Auto Populate Other Documentation for Spouse or Partner U.S. Citizen Born Abroad. Other Documents. Expiration Date. If Applicable",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Naturalized U.S. Citizen.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Other Documentation for Spouse or Partner Naturalized U.S. Citizen",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Spouse or Partner Alien Registration Number on Certificate of Citizenship.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Spouse or Partner Naturalization Certificate Number",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Spouse or Partner Alien Registration Number on Permanent Resident Card.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Documents Expiration Date as Applicable.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Derived Document.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Selection of “Other” Derived Document.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Derived Document Alien Registration Number",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Citizenship Certificate Document",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Alien Registration Number on Permanent Resident Card",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Derived Document Expiration Date.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Not U.S. Citizen",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Not U.S. Citizen Explanation",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Document Authorizing Being in the U.S.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Document Authorizing Being in the U.S. Document Information",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Document Authorizing Being in the U.S. Alien Registration Number",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Document Authorizing Being in the U.S. Non-Citizen Authorization Document (I-94)",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Document Authorizing Being in the U.S. Non-Citizen Authorization Document (US Visa Card)",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Document Authorizing Being in the U.S. Non-Citizen Authorization Document (I-20)",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Document Authorizing Being in the U.S. Non-Citizen Authorization Document (DS-2019)",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Other Document Authorizing Being in the U.S. Expiration Date",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner. Additional Questions",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer on Other Names Used by Spouse or Partner",
+      "questions": [],
+      "prologue": "What other name have they used?"
+    },
+    {
+      "condition": "Branch Auto Populate Explanation of Other Names Used by Spouse or Partner",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Dated Other Names Used by Spouse or Partner",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Beginning Date of Relationship with Spouse or Partner (if in Committed Spouse-like Relationship)",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Relationship Union Details (if Marriage, Union, Domestic Partnership, Common Law Marriage or Separated)",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner for Affirmative Answer on Relationship Union in the U.S.",
+      "questions": [],
+      "prologue": "Where did you enter this civil marriage, civil union, domestic partnership, or common law marriage?"
+    },
+    {
+      "condition": "Branch Auto Populate for Spouse or Partner (if Marriage, Union, Domestic Partnership, Common Law Marriage or Separated) for Affirmative Answer on Relationship Union but Not in the U.S.",
+      "questions": [],
+      "prologue": "Where did you enter this civil marriage, civil union,\\n\\ndomestic partnership, or common law marriage?"
+    },
+    {
+      "condition": "Branch Auto Populate Spouse or Partner Lives Same Address",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer on Spouse or Partner Lives Same Address Location.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer on Spouse or Partner Living Same Location in the U.S.",
+      "questions": [],
+      "prologue": "What is their address?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer on Spouse or Partner Living Same Location on a Military Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer on Spouse or Partner Living Same Location not in the U.S.",
+      "questions": [],
+      "prologue": "Where do they live?\\n\\nPlease provide physical address [ Text ] (not mailing address)"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer on Spouse or Partner Lives on a Military Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer on Spouse or Partner. Phone Number.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer on Spouse or Partner. Email Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Type as Separated. Details Question",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Type as Separated. Affirmative Answer on Separation Recorded in the U.S. Address.",
+      "questions": [],
+      "prologue": "Where are they recorded?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Type as Separated. Separation Not Recorded in the U.S. Location.",
+      "questions": [],
+      "prologue": "Where are they recorded?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Details Questions.",
+      "questions": [],
+      "prologue": "What is the name of the person you were in a civil marriage, civil union, domestic partnership, or common law marriage with?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Place of Birth in the U.S.",
+      "questions": [],
+      "prologue": "Where were they born?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Place of Birth Not in the U.S.",
+      "questions": [],
+      "prologue": "Where were they born?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Citizenship and Deceased Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Phone Number",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Email Addresses",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Union Dates & Location.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Entered Union in the U.S. Location.",
+      "questions": [],
+      "prologue": "Where did you enter this civil marriage, civil union, domestic partnership, or common law marriage?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Entered Union Not in the U.S. Location.",
+      "questions": [],
+      "prologue": "Where did you enter this civil marriage, civil union, domestic partnership, or common law marriage?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Divorced/Annulled Dates and Last Known Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Last Known Address in the U.S. Address Information.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Last Known Address on Military Installation",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Last Known Address Not in the US",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Last Known Address Not in the US",
+      "questions": [],
+      "prologue": "Please provide physical address [ Text ] (not mailing address)."
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Divorced/Annulled. Former Spouse or Partner Alive. Last Known Address on Military Installation",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Relationship Status as Widowed. Details Questions",
+      "questions": [],
+      "prologue": "What is your deceased spouse or partner's name?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Spouse or Partner. Any Other Former Legally-recognized Spouse or Partner.",
+      "questions": [],
+      "prologue": ""
+    }
+  ],
+  "Section 21 - Relatives": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "If you have not had any contact with a relative select the box \\"[] No contact with family member\\" but you must still provide information about your relative to the best of your knowledge. If there is a safety reason for which you do not wish to provide your relative’s information, contact the office that asked you to complete this form. However, you must still provide the information about your relative to the best of your knowledge. As noted in the instructions, the information you provide is protected under the Privacy Act and will be protected from unauthorized disclosure."
+    },
+    {
+      "condition": "Branch Auto Populate Relative Name & Details",
+      "questions": [],
+      "prologue": "What is your relative's name?"
+    },
+    {
+      "condition": "Branch Auto Populate Relative Name & Details",
+      "questions": [],
+      "prologue": "[ ] No Contact with Family Member"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer on Relatives U.S. Born",
+      "questions": [],
+      "prologue": "Where were they born?"
+    },
+    {
+      "condition": "Branch Auto Populate Relatives Not Born in the U.S.",
+      "questions": [],
+      "prologue": "Where were they born?"
+    },
+    {
+      "condition": "Branch Auto Populate Relative Citizenship.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Deceased.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Other Names",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Other Names Details",
+      "questions": [],
+      "prologue": "What other name have they used? For all listed relatives, you must include the name on their birth certificate."
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Selection of “Other” for Dropdown menu above.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Other Names Additional Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Residence Location.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Residence Location In US",
+      "questions": [],
+      "prologue": "What is their address? (List their last known address if you do not know their current address.)"
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Residence Location in the U.S. on Military Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Residence Location Not in the U.S. Location.",
+      "questions": [],
+      "prologue": "Where do they live?\\n\\nPlease provide physical address [ Text ] (not mailing address)"
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Residence Location not in the U.S. Affirmative for on a Military Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: U.S. Born Abroad. Document Type.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: U.S. Born Abroad. Document Selection of “Other” in Dropdown Menu.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: U.S. Born Abroad. Document Selection (FS-240, DS-1350, FS-545, N-560, N-561) Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: U.S. Born Abroad. Document Expiration.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: Naturalized. Document Type.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: Naturalized. Document Type Selection of “Other” in Dropdown.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: Naturalized. Naturalized Document Information for Selection of N-550 or N-570 Document.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: Naturalized. Naturalized Document Information for Selection of N-550 or N-570 Document.",
+      "questions": [],
+      "prologue": "What is the court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: Naturalized. Naturalized Document Information for Selection of Naturalized Document I-551 or Machine Readable Immigrant Visa",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: Naturalized. Document Expiration.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Derived U.S. Citizenship Documentation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "] Branch Auto Populate Relative. Alive. Citizenship Status: Derived U.S. Citizenship Selection of “Other” Under Documentation Dropdown.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: Derived U.S. Citizenship Documents N-560, N-561.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative. Alive. Citizenship Status: Derived U.S. Citizenship Document I-551.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Residency Status Selection of “Other” Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Authorization Document Type.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Authorization Document Type Selection of “Other” in Dropdown.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Authorization Document Type Selection of Documents I-551, I-766, or Machine Readable Immigrant Visa.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Authorization Document Type Selection of Document I-94.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Authorization Document Type Selection of U.S. Visa Card Document.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Authorization Document Type Selection of Document I-20.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Authorization Document Type Selection of Document DS-2019.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Resident of the U.S. Authorization Document Expiration Date.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Additional Question. Any Contact.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Contact with Non-U.S. Citizen Relative Information.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Contact with Non-U.S. Citizen Relative Information. Contact Method Selection of “Other” in Dropdown Menu.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Contact with Non-U.S. Citizen Relative Information. Frequency of Contact.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Contact with Non-U.S. Citizen Relative Information. Frequency of Contact Selection of “Other” in Dropdown Menu Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen. Additional Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen with Employer Located in the U.S. Address.",
+      "questions": [],
+      "prologue": "What is the address of their employer?"
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen with Employer Located in the U.S. Address on Military Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Relative Alive. Citizenship Status: Not a U.S. Citizen with Employer Not Located in the U.S. Location.",
+      "questions": [],
+      "prologue": "Where is their employer located?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Relative. Alive. Non-Citizen with Employer Address not in US and on Military Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Relative. Alive. Foreign Relative Government Relationship Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Relative. Alive. Affirmative Answer Foreign Government Relationship.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Another Relative.",
+      "questions": [],
+      "prologue": ""
+    }
+  ],
+  "Section 22 - Foreign Travel": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "This section asks for information regarding foreign countries you have traveled to in the past 5 years and the purpose of those trips. (Only report information prior to your 18th birthday if necessary to report a minimum of 2 years of information.) We also want to know of any encounters you had with the foreign government, police, or any individuals showing an undue interest in you on these trips, as applicable.\\n\\n• Foreign means non-U.S. -- that is, outside of the 50 U.S. states, District of Columbia, and U.S. territories.\\n\\n• List personal trips taken in conjunction with duty performed while on U.S. government or military orders. Examples of personal trips include vacations, side trips, or other unofficial travel made for personal reasons.\\n\\n• Each entry into and out of a country is a new trip (this includes layovers).\\n\\n• Do not list travel where you were on official U.S. government or military orders.\\n\\n• Do not list foreign travel you previously listed on this form."
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Travel Summary Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Travel Summary Questions.",
+      "questions": [],
+      "prologue": "When did you travel to this country?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Reason for Travel.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Reason for Travel. Selection of “Other” in Dropdown Menu. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Questioned/Searched/Detained Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Branch Auto Populate Affirmative Answer for Questioned/Searched/Detained. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Police Interaction Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Affirmative Answer Police Interaction. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Contact with Foreign Intelligence Personnel Question While Traveling.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Affirmative Answer to Contact with Foreign Intelligence Personnel While Traveling. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Potential Security Concerns Question While Traveling.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Affirmative Answer to Potential Security Concerns Question While Traveling.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Contact with Person with Interest on Individual’s Work.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer to Contact with Person with Interest on Individual’s Work Interest. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Attempt to Gain Access to Classified Information Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Affirmative Answer for Attempt to Gain Access to Classified Information Question. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Contact with Person Who Threatened, Coerced or Pressured Cooperation with Foreign Government/Office.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Affirmative Answer to Contact with Person Who Threatened, Coerced or Pressured Cooperation with Foreign Government/Office. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreign Travel. Additional Travel.",
+      "questions": [],
+      "prologue": ""
+    }
+  ],
+  "Section 23 - Financial Record": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "This section asks for information regarding your finances to include any bankruptcies, judgments, liens, foreclosures, repossessions, evictions, charged-off accounts, debts over 120-days past due, including alimony or child support payments, and any wage, benefit, or asset seizures, as applicable. We also want to know what activities you have taken to address any past due financial obligations.\\n\\nFor this section, the term past due:\\n\\n• Means a payment was not made by its due date, or by the end of the grace period, if applicable.\\n\\n• For credit card accounts, past due means the minimum required payment was not applied to the account as of the due date, or by the end of the grace period, if applicable.\\n\\n• For other debts paid in installments, such as loans, past due means a payment was not made by its due date or by the end of the grace period."
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Bankruptcy in Past Five Years.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Bankruptcy in Past Five Years. Additional Questions for All Types of Bankruptcy.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Bankruptcy in Past Five Years. Additional Questions for All Types of Bankruptcy.",
+      "questions": [],
+      "prologue": "Where is this bankruptcy court located?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Bankruptcy in Past Five Years. Additional Questions for All Types of Bankruptcy.",
+      "questions": [],
+      "prologue": "What name did you use to file this bankruptcy?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Bankruptcy in Past Five Years. Additional Questions for Chapters 12 and 13.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Bankruptcy in Past Five Years. Bankruptcy Discharged.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Bankruptcy in Past Five Years. Discharged.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Bankruptcy in Past Five Years. Not Discharged.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Bankruptcy in Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Bankruptcy in Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Past Due Alimony Payments. Specifics.",
+      "questions": [],
+      "prologue": "Who do or did you owe alimony to?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Past Due Alimony Payments. No Longer Past Due.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Past Due Alimony Payments. Currently Past Due.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Past Due Alimony Payments. Currently Past Due.",
+      "questions": [],
+      "prologue": "[3] Branch Auto Populate Affirmative Answer for Past Due Alimony Payments. Overdue but No Action Taken."
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Past Due Alimony Payments. Currently Past Due.",
+      "questions": [],
+      "prologue": "[1] Branch Auto Populate Affirmative Answer for Past Due Alimony Payments. Court Details Questions."
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Past Due Alimony Payments. Currently Past Due.",
+      "questions": [],
+      "prologue": "What is this court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Past Due Alimony Payments. Currently Past Due.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Overdue Child Support.",
+      "questions": [],
+      "prologue": "Who do or did you owe child support to?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Overdue Child Support. No Longer Overdue.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Overdue Child Support. Currently Overdue.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Overdue Child Support. Currently Overdue but No Action Taken.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Overdue Child Support. Court Details Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Overdue Child Support. Court Details Questions.",
+      "questions": [],
+      "prologue": "What is this court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Overdue Child Support. Court Details Questions.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Civil Judgement in Past Five Years. Details",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Civil Judgement in Past Five Years. Paid in Full.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Civil Judgement. Not Paid in Full.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Civil Judgement. Not Paid in Full and No Action Taken.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Civil Judgement. Court Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Civil Judgement. Court Details.",
+      "questions": [],
+      "prologue": "What is this court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Civil Judgement. Court Details.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Entity Placing Lien.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Lienholder is Government or Other Entity.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Private Lienholder. Additional Information.",
+      "questions": [],
+      "prologue": "Who placed the lien against your property?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Lienholder Selection of “Other” in Dropdown Menu. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Property Type.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Property Type Selection of “Other” in Dropdown Menu.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Reason for Lien.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Reason for Lien Selection of “Other” in Dropdown Menu.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Additional Details",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Lien Released.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Lien Still in Place. Actions Taken.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Lien Still in Place. No Action Taken. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Court Details Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Court Address.",
+      "questions": [],
+      "prologue": "What is the address for this government office?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Court Details Additional Question.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Lien in Past Five Years. Court Details Additional Question.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Property Foreclosure in Past Five Years. Entity Type.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. If Foreclosure Entity Public or Government.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. If Foreclosure Entity is Private",
+      "questions": [],
+      "prologue": "Who foreclosed on your property?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. If Foreclosure Entity is Section of “Other” from Dropdown Menu. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Type of Property.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Selection of “Other” for Type of Property. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Foreclosure Details Questions.",
+      "questions": [],
+      "prologue": "What is the address of the property that was foreclosed on?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Additional Foreclosure Details. Dates, Still Owe Questions.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Does Not Still Owe. Date Closed.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Still Owe. Action Taken.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Still Owe and No Action Take. Explanation",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Court Name.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Court Address.",
+      "questions": [],
+      "prologue": "What is this court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Foreclosure in the Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Name of Lender. Type of Property.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Selection of “Other” for Type of Property.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Additional Details. Still Owe.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Does Not Owe",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Still Owe. Actions Taken",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Still Owe. No Action Taken. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Court Name.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Court Address.",
+      "questions": [],
+      "prologue": "What is this court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Repossession in Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Type of Entity Evicting.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Name of Entity Evicting.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Name of Individual who Evicted Individual if Evicted from Private Property.",
+      "questions": [],
+      "prologue": "Who evicted you from the property?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Selection of “Other” for Type of Eviction. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Additional Questions. Address.",
+      "questions": [],
+      "prologue": "What is the address of the property you were evicted from?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Date and Status.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Does Not Owe.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Still Owe.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Still Owe and No Action Taken. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Court Name.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Court Address.",
+      "questions": [],
+      "prologue": "What is this court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Eviction in the Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": "*** End Of Branch ***"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years. Selection of “Other” for Type of Seizure. Explanation",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years. Additional Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years. Does Not Owe. Date Resolved.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years. Still Owe. Action Taken.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years. Still Owe. No Action Taken. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years. Court Name.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years. Court Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Garnishments or Seizures of Wages, Benefits, Other in the Past Five Years. Docket/Order Number. Another Instance.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Failed to Pay Non-Federal Taxes in the Past Five Years. Type of Taxes.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Failed to Pay Non-Federal Taxes in the Past Five Years. Selection of “Other” from Dropdown Menu for Type of Taxes. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Failed to Pay Non-Federal Taxes in the Past Five Years. Details. Tax Year.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Failed to Pay Non-Federal Taxes in the Past Five Years. Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Failed to Pay Non-Federal Taxes in the Past Five Years. Details.",
+      "questions": [],
+      "prologue": "[2] Branch Auto Populate Affirmative Answer for Failed to Pay Non-Federal Taxes in the Past Five Years. Action Taken."
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Failed to Pay Non-Federal Taxes in the Past Five Years. Still Owe and No Action Taken. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Failed to Pay Non-Fed Taxes and Not Paid In Full and Selection of “Other” on Action Taken.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Name of Entity and Location.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Location of Entity in the U.S. Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Location of Entity in the U.S. And at a U.S. Military Installation. Name of Installation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Location of Entity Not in the U.S.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Location of Entity Not in the U.S. but on Military/Diplomatic Installation. Name and Address.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Type of Discipline.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. No Actions Taken. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Selection of “Other” Action Taken. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Date.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Additional Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Selection of “Other” Action Taken to Resolve. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Disciplined for Violating Terms of Government or Employer Credit Card Use in Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for more than 120 Days Past Due in Past Five Years. Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for more than 120 Days Past Due in Past Five Years. Date Resolved.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for more than 120 Days Past Due in Past Five Years. Still Owe. Action Taken Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for more than 120 Days Past Due in Past Five Years. Still Owe and No Action Taken.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for more than 120 Days Past Due in Past Five Years. Loan or Account Information. Another Instance to Report.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Name and Location of Service.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Location in the U.S.",
+      "questions": [],
+      "prologue": "What is the address of this service?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Location in the U.S. and on Military Installation. Name.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Location Not in the U.S.",
+      "questions": [],
+      "prologue": "Where is this service located?"
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Location Not in the U.S. but on Military or Diplomatic Facility.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Entity’s Phone Number.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Services Effectiveness.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Services Effectiveness. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate for Affirmative Answer for Currently Using Credit Counseling/Debt Consolidation Services to Resolve Any Past Due Obligations. Services Effectiveness. Reason.",
+      "questions": [],
+      "prologue": ""
+    }
+  ],
+  "Section 24 - Civil Court Actions": [
+    {
+      "condition": "",
+      "questions": [],
+      "prologue": "This section asks for information regarding any civil court actions you have been a party to in the past five years, as applicable. Information requested includes who were the parties involved, the circumstances surrounding the case, and the outcome.\\n\\nFor this section:\\n\\n• Civil court actions are noncriminal lawsuits filed by a plaintiff against a defendant. Civil court actions may also be referred to as civil cases, civil proceedings, or civil suits. Please do not report divorce or non-criminal civil infractions (like traffic violations) under this section.\\n\\n• A party means you were either a plaintiff or defendant to the lawsuit. A plaintiff is the person who is filing the lawsuit. The defendant is the person who is responding to the lawsuit. In some courts, a defendant is called a respondent."
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Names of Principal Parties. Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Court Name and Location.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Court Location in the U.S.",
+      "questions": [],
+      "prologue": "What is the court's address?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Court Location Not in the U.S.",
+      "questions": [],
+      "prologue": "Where is this court located?"
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Details.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Case Closed date and Outcome.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Case Outcome Selection of “Other” in Dropdown Menu. Explanation.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Case Not Closed",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Public Record.",
+      "questions": [],
+      "prologue": ""
+    },
+    {
+      "condition": "Branch Auto Populate Affirmative Answer for Civil Court Actions in the Past Five Years. Another Instance.",
+      "questions": [],
+      "prologue": ""
+    }
+  ]
+}

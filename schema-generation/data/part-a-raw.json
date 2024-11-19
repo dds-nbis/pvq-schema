@@ -1,4 +1,4 @@
-`{
+{
   "General Information": [
     {
       "condition": "",
@@ -79,7 +79,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding your place of birth. The United States (U.S.) is defined as the 50 U.S. states, the District of Columbia, and the U.S. territories."
@@ -115,19 +118,31 @@
           "text": "The following information will assist the investigative agency to verify your birth certificate with the pertinent Bureau of Vital Statistics.",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "What is your mother’s name at birth? Last Name [Text] First Name [Text] Middle Name [Text]",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         },
         {
-          "text": "If your mother used any other names",
+          "text": "If your mother used any other names Please provide her name at your time of birth. Last Name [Text] First Name [Text] Middle Name [Text]",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom",
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         }
       ],
       "prologue": ""
@@ -186,7 +201,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Additional name(s) you provide are used to check for records about you. Having your additional names will assist investigators using your correct name and identifiers while conducting interviews or record checks for various activities and timeframes related to your background.\\n\\n• You must include the name on your birth certificate.\\n\\n•If your name is one alpha character or a string of alpha characters (such as \\"Z\\" or \\"T.J.\\", where \\"T.\\" and \\"J.\\" are not initials for names), check the \\"Letter(s) Only\\" box.\\n\\n• If you do not have a middle name, check the \\"No Middle Name\\" box.\\n\\n• If you are a \\"Jr.,\\" \\"Sr.,\\" \\"II,\\" \\"III\\", \\"IV,\\" etc. enter this under Suffix.\\n\\n• If you have a hyphenated name, put the entire hyphenated name in the applicable block (for example, if your last name is \\"Smith-Jones\\", put \\"Smith-Jones\\" in the \\"Last Name\\" block.)\\n\\n• If you only have one name, put it in the \\"Last Name\\" block.\\n\\n• For nicknames and aliases, put them in the \\"First Name\\" block and leave the \\"Last Name\\" and \\"Middle Name\\" blocks blank.\\n\\n• Make sure the dates you provide for legal name changes (such as due to a marriage, civil union, or partnership; divorce, dissolution of, or annulment; or any other legal name changes) are the same as the dates on the applicable legal documents."
@@ -269,7 +287,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you use this name?"
@@ -309,7 +330,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding your U.S. passport, if you have one. This information is one way we verify citizenship for U.S. citizens and travel to non-U.S. countries. If you have a U.S. passport book, passport card, or both, answer the questions for the most recently issued book or card you have. If you cannot find or you do not have access to your most recently issued passport book or card, answer the questions using the most recently issued one you have. For more information on U.S. passports, go to the U.S. State Department web site -- https://travel.state.gov/passport."
@@ -337,7 +361,10 @@
           "otherChunks": [
             "Please explain [Text]"
           ],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -393,7 +420,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What name is used on your passport book?"
@@ -405,7 +435,11 @@
           "text": "Please explain. [ Text ]",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         }
       ],
       "prologue": ""
@@ -414,13 +448,17 @@
       "condition": "Branch Auto Populate Another Active U.S. Passport to Report",
       "questions": [
         {
-          "text": "Do you have any other active",
+          "text": "Do you have any other active U.S. passport to report?",
           "checkboxes": [
             "Yes",
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "complex_text_dom",
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -436,7 +474,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -464,7 +505,10 @@
           "otherChunks": [
             "Please explain [Text]"
           ],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -520,7 +564,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What name is used on your passport card?"
@@ -601,7 +648,10 @@
             "No."
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -665,7 +715,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is your name on this document?"
@@ -695,13 +748,19 @@
           "text": "• You can find your Alien Registration Number on your Certificate of Naturalization (N-550 or N-570). It is a 7- to 9-digit number typically listed as the \\"USCIS Registration No.\\", \\"INS Registration No.\\", \\"CIS Registration No.\\" It is not the \\"No.\\" (short for number) in the top right hand corner often seen in red ink.",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "• You can also find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551). It is a 7- to 9-digit number typically listed as the \\"A#\\", \\"INS A#\\", \\"Alien Number\\", or \\"USCIS#\\". On the Machine Readable Immigrant Visa (MRIV), it is the \\"Registration Number\\".",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "What is your Naturalization Certificate Number or Naturalization Number? This is the \\"No.\\" (short for number) in the top right hand corner of your Certificate of Naturalization (N-550 or N-570) (it is often in red ink).",
@@ -768,13 +827,19 @@
           "text": "• If you have a Certificate of Citizenship (Form N-560 or Form N-561), your Alien Registration Number is the 7- to 9-digit number typically listed as the \\"USCIS Registration No.\\", \\"CIS Registration No.\\", or \\"INS Registration No.\\".",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "• If you do not have a Certificate of Citizenship, you can find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551). It is a 7- to 9-digit number typically listed as the \\"A#\\", \\"INS A#\\", \\"Alien Number\\", or \\"USCIS#\\". On the Machine Readable Immigrant Visa (MRIV), it is the \\"Registration Number\\".",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "What is your Permanent Resident Card or Resident Alien Card number (Form I-551)?",
@@ -919,7 +984,10 @@
           "text": "• You can find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551) or on your Employment Authorization Card (Form I-766), as applicable. Your Alien Registration Number may be listed as the \\"A#\\", \\"A\\" number, \\"INS A#\\", \\"Alien Number\\", or \\"USCIS#\\". On the Machine Readable Immigrant Visa (MRIV) Form I-551, it is the \\"Registration Number\\".)",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "When does your Employment Authorization Card (Form I-766) expire?",
@@ -971,25 +1039,37 @@
           "text": "• For the Form I-94, list the 11-digit number labeled either \\"Admission Number\\", \\"Departure Number\\", \\"Admission Record (I-94) Number\\", or \\"I-94#\\". Or, you may have an \\"Admission Stamp\\" in your unexpired foreign passport. If this is the case, also list your passport number and the country that issued the passport.",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "• For the U.S. Visa Card (nonimmigrant visa) -- the visa number, also called a visa foil number, is a red number that is generally printed on the bottom right corner of newer visa documents. In most cases, the U.S. visa number contains eight numeric characters. In some cases, the number contains one letter followed by seven numeric characters.",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "• For the Form I-20, list the \\"SEVIS ID\\" number near the top left or top right corner of the document (depending on the document version). All SEVIS ID numbers start with the letter N. If you also have an \\"Admission Number\\" on your Form I-20 document, list this number as well (this is your Form I-94 number).",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "• For the Form DS-2019, list the number on the top right hand side of the page in the box above the barcode. This is the SEVIS number. All SEVIS ID numbers start with the letter N.",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "What is the issue date of your document?",
@@ -1055,7 +1135,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding any additional citizenships you currently hold or have previously held that you did not list above. These citizenships could be held at the same time as another citizenship (that is, simultaneously as in dual or multiple citizenships) or sequentially (one at a time)."
@@ -1107,7 +1190,10 @@
             ]
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Is the passport still active?",
@@ -1118,7 +1204,10 @@
             ]
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When were you a citizen of this country?"
@@ -1135,7 +1224,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1174,7 +1266,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address?"
@@ -1213,7 +1308,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is the residence located?\\n\\nPlease provide physical address [Text]\\n\\n(not mailing address)."
@@ -1277,7 +1375,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1316,7 +1417,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1331,7 +1435,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1348,7 +1455,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding schools you have attended in the past five years and whether you received a degree or diploma. (Only report information prior to your 18th birthday if necessary to report a minimum of 2 years of information.) This question includes all types of schools -- both in-person and distance learning. Distance learning includes by correspondence, extension (such as foreign exchange program sponsored by a college or university), online, and other similar distance learning education. For assistance determining school addresses refer to http://ope.ed.gov/accreditation/search.aspx.\\n\\nIf your attendance was not consecutive, please report each period of attendance separately. If the institution is no longer in business please check “[] School no longer in business” box. However, please provide the address where it was located and all pertinent information asked below to the best of your ability."
@@ -1366,7 +1476,11 @@
           "text": "[ ]School no longer in business",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         },
         {
           "text": "What type of school is this?",
@@ -1428,7 +1542,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you attend this school?"
@@ -1491,7 +1608,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1538,10 +1658,15 @@
       "condition": "Branch Auto Populate for Education in the Last Five Years. Education Experience of “In-Person” or “Combination” at Different Physical Location Question.",
       "questions": [
         {
-          "text": "Is or was the physical location different than [] Yes [] No",
+          "text": "Is or was the physical location different than [] Yes [] No the school address entered above, such as at another campus or other location?",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom",
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         }
       ],
       "prologue": ""
@@ -1556,7 +1681,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1568,7 +1696,10 @@
           "text": "What is or was your school address?",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
           "text": "Street (include Apt #, Unit #, or Suite #, if applicable)",
@@ -1601,7 +1732,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1625,13 +1759,21 @@
           "text": "Where is or was your school located?",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         },
         {
-          "text": "Please provide physical address [Text]",
+          "text": "Please provide physical address [Text] (not mailing address).",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom",
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         },
         {
           "text": "City",
@@ -1652,7 +1794,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1678,13 +1823,22 @@
           "text": "[1] Branch Auto Populate Another Education Physical Location to Report.",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         },
         {
-          "text": "Do you have another instance to report where the [] Yes [] No",
+          "text": "Do you have another instance to report where the [] Yes [] No physical location you attended school is different than the school address entered above (such as at another campus or other location.)",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom",
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         }
       ],
       "prologue": ""
@@ -1750,7 +1904,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code |number|extension|type"
+          "dataType": "country code |number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -1779,7 +1936,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1793,7 +1953,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Street (include Apt #, Unit #, or Suite #, if applicable)",
@@ -1827,7 +1990,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1855,7 +2021,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1883,7 +2052,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Please provide physical address [Text]\\n\\n(not mailing address)."
@@ -1918,7 +2090,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -1933,7 +2108,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2014,7 +2192,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you attend this school?"
@@ -2109,7 +2290,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2173,7 +2357,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When were you assigned here?"
@@ -2264,7 +2451,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is or was your duty status while assigned to this unit or organization?",
@@ -2285,7 +2475,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When were you assigned to this unit or organization? (These dates may or may not match the dates you were assigned to the duty station above -- it depends on whether or not you were assigned to more than one unit or organization while assigned to this duty station.)"
@@ -2331,7 +2524,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is this supervisor's email address?",
@@ -2357,7 +2553,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Who is or was your most recent supervisor?"
@@ -2371,7 +2570,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Street (include Apt #, Unit #, or Suite #, if applicable)",
@@ -2405,7 +2607,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2433,7 +2638,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2461,7 +2669,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Please provide physical address [Text]\\n\\n(not mailing address)."
@@ -2499,7 +2710,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2513,7 +2727,10 @@
           "otherChunks": [
             "Military"
           ],
-          "dataType": "dropdown"
+          "dataType": "dropdown",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "Why did you receive this disciplinary action? (Include a description of the offense for which you received this disciplinary action, when the offense occurred, and any other important details.)",
@@ -2535,7 +2752,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Rank",
@@ -2594,7 +2814,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2609,7 +2832,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2654,7 +2880,11 @@
           "otherChunks": [
             "[] No [] I Don’t Know"
           ],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype",
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": "When did you work for this employer?"
@@ -2668,7 +2898,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "Is this employer's current address in the U.S.?",
@@ -2677,7 +2910,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2716,7 +2952,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is this employer's address?"
@@ -2755,7 +2994,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is this employer currently located?\\n\\nPlease provide physical address [Text]\\n\\n(not mailing address)."
@@ -2790,7 +3032,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2805,7 +3050,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2844,7 +3092,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is or was your work address?"
@@ -2883,7 +3134,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is or was your work located?\\n\\nPlease provide physical address [Text]\\n\\n(not mailing address)."
@@ -2918,7 +3172,7 @@
           "dataType": "text"
         },
         {
-          "text": "Is this an internship?",
+          "text": "Is this an internship? Were you full-time or part-time?",
           "checkboxes": [
             "Yes",
             "No",
@@ -2926,7 +3180,11 @@
             "Part time"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "complex_text_dom",
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -2980,7 +3238,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -3010,7 +3271,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3024,7 +3288,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Street (include Apt #, Unit #, or Suite #, if applicable)",
@@ -3058,7 +3325,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3086,7 +3356,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3114,7 +3387,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Please provide physical address [Text]\\n\\n(not mailing address)."
@@ -3152,7 +3428,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3204,7 +3483,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3240,7 +3522,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is their email address? (You may list more than one.)",
@@ -3263,7 +3548,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3278,7 +3566,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3308,7 +3599,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were you fired in person?",
@@ -3317,7 +3611,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3349,7 +3646,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is this person's email address? (You may list more than one.)",
@@ -3372,7 +3672,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3393,7 +3696,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were you notified in person that you were going to be fired?",
@@ -3402,7 +3708,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3434,7 +3743,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is this person's email address? (You may list more than one.)",
@@ -3457,7 +3769,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3478,7 +3793,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were you made aware or notified, in person, of this alleged or actual misconduct?",
@@ -3487,7 +3805,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3519,7 +3840,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is this person's email address? (You may list more than one.)",
@@ -3542,7 +3866,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3563,7 +3890,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were you made aware or notified, in person, of unsatisfactory performance?",
@@ -3572,7 +3902,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3604,7 +3937,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is this person's email address? (You may list more than one.)",
@@ -3627,7 +3963,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3648,7 +3987,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were you made aware or notified, in person, of an investigation, review, or inquiry into your performance, conduct, or behavior?",
@@ -3657,7 +3999,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3689,7 +4034,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is this person's email address? (You may list more than one.)",
@@ -3718,7 +4066,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3756,7 +4107,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3771,7 +4125,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3815,7 +4172,10 @@
             "Part time"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3829,7 +4189,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         },
         {
           "text": "What is or was your company's email address?",
@@ -3854,7 +4217,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3869,7 +4235,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3908,7 +4277,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is or was your company's address?"
@@ -3947,7 +4319,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is or was your company located?\\n\\nPlease provide physical address [Text]\\n\\n(not mailing address)."
@@ -3982,7 +4357,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -3997,7 +4375,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4036,7 +4417,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is or was your work address?"
@@ -4075,7 +4459,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is or was your work address?\\n\\nPlease provide physical address [Text]\\n\\n(not mailing address)."
@@ -4151,7 +4538,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -4181,7 +4571,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4195,7 +4588,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Street (include Apt #, Unit #, or Suite #, if applicable)",
@@ -4229,7 +4625,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4257,7 +4656,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4285,7 +4687,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Please provide physical address [Text]\\n\\n(not mailing address)."
@@ -4323,7 +4728,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4392,7 +4800,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -4422,7 +4833,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4436,7 +4850,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Street (include Apt #, Unit #, or Suite #, if applicable)",
@@ -4470,7 +4887,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4498,7 +4918,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4526,7 +4949,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Please provide physical address [Text]\\n\\n(not mailing address)."
@@ -4564,7 +4990,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4581,7 +5010,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding former Federal civilian employment that is outside of the past five years and not reported in section 7. Do not repeat employment that occurred in the past five years that you reported in section 7. This information is requested to determine the reason you left the former federal employment and whether you had any conduct issues or any disciplinary actions. This section does not apply to military service."
@@ -4630,7 +5062,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4697,7 +5132,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4718,7 +5156,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4733,7 +5174,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4750,7 +5194,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks questions regarding your U.S. military or U.S. uniformed service, as applicable. The military service you listed in the employment section, if any, was based on each duty station you were assigned to in the past five years. This section requests each period of military service in which you currently serve or for which you received a DD-214, Certificate of Release or Discharge. Do not break out separate enlistment periods unless you received a DD-214. List all periods of service even if you listed them in Section 7 - Employment Activities."
@@ -4788,10 +5235,15 @@
       "condition": "Branch Auto Populate for Military Service, Branch Service, National Guard.",
       "questions": [
         {
-          "text": "Which state or territory do you or did you [ Dropdown ]",
+          "text": "Which state or territory do you or did you [ Dropdown ] serve in the National Guard?",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom",
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         }
       ],
       "prologue": ""
@@ -4866,7 +5318,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4919,7 +5374,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4939,7 +5397,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -4960,7 +5421,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5043,7 +5507,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5082,7 +5549,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where did it occur?"
@@ -5121,7 +5591,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where did it occur?"
@@ -5154,7 +5627,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were firearms involved?",
@@ -5163,7 +5639,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were explosives involved?",
@@ -5172,7 +5651,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were drugs involved?",
@@ -5181,7 +5663,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Was alcohol involved?",
@@ -5190,7 +5675,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "What were the circumstances surrounding this offense? (Include what happened, why you were charged, who was involved, and any other important details.)",
@@ -5265,7 +5753,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5280,7 +5771,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5295,7 +5789,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5391,7 +5888,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -5420,7 +5920,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5460,7 +5963,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is their address?"
@@ -5535,7 +6041,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5552,7 +6061,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding your encounters with law enforcement and court systems, specifically any arrests, charges, convictions, or sentences you have had, as applicable.\\n\\n• Report applicable incidents (such as arrests, charges, etc.) that occurred in the U.S. or in a foreign country. Foreign country means any geographic location not within the 50 U.S. states, District of Columbia, and U.S. territories.\\n\\n• Report charges filed in federal, state, local, tribal, or non-U.S. courts, as applicable.\\n\\n• Report information even if your record was expunged, sealed, or otherwise stricken from the court record. However, do not report convictions under the Federal Controlled Substances Act for which the court issued an expungement order under the authority of 21 U.S.C. 844 or 18 U.S.C. 3607.\\n\\n• Do not report crimes you listed in Section 9 (those you were charged with under the Uniform Code of Military Justice (UCMJ)).\\n\\n• Omit any violation of law committed before your 18th birthday if finally decided in juvenile court or appealed from juvenile court to a higher court and dismissed.\\n\\nFor this section:\\n\\nFor 11.1.A This question asks for information regarding what are typically low-level civil or traffic violations or offenses (such as, jay walking, or running a red light) in which you have received a written notice from a law enforcement officer or other authorized official to appear in court or to pay a fine. These written notices include citations, summons, or tickets. This question differs from the next in that 11.1.B refers to offenses that rise to a higher level, such as misdemeanors, felonies, or their equivalents."
@@ -5566,7 +6078,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Have you been on probation in the past five years? (Answer \\"Yes\\" even if your probation was part of a criminal sentence for a crime in which you were found guilty)",
@@ -5575,7 +6090,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Have you been on parole or supervised release in the past five years?",
@@ -5584,7 +6102,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "For 11.1.B This question asks for information regarding offenses where you received a document listing criminal charges and to appear in criminal court. These documents are typically for offenses such as misdemeanors, felonies, or their equivalents. The written documents could include citations, summons, tickets, complaints, arrest warrants, or indictments."
@@ -5607,7 +6128,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5664,13 +6188,17 @@
       "condition": "Branch Auto Populate for any Affirmative Answer to Police Record, Additional Information.",
       "questions": [
         {
-          "text": "Domestic violence -- is a crime of violence (such as battery or assault) against your parents or guardians; child; dependent; current or former spouse; current or former partner from a civil union, domestic partnership, or common law marriage; person you are in a committed, spouse-like relationship with; or someone with whom you share a child in common. This includes crimes that meet this definition even if the term “domestic violence” is not specifically used in the criminal charge or conviction.",
+          "text": "Domestic violence -- is a crime of violence (such as battery or assault) against your parents or guardians; child; dependent; current or former spouse; current or former partner from a civil union, domestic partnership, or common law marriage; person you are in a committed, spouse-like relationship with; or someone with whom you share a child in common. This includes crimes that meet this definition even if the term “domestic violence” is not specifically used in the criminal charge or conviction. Was domestic violence involved?",
           "checkboxes": [
             "Yes",
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "complex_text_dom",
+            "datatype"
+          ]
         },
         {
           "text": "Were firearms involved?",
@@ -5679,7 +6207,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were explosives involved?",
@@ -5688,7 +6219,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were drugs involved?",
@@ -5697,7 +6231,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Was alcohol involved?",
@@ -5706,7 +6243,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Why were you charged, cited, summoned, or ticketed? (Describe the offense to include what happened, who was involved, what the motivation was, and any other details. If domestic violence, firearms, explosives, drugs, or alcohol were involved in the offense, please explain.)",
@@ -5727,7 +6267,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5790,7 +6333,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5805,7 +6351,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5826,7 +6375,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5889,7 +6441,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5904,7 +6459,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5925,7 +6483,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -5984,7 +6545,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6139,7 +6703,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6192,7 +6759,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6235,7 +6805,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6298,7 +6871,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6335,7 +6911,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6372,7 +6951,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Is your case closed?",
@@ -6381,7 +6963,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6410,7 +6995,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6425,7 +7013,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6454,7 +7045,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6531,7 +7125,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6594,7 +7191,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were firearms involved?",
@@ -6603,7 +7203,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were explosives involved?",
@@ -6612,7 +7215,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Were drugs involved?",
@@ -6621,7 +7227,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Was alcohol involved?",
@@ -6630,7 +7239,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6663,7 +7275,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6678,7 +7293,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6701,7 +7319,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6810,7 +7431,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding your use of illegal drugs or misuse of controlled substances (excluding marijuana or cannabis derivatives which are discussed in the next section) or prescription drugs as applicable. Questions focus on the type of illegal drugs, controlled substances, or prescription drugs; the frequency of your use; the circumstances surrounding your use; the impacts on your personal and professional activities; and any actions you've taken to overcome any drug-related concerns, as applicable. Your truthful responses and any information derived from your responses will not be used as evidence against you in a subsequent criminal proceeding. This applies whether or not you are employed by the Federal government.\\n\\nFor this section:\\n\\n• A controlled substance is as defined in 21 U.S.C. 802.\\n\\n• A prescription drug (also referred to as prescription medication or prescription medicine) is a pharmaceutical drug that legally requires a medical prescription to be dispensed.\\n\\n• An illegal drug is a drug or substance which a person is forbidden by law to own, possess, distribute, or use.\\n\\n• Use of a drug or controlled substance includes injecting, snorting, smoking, inhaling, swallowing, experimenting with, or otherwise consuming any drug or controlled substance.\\n\\n• Report your use of an illegal drug or your misuse of a controlled substance or prescription drug whether or not you were arrested, charged, or convicted of breaking any laws.\\n\\n• Report drugs or controlled substances (excluding marijuana or cannabis derivatives which are discussed in the next section) that are illegal under federal law, even if legal under state or foreign (non-U.S.) laws."
@@ -6883,7 +7507,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6910,7 +7537,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6943,7 +7573,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6982,7 +7615,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -6997,7 +7633,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7052,7 +7691,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7079,7 +7721,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7112,7 +7757,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7151,7 +7799,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7166,7 +7817,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7216,7 +7870,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7283,7 +7940,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7310,7 +7970,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7343,7 +8006,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7382,7 +8048,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7397,7 +8066,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7464,7 +8136,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7479,7 +8154,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7576,7 +8254,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7591,7 +8272,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7630,7 +8314,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7657,7 +8344,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7684,7 +8374,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7780,7 +8473,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "What is the name of the practice?",
@@ -7797,7 +8493,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7813,7 +8512,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -7866,7 +8568,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address of your counselor, treatment provider, or the practice?"
@@ -7905,7 +8610,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is your counselor, treatment provider, or the practice located?"
@@ -7940,7 +8648,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7973,7 +8684,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -7988,7 +8702,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8027,7 +8744,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8054,7 +8774,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8157,7 +8880,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8173,7 +8899,10 @@
           "otherChunks": [
             "[] [Day/Night/Both]"
           ],
-          "dataType": "country code|number|extension|type"
+          "dataType": "country code|number|extension|type",
+          "examineHints": [
+            "extra_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -8202,7 +8931,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8241,7 +8973,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address of your counselor, treatment provider, or the practice?"
@@ -8280,7 +9015,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is your counselor, treatment provider, or the practice located?\\n\\nPlease provide physical address [Text]\\n\\n(not mailing address)."
@@ -8315,7 +9053,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8342,7 +9083,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8354,9 +9098,15 @@
       "questions": [
         {
           "text": "Have you used marijuana or a cannabis derivative in the last 90 days?",
-          "checkboxes": [],
+          "checkboxes": [
+            "Yes",
+            "No"
+          ],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "In this section, “marijuana and cannabis derivative use,” cannabis derivative refers to any cannabis-derived substance containing greater than .3% tetrahydrocannabinol (THC). You do NOT need to answer yes to questions regarding your use of cannabis derivatives if you have solely used products that did not exceed .3% THC, such as most products containing CBD oil. Your truthful responses and any information derived from your responses will not be used as evidence against you in a criminal proceeding."
@@ -8399,7 +9149,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8426,7 +9179,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8459,7 +9215,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8508,7 +9267,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8523,7 +9285,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8578,7 +9343,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8593,7 +9361,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8626,10 +9397,15 @@
       "condition": "Branch Auto Populate for Affirmative Answer to Marijuana/Cannabis Use in the last 90 days. Future Intent to Use in Other Position.",
       "questions": [
         {
-          "text": "Do you intend to use marijuana or a [] Yes [] No",
+          "text": "Do you intend to use marijuana or a [] Yes [] No cannabis derivative in the future while occupying any position working for or on behalf of the federal government?",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom",
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         }
       ],
       "prologue": ""
@@ -8641,7 +9417,11 @@
           "text": "Why? [Text]",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         }
       ],
       "prologue": ""
@@ -8653,7 +9433,11 @@
           "text": "Why? [Text]",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks",
+            "bracket_in_text"
+          ]
         }
       ],
       "prologue": ""
@@ -8668,7 +9452,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8711,7 +9498,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Do you have another instance of having been involved in the illegal manufacture, cultivation, trafficking, production, transfer, shipping, receiving, or sale of marijuana or cannabis derivative?",
@@ -8720,7 +9510,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8747,7 +9540,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8780,7 +9576,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8819,7 +9618,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8861,7 +9663,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding any personnel vetting investigations the U.S. Government has conducted on you as part of the personnel vetting process. All individuals who work for or on behalf of the U.S. federal government are investigated at least once. After the initial investigation, further investigations depend on many variables.\\n\\nSome investigations result in a security clearance determination or a determination of eligibility to occupy a sensitive position. This section asks questions regarding your eligibility determination or security clearance determination, if applicable. Information requested includes whether or not you were granted eligibility to occupy a sensitive position or a security clearance or have had either denied, suspended, or revoked. The U.S. federal agency that investigated you may or may not be the same U.S. federal agency that granted, denied, suspended, or revoked your security clearance.\\n\\nThis section also asks for information regarding whether or not the U.S. Government has debarred you from Federal employment. If you were found unsuitable under 5 CFR 731 by the U.S. Office of Personnel Management or an agency, a period during which you were denied examination for, and appointment to, all or specific covered positions within the U.S. Government is considered a debarment period. Your debarment could be either government-wide or from a particular agency or positions within that agency.\\n\\nInvestigations are also used to determine whether you are eligible for a Personal Identity Verification (PIV) credential. This credential grants you physical access to Federal space and/or logical access to federal information technology (IT) systems. This section asks questions regarding any prior credentialing decisions where you were denied a PIV or had a PIV suspended or revoked, as applicable.\\n\\nWe also want to know if a foreign government has ever investigated you or granted you a security clearance. Foreign means non-U.S. -- that is, outside of the 50 U.S. states, District of Columbia, and U.S. territories."
@@ -8900,7 +9705,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8916,7 +9724,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8955,7 +9766,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -8971,7 +9785,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9049,7 +9866,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9065,7 +9885,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9119,7 +9942,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9135,7 +9961,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9189,7 +10018,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9205,7 +10037,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9298,7 +10133,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9313,7 +10151,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9367,7 +10208,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9382,7 +10226,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9415,7 +10262,7 @@
       "condition": "] Branch Auto Populate for PIV Eligibility Denied, Additional Questions.",
       "questions": [
         {
-          "text": "When did this federal agency deny you PIV credential eligibility?",
+          "text": "When did this federal agency deny you PIV credential eligibility? Why did this federal agency deny you a PIV credential eligibility?",
           "checkboxes": [
             "Estimated",
             "I Don't Know"
@@ -9423,7 +10270,11 @@
           "otherChunks": [
             "[ Text ]"
           ],
-          "dataType": "mm/yyyy"
+          "dataType": "mm/yyyy",
+          "examineHints": [
+            "complex_text_dom",
+            "extra_chunks"
+          ]
         },
         {
           "text": "Do you have another instance in which the U.S. Government denied you a PIV credential eligibility?",
@@ -9432,7 +10283,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9447,7 +10301,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9508,7 +10365,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When were you debarred from federal government employment?"
@@ -9524,7 +10384,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9546,7 +10409,10 @@
             "I Don't Know"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9561,7 +10427,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9578,7 +10447,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding any federal financial debt you have, including federal tax debt and any federal non-tax debt. Examples of federal non-tax debt include past due federally guaranteed or insured loans such as student and home mortgage loans, overpayment of benefits, or other debts to the U.S. Government. This section also focuses on the actions you have taken to address past due financial obligations, as applicable.\\n\\nFor this section:\\n\\n• Past due:\\n\\n- Means a payment was not made by its due date or by the end of the grace period, if applicable.\\n\\n- For other debts paid in installments, such as loans, \\"past due\\" means a payment was not made by its due date or by the end of the grace period, if applicable.\\n\\n- You are not \\"past due\\" if you were approved for a tax extension and you filed and paid your taxes by the extension due date.\\n\\n• A tax year is the 12 months covered by a tax return.\\n\\n• A guarantor is an individual who promises to pay a borrower's debt in the event the borrower defaults on their loan obligation."
@@ -9611,7 +10483,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9652,13 +10527,19 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "*** End Of Branch ***",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "no_secondary_chunks"
+          ]
         }
       ],
       "prologue": ""
@@ -9673,7 +10554,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9750,7 +10634,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9765,7 +10652,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9846,7 +10736,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9954,7 +10847,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -9971,7 +10867,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding your use of information technology (IT) systems.\\n\\nFor this section:\\n\\n• IT systems include all related computer hardware, software, firmware, and data used for the communication, transmission, processing, manipulation, storage, or protection of information.\\n\\n• The term \\"illegal\\" applies whether or not you were arrested, charged, or convicted of a crime.\\n\\n• Your truthful responses and any information derived from your responses will not be used as evidence against you in a subsequent criminal proceeding. This applies whether or not you are employed by the Federal Government.\\n\\n• Do NOT include classified information or any specifics regarding other protected information or classified IT systems in any of your responses."
@@ -10018,7 +10917,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10057,7 +10959,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address?"
@@ -10096,7 +11001,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is this located?"
@@ -10145,7 +11053,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10208,7 +11119,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10329,7 +11243,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10344,7 +11261,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10391,7 +11311,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10430,7 +11353,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address?"
@@ -10469,7 +11395,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is this located?"
@@ -10518,7 +11447,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10647,7 +11579,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10662,7 +11597,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10709,7 +11647,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10748,7 +11689,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address?"
@@ -10787,7 +11731,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is this located?"
@@ -10836,7 +11783,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10965,7 +11915,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -10980,7 +11933,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11027,7 +11983,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11066,7 +12025,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address?"
@@ -11105,7 +12067,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is this located?\\n\\nPlease provide physical address [Text]\\n\\n(not mailing address)."
@@ -11154,7 +12119,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11235,7 +12203,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11252,7 +12223,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "This section asks for information regarding your handling of protected information, as applicable.\\n\\nFor this section:\\n\\n• Protected information includes information protected by the Privacy Act, personally identifiable information, proprietary information, classified information, and other sensitive or protected information.\\n\\n• The term \\"illegal\\" applies whether or not you were arrested, charged, or convicted of a crime.\\n\\n• Your truthful responses and any information derived from your responses will not be used as evidence against you in a subsequent criminal proceeding. This applies whether or not you are employed by the Federal Government.\\n\\n• Do NOT include classified information or any specifics regarding other protected information or classified IT systems in any of your responses."
@@ -11299,7 +12273,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11338,7 +12315,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address?"
@@ -11377,7 +12357,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is this located?\\n\\nPlease provide physical address [Text]\\n\\n(not mailing address)."
@@ -11412,7 +12395,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11481,7 +12467,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11496,7 +12485,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11543,7 +12535,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11582,7 +12577,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "What is the address?"
@@ -11621,7 +12619,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "Where is this located?"
@@ -11698,7 +12699,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11715,7 +12719,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "PREAMBLE:\\n\\nThe following pertain to your associations. You are required to answer the questions fully and truthfully, and your failure to do so could be grounds for an adverse employment, security, or credentialing decision. Your truthful responses and any information derived from your responses will not be used as evidence against you in a criminal proceeding.\\n\\nFor the purposes of this section:\\n\\nAdvocacy is defined as: Attempting to persuade or incite others to act. It includes, but is not limited to, making calls, distributing flyers, fundraising, posting on social media, etc. with the intent to persuade or incite others to engage in acts or activities.\\n\\nTerrorism is defined as: Any activity that involves criminal acts dangerous to human life or potentially destructive of critical infrastructure, and appears to be intended to:\\n\\n• Intimidate or coerce a civilian population; or\\n\\n• Influence the policy of a government by intimidation or coercion; or\\n\\n• Affect the conduct of a government by mass destruction, assassination, or kidnapping\\n\\nCritical infrastructure is defined as: Assets, systems, and networks, whether physical or virtual, which are considered so vital to the United States that their incapacitation or destruction would have a debilitating effect on security, national economic security, national public health or safety, or any combination thereof."
@@ -11736,7 +12743,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11781,7 +12791,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11820,7 +12833,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11894,7 +12910,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11921,7 +12940,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11948,7 +12970,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -11975,7 +13000,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12002,7 +13030,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12041,7 +13072,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12056,7 +13090,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12093,7 +13130,11 @@
           "otherChunks": [
             "[ mm/yyyy ]"
           ],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype",
+            "extra_chunks"
+          ]
         },
         {
           "text": "What activities did you knowingly engage in that were designed to overthrow the United States Government, or a State or tribal government of the United States, by violence or force? (Describe what you did, who you did it for, where you did it, if others were involved, and any other details.)",
@@ -12108,7 +13149,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you knowingly engage in activities designed to\\n\\noverthrow the United States Government, or a\\n\\nState or tribal government of the United States,\\n\\nby violence or force?"
@@ -12123,7 +13167,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12172,7 +13219,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you advocate activities to overthrow the U.S. Government, or a State or tribal government of the United States, by violence or force?"
@@ -12187,7 +13237,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12208,7 +13261,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12253,7 +13309,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12292,7 +13351,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12366,7 +13428,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12393,7 +13458,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12420,7 +13488,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12447,7 +13518,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12474,7 +13548,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12513,7 +13590,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12528,7 +13608,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12549,7 +13632,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12594,7 +13680,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12603,10 +13692,13 @@
       "condition": "Branch Auto Populate Affirmative Answer Member in Org Engage in Acts of Force or Violence to Discourage or Prevent Others from Exercising their Rights under the U.S. Constitution or the Constitution of any State of the U.S. Foreign. Address",
       "questions": [
         {
-          "text": "Please provide physical address",
+          "text": "Please provide physical address (not mailing address).",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom"
+          ]
         },
         {
           "text": "City",
@@ -12633,7 +13725,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12707,7 +13802,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12734,7 +13832,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12761,7 +13862,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12788,7 +13892,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12815,7 +13922,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12854,7 +13964,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12869,7 +13982,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12890,7 +14006,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12935,7 +14054,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -12944,10 +14066,13 @@
       "condition": "Branch Auto Populate Affirmative Answer to Member Org Used Unlawful Force or Violent. Foreign Address.",
       "questions": [
         {
-          "text": "Please provide physical address",
+          "text": "Please provide physical address (not mailing address).",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom"
+          ]
         },
         {
           "text": "City",
@@ -12974,7 +14099,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13048,7 +14176,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13075,7 +14206,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13102,7 +14236,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13141,7 +14278,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13156,7 +14296,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13171,7 +14314,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13221,7 +14367,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you target this individual or individuals?"
@@ -13236,7 +14385,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13286,7 +14438,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you target this government official?"
@@ -13301,7 +14456,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13316,7 +14474,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         },
         {
           "text": "Why did you target this property?",
@@ -13359,7 +14520,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you target this property?"
@@ -13374,7 +14538,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13423,7 +14590,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you target this critical infrastructure?"
@@ -13438,7 +14608,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13487,7 +14660,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you advocate unlawful acts of violence against this individual or individuals?"
@@ -13502,7 +14678,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13523,7 +14702,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13568,7 +14750,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13577,10 +14762,13 @@
       "condition": "Branch Auto Populate Affirmative Answer to Membership in Organization Dedicated to Domestic or International Terrorism. Foreign Address.",
       "questions": [
         {
-          "text": "Please provide physical address",
+          "text": "Please provide physical address (not mailing address).",
           "checkboxes": [],
           "otherChunks": [],
-          "dataType": "text"
+          "dataType": "text",
+          "examineHints": [
+            "complex_text_dom"
+          ]
         },
         {
           "text": "City",
@@ -13607,7 +14795,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13681,7 +14872,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13708,7 +14902,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13735,7 +14932,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13762,7 +14962,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13789,7 +14992,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13828,7 +15034,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13843,7 +15052,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13893,7 +15105,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you engage in these activities of domestic or international terrorism?"
@@ -13908,7 +15123,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -13958,7 +15176,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": "When did you associate with this individual?"
@@ -13973,7 +15194,10 @@
             "No"
           ],
           "otherChunks": [],
-          "dataType": "checkboxes"
+          "dataType": "checkboxes",
+          "examineHints": [
+            "datatype"
+          ]
         }
       ],
       "prologue": ""
@@ -14026,5 +15250,4 @@
       "prologue": "When did you advocate these activities of domestic or international terrorism?"
     }
   ]
-}`
-
+}
