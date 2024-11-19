@@ -41,7 +41,7 @@
           "dataType": "text"
         }
       ],
-      "prologue": "This section asks for information regarding your full legal name. Your full legal name is usually the name you have on your most recently issued, unexpired government-issued picture identification. This is the name that identifies you for legal, administrative, and other official purposes, such as Social Security, census, taxes, and other official transactions or records.\\n\\n• If your name is one alpha character or a string of alpha characters (such as \\"Z\\" or \\"T.J.\\", where \\"T.\\" and \\"J.\\" are not initials for names), check the \\"Letter(s) Only\\" box.\\n\\n• If you do not have a middle name, check the \\"No Middle Name\\" box.\\n\\n• If you are a \\"Jr.,\\" \\"Sr.,\\" \\"II,\\" \\"III\\", \\"IV,\\" etc. enter this under Suffix.\\n\\n• If you have a hyphenated name, put the entire hyphenated name in the applicable block (for example, if your last name is \\"Smith-Jones\\", put \\"Smith-Jones\\" in the \\"Last Name\\" block.)\\n\\n• If you have two last names that are not hyphenated (such as Smith Jones), please enter them as separate word in the “Last Name” block.\\n\\n• If you only have one name, put it in the \\"Last Name\\" block.\\n\\nWhat is your full name?"
+      "prologue": "This section asks for information regarding your full legal name. Your full legal name is usually the name you have on your most recently issued, unexpired government-issued picture identification. This is the name that identifies you for legal, administrative, and other official purposes, such as Social Security, census, taxes, and other official transactions or records.\\n\\n• If your name is one alpha character or a string of alpha characters (such as \"Z\" or \"T.J.\", where \"T.\" and \"J.\" are not initials for names), check the \"Letter(s) Only\" box.\\n\\n• If you do not have a middle name, check the \"No Middle Name\" box.\\n\\n• If you are a \"Jr.,\" \"Sr.,\" \"II,\" \"III\", \"IV,\" etc. enter this under Suffix.\\n\\n• If you have a hyphenated name, put the entire hyphenated name in the applicable block (for example, if your last name is \"Smith-Jones\", put \"Smith-Jones\" in the \"Last Name\" block.)\\n\\n• If you have two last names that are not hyphenated (such as Smith Jones), please enter them as separate word in the “Last Name” block.\\n\\n• If you only have one name, put it in the \"Last Name\" block.\\n\\nWhat is your full name?"
     },
     {
       "condition": "",
@@ -207,7 +207,7 @@
           ]
         }
       ],
-      "prologue": "Additional name(s) you provide are used to check for records about you. Having your additional names will assist investigators using your correct name and identifiers while conducting interviews or record checks for various activities and timeframes related to your background.\\n\\n• You must include the name on your birth certificate.\\n\\n•If your name is one alpha character or a string of alpha characters (such as \\"Z\\" or \\"T.J.\\", where \\"T.\\" and \\"J.\\" are not initials for names), check the \\"Letter(s) Only\\" box.\\n\\n• If you do not have a middle name, check the \\"No Middle Name\\" box.\\n\\n• If you are a \\"Jr.,\\" \\"Sr.,\\" \\"II,\\" \\"III\\", \\"IV,\\" etc. enter this under Suffix.\\n\\n• If you have a hyphenated name, put the entire hyphenated name in the applicable block (for example, if your last name is \\"Smith-Jones\\", put \\"Smith-Jones\\" in the \\"Last Name\\" block.)\\n\\n• If you only have one name, put it in the \\"Last Name\\" block.\\n\\n• For nicknames and aliases, put them in the \\"First Name\\" block and leave the \\"Last Name\\" and \\"Middle Name\\" blocks blank.\\n\\n• Make sure the dates you provide for legal name changes (such as due to a marriage, civil union, or partnership; divorce, dissolution of, or annulment; or any other legal name changes) are the same as the dates on the applicable legal documents."
+      "prologue": "Additional name(s) you provide are used to check for records about you. Having your additional names will assist investigators using your correct name and identifiers while conducting interviews or record checks for various activities and timeframes related to your background.\\n\\n• You must include the name on your birth certificate.\\n\\n•If your name is one alpha character or a string of alpha characters (such as \"Z\" or \"T.J.\", where \"T.\" and \"J.\" are not initials for names), check the \"Letter(s) Only\" box.\\n\\n• If you do not have a middle name, check the \"No Middle Name\" box.\\n\\n• If you are a \"Jr.,\" \"Sr.,\" \"II,\" \"III\", \"IV,\" etc. enter this under Suffix.\\n\\n• If you have a hyphenated name, put the entire hyphenated name in the applicable block (for example, if your last name is \"Smith-Jones\", put \"Smith-Jones\" in the \"Last Name\" block.)\\n\\n• If you only have one name, put it in the \"Last Name\" block.\\n\\n• For nicknames and aliases, put them in the \"First Name\" block and leave the \"Last Name\" and \"Middle Name\" blocks blank.\\n\\n• Make sure the dates you provide for legal name changes (such as due to a marriage, civil union, or partnership; divorce, dissolution of, or annulment; or any other legal name changes) are the same as the dates on the applicable legal documents."
     },
     {
       "condition": "Branch Auto Populate for Affirmative Answer on Different Name Used",
@@ -745,7 +745,7 @@
           "dataType": "text"
         },
         {
-          "text": "• You can find your Alien Registration Number on your Certificate of Naturalization (N-550 or N-570). It is a 7- to 9-digit number typically listed as the \\"USCIS Registration No.\\", \\"INS Registration No.\\", \\"CIS Registration No.\\" It is not the \\"No.\\" (short for number) in the top right hand corner often seen in red ink.",
+          "text": "• You can find your Alien Registration Number on your Certificate of Naturalization (N-550 or N-570). It is a 7- to 9-digit number typically listed as the \"USCIS Registration No.\", \"INS Registration No.\", \"CIS Registration No.\" It is not the \"No.\" (short for number) in the top right hand corner often seen in red ink.",
           "checkboxes": [],
           "otherChunks": [],
           "dataType": "text",
@@ -754,7 +754,7 @@
           ]
         },
         {
-          "text": "• You can also find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551). It is a 7- to 9-digit number typically listed as the \\"A#\\", \\"INS A#\\", \\"Alien Number\\", or \\"USCIS#\\". On the Machine Readable Immigrant Visa (MRIV), it is the \\"Registration Number\\".",
+          "text": "• You can also find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551). It is a 7- to 9-digit number typically listed as the \"A#\", \"INS A#\", \"Alien Number\", or \"USCIS#\". On the Machine Readable Immigrant Visa (MRIV), it is the \"Registration Number\".",
           "checkboxes": [],
           "otherChunks": [],
           "dataType": "text",
@@ -763,7 +763,7 @@
           ]
         },
         {
-          "text": "What is your Naturalization Certificate Number or Naturalization Number? This is the \\"No.\\" (short for number) in the top right hand corner of your Certificate of Naturalization (N-550 or N-570) (it is often in red ink).",
+          "text": "What is your Naturalization Certificate Number or Naturalization Number? This is the \"No.\" (short for number) in the top right hand corner of your Certificate of Naturalization (N-550 or N-570) (it is often in red ink).",
           "checkboxes": [],
           "otherChunks": [],
           "dataType": "text"
@@ -824,7 +824,7 @@
           "dataType": "text"
         },
         {
-          "text": "• If you have a Certificate of Citizenship (Form N-560 or Form N-561), your Alien Registration Number is the 7- to 9-digit number typically listed as the \\"USCIS Registration No.\\", \\"CIS Registration No.\\", or \\"INS Registration No.\\".",
+          "text": "• If you have a Certificate of Citizenship (Form N-560 or Form N-561), your Alien Registration Number is the 7- to 9-digit number typically listed as the \"USCIS Registration No.\", \"CIS Registration No.\", or \"INS Registration No.\".",
           "checkboxes": [],
           "otherChunks": [],
           "dataType": "text",
@@ -833,7 +833,7 @@
           ]
         },
         {
-          "text": "• If you do not have a Certificate of Citizenship, you can find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551). It is a 7- to 9-digit number typically listed as the \\"A#\\", \\"INS A#\\", \\"Alien Number\\", or \\"USCIS#\\". On the Machine Readable Immigrant Visa (MRIV), it is the \\"Registration Number\\".",
+          "text": "• If you do not have a Certificate of Citizenship, you can find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551). It is a 7- to 9-digit number typically listed as the \"A#\", \"INS A#\", \"Alien Number\", or \"USCIS#\". On the Machine Readable Immigrant Visa (MRIV), it is the \"Registration Number\".",
           "checkboxes": [],
           "otherChunks": [],
           "dataType": "text",
@@ -848,7 +848,7 @@
           "dataType": "text"
         },
         {
-          "text": "What is your Citizenship Certificate Number or Citizenship Number? This is the \\"No.\\" (short for number) in the top right hand corner of your Certificate of Citizenship (Form N-560 or Form N-561) It is often in red ink.",
+          "text": "What is your Citizenship Certificate Number or Citizenship Number? This is the \"No.\" (short for number) in the top right hand corner of your Certificate of Citizenship (Form N-560 or Form N-561) It is often in red ink.",
           "checkboxes": [
             "Not Applicable (Text)"
           ],
@@ -981,7 +981,7 @@
           "dataType": "text"
         },
         {
-          "text": "• You can find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551) or on your Employment Authorization Card (Form I-766), as applicable. Your Alien Registration Number may be listed as the \\"A#\\", \\"A\\" number, \\"INS A#\\", \\"Alien Number\\", or \\"USCIS#\\". On the Machine Readable Immigrant Visa (MRIV) Form I-551, it is the \\"Registration Number\\".)",
+          "text": "• You can find your Alien Registration Number on your Permanent Resident Card/Resident Alien Card (Form I-551) or on your Employment Authorization Card (Form I-766), as applicable. Your Alien Registration Number may be listed as the \"A#\", \"A\" number, \"INS A#\", \"Alien Number\", or \"USCIS#\". On the Machine Readable Immigrant Visa (MRIV) Form I-551, it is the \"Registration Number\".)",
           "checkboxes": [],
           "otherChunks": [],
           "dataType": "text",
@@ -1036,7 +1036,7 @@
           "dataType": "text"
         },
         {
-          "text": "• For the Form I-94, list the 11-digit number labeled either \\"Admission Number\\", \\"Departure Number\\", \\"Admission Record (I-94) Number\\", or \\"I-94#\\". Or, you may have an \\"Admission Stamp\\" in your unexpired foreign passport. If this is the case, also list your passport number and the country that issued the passport.",
+          "text": "• For the Form I-94, list the 11-digit number labeled either \"Admission Number\", \"Departure Number\", \"Admission Record (I-94) Number\", or \"I-94#\". Or, you may have an \"Admission Stamp\" in your unexpired foreign passport. If this is the case, also list your passport number and the country that issued the passport.",
           "checkboxes": [],
           "otherChunks": [],
           "dataType": "text",
@@ -1054,7 +1054,7 @@
           ]
         },
         {
-          "text": "• For the Form I-20, list the \\"SEVIS ID\\" number near the top left or top right corner of the document (depending on the document version). All SEVIS ID numbers start with the letter N. If you also have an \\"Admission Number\\" on your Form I-20 document, list this number as well (this is your Form I-94 number).",
+          "text": "• For the Form I-20, list the \"SEVIS ID\" number near the top left or top right corner of the document (depending on the document version). All SEVIS ID numbers start with the letter N. If you also have an \"Admission Number\" on your Form I-20 document, list this number as well (this is your Form I-94 number).",
           "checkboxes": [],
           "otherChunks": [],
           "dataType": "text",
@@ -1129,7 +1129,7 @@
       "condition": "",
       "questions": [
         {
-          "text": "Have you ever been a citizen of another country? (Answer \\"Yes\\" if you currently hold or have previously held a citizenship with a country you did not list in Section 3. Otherwise, answer \\"No\\".)",
+          "text": "Have you ever been a citizen of another country? (Answer \"Yes\" if you currently hold or have previously held a citizenship with a country you did not list in Section 3. Otherwise, answer \"No\".)",
           "checkboxes": [
             "Yes",
             "No"
@@ -2469,7 +2469,7 @@
           "dataType": "text"
         },
         {
-          "text": "Do you have another unit or organization you were assigned to while at this duty station? (Answer \\"Yes\\" if the assignments were consecutive (back-to-back). Answer \\"No\\" if you left this duty station and there was a time gap before returning to this duty station.)",
+          "text": "Do you have another unit or organization you were assigned to while at this duty station? (Answer \"Yes\" if the assignments were consecutive (back-to-back). Answer \"No\" if you left this duty station and there was a time gap before returning to this duty station.)",
           "checkboxes": [
             "Yes",
             "No"
@@ -5621,7 +5621,7 @@
       "condition": "Branch Auto Populate for U.S. Military Service, Disciplinary Action, Court Martial Circumstances Questions.",
       "questions": [
         {
-          "text": "Was domestic violence involved? For this section, \\"domestic violence\\" is a crime of violence (such as battery or assault) against your parents or guardians; child; dependent; current or former spouse; current or former partner from a civil union, domestic partnership, or common law marriage; person you are in a committed, spouse-like relationship with; or someone with whom you share a child in common. This includes crimes that meet this definition even if the term “domestic violence” is not specifically used in the criminal charges or conviction.",
+          "text": "Was domestic violence involved? For this section, \"domestic violence\" is a crime of violence (such as battery or assault) against your parents or guardians; child; dependent; current or former spouse; current or former partner from a civil union, domestic partnership, or common law marriage; person you are in a committed, spouse-like relationship with; or someone with whom you share a child in common. This includes crimes that meet this definition even if the term “domestic violence” is not specifically used in the criminal charges or conviction.",
           "checkboxes": [
             "Yes",
             "No"
@@ -6084,7 +6084,7 @@
           ]
         },
         {
-          "text": "Have you been on probation in the past five years? (Answer \\"Yes\\" even if your probation was part of a criminal sentence for a crime in which you were found guilty)",
+          "text": "Have you been on probation in the past five years? (Answer \"Yes\" even if your probation was part of a criminal sentence for a crime in which you were found guilty)",
           "checkboxes": [
             "Yes",
             "No"
@@ -7531,7 +7531,7 @@
       "condition": "Branch Auto Populate for Affirmative Answer to Drug Use/Misused Controlled Substance in the past Five Years. Used While Employed in Criminal/Justice Position.",
       "questions": [
         {
-          "text": "Did you use this illegal drug or misuse this controlled substance while employed in a criminal justice or public safety position? (\\"While employed\\" does not necessarily mean your use was \\"on the clock\\" or \\"on duty\\".)",
+          "text": "Did you use this illegal drug or misuse this controlled substance while employed in a criminal justice or public safety position? (\"While employed\" does not necessarily mean your use was \"on the clock\" or \"on duty\".)",
           "checkboxes": [
             "Yes",
             "No"
@@ -7627,7 +7627,7 @@
       "condition": "",
       "questions": [
         {
-          "text": "Have you intentionally misused drugs prescribed for you or someone else in the past five years or since the age of 16 (if you are under 21)? (\\"Intentionally\\" means you deliberately misused prescription drugs as opposed to accidently.)",
+          "text": "Have you intentionally misused drugs prescribed for you or someone else in the past five years or since the age of 16 (if you are under 21)? (\"Intentionally\" means you deliberately misused prescription drugs as opposed to accidently.)",
           "checkboxes": [
             "Yes",
             "No"
@@ -7715,7 +7715,7 @@
       "condition": "Branch Auto Populate for Affirmative Answer to Misused Prescription Drugs in Past Five Years. Used While Employed in Criminal/Justice Position.",
       "questions": [
         {
-          "text": "Did you intentionally misuse this prescription drug while employed in a criminal justice or public safety position? (\\"While employed\\" does not necessarily mean your use was \\"on the clock\\" or \\"on duty\\".)",
+          "text": "Did you intentionally misuse this prescription drug while employed in a criminal justice or public safety position? (\"While employed\" does not necessarily mean your use was \"on the clock\" or \"on duty\".)",
           "checkboxes": [
             "Yes",
             "No"
@@ -7793,7 +7793,7 @@
       "condition": "Branch Auto Populate for Affirmative Answer to Misused Prescription Drugs in Past Five Years. Used While Employed in Criminal/Justice Position. Another Instance.",
       "questions": [
         {
-          "text": "Do you have another instance of intentionally misusing prescription drugs in the past five years or since the age of 16 (if you are under 21) to report? (\\"Intentionally\\" means you deliberately misused prescription drugs as opposed to accidently.)",
+          "text": "Do you have another instance of intentionally misusing prescription drugs in the past five years or since the age of 16 (if you are under 21) to report? (\"Intentionally\" means you deliberately misused prescription drugs as opposed to accidently.)",
           "checkboxes": [
             "Yes",
             "No"
@@ -7964,7 +7964,7 @@
       "condition": "Branch Auto Populate for Affirmative Answer for Drug Use, Possessed Purchased, etc., Criminal Justice/Public Safety Position.",
       "questions": [
         {
-          "text": "Did you illegally possess, purchase, manufacture, cultivate, traffic, produce, transfer, ship, receive, handle, or sell this drug or controlled substance while employed in a criminal justice or public safety position? (\\"While employed\\" does not necessarily mean your use was \\"on the clock\\" or \\"on duty\\".)",
+          "text": "Did you illegally possess, purchase, manufacture, cultivate, traffic, produce, transfer, ship, receive, handle, or sell this drug or controlled substance while employed in a criminal justice or public safety position? (\"While employed\" does not necessarily mean your use was \"on the clock\" or \"on duty\".)",
           "checkboxes": [
             "Yes",
             "No"
@@ -8060,7 +8060,7 @@
       "condition": "",
       "questions": [
         {
-          "text": "Have you ever used an illegal drug or misused a controlled substance (excluding marijuana or cannabis derivatives) while in a national security position? (Answer \\"No\\" if this occurred in the past five years and you listed it above.)",
+          "text": "Have you ever used an illegal drug or misused a controlled substance (excluding marijuana or cannabis derivatives) while in a national security position? (Answer \"No\" if this occurred in the past five years and you listed it above.)",
           "checkboxes": [
             "Yes",
             "No"
@@ -8148,7 +8148,7 @@
       "condition": "",
       "questions": [
         {
-          "text": "Have you ever used an illegal drug or misused a controlled substance (excluding marijuana or cannabis derivatives) while employed in a criminal justice or public safety position? (\\"While employed\\" does not necessarily mean your use was \\"on the clock\\" or \\"on duty\\". Answer \\"No\\" if this occurred in the past five years and you listed it above.)",
+          "text": "Have you ever used an illegal drug or misused a controlled substance (excluding marijuana or cannabis derivatives) while employed in a criminal justice or public safety position? (\"While employed\" does not necessarily mean your use was \"on the clock\" or \"on duty\". Answer \"No\" if this occurred in the past five years and you listed it above.)",
           "checkboxes": [
             "Yes",
             "No"
@@ -9173,7 +9173,7 @@
       "condition": "Branch Auto Populate for Affirmative Answer to Marijuana/Cannabis Derivative Use in the Last 90 Days. While in Criminal Justice/Public Safety Position.",
       "questions": [
         {
-          "text": "Did you use marijuana or a cannabis derivative while employed in a criminal justice or public safety position in the last 90 days? (\\"While employed\\" does not necessarily mean your use was \\"on the clock” or “on duty\\".)",
+          "text": "Did you use marijuana or a cannabis derivative while employed in a criminal justice or public safety position in the last 90 days? (\"While employed\" does not necessarily mean your use was \"on the clock” or “on duty\".)",
           "checkboxes": [
             "Yes",
             "No"
@@ -9209,7 +9209,7 @@
       "condition": "",
       "questions": [
         {
-          "text": "Have you ever used marijuana or a cannabis derivative while in a national security position? (Answer \\"No\\" if this occurred in the past 90 days and you listed it above.)",
+          "text": "Have you ever used marijuana or a cannabis derivative while in a national security position? (Answer \"No\" if this occurred in the past 90 days and you listed it above.)",
           "checkboxes": [
             "Yes",
             "No"
@@ -9279,7 +9279,7 @@
       "condition": "",
       "questions": [
         {
-          "text": "Have you ever used marijuana or a cannabis derivative while employed in a criminal justice or public safety position? (\\"While employed\\" does not necessarily mean your use was \\"on the clock” or “on duty\\".) (Answer \\"No\\" if this occurred in the past 90 days and you listed it above.)",
+          "text": "Have you ever used marijuana or a cannabis derivative while employed in a criminal justice or public safety position? (\"While employed\" does not necessarily mean your use was \"on the clock” or “on duty\".) (Answer \"No\" if this occurred in the past 90 days and you listed it above.)",
           "checkboxes": [
             "Yes",
             "No"
@@ -9534,7 +9534,7 @@
       "condition": "Branch Auto Populate for Affirmative Answer to involved in the Illegal Manufacture, Cultivation, Trafficking, etc. in Past Five Years. While in a Criminal Justice/Public Safety Position.",
       "questions": [
         {
-          "text": "Did you illegally manufacture, cultivate, traffic, produce, transfer, ship, receive, or sell marijuana or a cannabis derivative while employed in a criminal justice or public safety position? (\\"While employed\\" does not necessarily mean your use was \\"on the clock” or “on duty\\".)",
+          "text": "Did you illegally manufacture, cultivate, traffic, produce, transfer, ship, receive, or sell marijuana or a cannabis derivative while employed in a criminal justice or public safety position? (\"While employed\" does not necessarily mean your use was \"on the clock” or “on duty\".)",
           "checkboxes": [
             "Yes",
             "No"
@@ -10441,7 +10441,7 @@
       "condition": "",
       "questions": [
         {
-          "text": "Are there any tax year(s) within the past five years for which you have failed to file a federal tax return? Answer \\"No\\" if 1) you were not required to file because you did not earn enough money or 2) you were not required by law to file Federal income taxes.",
+          "text": "Are there any tax year(s) within the past five years for which you have failed to file a federal tax return? Answer \"No\" if 1) you were not required to file because you did not earn enough money or 2) you were not required by law to file Federal income taxes.",
           "checkboxes": [
             "Yes",
             "No"
@@ -10453,7 +10453,7 @@
           ]
         }
       ],
-      "prologue": "This section asks for information regarding any federal financial debt you have, including federal tax debt and any federal non-tax debt. Examples of federal non-tax debt include past due federally guaranteed or insured loans such as student and home mortgage loans, overpayment of benefits, or other debts to the U.S. Government. This section also focuses on the actions you have taken to address past due financial obligations, as applicable.\\n\\nFor this section:\\n\\n• Past due:\\n\\n- Means a payment was not made by its due date or by the end of the grace period, if applicable.\\n\\n- For other debts paid in installments, such as loans, \\"past due\\" means a payment was not made by its due date or by the end of the grace period, if applicable.\\n\\n- You are not \\"past due\\" if you were approved for a tax extension and you filed and paid your taxes by the extension due date.\\n\\n• A tax year is the 12 months covered by a tax return.\\n\\n• A guarantor is an individual who promises to pay a borrower's debt in the event the borrower defaults on their loan obligation."
+      "prologue": "This section asks for information regarding any federal financial debt you have, including federal tax debt and any federal non-tax debt. Examples of federal non-tax debt include past due federally guaranteed or insured loans such as student and home mortgage loans, overpayment of benefits, or other debts to the U.S. Government. This section also focuses on the actions you have taken to address past due financial obligations, as applicable.\\n\\nFor this section:\\n\\n• Past due:\\n\\n- Means a payment was not made by its due date or by the end of the grace period, if applicable.\\n\\n- For other debts paid in installments, such as loans, \"past due\" means a payment was not made by its due date or by the end of the grace period, if applicable.\\n\\n- You are not \"past due\" if you were approved for a tax extension and you filed and paid your taxes by the extension due date.\\n\\n• A tax year is the 12 months covered by a tax return.\\n\\n• A guarantor is an individual who promises to pay a borrower's debt in the event the borrower defaults on their loan obligation."
     },
     {
       "condition": "Branch Auto Populate, Failed To File Taxes.",
@@ -10521,7 +10521,7 @@
       "condition": "Branch Auto Populate, Failed To File Taxes, Another Instance to Report.",
       "questions": [
         {
-          "text": "Do you have another instance in which you failed to file your federal taxes in the past five years? Answer \\"No\\" if 1) you were not required to file because you did not earn enough money or 2) you were not required by law to file federal income taxes.",
+          "text": "Do you have another instance in which you failed to file your federal taxes in the past five years? Answer \"No\" if 1) you were not required to file because you did not earn enough money or 2) you were not required by law to file federal income taxes.",
           "checkboxes": [
             "Yes",
             "No"
@@ -10548,7 +10548,7 @@
       "condition": "Branch Auto Populate, Failed To Pay Federal Taxes.",
       "questions": [
         {
-          "text": "Have you failed to pay the amount due on your federal taxes for any tax year(s) in the past five years? (Answer \\"No\\" if you 1) were not required to file or pay because you did not earn enough money, 2) did not owe the IRS money (you received or were entitled to a refund), or 3) were not required by law to file or pay federal income taxes.)",
+          "text": "Have you failed to pay the amount due on your federal taxes for any tax year(s) in the past five years? (Answer \"No\" if you 1) were not required to file or pay because you did not earn enough money, 2) did not owe the IRS money (you received or were entitled to a refund), or 3) were not required by law to file or pay federal income taxes.)",
           "checkboxes": [
             "Yes",
             "No"
@@ -10628,7 +10628,7 @@
       "condition": "Branch Auto Populate, Failed To Pay Federal Taxes, Another Instance to Report.",
       "questions": [
         {
-          "text": "Are there other tax year(s) in the past five years for which you have you failed to pay the amount due on your federal taxes? Answer \\"No\\" if you 1) were not required to file or pay because you did not earn enough money, 2) did not owe the IRS money (you received or were entitled to a refund), or 3) were not required by law to file or pay federal income taxes.",
+          "text": "Are there other tax year(s) in the past five years for which you have you failed to pay the amount due on your federal taxes? Answer \"No\" if you 1) were not required to file or pay because you did not earn enough money, 2) did not owe the IRS money (you received or were entitled to a refund), or 3) were not required by law to file or pay federal income taxes.",
           "checkboxes": [
             "Yes",
             "No"
@@ -10873,7 +10873,7 @@
           ]
         }
       ],
-      "prologue": "This section asks for information regarding your use of information technology (IT) systems.\\n\\nFor this section:\\n\\n• IT systems include all related computer hardware, software, firmware, and data used for the communication, transmission, processing, manipulation, storage, or protection of information.\\n\\n• The term \\"illegal\\" applies whether or not you were arrested, charged, or convicted of a crime.\\n\\n• Your truthful responses and any information derived from your responses will not be used as evidence against you in a subsequent criminal proceeding. This applies whether or not you are employed by the Federal Government.\\n\\n• Do NOT include classified information or any specifics regarding other protected information or classified IT systems in any of your responses."
+      "prologue": "This section asks for information regarding your use of information technology (IT) systems.\\n\\nFor this section:\\n\\n• IT systems include all related computer hardware, software, firmware, and data used for the communication, transmission, processing, manipulation, storage, or protection of information.\\n\\n• The term \"illegal\" applies whether or not you were arrested, charged, or convicted of a crime.\\n\\n• Your truthful responses and any information derived from your responses will not be used as evidence against you in a subsequent criminal proceeding. This applies whether or not you are employed by the Federal Government.\\n\\n• Do NOT include classified information or any specifics regarding other protected information or classified IT systems in any of your responses."
     },
     {
       "condition": "Branch Auto Populate, Improper IT Systems Access",
@@ -12229,7 +12229,7 @@
           ]
         }
       ],
-      "prologue": "This section asks for information regarding your handling of protected information, as applicable.\\n\\nFor this section:\\n\\n• Protected information includes information protected by the Privacy Act, personally identifiable information, proprietary information, classified information, and other sensitive or protected information.\\n\\n• The term \\"illegal\\" applies whether or not you were arrested, charged, or convicted of a crime.\\n\\n• Your truthful responses and any information derived from your responses will not be used as evidence against you in a subsequent criminal proceeding. This applies whether or not you are employed by the Federal Government.\\n\\n• Do NOT include classified information or any specifics regarding other protected information or classified IT systems in any of your responses."
+      "prologue": "This section asks for information regarding your handling of protected information, as applicable.\\n\\nFor this section:\\n\\n• Protected information includes information protected by the Privacy Act, personally identifiable information, proprietary information, classified information, and other sensitive or protected information.\\n\\n• The term \"illegal\" applies whether or not you were arrested, charged, or convicted of a crime.\\n\\n• Your truthful responses and any information derived from your responses will not be used as evidence against you in a subsequent criminal proceeding. This applies whether or not you are employed by the Federal Government.\\n\\n• Do NOT include classified information or any specifics regarding other protected information or classified IT systems in any of your responses."
     },
     {
       "condition": "Branch Auto Populate Illegally or Without Proper Authorization Accessed or Tried to Access Protected Information in Past Five Years. Date and Location.",
@@ -14532,7 +14532,7 @@
       "condition": "Branch Auto Populate Affirmative Answer to Planned, Contributed, Attempted or Carried out Unlawful Act of Force or Violence Targeted at Person, Group, or Property. Critical Infrastructure.",
       "questions": [
         {
-          "text": "Was the targeted property critical infrastructure? (Answer \\"No\\" if you listed in the question above.)",
+          "text": "Was the targeted property critical infrastructure? (Answer \"No\" if you listed in the question above.)",
           "checkboxes": [
             "Yes",
             "No"
