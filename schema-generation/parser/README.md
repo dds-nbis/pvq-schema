@@ -68,8 +68,11 @@ quirk in the PVQ documents, while letting us continue iterating on the parser
 logic without needing to repeatedly perform manual fixes to the parser output.
 
 This result overriding is done by defining a global `pvqOverrides` variable.
-That variable should contain a JSON structure organized first by section ID,
-then question ID. It should look similar to this:
+The contents of this variable will vary for the different PVQ documents, so it
+is defined in a doc-specific JS file (i.e. `part-a-overrides.js`) that is
+loaded via a `<script>` tag in each HTML document before the parser is loaded.
+The `pvqOverrides` variable should contain a JSON structure organized first by
+section ID, then question ID. It should look similar to this:
 
 ```json
 {
