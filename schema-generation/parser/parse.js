@@ -363,6 +363,7 @@ class QuestionGroupParser {
                 "questions": questions,
                 "prologue": joinedPrologue
             });
+            console.debug("Parsed question group: %o", this.groups.at(-1));
         }
 
         this.#currentGroup = {
@@ -405,6 +406,7 @@ function processOverrides(questions, sectionOverrides) {
         const questionId = question.questionId;
         const replacements = sectionOverrides[questionId];
         if (replacements) {
+            console.assert(Array.isArray(replacements), "overrides value for question '%s' is not an array", questionId)
             console.debug("Overriding question questionId=%s", questionId);
             for (const j in replacements) {
                 let replacement = replacements[j];
@@ -447,12 +449,17 @@ function cleanText(s) {
 function getElementsBySection() {
     const sections = new Map();
     let currentSection = null;
+    let sectionNum = 0;
+    let nodeNum = 0;
     document.querySelectorAll("h2, h3, h4, p").forEach((e, pvqId) => {
         var text = cleanText(e);
-        if (/^(Continuation of )?Section [0-9]+ -/.test(text)) {
+        const match = /^(Continuation of )?Section ([0-9]+) -/.exec(text);
+        if (match != null) {
             const sectionName = cleanText(e).trim();
             sections.set(sectionName, []);
             currentSection = sectionName;
+            sectionNum = Number(match[2]);
+            nodeNum = 0;
             return;
         }
 
@@ -460,9 +467,14 @@ function getElementsBySection() {
             return;
         }
 
+        // the node IDs are designed to basically be autoincrementing integers within
+        // their own section, so that if a new PVQ draft changes some of the content, 
+        // hopefully only the node IDs in the changed sections are invalidated
+        // (an alternative would be some hashing scheme based on the node content, but
+        // question content is too repetitive)
         if (text.length > 0) {
             sections.get(currentSection).push(e);
-            const nodeId = `n${pvqId}`;
+            const nodeId = `n${sectionNum}-${nodeNum++}`;
             e.setAttribute("pvq-id", nodeId);
         }
     });
@@ -485,7 +497,6 @@ function parseDoc(overrides = {}) {
         console.groupCollapsed("Parsing section: %s", sectionHeading);
         const sectionOverrides = overrides[sectionId] || [];
         const groups = parseQuestionGroups(sectionHeading, content, sectionOverrides);
-        console.debug("Completed parsing question groups: %o", groups);
         console.groupEnd();
         parsedSections[sectionId] = {
             "name": sectionHeading,
