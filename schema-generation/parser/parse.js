@@ -133,10 +133,17 @@ class QuestionGroup {
 
 const FIELD_TYPE_PATTERN = /^\[([ a-zA-Z/|+]+)\]$/;
 const CHECKBOX_PATTERN = /^\[ *\] *[A-Za-z.,()'’ ]+$/;
+const QUESTION_ID_PATTERN = /^[a-z0-9\\-]+$/;
 
 const SPECIAL_CHUNKS = {
     "[ ] Yes [ ] No": ["Yes", "No"]
 }
+
+const DATATYPE_MAPPINGS = {
+    "mm/yy": "mm/yyyy",
+    "addr + type": "address + type"
+}
+
 
 /**
  * A single logical question in the PVQ.
@@ -151,9 +158,7 @@ const SPECIAL_CHUNKS = {
  */
 class Question {
 
-    constructor(questionId, text, secondaryChunks, _examineHints) {
-        this.questionId = questionId;
-        this.text = text;
+    static create(questionId, text, secondaryChunks, _examineHints) {
         const firstSecondary = secondaryChunks[0];
         let dataType = null;
         let examineHints = [..._examineHints];
@@ -172,49 +177,69 @@ class Question {
             examineHints.push("no_secondary_chunks");
         }
 
-        this.checkboxes = [];
-        this.otherChunks = [];
+        const checkboxes = [];
+        const otherChunks = [];
         for (const chunk of secondaryChunks) {
             if (CHECKBOX_PATTERN.test(chunk)) {
                 let checkboxText = substringAfter(']', chunk).trim();
-                this.checkboxes.push(checkboxText);
+                checkboxes.push(checkboxText);
             } else if (chunk in SPECIAL_CHUNKS) {
-                this.checkboxes.push(...[SPECIAL_CHUNKS[chunk]])
+                checkboxes.push(...[SPECIAL_CHUNKS[chunk]])
             } else {
-                this.otherChunks.push(chunk.trim());
+                otherChunks.push(chunk.trim());
             }
         }
 
-        if (dataType == "unknown" && this.checkboxes.length > 0) {
+        if (dataType == "unknown" && checkboxes.length > 0) {
             dataType = "checkboxes";
         }
-        this.dataType = dataType.trim();
+        dataType = dataType.trim();
+        dataType = DATATYPE_MAPPINGS[dataType] || dataType;
 
-        if (this.otherChunks.length > 0) {
+        if (otherChunks.length > 0) {
             examineHints.push("extra_chunks");
-        } else if (this.text.indexOf('[') >= 0) {
+        } else if (text.indexOf('[') >= 0) {
             examineHints.push("bracket_in_text");
-        } else if (this.checkboxes.some(s => s.indexOf('[') > 0)) {
+        } else if (checkboxes.some(s => s.indexOf('[') > 0)) {
             examineHints.push("bracket_in_checkbox");
         }
 
-        if (examineHints.length > 0) {
+        return new Question(questionId, text, dataType, checkboxes, examineHints);
+    }
+
+    constructor(questionId, text, dataType, checkboxes, examineHints) {
+        console.assert(QUESTION_ID_PATTERN.test(questionId), "invalid question ID: %s", questionId);
+        console.assert(typeof text == "string" && text.length > 0, "question text must be a non-empty string")
+        console.assert(Array.isArray(checkboxes), "checkboxes must be an array");
+
+        this.id = questionId;
+        this.text = text;
+        this.dataType = dataType;
+
+        if (checkboxes.length > 0) {
+            this.checkboxes = checkboxes;
+        }
+
+        if (examineHints && examineHints.length > 0) {
             this.examineHints = examineHints;
         }
     }
 
-    clone(text, dataType, checkboxes) {
-        console.debug("Clone questionId=%s text=%s dataType=%s checkboxes=%o", this.questionId, text, dataType, checkboxes);
-        text = text || this.text;
-        dataType = dataType || this.dataType;
-        checkboxes = checkboxes || this.checkboxes;
+    clone(overrides) {
+        console.debug("Clone questionId=%s props=%o", this.id, overrides);
 
-        const output = new Question(this.questionId, text, [`[ ${dataType} ]`], []);
-        output.checkboxes = checkboxes;
-        console.debug("Clone result questionId=%s text=%s dataType=%s checkboxes=%o",
-            output.questionId, output.text, output.dataType, output.checkboxes
-        );
-        return output;
+        const cloned = new Question(this.id, this.text, this.dataType, this.checkboxes, this.examineHints);
+        if (props) {
+            for (const [k, v] of Object.entries(overrides)) {
+                if (v == null) {
+                    delete cloned[k];
+                } else {
+                    cloned[k] = v;
+                }
+            }
+        }
+
+        return cloned;
     }
 }
 
@@ -332,7 +357,7 @@ function parseQuestions(allChunks) {
         }
         const questionText = cleanText(mainText + " " + suffix);
         let secondaryChunks = reorganized.get(e);
-        const question = new Question(questionId, questionText, secondaryChunks, examineHints);
+        const question = Question.create(questionId, questionText, secondaryChunks, examineHints);
         output.push(question);
     }
     return output;
@@ -403,21 +428,21 @@ class QuestionGroupParser {
 function processOverrides(questions, sectionOverrides) {
     for (const i in questions) {
         const question = questions[i];
-        const questionId = question.questionId;
+        const questionId = question.id;
         const replacements = sectionOverrides[questionId];
         if (replacements) {
             console.assert(Array.isArray(replacements), "overrides value for question '%s' is not an array", questionId)
             console.debug("Overriding question questionId=%s", questionId);
             for (const j in replacements) {
                 let replacement = replacements[j];
-                replacements[j] = question.clone(replacement.text, replacement.dataType, replacement.checkboxes);
+                replacements[j] = question.clone(replacement);
             }
             questions.splice(i, 1, ...replacements);
         }
     }
 }
 
-function parseQuestionGroups(sectionName, sectionContent, sectionOverrides) {
+function parseQuestionGroups(sectionContent, sectionOverrides) {
     const parser = new QuestionGroupParser(sectionOverrides);
     for (const e of sectionContent) {
         parser.addContent(e);
@@ -497,7 +522,7 @@ function parseDoc(pvqPart, overrides = {}) {
         const content = nodesBySection.get(sectionHeading);
         console.groupCollapsed("Parsing section: %s", sectionHeading);
         const sectionOverrides = overrides[sectionId] || [];
-        const groups = parseQuestionGroups(sectionHeading, content, sectionOverrides);
+        const groups = parseQuestionGroups(content, sectionOverrides);
         console.groupEnd();
         parsedSections[sectionId] = {
             "name": sectionHeading,
@@ -505,7 +530,24 @@ function parseDoc(pvqPart, overrides = {}) {
         };
     }
 
-    console.info("Completed parsing PVQ word doc")
+    const typeCounts = {};
+    let questionCount = 0;
+    Object.values(parsedSections)
+        .flatMap(s => s.groups)
+        .flatMap(g => g.questions)
+        .map(q => q.dataType)
+        .forEach(dataType => {
+            typeCounts[dataType] = (typeCounts[dataType] || 0) + 1;
+            questionCount++;
+        });
+    console.groupCollapsed("Question statistics");
+    for (const [dataType, count] of Object.entries(typeCounts)) {
+        console.debug("Count for type %s: %o", dataType, count);
+    }
+    console.debug("Total questions: %o", questionCount);
+    console.groupEnd();
+    
+    console.info("Completed parsing PVQ word doc");
     console.info("To copy the parsed JSON to your clipboard, run %ccopy(JSON.stringify(parsedSections, null, 2))", "color: blue")
 
     return parsedSections;
