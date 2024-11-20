@@ -446,7 +446,7 @@ function cleanText(s) {
  * This method also assigns a unique ID to each returned content element, stored in the custom
  * "pvq-id" attribute.
  */
-function getElementsBySection() {
+function getElementsBySection(pvqPart) {
     const sections = new Map();
     let currentSection = null;
     let sectionNum = 0;
@@ -474,7 +474,7 @@ function getElementsBySection() {
         // question content is too repetitive)
         if (text.length > 0) {
             sections.get(currentSection).push(e);
-            const nodeId = `n${sectionNum}-${nodeNum++}`;
+            const nodeId = `${pvqPart}-${sectionNum}-${nodeNum++}`;
             e.setAttribute("pvq-id", nodeId);
         }
     });
@@ -486,8 +486,9 @@ function getElementsBySection() {
     return sections;
 }
 
-function parseDoc(overrides = {}) {
-    const nodesBySection = getElementsBySection();
+function parseDoc(pvqPart, overrides = {}) {
+    console.assert(/^[a-z]$/.test(pvqPart), "pvqPart must be a single lowercase letter");
+    const nodesBySection = getElementsBySection(pvqPart);
     const parsedSections = {}
     const sectionNamePattern = /Section ([0-9]+) /;
     for (const sectionHeading of nodesBySection.keys()) {
@@ -510,4 +511,4 @@ function parseDoc(overrides = {}) {
     return parsedSections;
 }
 
-window.parsedSections = parseDoc(window.pvqOverrides);
+window.parsedSections = parseDoc(window.pvqPart, window.pvqOverrides);
