@@ -425,21 +425,35 @@ class QuestionGroupParser {
     }
 }
 
-function processOverrides(questions, sectionOverrides) {
+function processOverrides(questions, overrides) {
+    const hasOverrides = questions.some(q => q.id in overrides);
+    if (!hasOverrides) {
+        return;
+    }
+
+    const newQuestions = [];
     for (const i in questions) {
         const question = questions[i];
         const questionId = question.id;
-        const replacements = sectionOverrides[questionId];
+        const replacements = overrides[questionId];
         if (replacements) {
-            console.assert(Array.isArray(replacements), "overrides value for question '%s' is not an array", questionId)
             console.debug("Overriding question questionId=%s", questionId);
             for (const j in replacements) {
                 let replacement = replacements[j];
+                // shorthand syntax for just changing the question ID
+                if ((typeof replacement) == "string") {
+                    replacement = {"id": replacement};
+                }
                 replacements[j] = question.clone(replacement);
             }
-            questions.splice(i, 1, ...replacements);
+            newQuestions.push(...replacements);
+        } else {
+            newQuestions.push(question);
         }
     }
+
+    questions.length = 0;
+    questions.push(...newQuestions);
 }
 
 function parseQuestionGroups(sectionContent, sectionOverrides) {
@@ -511,8 +525,12 @@ function getElementsBySection(pvqPart) {
     return sections;
 }
 
-function parseDoc(pvqPart, overrides = {}) {
-    console.assert(/^[a-z]$/.test(pvqPart), "pvqPart must be a single lowercase letter");
+function parseDoc(config) {
+    const pvqPart = config.pvqPart;
+    const overrides = config.overrides || {};
+    console.assert(/^[a-z]$/.test(pvqPart), "config.pvqPart must be a single lowercase letter");
+    console.assert(typeof overrides == "string", "config.overrides must be an object");
+
     const nodesBySection = getElementsBySection(pvqPart);
     const parsedSections = {}
     const sectionNamePattern = /Section ([0-9]+) /;
@@ -530,21 +548,20 @@ function parseDoc(pvqPart, overrides = {}) {
         };
     }
 
-    const typeCounts = {};
-    let questionCount = 0;
-    Object.values(parsedSections)
+    const allQuestions = Object.values(parsedSections)
         .flatMap(s => s.groups)
-        .flatMap(g => g.questions)
-        .map(q => q.dataType)
+        .flatMap(g => g.questions);
+    
+    const typeCounts = {};
+    allQuestions.map(q => q.dataType)
         .forEach(dataType => {
             typeCounts[dataType] = (typeCounts[dataType] || 0) + 1;
-            questionCount++;
         });
     console.groupCollapsed("Question statistics");
     for (const [dataType, count] of Object.entries(typeCounts)) {
         console.debug("Count for type %s: %o", dataType, count);
     }
-    console.debug("Total questions: %o", questionCount);
+    console.debug("Total questions: %o", allQuestions.length);
     console.groupEnd();
     
     console.info("Completed parsing PVQ word doc");
@@ -553,4 +570,15 @@ function parseDoc(pvqPart, overrides = {}) {
     return parsedSections;
 }
 
-window.parsedSections = parseDoc(window.pvqPart, window.pvqOverrides);
+function generateOverridesSkeleton(parsed) {
+    const output = {};
+    Object.values(parsed)
+        .flatMap(s => s.groups)
+        .flatMap(g => g.questions)
+        .forEach(q => {
+            output[q.id] = null;
+        });
+    return output;
+}
+
+window.parsedSections = parseDoc(window.parserConfig);
