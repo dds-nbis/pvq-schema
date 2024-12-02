@@ -210,11 +210,17 @@ class Question {
     constructor(questionId, text, dataType, checkboxes, examineHints) {
         console.assert(QUESTION_ID_PATTERN.test(questionId), "invalid question ID: %s", questionId);
         console.assert(typeof text == "string" && text.length > 0, "question text must be a non-empty string")
-        console.assert(Array.isArray(checkboxes), "checkboxes must be an array");
 
         this.id = questionId;
         this.text = text;
         this.dataType = dataType;
+
+        if (!checkboxes) {
+            checkboxes = [];
+        }
+
+        console.assert(Array.isArray(checkboxes), 
+            "checkboxes must be an array (actual value: %o)", checkboxes);
 
         if (checkboxes.length > 0) {
             this.checkboxes = checkboxes;
@@ -229,7 +235,12 @@ class Question {
         console.debug("Clone questionId=%s props=%o", this.id, overrides);
 
         const cloned = new Question(this.id, this.text, this.dataType, this.checkboxes, this.examineHints);
-        if (props) {
+        if (overrides) {
+            if (typeof overrides === "string") {
+                overrides = {
+                    "id": overrides
+                };
+            }
             for (const [k, v] of Object.entries(overrides)) {
                 if (v == null) {
                     delete cloned[k];
@@ -435,12 +446,14 @@ function processOverrides(questions, overrides) {
     for (const i in questions) {
         const question = questions[i];
         const questionId = question.id;
-        const replacements = overrides[questionId];
+        let replacements = overrides[questionId];
         if (replacements) {
-            console.debug("Overriding question questionId=%s", questionId);
+            if (!Array.isArray(replacements)) {
+                replacements = [replacements];
+            }
+            console.debug("Overriding question questionId=%s replacements=%o", questionId, replacements);
             for (const j in replacements) {
                 let replacement = replacements[j];
-                // shorthand syntax for just changing the question ID
                 if ((typeof replacement) == "string") {
                     replacement = {"id": replacement};
                 }
@@ -529,7 +542,7 @@ function parseDoc(config) {
     const pvqPart = config.pvqPart;
     const overrides = config.overrides || {};
     console.assert(/^[a-z]$/.test(pvqPart), "config.pvqPart must be a single lowercase letter");
-    console.assert(typeof overrides == "string", "config.overrides must be an object");
+    console.assert(typeof overrides == "object", "config.overrides must be an object");
 
     const nodesBySection = getElementsBySection(pvqPart);
     const parsedSections = {}
@@ -539,8 +552,7 @@ function parseDoc(config) {
         const sectionId = `section_${sectionNum.toString().padStart(2, '0')}`;
         const content = nodesBySection.get(sectionHeading);
         console.groupCollapsed("Parsing section: %s", sectionHeading);
-        const sectionOverrides = overrides[sectionId] || [];
-        const groups = parseQuestionGroups(content, sectionOverrides);
+        const groups = parseQuestionGroups(content, overrides);
         console.groupEnd();
         parsedSections[sectionId] = {
             "name": sectionHeading,

@@ -116,8 +116,8 @@ window.parserConfig = {
         "a-3-27": "citizenBornAbroadDocument_last_name",
         "a-3-30": "citizenBornAbroadDocument_first_name",
         "a-3-33": "citizenBornAbroadDocument_middle_name",
-        // is this in the right condition group? 
         "a-3-37": "citizenBornAbroadDocument_suffix",
+        // is this in the right condition group? 
         "a-3-39": "citizen_born_abroad_was_born_on_us_military_installation",
         "a-3-43": "citizen_born_abroad_military_installation_name",
         "a-3-46": "naturalized_citizen_alien_registration_number",
