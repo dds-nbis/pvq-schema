@@ -1,4 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
+import { statesOrTerritories } from "./statesOrTerritories";
 
 /**
  * Dates are expected to be in ISO8601 format yyyy-mm-dd
@@ -265,6 +266,53 @@ export const AdditionalCountryCitizenship = Type.Object({
   stillActive: Type.Boolean()
 })
 
+export const USAddress = Type.Object({
+  street: Type.String(),
+  city: Type.String(),
+  stateOrTerritory: Type.String(),
+  zipCode: Type.String(),
+  isMilitaryInstallation: Type.Boolean(),
+  militaryInstallationName: Type.String()
+})
+
+export const USResidence = Type.Object({
+  address: USAddress
+})
+
+export const NonUsResidence = Type.Object({
+  physicalAddress: Type.String(),
+  city: Type.String(),
+  country: Type.String(),
+  isMilitaryInstallation: Type.Boolean(),
+  militaryInstallation: Type.Object({
+    name: Type.Object({
+      text: Type.Optional(Type.String()),
+      notApplicable: Type.Boolean(),
+      notApplicableExplanation: Type.Optional(Type.String())
+    }),
+    zipCode: Type.String()
+  })
+})
+
+export const TemporaryLivingPurpose = Type.Union([
+  Type.Literal('extendedTravel'),
+  Type.Literal('business'),
+  Type.Literal('school'),
+  Type.Literal('militaryTraining'),
+  Type.Literal('militaryDeployment'),
+  Type.Literal('other')
+])
+
+export const Residence = Type.Object({
+  inUs: Type.Boolean(),
+  usResidence: USResidence,
+  nonUsResidence: NonUsResidence,
+  dateRange: DateRange,
+  temporaryAddressOver90Days: Type.Boolean(),
+  temporaryLivingPurpose: TemporaryLivingPurpose,
+  temporaryLivingPurposeExplanation: Type.Optional(Type.String())
+})
+
 export const PVQSchema = Type.Object({
   version: Type.Number(),
   // Section 01
@@ -299,6 +347,8 @@ export const PVQSchema = Type.Object({
     citizenOfAnotherCountry: Type.Boolean(),
     countries: Type.Array(AdditionalCountryCitizenship),
   }),
+  // Section 05
+  residences: Type.Array(Residence),
   otherFederalEmployment: Type.Object({}),
   usMilitary: Type.Object({}),
   policeRecord: Type.Object({}),
