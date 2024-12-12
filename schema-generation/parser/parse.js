@@ -21,6 +21,17 @@ function getAbsolutePosition(element) {
   };
 }
 
+function createQuestionid(condition, text) {
+    const str = condition.trim() + "::" + text.trim();
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32-bit integer
+    }
+    return Math.abs(hash).toString(16);
+}
+
 /**
  * Returns the substring in s after the first occurrence of d,
  * or s if d is not found.
@@ -164,10 +175,6 @@ class Question {
         let dataType = null;
         let examineHints = [..._examineHints];
 
-        if (questionId == "a-6-59") {
-            console.debug("Creating a-6-59 text=%s secondaryChunks=%o", text, secondaryChunks);
-        }
-
         if (firstSecondary) {
             let match = firstSecondary.match(FIELD_TYPE_PATTERN);
             if (match != null) {
@@ -221,7 +228,7 @@ class Question {
         console.assert(typeof text == "string" && text.length > 0, "question text must be a non-empty string")
 
         this.id = questionId;
-        this.text = text;
+        this.text = cleanText(text);
         this.dataType = dataType;
 
         if (!checkboxes) {
@@ -440,7 +447,7 @@ class QuestionGroupParser {
         }
 
         this.#currentGroup = {
-            "condition": this.currentCondition,
+            "condition": this.#currentCondition,
             "prologueContent": [],
             "questionChunks": [],
         };
@@ -453,15 +460,11 @@ class QuestionGroupParser {
         }
 
         const contentType = detectContentType(e);
-        if (text.startsWith("the school address entered above, such as at another")) {
-            console.info("SPECIAL node contentType=%s", contentType);
-        }
         if (contentType == "branch-start") {
-            const condition = cleanText(substringAfter("]", e.innerText));
-            this.currentCondition = condition;
+            this.#currentCondition = substringAfter("branch auto populate", cleanText(e), true).trim();
             this.endGroup();
         } else if (contentType == "branch-end" || contentType == "heading") {
-            this.currentCondition = "";
+            this.#currentCondition = "";
             this.endGroup();
         } else if (contentType == "question") {
             this.#currentGroup.questionChunks.push(e);
@@ -578,17 +581,36 @@ function getElementsBySection(pvqPart) {
     return sections;
 }
 
+function substringAfter(substring, str, caseInsensitive=false) {
+    let index = null;
+    if (caseInsensitive) {
+        index = str.toLowerCase().indexOf(substring.toLowerCase());
+    } else {
+        index = str.indexOf(substring);
+    }
+    if (index === -1) {
+        return str;
+    }
+    return str.slice(index + substring.length);
+}
+
+
 function toTsv(parsed) {
     const rows = [];
-    rows.push(["Section", "Question text", "Data type", "Parser ID", "Schema ID"]);
+    rows.push(["Section", "Parser ID", "Question text", "Data type", "Checkboxes", "Condition", "Review hints", "Schema ID"]);
     for (const section of Object.values(parsed)) {
         for (const group of section.groups) {
             for (const question of group.questions) {
+                const joinedCheckboxes = question.checkboxes ? question.checkboxes.join("|") : "";
+                const joinedHints = question.examineHints ? question.examineHints.join(", ") : "";
                 const row = [
                     section.name,
+                    question.id,
                     question.text,
                     question.dataType,
-                    question.id,
+                    joinedCheckboxes,
+                    group.condition,
+                    joinedHints,
                     ""
                 ];
                 rows.push(row);
@@ -618,15 +640,15 @@ function parseDoc(config) {
         const groups = parseQuestionGroups(content, overrides);
         console.groupEnd();
         parsedSections[sectionId] = {
-            "name": sectionHeading,
+            "name": substringAfter("Section", sectionHeading).trim(),
             "groups": groups
         };
     }
 
-    const allQuestions = Object.values(parsedSections)
-        .flatMap(s => s.groups)
-        .flatMap(g => g.questions);
-    
+    const allGroups = Object.values(parsedSections)
+        .flatMap(s => s.groups);
+    const allQuestions = allGroups.flatMap(g => g.questions);
+
     const typeCounts = {};
     allQuestions.map(q => q.dataType)
         .forEach(dataType => {
@@ -638,7 +660,7 @@ function parseDoc(config) {
     }
     console.debug("Total questions: %o", allQuestions.length);
     console.groupEnd();
-    
+
     console.info("Completed parsing PVQ word doc");
     console.info("To copy the parsed JSON to your clipboard, run %ccopy(JSON.stringify(parsedSections, null, 2))", "color: blue")
 
