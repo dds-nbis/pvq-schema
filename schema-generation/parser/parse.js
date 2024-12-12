@@ -4,6 +4,8 @@ function getXCoord(e) {
     return getAbsolutePosition(e).left;
 }
 
+const BULLET = "•";
+
 /**
  * Gets absolute bounding box info for an element.
  * 
@@ -78,18 +80,17 @@ function detectContentType(e) {
         } else {
             return "heading";
         }
+    }
+
+    // tests whether text starts with an uppercase letter or a left square bracket
+    const QUESTION_CONTENT_PATTERN = /^[A-Za-z\[]/;
+    let isQuestionLike = e.parentNode.tagName == "TD"
+        && fontFamily.indexOf("Garamond") >= 0
+        && QUESTION_CONTENT_PATTERN.test(e.innerText.trim());
+    if (isQuestionLike) {
+        return "question";
     } else {
-        let parent = e.parentElement;
-        if (e.parentNode.tagName == "TD" && fontFamily.indexOf("Garamond") >= 0) {
-            return "question";
-            // if (isQuestionLike(e)) {
-            //     return "question-text";
-            // } else {
-            //     return "question-other";
-            // }
-        } else {
-            return "text";
-        }
+        return "text";
     }
 }
 
@@ -163,6 +164,10 @@ class Question {
         let dataType = null;
         let examineHints = [..._examineHints];
 
+        if (questionId == "a-6-59") {
+            console.debug("Creating a-6-59 text=%s secondaryChunks=%o", text, secondaryChunks);
+        }
+
         if (firstSecondary) {
             let match = firstSecondary.match(FIELD_TYPE_PATTERN);
             if (match != null) {
@@ -170,7 +175,6 @@ class Question {
                 secondaryChunks.shift();
             } else {
                 dataType = "unknown";
-                examineHints.push("datatype");
             }
         } else {
             dataType = "text";
@@ -190,9 +194,14 @@ class Question {
             }
         }
 
-        if (dataType == "unknown" && checkboxes.length > 0) {
-            dataType = "checkboxes";
+        if (dataType == "unknown") {
+            if (checkboxes.length > 0) {
+                dataType = "checkboxes";
+            } else {
+                examineHints.push("datatype");
+            }
         }
+
         dataType = dataType.trim();
         dataType = DATATYPE_MAPPINGS[dataType] || dataType;
 
@@ -273,6 +282,32 @@ function findFirstAbove(e, candidates) {
     return lastMatch;
 }
 
+/**
+ * Some of the questions use strings of nbsp whitespace to visually separate different
+ * chunks of the question content, rather than using different paras or table cells.
+ * This function detects such formatting in the main question text chunk, and moves separate
+ * chunks (like "[] Yes" and "[] No" checkbox values) to the start of the secondaryChunks
+ * array.
+ */
+function cleanupNbspChunks(questionText, secondaryChunks) {
+    const NBSP_PATTERN = / {3,} *\[[^\n ]+/g;
+    const match = questionText.match(NBSP_PATTERN);
+    if (match == null) {
+        return {
+            "questionText": questionText,
+            "secondaryChunks": secondaryChunks
+        };
+    } else {
+        const remaining = cleanText(questionText.split(NBSP_PATTERN).join("\n"));
+        const matches = match.map(cleanText);
+        const newSecondaryChunks = matches.concat(secondaryChunks);
+        return {
+            "questionText": remaining,
+            "secondaryChunks": newSecondaryChunks
+        };
+    }
+}
+
 function parseQuestions(allChunks) {
     let leftEdge = 10000;
     let leftmostChunks = [];
@@ -291,6 +326,7 @@ function parseQuestions(allChunks) {
             leftEdge = left;
         }
     }
+
 
     for (const chunk of filteredChunks) {
         let left = getXCoord(chunk);
@@ -319,7 +355,7 @@ function parseQuestions(allChunks) {
         if (yGap < 4) {
             let curQuestionChunk = primaryChunks.at(-1);
             let curSuffix = curQuestionChunk.getAttribute("question-suffix") || "";
-            curQuestionChunk.setAttribute("question-suffix", curSuffix + " " + text);
+            curQuestionChunk.setAttribute("question-suffix", curSuffix + "\n" + text);
         } else {
             primaryChunks.push(chunk);
         }
@@ -364,11 +400,12 @@ function parseQuestions(allChunks) {
         const examineHints = [];
         if (suffix != "") {
             examineHints.push("complex_text_dom");
-            console.debug("Assembling multi-chunk question text e=%o, main='%s' suffix='%s'", e, mainText, suffix);
+            console.warn("Assembling multi-chunk question text e=%o, main='%s' suffix='%s'", e, mainText, suffix);
         }
-        const questionText = cleanText(mainText + " " + suffix);
+        const questionText = (mainText + " " + suffix).trim();
         let secondaryChunks = reorganized.get(e);
-        const question = Question.create(questionId, questionText, secondaryChunks, examineHints);
+        const cleaned = cleanupNbspChunks(questionText, secondaryChunks);
+        const question = Question.create(questionId, cleaned.questionText, cleaned.secondaryChunks, examineHints);
         output.push(question);
     }
     return output;
@@ -416,6 +453,9 @@ class QuestionGroupParser {
         }
 
         const contentType = detectContentType(e);
+        if (text.startsWith("the school address entered above, such as at another")) {
+            console.info("SPECIAL node contentType=%s", contentType);
+        }
         if (contentType == "branch-start") {
             const condition = cleanText(substringAfter("]", e.innerText));
             this.currentCondition = condition;
@@ -505,7 +545,7 @@ function getElementsBySection(pvqPart) {
     let nodeNum = 0;
     document.querySelectorAll("h2, h3, h4, p").forEach((e, pvqId) => {
         var text = cleanText(e);
-        const match = /^(Continuation of )?Section ([0-9]+) -/.exec(text);
+        const match = /^(Continuation of )?Section ([0-9]+) (-|–)/.exec(text);
         if (match != null) {
             const sectionName = cleanText(e).trim();
             sections.set(sectionName, []);
@@ -536,6 +576,29 @@ function getElementsBySection(pvqPart) {
     }
 
     return sections;
+}
+
+function toTsv(parsed) {
+    const rows = [];
+    rows.push(["Section", "Question text", "Data type", "Parser ID", "Schema ID"]);
+    for (const section of Object.values(parsed)) {
+        for (const group of section.groups) {
+            for (const question of group.questions) {
+                const row = [
+                    section.name,
+                    question.text,
+                    question.dataType,
+                    question.id,
+                    ""
+                ];
+                rows.push(row);
+            }
+        }
+    }
+
+    return rows
+        .map(row => row.join("\t"))
+        .join("\n");
 }
 
 function parseDoc(config) {

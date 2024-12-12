@@ -1,4 +1,5 @@
 window.parserConfig = {
+    /*
     "overrides": {
         "a-1-10": "lastName",
         "a-1-13": "firstName",
@@ -1431,5 +1432,6 @@ window.parserConfig = {
         "a-18-683": null,
         "a-18-687": null
     },
+    */
     "pvqPart": "a",
 }
