@@ -5,8 +5,10 @@
   "keywords": [
     "pvq"
   ],
+  "type": "module",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "tsc && node scripts/genSchema.mjs"
+    "build": "tsc"
   },
   "exports": {
     "import": "./lib/index.js"
