@@ -1,6 +1,6 @@
 {
   "name": "pvq-schema",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Schema for the PVQ",
   "keywords": [
     "pvq"
@@ -10,9 +10,7 @@
   "scripts": {
     "build": "tsc"
   },
-  "exports": {
-    "import": "./lib/index.js"
-  },
+  "exports": "./lib/index.js",
   "author": "DDS",
   "devDependencies": {
     "typescript": "^5.6.3"
