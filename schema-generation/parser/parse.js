@@ -21,7 +21,15 @@ function getAbsolutePosition(element) {
   };
 }
 
-
+function getCounts(collection, extractor) {
+    const counts = new Map();
+    for (const e of collection) {
+        const value = extractor(e);
+        const curCount = counts.get(value) || 0;
+        counts.set(value, curCount + 1);
+    }
+    return counts;
+}
 
 /**
  * Returns the substring in s after the first occurrence of d,
@@ -143,8 +151,14 @@ const SPECIAL_CHUNKS = {
 }
 
 const DATATYPE_MAPPINGS = {
-    "mm/yy": "mm/yyyy",
-    "addr + type": "address + type"
+    "mm/yy": "month",
+    "mm/yyyy": "month",
+    "addr + type": "email_and_type",
+    "address + type": "email_and_type",
+    "country code|number|extension|type": "phone_number_and_type",
+    "country code |number|extension|type": "phone_number_and_type",
+    "yyyy": "year",
+
 }
 
 
@@ -161,7 +175,7 @@ const DATATYPE_MAPPINGS = {
  */
 class Question {
 
-    static create(questionId, text, secondaryChunks, _examineHints) {
+    static create(questionId, nodeId, text, secondaryChunks, _examineHints) {
         const firstSecondary = secondaryChunks[0];
         let dataType = null;
         let examineHints = [..._examineHints];
@@ -179,24 +193,33 @@ class Question {
             examineHints.push("no_secondary_chunks");
         }
 
-        const checkboxes = [];
+        let checkboxes = [];
         const otherChunks = [];
         for (const chunk of secondaryChunks) {
             if (CHECKBOX_PATTERN.test(chunk)) {
                 let checkboxText = substringAfter(']', chunk).trim();
                 checkboxes.push(checkboxText);
             } else if (chunk in SPECIAL_CHUNKS) {
-                checkboxes.push(...[SPECIAL_CHUNKS[chunk]])
+                checkboxes.push(...SPECIAL_CHUNKS[chunk])
             } else {
                 otherChunks.push(chunk.trim());
             }
+        }
+
+        let allowsIDontKnow = false;
+        console.debug("Processing I don't knows questionId=%s text=%s checkboxes=%o", questionId, text, checkboxes)
+        const filteredCheckboxes = checkboxes.filter(s => s.toLowerCase() != "i don't know");
+        if (filteredCheckboxes.length < checkboxes.length) {
+            allowsIDontKnow = true;
+            checkboxes = filteredCheckboxes;
+            console.info("Question allows I don't know questionId=%s text=%s", questionId, text);
         }
 
         if (dataType == "unknown") {
             if (checkboxes.length > 0) {
                 dataType = "checkboxes";
             } else {
-                examineHints.push("datatype");
+                examineHints.push("undetected_datatype");
             }
         }
 
@@ -211,16 +234,19 @@ class Question {
             examineHints.push("bracket_in_checkbox");
         }
 
-        return new Question(questionId, text, dataType, checkboxes, examineHints);
+        return new Question(questionId, nodeId, text, dataType, checkboxes, allowsIDontKnow, examineHints);
     }
 
-    constructor(questionId, text, dataType, checkboxes, examineHints) {
+    constructor(questionId, nodeId, text, dataType, checkboxes, allowsIDontKnow, examineHints) {
         console.assert(QUESTION_ID_PATTERN.test(questionId), "invalid question ID: %s", questionId);
         console.assert(typeof text == "string" && text.length > 0, "question text must be a non-empty string")
+        console.assert(nodeId != null, "no node ID provided for question questionId=%s text='%s'", questionId, text);
 
         this.id = questionId;
         this.text = cleanText(text);
         this.dataType = dataType;
+        this.nodeId = nodeId;
+        this.allowsIDontKnow = allowsIDontKnow;
 
         if (!checkboxes) {
             checkboxes = [];
@@ -539,17 +565,19 @@ class QuestionGroupParser {
         let output = [];
         for (let e of reorganized.keys()) {
             const mainText = e.innerText;
+            const nodeId = e.getAttribute("pvq-id");
+            console.assert(nodeId != null, "no pvq-id found for question element: %o", e);
             const suffix = e.getAttribute("question-suffix") || "";
             const examineHints = [];
             if (suffix != "") {
-                examineHints.push("complex_text_dom");
+                examineHints.push("complex_html_parsing");
                 console.warn("Assembling multi-chunk question text e=%o, main='%s' suffix='%s'", e, mainText, suffix);
             }
             const questionText = (mainText + " " + suffix).trim();
             let secondaryChunks = reorganized.get(e);
             const cleaned = cleanupNbspChunks(questionText, secondaryChunks);
             const questionId = createQuestionId(this.pvqPart, this.sectionNum, conditionText, questionText);
-            const question = Question.create(questionId, cleaned.questionText, cleaned.secondaryChunks, examineHints);
+            const question = Question.create(questionId, nodeId, cleaned.questionText, cleaned.secondaryChunks, examineHints);
             output.push(question);
         }
         return output;
@@ -610,7 +638,6 @@ function cleanText(s) {
         .trim();
 }
 
-
 /**
  * Organizes all the significant content (non-empty h3, h4 and p tags) in the document
  * by section, with the elements in each section sorted first by Y position, then by X position.
@@ -621,7 +648,6 @@ function cleanText(s) {
 function getElementsBySection(pvqPart) {
     const sections = new Map();
     let currentSection = null;
-    let sectionNum = 0;
     let nodeNum = 0;
     document.querySelectorAll("h2, h3, h4, p").forEach((e, pvqId) => {
         var text = cleanText(e);
@@ -630,8 +656,6 @@ function getElementsBySection(pvqPart) {
             const sectionName = cleanText(e).trim();
             sections.set(sectionName, []);
             currentSection = sectionName;
-            sectionNum = Number(match[2]);
-            nodeNum = 0;
             return;
         }
 
@@ -646,7 +670,7 @@ function getElementsBySection(pvqPart) {
         // question content is too repetitive)
         if (text.length > 0) {
             sections.get(currentSection).push(e);
-            const nodeId = `${pvqPart}-${sectionNum}-${nodeNum++}`;
+            const nodeId = nodeNum++;
             e.setAttribute("pvq-id", nodeId);
         }
     });
@@ -674,7 +698,7 @@ function substringAfter(substring, str, caseInsensitive=false) {
 
 function toTsv(parsed) {
     const rows = [];
-    rows.push(["Section", "Parser ID", "Question text", "Data type", "Checkboxes", "Condition", "Review hints", "Schema ID"]);
+    rows.push(["Section", "Parser ID", "Node ID", "Question text", "Data type", "Optional", "Checkboxes", "Condition", "Review hints", "Schema ID"]);
     for (const section of Object.values(parsed)) {
         for (const group of section.groups) {
             for (const question of group.questions) {
@@ -683,8 +707,10 @@ function toTsv(parsed) {
                 const row = [
                     section.name,
                     question.id,
+                    question.nodeId,
                     question.text,
                     question.dataType,
+                    question.allowsIDontKnow,
                     joinedCheckboxes,
                     group.condition,
                     joinedHints,
