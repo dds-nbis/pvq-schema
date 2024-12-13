@@ -275,11 +275,7 @@ export const USAddress = Type.Object({
   militaryInstallationName: Type.String()
 })
 
-export const USResidence = Type.Object({
-  address: USAddress
-})
-
-export const NonUsResidence = Type.Object({
+export const NonUsAddress = Type.Object({
   physicalAddress: Type.String(),
   city: Type.String(),
   country: Type.String(),
@@ -305,12 +301,31 @@ export const TemporaryLivingPurpose = Type.Union([
 
 export const Residence = Type.Object({
   inUs: Type.Boolean(),
-  usResidence: USResidence,
-  nonUsResidence: NonUsResidence,
+  address: Type.Union([USAddress, NonUsAddress]),
   dateRange: DateRange,
   temporaryAddressOver90Days: Type.Boolean(),
   temporaryLivingPurpose: TemporaryLivingPurpose,
   temporaryLivingPurposeExplanation: Type.Optional(Type.String())
+})
+
+export const Frequency = Type.Union([
+  Type.Literal('daily'),
+  Type.Literal('weekly'),
+  Type.Literal('monthly'),
+  Type.Literal('quarterly'),
+  Type.Literal('annually'),
+  Type.Literal('other')
+])
+
+export const PersonWhoKnowsYou = Type.Object({
+  name: FullName,
+  whenKnown: DateRange,
+  contactFrequency: Frequency,
+  contactFrequencyOtherExplanation: Type.Optional(Type.String()),
+  currentRelationship: Type.String(),
+  phoneNumber: PhoneNumber,
+  emailAddress: Type.Array(EmailAddress),
+  address: Type.Union([USAddress, NonUsAddress])
 })
 
 export const PVQSchema = Type.Object({
@@ -349,8 +364,16 @@ export const PVQSchema = Type.Object({
   }),
   // Section 05
   residences: Type.Array(Residence),
+  // Section 06
+  education: Type.Object({}),
+  // Section 07
+  employment: Type.Object({}),
+  // Section 08
   otherFederalEmployment: Type.Object({}),
+  // Section 09
   usMilitary: Type.Object({}),
+  // Section 10
+  peopleWhoKnowYouWell: Type.Array(PersonWhoKnowsYou),
   policeRecord: Type.Object({}),
   drugActivity: Type.Object({}),
   marijuana: Type.Object({}),
