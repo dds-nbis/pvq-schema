@@ -126,6 +126,10 @@ function sortByPosition(elements) {
     return elements;
 }
 
+function arraysAreEqual(a, b) {
+    return a.length === b.length 
+        && a.every((value, index) => value === b[index]);
+}
 
 
 /**
@@ -167,6 +171,11 @@ const CHECKBOX_MAPPINGS = {
     "Don’t Know": "I Don't Know",
     "I Don’t Know": "I Don't Know"
 };
+
+const DROPDOWN_LIST_MAPPINGS = {
+    "State or Territory": "STATE_OR_TERRITORY",
+    "Country": "COUNTRY"
+}
 
 
 /**
@@ -215,17 +224,33 @@ class Question {
 
         checkboxes = checkboxes.map(s => CHECKBOX_MAPPINGS[s] || s);
 
+        const yesNoCheckboxes = ["Yes", "No"];
+        const yesNoDontknowCheckboxes = ["Yes", "No", "I Don't Know"]
+        let dropdownList = null;
+
+        dataType = dataType.trim().toLowerCase();
+        dataType = DATATYPE_MAPPINGS[dataType] || dataType;
+
         if (dataType == "unknown") {
             if (checkboxes.length > 0) {
-                dataType = "checkboxes";
+                if (arraysAreEqual(checkboxes, yesNoCheckboxes)) {
+                    dataType = "boolean";
+                    checkboxes = [];
+                } else if (arraysAreEqual(checkboxes, yesNoDontknowCheckboxes)) {
+                    dataType = "dropdown";
+                    dropdownList = "YES_NO_DONTKNOW";
+                } else {
+                    dataType = "checkboxes";
+                }
             } else {
                 examineHints.push("undetected_datatype");
             }
+        } else if (dataType == "dropdown") {
+            if (text in DROPDOWN_LIST_MAPPINGS) {
+                dropdownList = DROPDOWN_LIST_MAPPINGS[text];
+                console.debug("Setting dropdown list text='%s' list=%s", text, dropdownList);
+            }
         }
-
-        dataType = dataType.trim();
-        dataType = DATATYPE_MAPPINGS[dataType] || dataType;
-
 
         if (otherChunks.length > 0) {
             examineHints.push("extra_chunks");
@@ -235,10 +260,10 @@ class Question {
             examineHints.push("bracket_in_checkbox");
         }
 
-        return new Question(questionId, nodeId, text, dataType, checkboxes, examineHints);
+        return new Question(questionId, nodeId, text, dataType, checkboxes, dropdownList, examineHints);
     }
 
-    constructor(questionId, nodeId, text, dataType, checkboxes, examineHints) {
+    constructor(questionId, nodeId, text, dataType, checkboxes, dropdownList, examineHints) {
         console.assert(QUESTION_ID_PATTERN.test(questionId), "invalid question ID: %s", questionId);
         console.assert(typeof text == "string" && text.length > 0, "question text must be a non-empty string")
         console.assert(nodeId != null, "no node ID provided for question questionId=%s text='%s'", questionId, text);
@@ -251,6 +276,8 @@ class Question {
         if (!checkboxes) {
             checkboxes = [];
         }
+
+        this.dropdownList = dropdownList || "";
 
         console.assert(Array.isArray(checkboxes), 
             "checkboxes must be an array (actual value: %o)", checkboxes);
@@ -698,7 +725,7 @@ function substringAfter(substring, str, caseInsensitive=false) {
 
 function toTsv(parsed) {
     const rows = [];
-    rows.push(["Section", "Parser ID", "Node ID", "Question text", "Data type", "Checkboxes", "Condition", "Review hints", "Schema ID"]);
+    rows.push(["Section", "Parser ID", "Node ID", "Question text", "Data type", "Checkboxes", "Dropdown list", "Condition", "Review hints", "Schema ID"]);
     for (const section of Object.values(parsed)) {
         for (const group of section.groups) {
             for (const question of group.questions) {
@@ -711,6 +738,7 @@ function toTsv(parsed) {
                     question.text,
                     question.dataType,
                     joinedCheckboxes,
+                    question.dropdownList,
                     group.condition,
                     joinedHints,
                     ""
