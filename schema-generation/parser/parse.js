@@ -725,13 +725,14 @@ function substringAfter(substring, str, caseInsensitive=false) {
 
 function toTsv(parsed) {
     const rows = [];
-    rows.push(["Section", "Parser ID", "Node ID", "Question text", "Data type", "Checkboxes", "Dropdown list", "Condition", "Review hints", "Schema ID"]);
+    rows.push(["Part", "Section", "Parser ID", "Node ID", "Question text", "Data type", "Checkboxes", "Dropdown list", "Condition", "Review hints", "Repetition group", "Schema ID"]);
     for (const section of Object.values(parsed)) {
         for (const group of section.groups) {
             for (const question of group.questions) {
                 const joinedCheckboxes = question.checkboxes ? question.checkboxes.join("|") : "";
                 const joinedHints = question.examineHints ? question.examineHints.join(", ") : "";
                 const row = [
+                    window.parserConfig.pvqPart.toUpperCase(),
                     section.name,
                     question.id,
                     question.nodeId,
@@ -741,6 +742,7 @@ function toTsv(parsed) {
                     question.dropdownList,
                     group.condition,
                     joinedHints,
+                    "",
                     ""
                 ];
                 rows.push(row);
@@ -809,6 +811,7 @@ function parseDoc(config) {
     console.debug("Total questions: %o", allQuestions.length);
     console.info("Completed parsing PVQ word doc");
     console.info("To copy the parsed JSON to your clipboard, run %ccopy(JSON.stringify(parsedSections, null, 2))", "color: blue")
+    console.info("To copy the parsed TSV to your clipboard, run %ccopy(toTsv(parsedSections))", "color: blue")
 
     return parsedSections;
 }
