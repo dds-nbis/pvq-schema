@@ -25,8 +25,10 @@ function getCounts(collection, extractor) {
     const counts = new Map();
     for (const e of collection) {
         const value = extractor(e);
-        const curCount = counts.get(value) || 0;
-        counts.set(value, curCount + 1);
+        if (value) {
+            const curCount = counts.get(value) || 0;
+            counts.set(value, curCount + 1);
+        }
     }
     return counts;
 }
@@ -158,8 +160,13 @@ const DATATYPE_MAPPINGS = {
     "country code|number|extension|type": "phone_number_and_type",
     "country code |number|extension|type": "phone_number_and_type",
     "yyyy": "year",
-
 }
+
+const CHECKBOX_MAPPINGS = {
+    "No.": "No",
+    "Don’t Know": "I Don't Know",
+    "I Don’t Know": "I Don't Know"
+};
 
 
 /**
@@ -206,14 +213,7 @@ class Question {
             }
         }
 
-        let allowsIDontKnow = false;
-        console.debug("Processing I don't knows questionId=%s text=%s checkboxes=%o", questionId, text, checkboxes)
-        const filteredCheckboxes = checkboxes.filter(s => s.toLowerCase() != "i don't know");
-        if (filteredCheckboxes.length < checkboxes.length) {
-            allowsIDontKnow = true;
-            checkboxes = filteredCheckboxes;
-            console.info("Question allows I don't know questionId=%s text=%s", questionId, text);
-        }
+        checkboxes = checkboxes.map(s => CHECKBOX_MAPPINGS[s] || s);
 
         if (dataType == "unknown") {
             if (checkboxes.length > 0) {
@@ -226,6 +226,7 @@ class Question {
         dataType = dataType.trim();
         dataType = DATATYPE_MAPPINGS[dataType] || dataType;
 
+
         if (otherChunks.length > 0) {
             examineHints.push("extra_chunks");
         } else if (text.indexOf('[') >= 0) {
@@ -234,10 +235,10 @@ class Question {
             examineHints.push("bracket_in_checkbox");
         }
 
-        return new Question(questionId, nodeId, text, dataType, checkboxes, allowsIDontKnow, examineHints);
+        return new Question(questionId, nodeId, text, dataType, checkboxes, examineHints);
     }
 
-    constructor(questionId, nodeId, text, dataType, checkboxes, allowsIDontKnow, examineHints) {
+    constructor(questionId, nodeId, text, dataType, checkboxes, examineHints) {
         console.assert(QUESTION_ID_PATTERN.test(questionId), "invalid question ID: %s", questionId);
         console.assert(typeof text == "string" && text.length > 0, "question text must be a non-empty string")
         console.assert(nodeId != null, "no node ID provided for question questionId=%s text='%s'", questionId, text);
@@ -246,7 +247,6 @@ class Question {
         this.text = cleanText(text);
         this.dataType = dataType;
         this.nodeId = nodeId;
-        this.allowsIDontKnow = allowsIDontKnow;
 
         if (!checkboxes) {
             checkboxes = [];
@@ -698,7 +698,7 @@ function substringAfter(substring, str, caseInsensitive=false) {
 
 function toTsv(parsed) {
     const rows = [];
-    rows.push(["Section", "Parser ID", "Node ID", "Question text", "Data type", "Optional", "Checkboxes", "Condition", "Review hints", "Schema ID"]);
+    rows.push(["Section", "Parser ID", "Node ID", "Question text", "Data type", "Checkboxes", "Condition", "Review hints", "Schema ID"]);
     for (const section of Object.values(parsed)) {
         for (const group of section.groups) {
             for (const question of group.questions) {
@@ -710,7 +710,6 @@ function toTsv(parsed) {
                     question.nodeId,
                     question.text,
                     question.dataType,
-                    question.allowsIDontKnow,
                     joinedCheckboxes,
                     group.condition,
                     joinedHints,
@@ -769,9 +768,17 @@ function parseDoc(config) {
     for (const [dataType, count] of Object.entries(typeCounts)) {
         console.debug("Count for type %s: %o", dataType, count);
     }
-    console.debug("Total questions: %o", allQuestions.length);
+
+    console.debug("Counts by checkbox values");
+    let checkboxCounts = getCounts(allQuestions, q => q.checkboxes ? q.checkboxes.join("|") : null);
+    [...checkboxCounts.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .forEach(([checkboxes, count]) => {
+            console.debug("CHECKBOXES %s: %s", checkboxes, count)
+        });
     console.groupEnd();
 
+    console.debug("Total questions: %o", allQuestions.length);
     console.info("Completed parsing PVQ word doc");
     console.info("To copy the parsed JSON to your clipboard, run %ccopy(JSON.stringify(parsedSections, null, 2))", "color: blue")
 
