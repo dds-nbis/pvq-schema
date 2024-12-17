@@ -1,4 +1,5 @@
 import { Static, Type } from "@sinclair/typebox";
+import { statesOrTerritories } from "./statesOrTerritories";
 
 /**
  * Dates are expected to be in ISO8601 format yyyy-mm-dd
@@ -265,6 +266,68 @@ export const AdditionalCountryCitizenship = Type.Object({
   stillActive: Type.Boolean()
 })
 
+export const USAddress = Type.Object({
+  street: Type.String(),
+  city: Type.String(),
+  stateOrTerritory: Type.String(),
+  zipCode: Type.String(),
+  isMilitaryInstallation: Type.Boolean(),
+  militaryInstallationName: Type.String()
+})
+
+export const NonUsAddress = Type.Object({
+  physicalAddress: Type.String(),
+  city: Type.String(),
+  country: Type.String(),
+  isMilitaryInstallation: Type.Boolean(),
+  militaryInstallation: Type.Object({
+    name: Type.Object({
+      text: Type.Optional(Type.String()),
+      notApplicable: Type.Boolean(),
+      notApplicableExplanation: Type.Optional(Type.String())
+    }),
+    zipCode: Type.String()
+  })
+})
+
+export const TemporaryLivingPurpose = Type.Union([
+  Type.Literal('extendedTravel'),
+  Type.Literal('business'),
+  Type.Literal('school'),
+  Type.Literal('militaryTraining'),
+  Type.Literal('militaryDeployment'),
+  Type.Literal('other')
+])
+
+export const Residence = Type.Object({
+  inUs: Type.Boolean(),
+  address: Type.Union([USAddress, NonUsAddress]),
+  dateRange: DateRange,
+  temporaryAddressOver90Days: Type.Boolean(),
+  temporaryLivingPurpose: TemporaryLivingPurpose,
+  temporaryLivingPurposeExplanation: Type.Optional(Type.String())
+})
+
+export const Frequency = Type.Union([
+  Type.Literal('daily'),
+  Type.Literal('weekly'),
+  Type.Literal('monthly'),
+  Type.Literal('quarterly'),
+  Type.Literal('annually'),
+  Type.Literal('other')
+])
+
+export const PersonWhoKnowsYou = Type.Object({
+  name: FullName,
+  whenKnown: DateRange,
+  contactFrequency: Frequency,
+  contactFrequencyOtherExplanation: Type.Optional(Type.String()),
+  currentRelationship: Type.String(),
+  phoneNumber: PhoneNumber,
+  emailAddress: Type.Array(EmailAddress),
+  address: Type.Union([USAddress, NonUsAddress])
+})
+
 export const PVQSchema = Type.Object({
   version: Type.Number(),
   // Section 01
@@ -299,8 +362,18 @@ export const PVQSchema = Type.Object({
     citizenOfAnotherCountry: Type.Boolean(),
     countries: Type.Array(AdditionalCountryCitizenship),
   }),
+  // Section 05
+  residences: Type.Array(Residence),
+  // Section 06
+  education: Type.Object({}),
+  // Section 07
+  employment: Type.Object({}),
+  // Section 08
   otherFederalEmployment: Type.Object({}),
+  // Section 09
   usMilitary: Type.Object({}),
+  // Section 10
+  peopleWhoKnowYouWell: Type.Array(PersonWhoKnowsYou),
   policeRecord: Type.Object({}),
   drugActivity: Type.Object({}),
   marijuana: Type.Object({}),
