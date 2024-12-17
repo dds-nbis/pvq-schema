@@ -1,0 +1,3 @@
+window.parserConfig = {
+   "pvqPart": "c" 
+};
