@@ -1,5 +1,4 @@
 import { Static, Type } from "@sinclair/typebox";
-import { statesOrTerritories } from "./statesOrTerritories";
 
 /**
  * Dates are expected to be in ISO8601 format yyyy-mm-dd
@@ -386,6 +385,6 @@ export const PVQSchema = Type.Object({
 
 export type PVQ = Static<typeof PVQSchema>
 
-export { countries } from "./countries"
-export { countryCodes } from "./countryCodes"
-export { statesOrTerritories } from "./statesOrTerritories"
+export { countries } from "./countries.js"
+export { countryCodes } from "./countryCodes.js"
+export { statesOrTerritories } from "./statesOrTerritories.js"
