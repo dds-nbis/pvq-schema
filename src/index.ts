@@ -374,6 +374,24 @@ export const EducationalInstitution = Type.Object({
     usMilitaryInstallationZip: Type.Optional(Type.String())
   }),
   })
+
+export const DisiplinaryAction = Type.Object({
+  type: Type.String(),
+  explanation: Type.String(),
+  date: Type.Object({
+      date: Type.String(),
+      estimated: Type.Boolean(),
+  }),
+  actionInitiator: FullName,
+})
+export const FederalEmploymentPeriod = Type.Object({
+  dateRange:DateRange,
+  disaplinaryAction: Type.Optional(DisiplinaryAction),
+})
+export const OtherFederalEmployment = Type.Object({
+  agency: Type.String(),
+  employmentPeriods: Type.Array(FederalEmploymentPeriod),
+})
 export const PVQSchema = Type.Object({
   version: Type.Number(),
   // Section 01
@@ -415,7 +433,7 @@ export const PVQSchema = Type.Object({
   // Section 07
   employment: Type.Object({}),
   // Section 08
-  otherFederalEmployment: Type.Object({}),
+  otherFederalEmployment: Type.Array(OtherFederalEmployment),
   // Section 09
   usMilitary: Type.Object({}),
   // Section 10
