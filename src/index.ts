@@ -68,7 +68,7 @@ export const PhoneNumber = Type.Object({
   callTimePreference: Type.Union([
     Type.Literal("day"),
     Type.Literal("night"),
-    Type.Literal("preference")
+    Type.Literal("both")
   ])
 })
 
