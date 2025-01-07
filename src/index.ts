@@ -56,6 +56,7 @@ export const months = [
 //     explanation: PlainString;
 //   };
 
+export const YesNo = Type.Union([Type.Literal("yes"), Type.Literal("no")])
 export const PhoneNumber = Type.Object({
   countryCode: Type.String(),
   number: Type.String(),
@@ -326,13 +327,14 @@ export const PersonWhoKnowsYou = Type.Object({
   emailAddress: Type.Array(EmailAddress),
   address: Type.Union([USAddress, NonUsAddress])
 })
+
 export const EducationalInstitution = Type.Object({ 
   name: Type.String(),
   type: Type.Union([Type.Literal("trade"), Type.Literal("higher"), Type.Literal("secondary"), Type.Literal("other")]),
   learningExperience: Type.Union([Type.Literal("inPerson"), Type.Literal("distance"), Type.Literal("hybrid")]),
   datesAttended: DateRange,
-  degreeReceived: Type.Union([Type.Literal('yes'), Type.Literal('no')]),
-  physicalLocation: Type.Union([Type.Literal("yes"), Type.Literal("no")]),
+  degreeReceived: YesNo,
+  physicalLocation: YesNo,
   schoolAddress: Type.Object({
     usBased: Type.Boolean(),
     street: Type.Optional(Type.String()),
@@ -358,10 +360,10 @@ export const EducationalInstitution = Type.Object({
   referenceRelation: Type.Union([Type.Literal("instructor"),Type.Literal("counselor"), Type.Literal("friend"), Type.Literal("schoolmate"), Type.Literal("other")]),
   referenceRelationOther: Type.Optional(Type.String()),
   referencePhoneNumber: Type.Array(Type.Union([PhoneNumber, Type.Object({
-    dsn: Type.Union([Type.Literal("yes"), Type.Literal("no")]),
-    sensitivePermission: Type.Union([Type.Literal("yes"), Type.Literal("no")]),
+    dsn: YesNo,
+    sensitivePermission: YesNo,
   })])),
-  referenceLiveOrWorkInUs: Type.Union([Type.Literal("yes"), Type.Literal("no")]),
+  referenceLiveOrWorkInUs: YesNo,
   referenceAddress: Type.Object({
     usBased: Type.Boolean(),
     street: Type.Optional(Type.String()),
@@ -369,7 +371,7 @@ export const EducationalInstitution = Type.Object({
     country: Type.Optional(Type.String()),
     stateOrTerritory: Type.Optional(Type.String()),
     zipCode: Type.Optional(Type.String()),
-    isUsMilitaryInstallation: Type.Union([Type.Literal("yes"), Type.Literal("no")]),
+    isUsMilitaryInstallation: YesNo,
     usMilitaryInstallationName: Type.Optional(Type.String()),
     usMilitaryInstallationZip: Type.Optional(Type.String())
   }),
