@@ -61,18 +61,14 @@ export const PhoneNumber = Type.Object({
   number: Type.String(),
   extension: Type.String(),
   type: Type.Union([
-    Type.Literal("day"),
-    Type.Literal("night"),
-    Type.Literal("dayOrNight"),
-    Type.Literal("extension"),
-    Type.Literal("international"),
-    Type.Literal("dsn"),
-    Type.Literal("unknown")
-  ]),
-  location: Type.Union([
     Type.Literal("cell"),
     Type.Literal("home"),
-    Type.Literal("work")
+    Type.Literal("work"),
+  ]),
+  callTimePreference: Type.Union([
+    Type.Literal("day"),
+    Type.Literal("night"),
+    Type.Literal("both")
   ])
 })
 
