@@ -323,7 +323,7 @@ export const PersonWhoKnowsYou = Type.Object({
   address: Type.Union([USAddress, NonUsAddress])
 })
 
-export const DisiplinaryAction = Type.Object({
+export const DisciplinaryAction = Type.Object({
   type: Type.String(),
   explanation: Type.String(),
   date: Type.Object({
@@ -334,7 +334,7 @@ export const DisiplinaryAction = Type.Object({
 })
 export const FederalEmploymentPeriod = Type.Object({
   dateRange:DateRange,
-  disaplinaryAction: Type.Optional(DisiplinaryAction),
+  disciplinaryActions: Type.Array(DisciplinaryAction),
 })
 export const OtherFederalEmployment = Type.Object({
   agency: Type.String(),
