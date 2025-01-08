@@ -87,10 +87,10 @@ export const USCitizenshipStatus = Type.Union([
   Type.Literal("nationalByBirthBornToParentsInForeignCountry"),
 ])
 
-export const Name = Type.Object({
+export const Name = Type.Union([Type.Object({
   text: Type.String(),
   lettersOnly: Type.Boolean()
-})
+}), Type.String()])
 
 const Suffix = Type.Object({
   text: Type.Union([
