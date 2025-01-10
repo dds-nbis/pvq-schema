@@ -6,21 +6,6 @@ import { Static, Type } from "@sinclair/typebox";
  */
 type Date = string
 
-export const suffixOptions = [
-  "Jr.",
-  "Sr.",
-  "II",
-  "III",
-  "IV",
-  "V",
-  "VI",
-  "VII",
-  "VIII",
-  "IX",
-  "X",
-  "Other",
-];
-
 export const months = [
   "01 - January",
   "02 - February",
@@ -36,25 +21,11 @@ export const months = [
   "12 - December",
 ];
 
-// type Suffix =
-//   | {
-//     text:
-//     | Type.Literal("Jr.")
-//     | Type.Literal("Sr.")
-//     | Type.Literal("II")
-//     | Type.Literal("III")
-//     | Type.Literal("IV")
-//     | Type.Literal("V")
-//     | Type.Literal("VI")
-//     | Type.Literal("VII")
-//     | Type.Literal("VIII")
-//     | Type.Literal("IX")
-//     | Type.Literal("X")
-//   }
-//   | {
-//     text: "Other";
-//     explanation: PlainString;
-//   };
+export const YesNoDontKnow = Type.Union([
+  Type.Literal("yes"),
+  Type.Literal("no"),
+  Type.Literal("dontKnow")
+])
 
 export const PhoneNumber = Type.Object({
   countryCode: Type.String(),
@@ -110,6 +81,17 @@ const Suffix = Type.Object({
   explanation: Type.Optional(Type.String())
 })
 
+export const DateType = Type.Object({
+  value: Type.String(),
+  estimated: Type.Boolean(),
+})
+
+export const DateTypeWithPresent = Type.Object({
+  value: Type.String(),
+  estimated: Type.Boolean(),
+  present: Type.Boolean(),
+})
+
 export const DateRange = Type.Object({
   from: Type.Object({
     date: Type.String(),
@@ -163,7 +145,7 @@ export const ContactInformation = Type.Object({
 })
 
 export const IdentityDocument = Type.Object({
-  hasItem: Type.Union([Type.Literal('yes'), Type.Literal('no'), Type.Literal('dontKnow')]),
+  hasItem: YesNoDontKnow,
   explanation: Type.String(),
   number: Type.String(),
   lastName: Name,
@@ -340,6 +322,108 @@ export const OtherFederalEmployment = Type.Object({
   agency: Type.String(),
   employmentPeriods: Type.Array(FederalEmploymentPeriod),
 })
+
+/** Section 6: Education **/
+
+export const PhysicalAddress = Type.Object({
+  physicalAddressInUs: Type.Boolean(),
+  physicalAddressUsStreet: Type.String(),
+  physicalAddressUsCity: Type.String(),
+  physicalAddressUsState: Type.String(),
+  physicalAddressUsZipcode: Type.String(),
+  physicalAddressUsIsMilitaryInstallation: Type.Boolean(),
+  physicalAddressUsMilitaryInstallationName: Type.String(),
+  physicalAddressNonUsStreet: Type.String(),
+  physicalAddressNonUsCity: Type.String(),
+  physicalAddressNonUsCountry: Type.String(),
+  physicalAddressNonUsIsUsgFacility: Type.Boolean(),
+  pysicalAddressNonUsUsgFacilityName: Type.Object({
+    value: Type.String(),
+    notApplicable: Type.Boolean(),
+  }),
+  physicalAddressNonUsPostCode: Type.String(),
+})
+
+export const PreviousSchool = Type.Object({
+  schoolName: Type.String(),
+  schoolType: Type.String(),
+  schoolTypeExplanation: Type.String(),
+  learningExperience: Type.String(),
+  learningExperienceExplanation: Type.String(),
+  fromMonth: DateType,
+  toMonth: DateTypeWithPresent,
+  isInUs: Type.Boolean(),
+  addressUsStreet: Type.String(),
+  addressUsCity: Type.String(),
+  addressUsState: Type.String(),
+  addressUsZipcode: Type.String(),
+  addressNonUsCity: Type.String(),
+  addressNonUsCountry: Type.String(),
+  degreeType: Type.String(),
+  degreeTypeExplanation: Type.String(),
+  awardMonth: DateType,
+})
+
+export const SchoolInformation = Type.Object({
+  schoolName: Type.String(),
+  schoolNoLongerInBusiness: Type.Boolean(),
+  schoolType: Type.String(),
+  schoolTypeExplanation: Type.String(),
+  learningExperience: Type.String(),
+  startDate: Type.Object(DateType),
+  endDate: Type.Object(DateTypeWithPresent),
+  isSchoolInUs: Type.Boolean(),
+  addressUsStreet: Type.String(),
+  addressUsCity: Type.String(),
+  addressUsState: Type.String(),
+  addressUsZipcode: Type.String(),
+  addressNonUsCity: Type.String(),
+  addressNonUsCountry: Type.String(),
+  receivedDegreeOrDiploma: Type.Boolean(),
+  degreeType: Type.String(),
+  degreeTypeExplanation: Type.String(),
+  degreeDate: DateType,
+  differentPhysicalLocation: Type.String(),
+  physicalAddresses: Type.Array(PhysicalAddress),
+  educationReferenceLastName: Type.String(),
+  educationReferenceFirstName: Type.String(),
+  educationReferenceMiddleName: Type.Object({
+    value: Type.String(),
+    dontKnow: Type.Boolean(),
+  }),
+  educationReferenceSuffix: Type.Optional(Suffix),
+  educationReferenceRelationship: Type.String(),
+  educationReferenceRelationshipExplanation: Type.String(),
+  educationReferencePhone: Type.Object({
+    value: Type.String(),
+    dontKnow: Type.Boolean(),
+  }),
+  educationReferenceEmail: Type.Object({
+    value: Type.String(),
+    dontKnow: Type.Boolean(),
+  }),
+  educationReferenceInUS: Type.Boolean(),
+  educationReferenceUsAddressNotKnown: Type.Boolean(),
+  educationReferenceAddressUsStreet: Type.String(),
+  educationReferenceAddressUsCity: Type.String(),
+  educationReferenceAddressUsState: Type.String(),
+  educationReferenceAddressUsZipcode: Type.String(),
+  educationReferenceAddressUsIsMilitaryInstallation: YesNoDontKnow,
+  educationReferenceAddressUsMilitaryInstallationName: Type.String(),
+  educationReferenceAdderssNonUsNotKnown: Type.String(),
+  educationReferenceAddressNonUsStreet: Type.String(),
+  educationReferenceAddressNonUsCity: Type.String(),
+  educationReferenceAddressNonUsCountry: Type.String(),
+  educationReferenceAddressNonUsIsUsgFacility: YesNoDontKnow,
+  educationReferenceAddressNonUsUsgFacilityName: Type.Object({
+    value: Type.String(),
+    dontKnow: Type.Boolean(),
+  }),
+  educationReferenceAddressUsgFacilityPostcode: Type.String(),
+})
+
+/* Section 7 Employment Activities */
+
 export const PVQSchema = Type.Object({
   version: Type.Number(),
   // Section 01
@@ -377,7 +461,11 @@ export const PVQSchema = Type.Object({
   // Section 05
   residences: Type.Array(Residence),
   // Section 06
-  education: Type.Object({}),
+  education: Type.Object({
+    haveAttendedSchools: Type.Object({ value: Type.Boolean() }),
+    schools: Type.Array(SchoolInformation),
+    previousSchools: Type.Array(PreviousSchool),
+  }),
   // Section 07
   employment: Type.Object({}),
   // Section 08
