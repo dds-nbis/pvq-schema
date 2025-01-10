@@ -82,13 +82,11 @@ const sectionMappings = {
 };
 
 function parseSection(rawSection) {
-    const firstWord = rawSection.split(" ")[0].trim();
-    if (firstWord.length == 0) {
-        return "UNKNOWN";
+    const match = /^[0-9]+_([a-zA-Z]+)/.exec(rawSection);
+    if (match != null) {
+        return match[1];
     } else {
-        const normalized = Number(firstWord).toString();
-        const alias = sectionMappings[normalized];
-        return alias ? alias : "UNKNOWN";
+        return "UNKNOWN";
     }
 }
 
@@ -117,7 +115,7 @@ function parseRow(row) {
     const repetitionGroup = coalesce(row[10]);
     const propertyName = coalesce(row[11], "");
 
-    return {
+    const output = {
         "part": row[0],
         "section": section,
         "questionText": row[4],
@@ -127,23 +125,78 @@ function parseRow(row) {
         "repetitionGroup": repetitionGroup,
         "propertyName": propertyName
     };
+
+    if (section == "generalInformation") {
+        console.debug("ROW raw=%o parsed=%o", row, output);
+    }
+
+    return output;
+
+}
+
+TYPE_PATTERNS = {
+    "text": null,
+    "date": "\d{4}-\d{2}-\d{2}",
+    "number": "^\d+(\.\d+)?$",
+    "month": "\d{4}-\d{2}"
+};
+
+function generateProperty(row) {
+    const group = row.repetitionGroup;
+    const propName = row.propertyName;
+    if (!group) {
+        let simpleProp = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string"
+                },
+            },
+            "required": ["value"]
+        };
+        const pattern = TYPE_PATTERNS[row.dataType];
+        if (pattern) {
+            simpleProp.pattern = pattern;
+        }
+        for (let checkbox of row.checkboxes) {
+            simpleProp.properties[checkbox] = {
+                "type": "boolean"
+            };
+        }
+        return simpleProp;
+    } else {
+        // handling repetition groups not implemented yet
+        return null;
+    }
 }
 
 function parseStructure(rawCsv) {
-    const parsed = {};
+    const output = {
+        "type": "object",
+        "properties": {}
+    };
     parseCSV(rawCsv)
         .slice(1)
         .map(parseRow)
-        .filter(row => row.propertyName != "")
+        .filter(row => row.propertyName != "" && row.propertyName != "IGNORE")
         .forEach(row => {
-            const section = row.section;
-            if (section in questionsBySection) {
-                questionsBySection[section].push(row);
-            } else {
-                questionsBySection[section] = [row];
+            const sectionName = row.section;
+            let sectionObj = output.properties[sectionName];
+            if (!sectionObj) {
+                sectionObj = {
+                    "type": "object",
+                    "properties": {}
+                };
+                output.properties[sectionName] = sectionObj;
+            }
+
+            const propName = row.propertyName;
+            var prop = generateProperty(row);
+            if (prop != null) {
+                sectionObj.properties[propName] = prop;
             }
         });
-    return questionsBySection;
+    return output;
 }
 
 document.getElementById('fileInput').addEventListener('change', function(e) {
@@ -153,7 +206,7 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
     reader.onload = function(e) {
         const text = e.target.result;
         const parsed = parseStructure(text);
-        console.debug("Parsed: %o", parsed);
+        console.info("Parsed: %o", parsed);
     };
 
     reader.readAsText(file);
