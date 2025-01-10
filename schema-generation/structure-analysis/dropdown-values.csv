@@ -1,4 +1,4 @@
-const DROPDOWN_VALUES_CSV = `
+List name,Value,Alternate label
 COUNTRY,AFG,Afghanistan
 COUNTRY,XQZ,Akrotiri
 COUNTRY,ALB,Albania
@@ -554,18 +554,18 @@ INVESTIGATING_AGENCY,NGA,DoD - National Geospatial-Intelligence Agency (NGA)
 INVESTIGATING_AGENCY,NRO,DoD - National Reconnaissance Office (NRO)
 INVESTIGATING_AGENCY,NSA,DoD - National Security Agency (NSA)
 INVESTIGATING_AGENCY,CBP,DHS - Customs and Border Protection (CBP)
-INVESTIGATING_AGENCY,FEMA,DHS ï¿½ Federal Emergency Management Agency (FEMA)
+INVESTIGATING_AGENCY,FEMA,DHS – Federal Emergency Management Agency (FEMA)
 INVESTIGATING_AGENCY,DHS-HQ,DHS - Headquarters (DHS-HQ)
 INVESTIGATING_AGENCY,ICE,DHS - Immigration and Customs Enforcement (ICE)
-INVESTIGATING_AGENCY,TSA,DHS ï¿½ Transportation Security Agency (TSA)
-INVESTIGATING_AGENCY,USCG,DHS ï¿½ U.S. Coast Guard (USCG)
-INVESTIGATING_AGENCY,USCIS,DHS ï¿½ U.S. Customs and Immigration Service (USCIS)
+INVESTIGATING_AGENCY,TSA,DHS – Transportation Security Agency (TSA)
+INVESTIGATING_AGENCY,USCG,DHS – U.S. Coast Guard (USCG)
+INVESTIGATING_AGENCY,USCIS,DHS – U.S. Customs and Immigration Service (USCIS)
 INVESTIGATING_AGENCY,USSS,DHS - U.S. Secret Service (USSS)
 INVESTIGATING_AGENCY,ATF,"DOJ - Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF)"
 INVESTIGATING_AGENCY,FBI,DOJ - Federal Bureau of Investigation (FBI)
 INVESTIGATING_AGENCY,DoS,Department of State (DoS)
-INVESTIGATING_AGENCY,BEP,Treasury ï¿½ Bureau of Engraving and Printing
-INVESTIGATING_AGENCY,BFS,Treasury ï¿½ Bureau of Fiscal Services
+INVESTIGATING_AGENCY,BEP,Treasury – Bureau of Engraving and Printing
+INVESTIGATING_AGENCY,BFS,Treasury – Bureau of Fiscal Services
 INVESTIGATING_AGENCY,MCC,Millennium Challenge Corporation
 INVESTIGATING_AGENCY,OPM,Office of Personnel Management (OPM)
 INVESTIGATING_AGENCY,TVA,Tennessee Valley Authority (TVA)
@@ -1047,7 +1047,7 @@ FEDERAL_AGENCY,H-SAA,House Office of the Sergeant at Arms
 FEDERAL_AGENCY,H-SCI,"House Committee on Science, Space, and Technology"
 FEDERAL_AGENCY,H-SMB,House Committee on Small Business
 FEDERAL_AGENCY,H-T_I,House Transportation and Infrastructure Committee
-FEDERAL_AGENCY,H-VET,House Committee on Veteransï¿½ Affairs
+FEDERAL_AGENCY,H-VET,House Committee on Veterans’ Affairs
 FEDERAL_AGENCY,H-W_M,House Committee on Ways and Means
 FEDERAL_AGENCY,HPSCI,House Permanent Select Committee on Intelligence
 FEDERAL_AGENCY,J-JCP,Joint Committee on Printing
@@ -1083,7 +1083,7 @@ FEDERAL_AGENCY,S-R_A,Senate Committee on Rules and Administration
 FEDERAL_AGENCY,S-SAA,Senate Office of the Sergeant at Arms
 FEDERAL_AGENCY,S-SEC,Office of the Secretary of the Senate
 FEDERAL_AGENCY,S-SMB,Senate Committee on Small Business and Entrepreneurship
-FEDERAL_AGENCY,S-VET,Senate Committee on Veteransï¿½ Affairs
+FEDERAL_AGENCY,S-VET,Senate Committee on Veterans’ Affairs
 FEDERAL_AGENCY,SCPS,Stennis Center for Public Service
 FEDERAL_AGENCY,SSCI,Senate Select Committee on Intelligence
 FEDERAL_AGENCY,USBG,U.S. Botanic Garden
@@ -1091,245 +1091,3 @@ FEDERAL_AGENCY,USCO,Copyright Office
 FEDERAL_AGENCY,USCP,U.S. Capitol Police
 FEDERAL_AGENCY,OtherUSG,Other United State Federal Government
 FEDERAL_AGENCY,SLT,"State, Local, Tribal Government"
-YES_NO_DONTKNOW,Yes,
-YES_NO_DONTKNOW,No,
-YES_NO_DONTKNOW,I don't know,
-YES_NO_NOTAPPLICABLE,Yes,
-YES_NO_NOTAPPLICABLE,No,
-YES_NO_NOTAPPLICABLE,Not applicable,
-`.trim();
-
-function parseCSV(csvText) {
-    const rows = [];
-    let currentRow = [];
-    let currentValue = '';
-    let insideQuotes = false;
-
-    for (let i = 0; i < csvText.length; i++) {
-        const char = csvText[i];
-        const nextChar = csvText[i + 1];
-
-        if (char === '"') {
-            if (insideQuotes && nextChar === '"') {
-                // Handle escaped quotes ("") inside quoted values
-                currentValue += '"';
-                i++; // Skip next quote
-            } else {
-                // Toggle quote state
-                insideQuotes = !insideQuotes;
-            }
-        } else if (char === ',' && !insideQuotes) {
-            // End of field
-            currentRow.push(currentValue.trim());
-            currentValue = '';
-        } else if (char === '\n' && !insideQuotes) {
-            // End of row
-            currentRow.push(currentValue.trim());
-            rows.push(currentRow);
-            currentRow = [];
-            currentValue = '';
-        } else {
-            currentValue += char;
-        }
-    }
-
-    // Handle last value
-    if (currentValue || currentRow.length > 0) {
-        currentRow.push(currentValue.trim());
-        rows.push(currentRow);
-    }
-
-    return rows;
-}
-
-const DROPDOWN_VALUES = {};
-for (const row of parseCSV(DROPDOWN_VALUES_CSV)) {
-    const listName = row[0];
-    const value = row[1];
-    if (!DROPDOWN_VALUES[listName]) {
-        DROPDOWN_VALUES[listName] = [];
-    }
-    DROPDOWN_VALUES[listName].push(value);
-}
-
-
-function coalesce(s, defaultValue) {
-    if (s == null || s.trim().length == 0) {
-        return defaultValue;
-    } else {
-        return s;
-    }
-}
-
-const sectionMappings = {
-    "1": "generalInformation",
-    "2": "usPassport",
-    "3": "usCitizenship",
-    "4": "additionalCitizenships",
-    "5": "residences",
-    "6": "education",
-    "7": "employment",
-    "8": "otherFederalEmployment",
-    "9": "usUniformedService",
-    "10": "peopleWhoKnowYouWell",
-    "11": "policeRecord",
-    "12": "drugActivity",
-    "13": "marijuanaUse",
-    "14": "federalPersonnelInvestigations",
-    "15": "federalDebt",
-    "16": "itSystems",
-    "17": "handlingProtectedInformation",
-    "18": "assocations",
-    "19": "alcoholUse",
-    "20": "relationshipStatus",
-    "21": "relatives",
-    "22": "foreignTravel",
-    "23": "financialRecord",
-    "24": "civilCourtActions",
-    "25": "foreignContacts",
-    "26": "foreignFinancialInterests",
-    "27": "foreignBusinessAffairs",
-    "28": "psychologicalHealth",
-    "29": "criminalConvictions"
-};
-
-function parseSection(rawSection) {
-    const match = /^[0-9]+_([a-zA-Z]+)/.exec(rawSection);
-    if (match != null) {
-        return match[1];
-    } else {
-        return "UNKNOWN";
-    }
-}
-
-function recursiveSet(context, path, value) {
-    const parts = path.split('.');
-    const key = parts[0];
-
-    if (parts.length === 1) {
-        context[key] = value;
-        return;
-    }
-
-    if (!context[key] || typeof context[key] !== 'object') {
-        context[key] = {};
-    }
-
-    recursiveSet(context[key], parts.slice(1).join('.'), value);
-}
-
-function parseRow(row) {
-    row = row.map(s => s.trim());
-    const section = parseSection(row[1]);
-    const rawCheckboxes = coalesce(row[6], null);
-    const checkboxes = rawCheckboxes == null ? [] : rawCheckboxes.split("|").map(s => s.trim());
-    const dropdownList = coalesce(row[7], null);
-    const repetitionGroup = coalesce(row[10]);
-    const propertyName = coalesce(row[11], "");
-
-    const output = {
-        "part": row[0],
-        "section": section,
-        "questionText": row[4],
-        "dataType": row[5],
-        "checkboxes": checkboxes,
-        "dropdownList": dropdownList,
-        "repetitionGroup": repetitionGroup,
-        "propertyName": propertyName
-    };
-
-    if (section == "generalInformation") {
-        console.debug("ROW raw=%o parsed=%o", row, output);
-    }
-
-    return output;
-
-}
-
-TYPE_PATTERNS = {
-    "text": null,
-    "date": "\\d{4}-\\d{2}-\\d{2}",
-    "number": "^\\d+(\\.\\d+)?$",
-    "month": "\\d{4}-\\d{2}"
-};
-
-function generateProperty(row) {
-    const group = row.repetitionGroup;
-    const propName = row.propertyName;
-    const dataType = row.dataType;
-    if (!group) {
-        let simpleProp = {
-            "type": "object",
-            "properties": {
-                "value": {
-                    "type": "string"
-                },
-            },
-            "required": ["value"]
-        };
-        const pattern = TYPE_PATTERNS[dataType];
-        if (pattern) {
-            simpleProp.pattern = pattern;
-        }
-        for (let checkbox of row.checkboxes) {
-            simpleProp.properties[checkbox] = {
-                "type": "boolean"
-            };
-        }
-
-        if (dataType == "dropdown") {
-            const valuesList = DROPDOWN_VALUES[row.dropdownList];
-            if (valuesList) {
-                simpleProp.enum = valuesList;
-            } else {
-                console.warn("unknown dropdown list list=%s row=%o", valuesList, row);
-            }
-        }
-        return simpleProp;
-    } else {
-        // handling repetition groups not implemented yet
-        return null;
-    }
-}
-
-function parseStructure(rawCsv) {
-    const output = {
-        "type": "object",
-        "properties": {}
-    };
-    parseCSV(rawCsv)
-        .slice(1)
-        .map(parseRow)
-        .filter(row => row.propertyName != "" && row.propertyName != "IGNORE")
-        .forEach(row => {
-            const sectionName = row.section;
-            let sectionObj = output.properties[sectionName];
-            if (!sectionObj) {
-                sectionObj = {
-                    "type": "object",
-                    "properties": {}
-                };
-                output.properties[sectionName] = sectionObj;
-            }
-
-            const propName = row.propertyName;
-            var prop = generateProperty(row);
-            if (prop != null) {
-                sectionObj.properties[propName] = prop;
-            }
-        });
-    return output;
-}
-
-document.getElementById('fileInput').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-        const text = e.target.result;
-        const parsed = parseStructure(text);
-        console.info("Parsed: %o", parsed);
-    };
-
-    reader.readAsText(file);
-});
