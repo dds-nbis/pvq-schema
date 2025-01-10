@@ -1267,6 +1267,8 @@ function generateProperty(row) {
             },
             "required": ["value"]
         };
+
+        simpleProp["description"] = "Question text: " + row.questionText;
         const pattern = TYPE_PATTERNS[dataType];
         if (pattern) {
             simpleProp.pattern = pattern;
@@ -1280,7 +1282,7 @@ function generateProperty(row) {
         if (dataType == "dropdown") {
             const valuesList = DROPDOWN_VALUES[row.dropdownList];
             if (valuesList) {
-                simpleProp.enum = valuesList;
+                simpleProp.properties.value.enum = valuesList;
             } else {
                 console.warn("unknown dropdown list list=%s row=%o", valuesList, row);
             }
