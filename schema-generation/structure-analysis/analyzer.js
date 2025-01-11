@@ -1,3 +1,5 @@
+const DEBUG = true;
+
 const DROPDOWN_VALUES_CSV = `
 COUNTRY,AFG,Afghanistan
 COUNTRY,XQZ,Akrotiri
@@ -1097,6 +1099,8 @@ YES_NO_DONTKNOW,I don't know,
 YES_NO_NOTAPPLICABLE,Yes,
 YES_NO_NOTAPPLICABLE,No,
 YES_NO_NOTAPPLICABLE,Not applicable,
+YES_NO,Yes,
+YES_NO,No,
 `.trim();
 
 function parseCSV(csvText) {
@@ -1191,75 +1195,110 @@ function parseDelimitedString(s, delimiter) {
     return trimmed.split(delimiter).map(part => part.trim());
 }
 
+const REQUIRED_COLS = new Set(["part", "section", "questionId", "questionText", "propertyName"]);
+
 function parseRow(row) {
     console.assert(row.length >= 11, "BAD ROW, not enough columns row=%o colCount=%s", row, row.length);
     row = row.map(s => s.trim());
-    const section = row[1];
     const checkboxes = parseDelimitedString(row[6], "|");
-    const dropdownList = row[7];
-    const groupPath = parseDelimitedString(row[10], '.');
-    const propertyName = row[11];
-
-    console.assert(propertyName, "BAD ROW, no property name row=%o", row);
+    const groupPath = parseDelimitedString(row[9], '.');
 
     const output = {
         "part": row[0],
-        "section": section,
+        "section": row[1],
+        "questionId": row[2],
         "questionText": row[4],
         "dataType": row[5],
         "checkboxes": checkboxes,
-        "dropdownList": dropdownList,
+        "dropdownList": row[7],
+        "condition": row[8],
         "groupPath": groupPath,
-        "propertyName": propertyName
+        "propertyName": row[10]
     };
 
-    if (section == "generalInformation") {
-        console.debug("ROW raw=%o parsed=%o", row, output);
+    for (const fieldName of REQUIRED_COLS) {
+        const value = output[fieldName];
+        console.assert(value, "Bad row, no %s found row=%o", fieldName, row);
     }
 
     return output;
 
 }
 
-TYPE_PATTERNS = {
+const EMAIL_REGEX = "^(Personal|Work|Unknown): \\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+const PHONE_REGEX = "^(Day|Night|Both|Extension|International|DSN|I don't know): \\d[-\\d]{9,}[-\\w., ]*"
+
+const TYPE_PATTERNS = {
     "text": null,
     "date": "\\d{4}-\\d{2}-\\d{2}",
     "number": "^\\d+(\\.\\d+)?$",
-    "month": "\\d{4}-\\d{2}"
+    "month": "^\\d{4}-\\d{2}",
+    "email": EMAIL_REGEX,
+    "email_multiple": EMAIL_REGEX,
+    "phone": PHONE_REGEX,
+    "phone_multiple": PHONE_REGEX
 };
 
+const MULTIVALUE_TYPES = new Set(["email_multiple", "phone_multiple", "dropdown_multiple"]);
+
 function generateSimpleProperty(row) {
-    const dataType = row.dataType;
-    let simpleProp = {
+    let dataType = row.dataType;
+    const isMultivalue = MULTIVALUE_TYPES.has(dataType);
+    const pattern = TYPE_PATTERNS[dataType];
+    let dropdownList = row.dropdownList;
+    const description = `
+Question text: ${row.questionText}
+
+Question ID: ${row.questionId}
+`.trim();
+
+    if (dataType == "boolean") {
+        dataType = "dropdown";
+        dropdownList = "YES_NO";
+    }
+
+    const enumValues = DROPDOWN_VALUES[dropdownList];
+
+    let prop = {
         "type": "object",
         "properties": {
             "value": {
                 "type": "string"
             },
         },
-        "required": ["value"]
+        "required": ["value"],
+        "additionalProperties": false,
+        "description": description
     };
 
-    simpleProp["description"] = "Question text: " + row.questionText;
-    const pattern = TYPE_PATTERNS[dataType];
     if (pattern) {
-        simpleProp.pattern = pattern;
+        prop.properties.value.pattern = pattern;
     }
+
     for (let checkbox of row.checkboxes) {
-        simpleProp.properties[checkbox] = {
+        prop.properties[checkbox] = {
             "type": "boolean"
         };
     }
 
-    if (dataType == "dropdown") {
-        const valuesList = DROPDOWN_VALUES[row.dropdownList];
-        if (valuesList) {
-            simpleProp.properties.value.enum = valuesList;
-        } else {
-            console.warn("unknown dropdown list list=%s row=%o", valuesList, row);
-        }
+    if (dataType == "dropdown" || dataType == "dropdown_multiple") {
+        console.assert(enumValues, "unknown dropdown list list=%s questionId=%s", 
+            row.dropdownList, row.questionId);
+        prop.properties.value.enum = enumValues;
+    } else {
+        console.assert(!enumValues, "dropdown list defined for non-dropdown question list=%s question=%s", 
+            row.dropdownList, row.questionId);
     }
-    return simpleProp;
+
+    if (isMultivalue) {
+        const valueSpec = prop.properties.value;
+        prop.properties.value = {
+            "type": "array",
+            "items": valueSpec
+        };
+    }
+
+    return prop;
 }
 
 function stripPrefix(prefix, value) {
@@ -1283,14 +1322,18 @@ function processQuestions(contextObj, contextDepth, questions) {
     console.debug("Called processQuestions contextObj=%o contextDepth=%s questions=%o", 
         contextObj, contextDepth, questions);
     const nestedQuestions = [];
+    const requiredProps = [];
 
     for (const q of questions) {
         const propName = q.propertyName;
         const groupPath = q.groupPath.slice(contextDepth);
+        const condition = q.condition;
         if (groupPath.length == 0) {
             let prop = generateSimpleProperty(q);
             contextObj.properties[propName] = prop;
-            contextObj.required.push(propName);
+            if (!DEBUG && condition == "") {
+                contextObj.required.push(propName);
+            }
         } else {
             nestedQuestions.push(q);
         }
@@ -1305,11 +1348,14 @@ function processQuestions(contextObj, contextDepth, questions) {
             "items": {
                 "type": "object",
                 "properties": {},
-                "required": []
+                "required": [],
+                "additionalProperties": false
             }
         };
         contextObj.properties[arrayPropName] = prop;
-        contextObj.required.push(arrayPropName);
+        if (!DEBUG) {
+            contextObj.required.push(arrayPropName);
+        }
 
         processQuestions(prop.items, contextDepth + 1, children);
     }
@@ -1326,9 +1372,19 @@ function generateSchema(rawCsv) {
     const questionsBySection = Map.groupBy(allQuestions, q => q.section);
 
     const output = {
+        "$id": "https://example.com/pvq.schema.json",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "Personnel Vetting Questionaire",
+        "description": "Validates responses to the US Federal Personnel Vetting Questionaire",
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+            "applicantType": {
+                "type": "string",
+                "enum": ["Low Risk", "Public Trust", "National Security"]
+            }
+        },
+        "required": ["applicantType"],
+        "additionalProperties": false
     };
 
     for (const rawSection of questionsBySection.keys()) {
@@ -1343,10 +1399,13 @@ function generateSchema(rawCsv) {
             "type": "object",
             "properties": {},
             "required": [],
+            "additionalProperties": false,
             "title": `Section ${sectionNum}: ${sectionName}`
         };
         output.properties[sectionName] = sectionObj;
-        output.required.push(sectionName);
+        if (!DEBUG) {
+            output.required.push(sectionName);
+        }
 
         processQuestions(sectionObj, 0, sectionQuestions);
         console.groupEnd();
@@ -1361,8 +1420,9 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
 
     reader.onload = function(e) {
         const text = e.target.result;
-        const schema = generateSchema(text);
-        console.info("Schema: %o", schema);
+        window.pvqSchema = generateSchema(text);
+        console.info("Generated schema: %o", window.pvqSchema);
+        console.info("To copy the schema JSON to your clipboard, run %ccopy(JSON.stringify(pvqSchema, null, 2))", "color: blue")
     };
 
     reader.readAsText(file);
