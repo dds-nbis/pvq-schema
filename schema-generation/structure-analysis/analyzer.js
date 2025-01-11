@@ -1161,45 +1161,10 @@ function coalesce(s, defaultValue) {
     }
 }
 
-const sectionMappings = {
-    "1": "generalInformation",
-    "2": "usPassport",
-    "3": "usCitizenship",
-    "4": "additionalCitizenships",
-    "5": "residences",
-    "6": "education",
-    "7": "employment",
-    "8": "otherFederalEmployment",
-    "9": "usUniformedService",
-    "10": "peopleWhoKnowYouWell",
-    "11": "policeRecord",
-    "12": "drugActivity",
-    "13": "marijuanaUse",
-    "14": "federalPersonnelInvestigations",
-    "15": "federalDebt",
-    "16": "itSystems",
-    "17": "handlingProtectedInformation",
-    "18": "assocations",
-    "19": "alcoholUse",
-    "20": "relationshipStatus",
-    "21": "relatives",
-    "22": "foreignTravel",
-    "23": "financialRecord",
-    "24": "civilCourtActions",
-    "25": "foreignContacts",
-    "26": "foreignFinancialInterests",
-    "27": "foreignBusinessAffairs",
-    "28": "psychologicalHealth",
-    "29": "criminalConvictions"
-};
-
 function parseSection(rawSection) {
-    const match = /^[0-9]+_([a-zA-Z]+)/.exec(rawSection);
-    if (match != null) {
-        return match[1];
-    } else {
-        return "UNKNOWN";
-    }
+    const match = /^([0-9]+)_([a-zA-Z]+)/.exec(rawSection);
+    console.assert(match != null, "Bogus section name: %s", rawSection);
+    return [Number(match[1]), match[2]];
 }
 
 function recursiveSet(context, path, value) {
@@ -1218,14 +1183,24 @@ function recursiveSet(context, path, value) {
     recursiveSet(context[key], parts.slice(1).join('.'), value);
 }
 
+function parseDelimitedString(s, delimiter) {
+    const trimmed = s.trim();
+    if (trimmed.length == 0) {
+        return [];
+    }
+    return trimmed.split(delimiter).map(part => part.trim());
+}
+
 function parseRow(row) {
+    console.assert(row.length >= 11, "BAD ROW, not enough columns row=%o colCount=%s", row, row.length);
     row = row.map(s => s.trim());
-    const section = parseSection(row[1]);
-    const rawCheckboxes = coalesce(row[6], null);
-    const checkboxes = rawCheckboxes == null ? [] : rawCheckboxes.split("|").map(s => s.trim());
-    const dropdownList = coalesce(row[7], null);
-    const repetitionGroup = coalesce(row[10]);
-    const propertyName = coalesce(row[11], "");
+    const section = row[1];
+    const checkboxes = parseDelimitedString(row[6], "|");
+    const dropdownList = row[7];
+    const groupPath = parseDelimitedString(row[10], '.');
+    const propertyName = row[11];
+
+    console.assert(propertyName, "BAD ROW, no property name row=%o", row);
 
     const output = {
         "part": row[0],
@@ -1234,7 +1209,7 @@ function parseRow(row) {
         "dataType": row[5],
         "checkboxes": checkboxes,
         "dropdownList": dropdownList,
-        "repetitionGroup": repetitionGroup,
+        "groupPath": groupPath,
         "propertyName": propertyName
     };
 
@@ -1253,73 +1228,130 @@ TYPE_PATTERNS = {
     "month": "\\d{4}-\\d{2}"
 };
 
-function generateProperty(row) {
-    const group = row.repetitionGroup;
-    const propName = row.propertyName;
+function generateSimpleProperty(row) {
     const dataType = row.dataType;
-    if (!group) {
-        let simpleProp = {
-            "type": "object",
-            "properties": {
-                "value": {
-                    "type": "string"
-                },
+    let simpleProp = {
+        "type": "object",
+        "properties": {
+            "value": {
+                "type": "string"
             },
-            "required": ["value"]
+        },
+        "required": ["value"]
+    };
+
+    simpleProp["description"] = "Question text: " + row.questionText;
+    const pattern = TYPE_PATTERNS[dataType];
+    if (pattern) {
+        simpleProp.pattern = pattern;
+    }
+    for (let checkbox of row.checkboxes) {
+        simpleProp.properties[checkbox] = {
+            "type": "boolean"
         };
+    }
 
-        simpleProp["description"] = "Question text: " + row.questionText;
-        const pattern = TYPE_PATTERNS[dataType];
-        if (pattern) {
-            simpleProp.pattern = pattern;
+    if (dataType == "dropdown") {
+        const valuesList = DROPDOWN_VALUES[row.dropdownList];
+        if (valuesList) {
+            simpleProp.properties.value.enum = valuesList;
+        } else {
+            console.warn("unknown dropdown list list=%s row=%o", valuesList, row);
         }
-        for (let checkbox of row.checkboxes) {
-            simpleProp.properties[checkbox] = {
-                "type": "boolean"
-            };
-        }
+    }
+    return simpleProp;
+}
 
-        if (dataType == "dropdown") {
-            const valuesList = DROPDOWN_VALUES[row.dropdownList];
-            if (valuesList) {
-                simpleProp.properties.value.enum = valuesList;
-            } else {
-                console.warn("unknown dropdown list list=%s row=%o", valuesList, row);
-            }
-        }
-        return simpleProp;
+function stripPrefix(prefix, value) {
+    console.assert(prefix != null, "stripPrefix: prefix is null");
+    console.assert(typeof value == "string", "stripPrefix: value is not a string");
+    console.assert(value.startsWith(prefix), "stripPrefix: bogus input prefix='%s' value='%s'", prefix, value);
+
+    return value.substring(prefix.length);
+}
+
+function substringBefore(s, delim, defaultValue) {
+    const p = s.indexOf(delim);
+    if (p < 0) {
+        return defaultValue;
     } else {
-        // handling repetition groups not implemented yet
-        return null;
+        return s.substring(0, p);
     }
 }
 
-function parseStructure(rawCsv) {
+function processQuestions(contextObj, contextDepth, questions) {
+    console.debug("Called processQuestions contextObj=%o contextDepth=%s questions=%o", 
+        contextObj, contextDepth, questions);
+    const nestedQuestions = [];
+
+    for (const q of questions) {
+        const propName = q.propertyName;
+        const groupPath = q.groupPath.slice(contextDepth);
+        if (groupPath.length == 0) {
+            let prop = generateSimpleProperty(q);
+            contextObj.properties[propName] = prop;
+            contextObj.required.push(propName);
+        } else {
+            nestedQuestions.push(q);
+        }
+    }
+
+    const arrayProps = Map.groupBy(nestedQuestions, 
+        q => q.groupPath.slice(contextDepth)[0]);
+    for (const arrayPropName of arrayProps.keys()) {
+        const children = arrayProps.get(arrayPropName);
+        const prop = {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        };
+        contextObj.properties[arrayPropName] = prop;
+        contextObj.required.push(arrayPropName);
+
+        processQuestions(prop.items, contextDepth + 1, children);
+    }
+}
+
+function generateSchema(rawCsv) {
+    console.groupCollapsed("Parsing CSV");
+    const allQuestions = parseCSV(rawCsv)
+        .slice(1) // skip the header row
+        .map(parseRow)
+        .filter(q => q.propertyName != "IGNORE");
+    console.groupEnd();
+
+    const questionsBySection = Map.groupBy(allQuestions, q => q.section);
+
     const output = {
         "type": "object",
-        "properties": {}
+        "properties": {},
+        "required": []
     };
-    parseCSV(rawCsv)
-        .slice(1)
-        .map(parseRow)
-        .filter(row => row.propertyName != "" && row.propertyName != "IGNORE")
-        .forEach(row => {
-            const sectionName = row.section;
-            let sectionObj = output.properties[sectionName];
-            if (!sectionObj) {
-                sectionObj = {
-                    "type": "object",
-                    "properties": {}
-                };
-                output.properties[sectionName] = sectionObj;
-            }
 
-            const propName = row.propertyName;
-            var prop = generateProperty(row);
-            if (prop != null) {
-                sectionObj.properties[propName] = prop;
-            }
-        });
+    for (const rawSection of questionsBySection.keys()) {
+        if (!rawSection.endsWith("education")) {
+            continue;
+        }
+        console.group("Section: " + rawSection);
+
+        const sectionQuestions = questionsBySection.get(rawSection);
+        const [sectionNum, sectionName] = parseSection(rawSection);
+        const sectionObj = {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "title": `Section ${sectionNum}: ${sectionName}`
+        };
+        output.properties[sectionName] = sectionObj;
+        output.required.push(sectionName);
+
+        processQuestions(sectionObj, 0, sectionQuestions);
+        console.groupEnd();
+    }
+
     return output;
 }
 
@@ -1329,8 +1361,8 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
 
     reader.onload = function(e) {
         const text = e.target.result;
-        const parsed = parseStructure(text);
-        console.info("Parsed: %o", parsed);
+        const schema = generateSchema(text);
+        console.info("Schema: %o", schema);
     };
 
     reader.readAsText(file);
