@@ -302,15 +302,36 @@ function processQuestions(contextObj, contextDepth, questions) {
     }
 }
 
-function generateSchema(questionsCsv) {
-    console.groupCollapsed("Parsing CSV");
+const NATIONAL_SECURITY_PARTS = new Set(["A", "B", "C"]);
+const PUBLIC_TRUST_PARTS = new Set(["A", "B"]);
+const LOW_RISK_PARTS = new Set(["A"]);
+
+function isQuestionApplicable(subjectType, parsedQuestion) {
+    const questionPart = parsedQuestion.part;
+    if (subjectType == "NATIONAL_SECURITY") {
+        return NATIONAL_SECURITY_PARTS.has(questionPart);
+    } else if (subjectType == "PUBLIC_TRUST") {
+        return PUBLIC_TRUST_PARTS.has(questionPart);
+    } else if (subjectType == "LOW_RISK") {
+        return LOW_RISK_PARTS.has(questionPart);
+    } else {
+        throw new Error("Corrupt subject type: " + subjectType);
+    }
+}
+
+function generateSchema(questionsCsv, subjectType) {
+    console.groupCollapsed("Parsing questions CSV");
     const allQuestions = parseCSV(questionsCsv)
         .slice(1) // skip the header row
+        .filter(q => q.propertyName != "IGNORE")
         .map(parseQuestionRow)
-        .filter(q => q.propertyName != "IGNORE");
+    const filteredQuestions = allQuestions
+        .filter(q => isQuestionApplicable(subjectType, q));
+    console.debug("Parsed questions CSV subjectType=%s allQuestions=%s filteredQuestions=%s", 
+        subjectType, allQuestions.length, filteredQuestions.length);
     console.groupEnd();
 
-    const questionsBySection = Map.groupBy(allQuestions, q => q.section);
+    const questionsBySection = Map.groupBy(filteredQuestions, q => q.section);
 
     const output = {
         "$id": "https://example.com/pvq.schema.json",
@@ -319,20 +340,24 @@ function generateSchema(questionsCsv) {
         "description": "Validates responses to the US Federal Personnel Vetting Questionaire",
         "type": "object",
         "properties": {
-            "applicantType": {
+            "subjectType": {
                 "type": "string",
-                "enum": ["Low Risk", "Public Trust", "National Security"]
+                "const": subjectType
             }
         },
-        "required": ["applicantType"],
+        "required": ["subjectType"],
         "additionalProperties": false
     };
 
     for (const rawSection of questionsBySection.keys()) {
-        console.group("Section: " + rawSection);
 
         const sectionQuestions = questionsBySection.get(rawSection);
         const [sectionNum, sectionName] = parseSection(rawSection);
+        if (sectionName != "generalInformation") {
+            continue;
+        }
+
+        console.groupCollapsed("Section: " + rawSection);
         const sectionObj = {
             "type": "object",
             "properties": {},
@@ -371,6 +396,10 @@ function readFile(file) {
     });
 }
 
+// Start code for browser-based execution
+
+const APPLICANT_TYPES = ["NATIONAL_SECURITY", "PUBLIC_TRUST", "LOW_RISK"];
+
 async function handleSubmit(event) {
     console.info("Called handleSubmit");
     event.preventDefault();
@@ -384,10 +413,15 @@ async function handleSubmit(event) {
 
     const questionsFile = questionCsvInput.files[0];
     const qContent = await readFile(questionsFile);
-    globalThis.pvqSchema = generateSchema(qContent);
+    globalThis.pvqSchemas = {};
+    for (const type of APPLICANT_TYPES) {
+        const schema = generateSchema(qContent, type);
+        globalThis.pvqSchemas[type] = schema;
+        console.info("Generated schema for applicant type: %s", type);
+    }
 
-    console.info("Generated schema: %o", globalThis.pvqSchema);
-    console.info("To copy the schema JSON to your clipboard, run %ccopy(JSON.stringify(pvqSchema, null, 2))", "color: blue")
+    console.info("Saved generated schemas to %cpvqSchemas", "color: blue");
+    console.info("To copy the NATIONAL_SECURITY schema JSON to your clipboard, run %ccopy(JSON.stringify(pvqSchemas.NATIONAL_SECURITY, null, 2))", "color: blue")
 }
 
 function onLoad() {
@@ -395,3 +429,5 @@ function onLoad() {
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);
+
+// End code for browser-based execution
