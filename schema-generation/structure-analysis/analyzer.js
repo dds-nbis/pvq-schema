@@ -62,6 +62,21 @@ function parseDropdownValues(valuesCsv) {
     return output;
 }
 
+function generateCommonDefs(ddValues) {
+    const output = {};
+    for (const listName of ddValues.keys()) {
+        console.assert(/^[A-Z_]+$/.test(listName), "corrupt dropdown list name: %s", listName);
+        const values = ddValues.get(listName);
+        const defsKey = `dropdown_${listName}`;
+        output[defsKey] = {
+            "type": "string",
+            "enum": values
+        };
+        console.debug("Created common dropdown value schema name=%s", defsKey);
+    }
+    return output;
+}
+
 function coalesce(s, defaultValue) {
     if (s == null || s.trim().length == 0) {
         return defaultValue;
@@ -201,15 +216,10 @@ Question text: ${row.questionText}
         "description": description
     };
 
-
     for (let checkbox of row.checkboxes) {
         prop.properties[checkbox] = {
             "type": "boolean"
         };
-    }
-
-    if (typeSettings.valuePattern) {
-        prop.properties.value.pattern = typeSettings.valuePattern;
     }
 
     if (typeSettings.requiresValue) {
@@ -224,12 +234,19 @@ Question text: ${row.questionText}
     if (typeSettings.hasEnumList) {
         const enumValues = globalThis.dropdownValues.get(dropdownList);
         if (enumValues) {
-            prop.properties.value.enum = enumValues;
+            const defsKey = `#/$defs/dropdown_${dropdownList}`;
+            prop.properties.value = {
+                "$ref": defsKey
+            };
         } else {
             console.error("unknown dropdown list list=%s questionId=%s", dropdownList, questionId);
             prop.properties.value.enum = [];
         }
     } 
+
+    if (typeSettings.valuePattern) {
+        prop.properties.value.pattern = typeSettings.valuePattern;
+    }
 
     if (typeSettings.isMultivalue) {
         const valueSpec = prop.properties.value;
@@ -259,14 +276,39 @@ function substringBefore(s, delim, defaultValue) {
     }
 }
 
+/**
+ * Checks for duplicate property names within a single schema object scope.
+ */
+class PropDeduper {
+    constructor() {
+        this.seen = new Map();
+    }
+
+    record(propName, q) {
+        const prev = this.seen.get(propName);
+        if (prev) {
+            console.warn("Duplicate property detected prop=%s oldQ=%o newQ=%o", propName, prev, q);
+        } else {
+            this.seen.set(propName, q);
+        }
+    }
+}
+
+function findDuplicates(arr) {
+    return arr.filter((e, i, a) => a.indexOf(e) !== i);
+}
+
 function processQuestions(contextObj, contextDepth, questions) {
     console.debug("Called processQuestions contextObj=%o contextDepth=%s questions=%o", 
         contextObj, contextDepth, questions);
     const nestedQuestions = [];
     const requiredProps = [];
+    const propsSeen = new Map();
+    const deduper = new PropDeduper();
 
     for (const q of questions) {
         const propName = q.propertyName;
+        console.assert(propName != "IGNORE", "Encountered an ignored question q=%o", q);
         const groupPath = q.groupPath.slice(contextDepth);
         const condition = q.condition;
         if (groupPath.length == 0) {
@@ -275,6 +317,7 @@ function processQuestions(contextObj, contextDepth, questions) {
             if (!DEBUG && condition == "") {
                 contextObj.required.push(propName);
             }
+            deduper.record(propName, prop);
         } else {
             nestedQuestions.push(q);
         }
@@ -294,11 +337,8 @@ function processQuestions(contextObj, contextDepth, questions) {
             }
         };
         contextObj.properties[arrayPropName] = prop;
-        if (!DEBUG) {
-            contextObj.required.push(arrayPropName);
-        }
-
         processQuestions(prop.items, contextDepth + 1, children);
+        deduper.record(arrayPropName, prop);
     }
 }
 
@@ -323,8 +363,8 @@ function generateSchema(questionsCsv, subjectType) {
     console.groupCollapsed("Parsing questions CSV");
     const allQuestions = parseCSV(questionsCsv)
         .slice(1) // skip the header row
-        .filter(q => q.propertyName != "IGNORE")
         .map(parseQuestionRow)
+        .filter(q => q.propertyName != "IGNORE");
     const filteredQuestions = allQuestions
         .filter(q => isQuestionApplicable(subjectType, q));
     console.debug("Parsed questions CSV subjectType=%s allQuestions=%s filteredQuestions=%s", 
@@ -349,13 +389,13 @@ function generateSchema(questionsCsv, subjectType) {
         "additionalProperties": false
     };
 
+    const commonDefs = generateCommonDefs(globalThis.dropdownValues);
+    output["$defs"] = commonDefs;
+
     for (const rawSection of questionsBySection.keys()) {
 
         const sectionQuestions = questionsBySection.get(rawSection);
         const [sectionNum, sectionName] = parseSection(rawSection);
-        if (sectionName != "generalInformation") {
-            continue;
-        }
 
         console.groupCollapsed("Section: " + rawSection);
         const sectionObj = {
@@ -398,7 +438,8 @@ function readFile(file) {
 
 // Start code for browser-based execution
 
-const APPLICANT_TYPES = ["NATIONAL_SECURITY", "PUBLIC_TRUST", "LOW_RISK"];
+//const APPLICANT_TYPES = ["NATIONAL_SECURITY", "PUBLIC_TRUST", "LOW_RISK"];
+const APPLICANT_TYPES = ["NATIONAL_SECURITY"];
 
 async function handleSubmit(event) {
     console.info("Called handleSubmit");
