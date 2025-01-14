@@ -288,6 +288,8 @@ function generateSimpleProperty(row) {
 
     const description = `
 Question text: ${row.questionText}
+Data type: ${dataType}
+Question ID: ${questionId}
 `.trim();
 
     let prop = {
@@ -479,10 +481,10 @@ function generateSchema(questionsCsv, subjectType) {
     const questionsBySection = Map.groupBy(filteredQuestions, q => q.section);
 
     const output = {
-        //"$id": "https://example.com/pvq.schema.json",
+        "$id": "https://example.com/pvq.schema.json",
         //"$schema": "https://json-schema.org/draft/2020-12/schema",
-        "title": "Personnel Vetting Questionaire",
-        "description": "Validates responses to the US Federal Personnel Vetting Questionaire",
+        "title": "Personnel Vetting Questionnaire",
+        "description": "Validates responses to the US Federal Personnel Vetting Questionnaire",
         "type": "object",
         "properties": {
             "subjectType": {
