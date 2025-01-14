@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 
 function parseCSV(csvText) {
     const rows = [];
@@ -63,7 +63,12 @@ function parseDropdownValues(valuesCsv) {
 }
 
 function generateCommonDefs(ddValues) {
-    const output = {};
+    const output = {
+        "debug_question_id": {
+            "type": "string",
+            "pattern": QUESTION_ID_REGEX
+        }
+    };
     for (const listName of ddValues.keys()) {
         console.assert(/^[A-Z_]+$/.test(listName), "corrupt dropdown list name: %s", listName);
         const values = ddValues.get(listName);
@@ -151,13 +156,15 @@ const DATE_REGEX = "^\\d{4}-\\d{2}-\\d{2}$";
 const MONTH_REGEX = "^\\d{4}-\\d{2}$";
 const YEAR_REGEX = "^\\d{4}$";
 const NUMBER_REGEX = "^\\d+(\\.\\d+)?$";
+const QUESTION_ID_REGEX = "^[abcd]-\\d+-[0-9a-z]{6}-\\d+$";
 
 class QuestionType {
-    constructor(isMultivalue, hasEnumList, requiresValue, valuePattern) {
+    constructor(isMultivalue, hasEnumList, requiresValue, valuePattern, schemaFormat) {
         this.isMultivalue = isMultivalue;
         this.hasEnumList = hasEnumList;
         this.requiresValue = requiresValue;
         this.valuePattern = valuePattern || null;
+        this.schemaFormat = schemaFormat || null;
     }
 }
 
@@ -179,6 +186,85 @@ const QUESTION_TYPES = {
 const MULTIVALUE_TYPES = new Set(["email_multiple", "phone_multiple", "dropdown_multiple"]);
 
 const NORMAL_TEXT_PATTERN = /^(ZIP|U\.S\.|[A-Z]\. |[A-Z][a-z]).*/;
+
+function getSampleValue(q) {
+    const propName = q.propertyName.toLowerCase();
+    const dataType = q.dataType;
+    if (dataType == "text") {
+        if (propName.endsWith("lastname")) {
+            return "Smith";
+        } else if (propName.endsWith("firstname")) {
+            return "John";
+        } else if (propName.endsWith("middlename")) {
+            return "Albert";
+        } else if (propName.endsWith("street")) {
+            return "123 Main Street";
+        } else if (propName.endsWith("state")) {
+            return "WA";
+        } else if (propName.endsWith("city")) {
+            return "Rapid City";
+        } else if (propName.endsWith("postcode")) {
+            return "1234-5678"
+        } else if (propName.endsWith("usgfacilityname")) {
+            return "US Embassy Wakanda"
+        } else if (propName.endsWith("militaryinstallationname")) {
+            return "AFB Wakanda";
+        } else if (propName.endsWith("agency")) {
+            return "Census Bureau";
+        } else if (propName == "webadress") {
+            return "https://google.com";
+        } else if (propName.endsWith("jobtitle")) {
+            return "Site manager";
+        } else if (propName.endsWith("explanation") || propName.endsWith("details") || propName.endsWith("description")) {
+            return "Lorem ipsum dolor sit amet."
+        } else {
+            return "Lorem ipsum";
+        }
+    } else if (dataType == "number") {
+        return "100";
+    } else if (dataType == "date") {
+        return "2020-01-01";
+    } else if (dataType == "month") {
+        return "2020-10";
+    } else if (dataType == "year") {
+        return "2020";
+    } else if (dataType == "dropdown" || dataType == "dropdown_multiple") {
+        const listName = q.dropdownList;
+        let value = null;
+        if (listName == "COUNTRIES") {
+            value = "CAN";
+        } else if (listName == "STATE_OR_TERRITORY") {
+            value = "WA";
+        } else {
+            const values = globalThis.dropdownValues.get(listName);
+            if (values.indexOf("Yes") >= 0) {
+                value = "Yes";
+            } else if (values.indexOf("None") > 0) {
+                value = "None";
+            } else {
+                value = values[0];
+            }
+        }
+
+        if (dataType == "dropdown") {
+            return value;
+        } else {
+            return [value];
+        }
+    } else if (dataType == "email") {
+        return "Personal: lorem.ipsum@gmail.com";
+    } else if (dataType == "email_multiple") {
+        return ["Personal: lorem.ipsum@gmail.com"];
+    } else if (dataType == "phone_number") {
+        return "Day: 202-555-1234";
+    } else if (dataType == "phone_number_multiple") {
+        return ["Day: 202-555-1234"];
+    } else if (dataType == "checkboxes") {
+        return "";
+    } else {
+        return "Sample value";
+    }
+}
 
 function generateSimpleProperty(row) {
     const dataType = row.dataType;
@@ -210,6 +296,10 @@ Question text: ${row.questionText}
             "value": {
                 "type": "string"
             },
+            "_qId": {
+                "$ref": "#/$defs/debug_question_id"
+            }
+
         },
         "additionalProperties": false,
         "title": `Question ${questionId}`,
@@ -246,6 +336,10 @@ Question text: ${row.questionText}
 
     if (typeSettings.valuePattern) {
         prop.properties.value.pattern = typeSettings.valuePattern;
+    }
+
+    if (typeSettings.schemaFormat) {
+        prop.properties.value.format = typeSettings.schemaFormat;
     }
 
     if (typeSettings.isMultivalue) {
@@ -298,29 +392,38 @@ function findDuplicates(arr) {
     return arr.filter((e, i, a) => a.indexOf(e) !== i);
 }
 
-function processQuestions(contextObj, contextDepth, questions) {
-    console.debug("Called processQuestions contextObj=%o contextDepth=%s questions=%o", 
-        contextObj, contextDepth, questions);
+function processQuestions(schemaContext, sampleContext, contextDepth, questions) {
+    console.debug("Called processQuestions schemaContext=%o sampleContext=%o contextDepth=%s questions=%o", 
+        schemaContext, sampleContext, contextDepth, questions);
     const nestedQuestions = [];
     const requiredProps = [];
-    const propsSeen = new Map();
     const deduper = new PropDeduper();
 
     for (const q of questions) {
         const propName = q.propertyName;
+        const questionId = q.questionId;
         console.assert(propName != "IGNORE", "Encountered an ignored question q=%o", q);
         const groupPath = q.groupPath.slice(contextDepth);
         const condition = q.condition;
         if (groupPath.length == 0) {
             let prop = generateSimpleProperty(q);
-            contextObj.properties[propName] = prop;
+            schemaContext.properties[propName] = prop;
             if (!DEBUG && condition == "") {
-                contextObj.required.push(propName);
+                schemaContext.required.push(propName);
             }
             deduper.record(propName, prop);
+            const sampleValue = getSampleValue(q);
+            sampleContext[propName] = {
+                "value": sampleValue,
+                "_qId": questionId
+            };
+            q.checkboxes.forEach(checkbox => {
+                sampleContext[propName][checkbox] = true;
+            });
         } else {
             nestedQuestions.push(q);
         }
+
     }
 
     const arrayProps = Map.groupBy(nestedQuestions, 
@@ -336,8 +439,10 @@ function processQuestions(contextObj, contextDepth, questions) {
                 "additionalProperties": false
             }
         };
-        contextObj.properties[arrayPropName] = prop;
-        processQuestions(prop.items, contextDepth + 1, children);
+        schemaContext.properties[arrayPropName] = prop;
+        const sampleArrayValue = {};
+        sampleContext[arrayPropName] = [sampleArrayValue];
+        processQuestions(prop.items, sampleArrayValue, contextDepth + 1, children);
         deduper.record(arrayPropName, prop);
     }
 }
@@ -374,8 +479,8 @@ function generateSchema(questionsCsv, subjectType) {
     const questionsBySection = Map.groupBy(filteredQuestions, q => q.section);
 
     const output = {
-        "$id": "https://example.com/pvq.schema.json",
-        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        //"$id": "https://example.com/pvq.schema.json",
+        //"$schema": "https://json-schema.org/draft/2020-12/schema",
         "title": "Personnel Vetting Questionaire",
         "description": "Validates responses to the US Federal Personnel Vetting Questionaire",
         "type": "object",
@@ -389,8 +494,14 @@ function generateSchema(questionsCsv, subjectType) {
         "additionalProperties": false
     };
 
+    const sampleDoc = {
+        "subjectType": subjectType
+    };
+
+    console.groupCollapsed("Parsing dropdown values");
     const commonDefs = generateCommonDefs(globalThis.dropdownValues);
     output["$defs"] = commonDefs;
+    console.groupEnd();
 
     for (const rawSection of questionsBySection.keys()) {
 
@@ -410,11 +521,14 @@ function generateSchema(questionsCsv, subjectType) {
             output.required.push(sectionName);
         }
 
-        processQuestions(sectionObj, 0, sectionQuestions);
+        const sampleSection = {};
+        sampleDoc[sectionName] = sampleSection;
+
+        processQuestions(sectionObj, sampleSection, 0, sectionQuestions);
         console.groupEnd();
     }
 
-    return output;
+    return [output, sampleDoc];
 }
 
 function readFile(file) {
@@ -455,14 +569,17 @@ async function handleSubmit(event) {
     const questionsFile = questionCsvInput.files[0];
     const qContent = await readFile(questionsFile);
     globalThis.pvqSchemas = {};
+    globalThis.pvqSamples = {};
     for (const type of APPLICANT_TYPES) {
-        const schema = generateSchema(qContent, type);
+        const [schema, sampleDoc] = generateSchema(qContent, type);
         globalThis.pvqSchemas[type] = schema;
+        globalThis.pvqSamples[type] = sampleDoc;
         console.info("Generated schema for applicant type: %s", type);
     }
 
     console.info("Saved generated schemas to %cpvqSchemas", "color: blue");
     console.info("To copy the NATIONAL_SECURITY schema JSON to your clipboard, run %ccopy(JSON.stringify(pvqSchemas.NATIONAL_SECURITY, null, 2))", "color: blue")
+    console.info("To copy the NATIONAL_SECURITY sample JSON to your clipboard, run %ccopy(JSON.stringify(pvqSamples.NATIONAL_SECURITY, null, 2))", "color: blue")
 }
 
 function onLoad() {
