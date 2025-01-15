@@ -1,6 +1,6 @@
 const DEBUG = false;
 
-function parseCSV(csvText) {
+export function parseCSV(csvText) {
     const rows = [];
     let currentRow = [];
     let currentValue = '';
@@ -43,7 +43,7 @@ function parseCSV(csvText) {
     return rows;
 }
 
-function parseDropdownValues(valuesCsv) {
+export function parseDropdownValues(valuesCsv) {
     const output = new Map();
     let count = 0;
     parseCSV(valuesCsv.trim())
@@ -466,7 +466,7 @@ function isQuestionApplicable(subjectType, parsedQuestion) {
     }
 }
 
-function generateSchema(questionsCsv, subjectType) {
+export function generateSchema(questionsCsv, subjectType) {
     console.groupCollapsed("Parsing questions CSV");
     const allQuestions = parseCSV(questionsCsv)
         .slice(1) // skip the header row
@@ -591,3 +591,4 @@ function onLoad() {
 document.addEventListener('DOMContentLoaded', onLoad);
 
 // End code for browser-based execution
+
