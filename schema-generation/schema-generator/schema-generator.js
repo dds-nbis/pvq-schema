@@ -158,25 +158,29 @@ const YEAR_REGEX = "^\\d{4}$";
 const NUMBER_REGEX = "^\\d+(\\.\\d+)?$";
 const QUESTION_ID_REGEX = "^[abcd]-\\d+-[0-9a-z]{6}-\\d+$";
 
+const DEFAULT_MAX_LENGTH = 255;
+
 class QuestionType {
-    constructor(isMultivalue, hasEnumList, requiresValue, valuePattern, schemaFormat) {
+    constructor(isMultivalue, hasEnumList, requiresValue, valuePattern, schemaFormat, maxLength) {
         this.isMultivalue = isMultivalue;
         this.hasEnumList = hasEnumList;
         this.requiresValue = requiresValue;
         this.valuePattern = valuePattern || null;
         this.schemaFormat = schemaFormat || null;
+        this.maxLength = maxLength || null;
     }
 }
 
 const QUESTION_TYPES = {
     "text": new QuestionType(false, false, true, null),
+    "long_text": new QuestionType(false, false, true, null, null, 4000),
     "number": new QuestionType(false, false, true, NUMBER_REGEX),
     "email": new QuestionType(false, false, true, EMAIL_REGEX),
     "email_multiple": new QuestionType(true, false, true, EMAIL_REGEX),
     "phone_number": new QuestionType(false, false, true, PHONE_REGEX),
     "phone_number_multiple": new QuestionType(true, false, true, PHONE_REGEX),
     "checkboxes": new QuestionType(false, false, false, null),
-    "date": new QuestionType(false, false, true, DATE_REGEX),
+    "date": new QuestionType(false, false, true, DATE_REGEX, "date"),
     "month": new QuestionType(false, false, true, MONTH_REGEX),
     "year": new QuestionType(false, false, true, YEAR_REGEX),
     "dropdown": new QuestionType(false, true, true, null),
@@ -296,7 +300,8 @@ Question ID: ${questionId}
         "type": "object",
         "properties": {
             "value": {
-                "type": "string"
+                "type": "string",
+                "maxLength": DEFAULT_MAX_LENGTH
             },
             "_qId": {
                 "$ref": "#/$defs/debug_question_id"
@@ -312,6 +317,10 @@ Question ID: ${questionId}
         prop.properties[checkbox] = {
             "type": "boolean"
         };
+    }
+
+    if (typeSettings.maxLength) {
+        prop.properties.value.maxLength = typeSettings.maxLength;
     }
 
     if (typeSettings.requiresValue) {
