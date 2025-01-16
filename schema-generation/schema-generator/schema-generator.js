@@ -552,10 +552,6 @@ function generateSchema(questionsCsv, subjectType) {
         const sectionQuestions = questionsBySection.get(rawSection);
         const [sectionNum, sectionName] = parseSection(rawSection);
 
-        if (sectionName != "generalInformation") {
-            continue;
-        }
-
         console.groupCollapsed("Section: " + rawSection);
         const sectionObj = {
             "type": "object",
