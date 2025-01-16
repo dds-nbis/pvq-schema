@@ -164,7 +164,6 @@ function parseQuestionRow(row) {
 }
 
 const EMAIL_REGEX = "^(Personal|Work|Unknown): \\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-const PHONE_REGEX = "^(Day|Night|Both|Extension|International|DSN|I don't know)(, [a-zA-Z_]+)*: \\d[-\\d]{9,}[-\\w., ]*";
 const DATE_REGEX = "^\\d{4}-\\d{2}-\\d{2}$";
 const MONTH_REGEX = "^\\d{4}-\\d{2}$";
 const YEAR_REGEX = "^\\d{4}$";
@@ -200,8 +199,6 @@ const QUESTION_TYPES = {
     "dropdown": new QuestionType(false, true, true, null),
     "dropdown_multiple": new QuestionType(true, true, true, null)
 };
-
-const MULTIVALUE_TYPES = new Set(["email_multiple", "phone_multiple", "dropdown_multiple"]);
 
 const NORMAL_TEXT_PATTERN = /^(ZIP|U\.S\.|[A-Z]\. |[A-Z][a-z]).*/;
 
