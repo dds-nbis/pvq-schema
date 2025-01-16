@@ -187,7 +187,7 @@ const MULTIVALUE_TYPES = new Set(["email_multiple", "phone_multiple", "dropdown_
 
 const NORMAL_TEXT_PATTERN = /^(ZIP|U\.S\.|[A-Z]\. |[A-Z][a-z]).*/;
 
-function getSampleValue(q) {
+function getSampleValue(q, dropdownValues) {
     const propName = q.propertyName.toLowerCase();
     const dataType = q.dataType;
     if (dataType == "text") {
@@ -236,7 +236,7 @@ function getSampleValue(q) {
         } else if (listName == "STATE_OR_TERRITORY") {
             value = "WA";
         } else {
-            const values = globalThis.dropdownValues.get(listName);
+            const values = dropdownValues.get(listName);
             if (values.indexOf("Yes") >= 0) {
                 value = "Yes";
             } else if (values.indexOf("None") > 0) {
@@ -266,7 +266,7 @@ function getSampleValue(q) {
     }
 }
 
-function generateSimpleProperty(row) {
+function generateSimpleProperty(row, dropdownValues) {
     const dataType = row.dataType;
     const questionId = row.questionId;
     const typeSettings = QUESTION_TYPES[dataType];
@@ -324,7 +324,7 @@ Question ID: ${questionId}
     }
 
     if (typeSettings.hasEnumList) {
-        const enumValues = globalThis.dropdownValues.get(dropdownList);
+        const enumValues = dropdownValues.get(dropdownList);
         if (enumValues) {
             const defsKey = `#/$defs/dropdown_${dropdownList}`;
             prop.properties.value = {
@@ -394,7 +394,7 @@ function findDuplicates(arr) {
     return arr.filter((e, i, a) => a.indexOf(e) !== i);
 }
 
-function processQuestions(schemaContext, sampleContext, contextDepth, questions) {
+function processQuestions(schemaContext, sampleContext, contextDepth, questions, dropdownValues) {
     console.debug("Called processQuestions schemaContext=%o sampleContext=%o contextDepth=%s questions=%o", 
         schemaContext, sampleContext, contextDepth, questions);
     const nestedQuestions = [];
@@ -408,13 +408,13 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions)
         const groupPath = q.groupPath.slice(contextDepth);
         const condition = q.condition;
         if (groupPath.length == 0) {
-            let prop = generateSimpleProperty(q);
+            let prop = generateSimpleProperty(q, dropdownValues);
             schemaContext.properties[propName] = prop;
             if (!DEBUG && condition == "") {
                 schemaContext.required.push(propName);
             }
             deduper.record(propName, prop);
-            const sampleValue = getSampleValue(q);
+            const sampleValue = getSampleValue(q, dropdownValues);
             sampleContext[propName] = {
                 "value": sampleValue,
                 "_qId": questionId
@@ -444,7 +444,7 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions)
         schemaContext.properties[arrayPropName] = prop;
         const sampleArrayValue = {};
         sampleContext[arrayPropName] = [sampleArrayValue];
-        processQuestions(prop.items, sampleArrayValue, contextDepth + 1, children);
+        processQuestions(prop.items, sampleArrayValue, contextDepth + 1, children, dropdownValues);
         deduper.record(arrayPropName, prop);
     }
 }
@@ -466,7 +466,7 @@ function isQuestionApplicable(subjectType, parsedQuestion) {
     }
 }
 
-export function generateSchema(questionsCsv, subjectType) {
+export function generateSchema(questionsCsv, subjectType, dropdownValues) {
     console.groupCollapsed("Parsing questions CSV");
     const allQuestions = parseCSV(questionsCsv)
         .slice(1) // skip the header row
@@ -501,7 +501,7 @@ export function generateSchema(questionsCsv, subjectType) {
     };
 
     console.groupCollapsed("Parsing dropdown values");
-    const commonDefs = generateCommonDefs(globalThis.dropdownValues);
+    const commonDefs = generateCommonDefs(dropdownValues);
     output["$defs"] = commonDefs;
     console.groupEnd();
 
@@ -526,7 +526,7 @@ export function generateSchema(questionsCsv, subjectType) {
         const sampleSection = {};
         sampleDoc[sectionName] = sampleSection;
 
-        processQuestions(sectionObj, sampleSection, 0, sectionQuestions);
+        processQuestions(sectionObj, sampleSection, 0, sectionQuestions, dropdownValues);
         console.groupEnd();
     }
 

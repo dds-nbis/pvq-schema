@@ -16,14 +16,14 @@ async function handleSubmit(event) {
 
     const valuesFile = dropdownCsvInput.files[0];
     const vContent = await readFile(valuesFile);
-    globalThis.dropdownValues = parseDropdownValues(vContent);
+    const dropdownValues = parseDropdownValues(vContent);
 
     const questionsFile = questionCsvInput.files[0];
     const qContent = await readFile(questionsFile);
     globalThis.pvqSchemas = {};
     globalThis.pvqSamples = {};
     for (const type of APPLICANT_TYPES) {
-        const [schema, sampleDoc] = generateSchema(qContent, type);
+        const [schema, sampleDoc] = generateSchema(qContent, type, dropdownValues);
         globalThis.pvqSchemas[type] = schema;
         globalThis.pvqSamples[type] = sampleDoc;
         console.info("Generated schema for applicant type: %s", type);
