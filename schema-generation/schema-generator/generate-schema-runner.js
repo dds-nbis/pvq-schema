@@ -40,9 +40,11 @@ async function main() {
 
         const schemaFilePath = path.join(outputDir, `${type}_schema.json`);
         const sampleFilePath = path.join(outputDir, `${type}_sample.json`);
+        console.log(schema)
+        console.log(sampleDoc)
 
-        fs.writeFileSync(schemaFilePath, JSON.stringify(schema, null, 2));
-        fs.writeFileSync(sampleFilePath, JSON.stringify(sampleDoc, null, 2));
+        // fs.writeFileSync(schemaFilePath, JSON.stringify(schema, null, 2));
+        // fs.writeFileSync(sampleFilePath, JSON.stringify(sampleDoc, null, 2));
 
         console.info(`Generated files for ${type}:`);
         console.info(`  Schema: ${schemaFilePath}`);
