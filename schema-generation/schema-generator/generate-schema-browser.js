@@ -4,9 +4,9 @@ const DEBUG = false;
 
 //const APPLICANT_TYPES = ["NATIONAL_SECURITY", "PUBLIC_TRUST", "LOW_RISK"];
 const APPLICANT_TYPES = ["NATIONAL_SECURITY"];
+import { parseDropdownValues, generateSchema, readFile } from './schema-generator.js';
 
 async function handleSubmit(event) {
-    const { parseDropdownValues, generateSchema, readFile } = await import('./schema-generator.js');
 
     console.info("Called handleSubmit");
     event.preventDefault();
