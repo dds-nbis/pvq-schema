@@ -67,6 +67,35 @@ function generateCommonDefs(ddValues) {
         "debug_question_id": {
             "type": "string",
             "pattern": QUESTION_ID_REGEX
+        },
+        "phone_number": {
+            "properties": {
+                "countryCode": {
+                    "type": "string",
+                    "pattern": "\\d+"
+                },
+                "number": {
+                    "type": "string",
+                    "pattern": "\\d{5,}" // Solomon Islands can have 5 digit numbers
+                },
+                "extension": {
+                    "type": "string",
+                    "maxLength": 100
+                },
+                "type": {
+                    "type": "string",
+                    "enum": ["Cell", "Home", "Work"]
+                },
+                "timeOfDay": {
+                    "type": "string",
+                    "enum": ["Day", "Night", "Both"]
+                },
+                "isDsn": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["countryCode", "number", "type", "timeOfDay", "extension", "isDsn"],
+            "additionalProperties": false
         }
     };
     for (const listName of ddValues.keys()) {
@@ -94,22 +123,6 @@ function parseSection(rawSection) {
     const match = /^([0-9]+)_([a-zA-Z]+)/.exec(rawSection);
     console.assert(match != null, "Bogus section name: %s", rawSection);
     return [Number(match[1]), match[2]];
-}
-
-function recursiveSet(context, path, value) {
-    const parts = path.split('.');
-    const key = parts[0];
-
-    if (parts.length === 1) {
-        context[key] = value;
-        return;
-    }
-
-    if (!context[key] || typeof context[key] !== 'object') {
-        context[key] = {};
-    }
-
-    recursiveSet(context[key], parts.slice(1).join('.'), value);
 }
 
 function parseDelimitedString(s, delimiter) {
@@ -151,39 +164,41 @@ function parseQuestionRow(row) {
 }
 
 const EMAIL_REGEX = "^(Personal|Work|Unknown): \\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-const PHONE_REGEX = "^(Day|Night|Both|Extension|International|DSN|I don't know): \\d[-\\d]{9,}[-\\w., ]*";
 const DATE_REGEX = "^\\d{4}-\\d{2}-\\d{2}$";
 const MONTH_REGEX = "^\\d{4}-\\d{2}$";
 const YEAR_REGEX = "^\\d{4}$";
 const NUMBER_REGEX = "^\\d+(\\.\\d+)?$";
 const QUESTION_ID_REGEX = "^[abcd]-\\d+-[0-9a-z]{6}-\\d+$";
 
+const DEFAULT_MAX_LENGTH = 255;
+
 class QuestionType {
-    constructor(isMultivalue, hasEnumList, requiresValue, valuePattern, schemaFormat) {
+    constructor(isMultivalue, hasEnumList, requiresValue, valuePattern, schemaFormat, maxLength, isPhoneNumber) {
         this.isMultivalue = isMultivalue;
         this.hasEnumList = hasEnumList;
         this.requiresValue = requiresValue;
         this.valuePattern = valuePattern || null;
         this.schemaFormat = schemaFormat || null;
+        this.maxLength = maxLength || null;
+        this.isPhoneNumber = isPhoneNumber || false;
     }
 }
 
 const QUESTION_TYPES = {
     "text": new QuestionType(false, false, true, null),
+    "long_text": new QuestionType(false, false, true, null, null, 4000),
     "number": new QuestionType(false, false, true, NUMBER_REGEX),
     "email": new QuestionType(false, false, true, EMAIL_REGEX),
     "email_multiple": new QuestionType(true, false, true, EMAIL_REGEX),
-    "phone_number": new QuestionType(false, false, true, PHONE_REGEX),
-    "phone_number_multiple": new QuestionType(true, false, true, PHONE_REGEX),
+    "phone_number": new QuestionType(false, false, true, null, null, null, true),
+    "phone_number_multiple": new QuestionType(true, false, true, null, null, null, true),
     "checkboxes": new QuestionType(false, false, false, null),
-    "date": new QuestionType(false, false, true, DATE_REGEX),
+    "date": new QuestionType(false, false, true, DATE_REGEX, "date"),
     "month": new QuestionType(false, false, true, MONTH_REGEX),
     "year": new QuestionType(false, false, true, YEAR_REGEX),
     "dropdown": new QuestionType(false, true, true, null),
     "dropdown_multiple": new QuestionType(true, true, true, null)
 };
-
-const MULTIVALUE_TYPES = new Set(["email_multiple", "phone_multiple", "dropdown_multiple"]);
 
 const NORMAL_TEXT_PATTERN = /^(ZIP|U\.S\.|[A-Z]\. |[A-Z][a-z]).*/;
 
@@ -256,9 +271,25 @@ function getSampleValue(q) {
     } else if (dataType == "email_multiple") {
         return ["Personal: lorem.ipsum@gmail.com"];
     } else if (dataType == "phone_number") {
-        return "Day: 202-555-1234";
+        return {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+        };
     } else if (dataType == "phone_number_multiple") {
-        return ["Day: 202-555-1234"];
+        return [
+            {
+                "countryCode": "1",
+                "number": "2025551234",
+                "type": "Cell",
+                "timeOfDay": "Both",
+                "extension": "",
+                "isDsn": false
+            }
+        ];
     } else if (dataType == "checkboxes") {
         return "";
     } else {
@@ -296,7 +327,8 @@ Question ID: ${questionId}
         "type": "object",
         "properties": {
             "value": {
-                "type": "string"
+                "type": "string",
+                "maxLength": DEFAULT_MAX_LENGTH
             },
             "_qId": {
                 "$ref": "#/$defs/debug_question_id"
@@ -308,10 +340,20 @@ Question ID: ${questionId}
         "description": description
     };
 
+    if (typeSettings.isPhoneNumber) {
+        prop.properties.value = {
+            "$ref": "#/$defs/phone_number"
+        };
+    }
+
     for (let checkbox of row.checkboxes) {
         prop.properties[checkbox] = {
             "type": "boolean"
         };
+    }
+
+    if (typeSettings.maxLength) {
+        prop.properties.value.maxLength = typeSettings.maxLength;
     }
 
     if (typeSettings.requiresValue) {
