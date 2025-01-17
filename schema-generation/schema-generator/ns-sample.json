@@ -97,7 +97,14 @@
     },
     "phoneNumber": {
       "value": [
-        "Day: 202-555-1234"
+        {
+          "countryCode": "1",
+          "number": "2025551234",
+          "type": "Cell",
+          "timeOfDay": "Both",
+          "extension": "",
+          "isDsn": false
+        }
       ],
       "_qId": "a-1-1ee9dc-0"
     },
@@ -869,7 +876,14 @@
         },
         "educationReferencePhone": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-6-18e674-0",
           "dontKnow": true
@@ -947,56 +961,56 @@
         },
         "physicalAddresses": [
           {
-            "physicalAddressInUs": {
+            "addressInUs": {
               "value": "Yes",
               "_qId": "a-6-19889c-0"
             },
-            "physicalAddressUsStreet": {
+            "addressUsStreet": {
               "value": "123 Main Street",
               "_qId": "a-6-1b1188-0"
             },
-            "physicalAddressUsCity": {
+            "addressUsCity": {
               "value": "Rapid City",
               "_qId": "a-6-1add96-0"
             },
-            "physicalAddressUsState": {
+            "addressUsState": {
               "value": "WA",
               "_qId": "a-6-41a441-0"
             },
-            "physicalAddressUsZipcode": {
+            "addressUsZipcode": {
               "value": "Lorem ipsum",
               "_qId": "a-6-418d86-0"
             },
-            "physicalAddressUsIsMilitaryInstallation": {
+            "addressUsIsMilitaryInstallation": {
               "value": "Yes",
               "_qId": "a-6-57f663-0"
             },
-            "physicalAddressUsMilitaryInstallationName": {
+            "addressUsMilitaryInstallationName": {
               "value": "AFB Wakanda",
               "_qId": "a-6-122976-0"
             },
-            "physicalAddressNonUsStreet": {
+            "addressNonUsStreet": {
               "value": "123 Main Street",
               "_qId": "a-6-a8dd71-0"
             },
-            "physicalAddressNonUsCity": {
+            "addressNonUsCity": {
               "value": "Rapid City",
               "_qId": "a-6-b62688-0"
             },
-            "physicalAddressNonUsCountry": {
+            "addressNonUsCountry": {
               "value": "AFG",
               "_qId": "a-6-111b5d-0"
             },
-            "physicalAddressNonUsIsUsgFacility": {
+            "addressNonUsIsUsgFacility": {
               "value": "Yes",
               "_qId": "a-6-38a5c2-0"
             },
-            "physicalAddressNonUsUsgFacilityName": {
+            "addressNonUsUsgFacilityName": {
               "value": "US Embassy Wakanda",
               "_qId": "a-6-191d56-0",
               "notApplicable": true
             },
-            "physicalAddressNonUsPostcode": {
+            "addressNonUsUsgFacilityPostcode": {
               "value": "1234-5678",
               "_qId": "a-6-1bb59a-0"
             }
@@ -1156,7 +1170,14 @@
           "dontKnow": true
         },
         "militarySupervisorPhoneNumber": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "a-7-1ba906-0",
           "dontKnow": true
         },
@@ -1227,7 +1248,7 @@
           "dontKnow": true,
           "notApplicable": true
         },
-        "militarySupervisorAddressNonUsPostcode": {
+        "militarySupervisorAddressNonUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "a-7-c20837-0",
           "dontKnow": true
@@ -1250,7 +1271,14 @@
               "present": true
             },
             "militaryUnitPhoneNumber": {
-              "value": "Day: 202-555-1234",
+              "value": {
+                "countryCode": "1",
+                "number": "2025551234",
+                "type": "Cell",
+                "timeOfDay": "Both",
+                "extension": "",
+                "isDsn": false
+              },
               "_qId": "a-7-1b38a7-0"
             },
             "militaryUnitDutyStatus": {
@@ -1336,7 +1364,14 @@
           "_qId": "a-7-18ef27-0"
         },
         "employerPhoneNumber": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "a-7-1c6978-0"
         },
         "addressInUs": {
@@ -1478,7 +1513,14 @@
           "dontKnow": true
         },
         "supervisorPhoneNumber": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "a-7-f5c0ca-0",
           "dontKnow": true
         },
@@ -1589,7 +1631,14 @@
         },
         "firingPersonPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-7-165987-0",
           "dontKnow": true
@@ -1629,7 +1678,14 @@
         },
         "quitBeforeFiringNotifierPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-7-4d8807-0",
           "dontKnow": true
@@ -1669,7 +1725,14 @@
         },
         "misconductNotifierPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-7-17669e-0",
           "dontKnow": true
@@ -1709,7 +1772,14 @@
         },
         "unsatisfactoryPerformanceNotifierPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-7-15a679-0",
           "dontKnow": true
@@ -1749,7 +1819,14 @@
         },
         "investigationNotifierPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-7-1a2d7c-0",
           "dontKnow": true
@@ -1819,7 +1896,14 @@
             },
             "issuerPhoneNumber": {
               "value": [
-                "Day: 202-555-1234"
+                {
+                  "countryCode": "1",
+                  "number": "2025551234",
+                  "type": "Cell",
+                  "timeOfDay": "Both",
+                  "extension": "",
+                  "isDsn": false
+                }
               ],
               "_qId": "a-7-1bc751-0",
               "dontKnow": true
@@ -1863,7 +1947,14 @@
           "partTime": true
         },
         "companyPhoneNumber": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "a-7-49da66-0"
         },
         "companyEmailAddress": {
@@ -1998,7 +2089,14 @@
         },
         "verifierPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-7-117dd0-0",
           "dontKnow": true
@@ -2104,7 +2202,14 @@
         },
         "verifierPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-7-e054c1-0",
           "dontKnow": true
@@ -2274,27 +2379,27 @@
               "value": "Yes",
               "_qId": "b-7-15728d-0"
             },
-            "usStreet": {
+            "addressUsStreet": {
               "value": "123 Main Street",
               "_qId": "b-7-d5bc1e-0"
             },
-            "usCity": {
+            "addressUsCity": {
               "value": "Rapid City",
               "_qId": "b-7-1bbc1b-0"
             },
-            "usState": {
+            "addressUsState": {
               "value": "WA",
               "_qId": "b-7-1e7bcc-0"
             },
-            "usZipcode": {
+            "addressUsZipcode": {
               "value": "Lorem ipsum",
               "_qId": "b-7-193463-0"
             },
-            "nonUsCity": {
+            "addressNonUsCity": {
               "value": "Rapid City",
               "_qId": "b-7-1124aa-0"
             },
-            "nonUsCountry": {
+            "addressNonUsCountry": {
               "value": "AFG",
               "_qId": "b-7-14c514-0"
             },
@@ -2672,7 +2777,14 @@
           "_qId": "a-10-a838ba-0"
         },
         "phoneNumber": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "a-10-7ad75b-0"
         },
         "emailAddress": {
@@ -3996,7 +4108,14 @@
         },
         "providerPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-12-1037b9-0",
           "dontKnow": true
@@ -4143,7 +4262,14 @@
         },
         "providerPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "a-12-19a220-0",
           "dontKnow": true
@@ -5288,16 +5414,16 @@
           "value": "AFG",
           "_qId": "a-16-1cb63d-0"
         },
-        "locationIsUsgFacility": {
+        "locationNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "a-16-93284e-0"
         },
-        "locationUsgFacilityName": {
+        "locationNonUsUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "a-16-dceaee-0",
           "notApplicable": true
         },
-        "locationUsgFacilityPostcode": {
+        "locationNonUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "a-16-11577c-0"
         },
@@ -6477,7 +6603,14 @@
         },
         "providerPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "b-19-a1fbc6-0",
           "dontKnow": true
@@ -6609,7 +6742,14 @@
         },
         "providerPhoneNumber": {
           "value": [
-            "Day: 202-555-1234"
+            {
+              "countryCode": "1",
+              "number": "2025551234",
+              "type": "Cell",
+              "timeOfDay": "Both",
+              "extension": "",
+              "isDsn": false
+            }
           ],
           "_qId": "b-19-158491-0",
           "dontKnow": true
@@ -7002,7 +7142,14 @@
           "_qId": "b-20-182810-0"
         },
         "partnerPhone": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "b-20-1ee29a-0",
           "dontKnow": true
         },
@@ -7109,7 +7256,14 @@
           "_qId": "b-20-fc0839-0"
         },
         "divorcedPartnerPhone": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "b-20-719e60-0",
           "dontKnow": true
         },
@@ -7986,7 +8140,14 @@
       "_qId": "b-23-12cebf-0"
     },
     "creditCounselingServicePhone": {
-      "value": "Day: 202-555-1234",
+      "value": {
+        "countryCode": "1",
+        "number": "2025551234",
+        "type": "Cell",
+        "timeOfDay": "Both",
+        "extension": "",
+        "isDsn": false
+      },
       "_qId": "b-23-7157f6-0"
     },
     "creditCounselingServiceHasBeenEffective": {
@@ -9315,7 +9476,14 @@
           "dontKnow": true
         },
         "phoneNumber": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "c-25-131260-0",
           "dontKnow": true
         },
@@ -11465,7 +11633,14 @@
           "_qId": "c-28-43547a-0"
         },
         "doctorPhone": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "c-28-3a2bc7-0"
         },
         "doctorUsAddress": {
@@ -11505,7 +11680,14 @@
           "_qId": "c-28-188f00-0"
         },
         "facilityPhone": {
-          "value": "Day: 202-555-1234",
+          "value": {
+            "countryCode": "1",
+            "number": "2025551234",
+            "type": "Cell",
+            "timeOfDay": "Both",
+            "extension": "",
+            "isDsn": false
+          },
           "_qId": "c-28-513d9c-0"
         },
         "facilityUsAddress": {
@@ -11574,7 +11756,14 @@
               "_qId": "c-28-12bcd1-0"
             },
             "doctorPhone": {
-              "value": "Day: 202-555-1234",
+              "value": {
+                "countryCode": "1",
+                "number": "2025551234",
+                "type": "Cell",
+                "timeOfDay": "Both",
+                "extension": "",
+                "isDsn": false
+              },
               "_qId": "c-28-242f8d-0"
             },
             "doctorUsAddress": {
