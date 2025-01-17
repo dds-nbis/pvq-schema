@@ -523,9 +523,9 @@ function generateSchema(questionsCsv, subjectType) {
     const questionsBySection = Map.groupBy(filteredQuestions, q => q.section);
 
     const output = {
-        "$id": "https://example.com/pvq.schema.json",
-        //"$schema": "https://json-schema.org/draft/2020-12/schema",
-        "title": "Personnel Vetting Questionnaire",
+        "$id": "https://github.com/dds-nbis/pvq-schema",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "PVQ Response",
         "description": "Validates responses to the US Federal Personnel Vetting Questionnaire",
         "type": "object",
         "properties": {
