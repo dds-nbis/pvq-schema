@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - schema
+      - typescript-generation
     paths:
       - schema-generation/schema-generator/dropdown-values.csv
       - schema-generation/schema-generator/pvq-questions.csv
