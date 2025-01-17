@@ -436,6 +436,47 @@ function findDuplicates(arr) {
     return arr.filter((e, i, a) => a.indexOf(e) !== i);
 }
 
+/**
+ * Finds everything after the last period in a string and returns it, with the first
+ * character uppercased.
+ * 
+ * If the final part of the input contains anything other than letters, logs an error
+ * and returns null.
+ * 
+ * Used to generate valid Typescript namespace/type names from JSON names.
+ */
+function toTypescriptName(str) {
+    const lastIndex = str.lastIndexOf('.');
+    const lastPart = lastIndex === -1 ? str : str.slice(lastIndex + 1);
+    const isLettersOnly = /^[a-zA-Z]+$/.test(lastPart);
+    if (lastPart == "" || !isLettersOnly) {
+        console.error("Value '%s' cannot be turned into a typescript name", str);
+        return null;
+    }
+    return lastPart.charAt(0).toUpperCase() + lastPart.slice(1);
+}
+
+class TypescriptBuilder {
+
+    constructor() {
+        this.currentNamespace = null;
+        this.namespaces = new Map();
+    }
+
+    startNewNamespace(nsName) {
+        const normalized = toTypescriptName(nsName);
+        this.currentNamespace = normalized;
+        this.namespaces.set(this.currentNamespace, {
+            "simpleProps": [],
+            "arrayProps": []
+        });
+    }
+
+    recordSimpleProperty(className, propName, propType) {
+
+    }
+}
+
 function processQuestions(schemaContext, sampleContext, contextDepth, questions) {
     console.debug("Called processQuestions schemaContext=%o sampleContext=%o contextDepth=%s questions=%o", 
         schemaContext, sampleContext, contextDepth, questions);
