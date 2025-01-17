@@ -43,7 +43,6 @@ async function main() {
         console.log(schema)
         console.log(sampleDoc)
 
-        
         // fs.writeFileSync(schemaFilePath, JSON.stringify(schema, null, 2));
         // fs.writeFileSync(sampleFilePath, JSON.stringify(sampleDoc, null, 2));
 
