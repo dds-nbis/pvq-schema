@@ -63,6 +63,13 @@ export function parseDropdownValues(valuesCsv) {
 }
 
 
+/**
+ * Generates the schema's "$defs" section, creating one subschema with enumerated values for every 
+ * dropdown list parsed.
+ * 
+ * @param {Map} ddValues 
+ * @returns 
+ */
 function generateCommonDefs(ddValues) {
     const output = {
         "debug_question_id": {
@@ -635,4 +642,3 @@ export function readFile(file) {
         reader.readAsText(file);
     });
 }
-
