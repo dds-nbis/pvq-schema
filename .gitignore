@@ -1,3 +1,4 @@
 node_modules/
 schema-generation/parser/*.txt
 lib/
+schema/*
