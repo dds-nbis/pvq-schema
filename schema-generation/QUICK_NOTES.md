@@ -214,6 +214,13 @@ In A-7, the question "Is this an internship? Were you full-time or part-time?" o
 - Recommended fix: split this into two questions (Is this an internship? Were you full time or part-time)
 - Also, adjust wording of first question to use past tense, i.e. "Was this an internship?"
 
+Section 7, part A
+- Heading: Branch Auto Populate for Employment Type Self. Details and Verifier.
+- Question: What is or was your job title?
+- Question ID: a-7-11ea14-0
+- Issue: This exact question is already asked in the self-employment repetition group on page 29
+- Recommendation: delete this question
+
 # Section 11 (part B)
 
 - Heading: for Affirmative Answer to Any of the Police Record Questions Above. Affirmative Answer Court Appearance. Outcome.
@@ -279,10 +286,7 @@ Note that properties with name "supervisedReleaseFromDate" and "supervisedReleas
 
 Also, "providerUsCity" and "providerUsState" should prob be "providerUsAddressCity" and "providerUsAddressState", and similar, for stylistic consistency.
 
+# Topics for discussion with Tim
 
-# Style topics for discussion
-
-How to represent "Yes/No/I dont know" checkbox sets:
-  - My preference: treat that like a dropdown (mutually exclusive) with values "Yes", "No", "I don't know"
-How to represent "Yes/No" checkbox sets:
-  - My preference: for consistency with the above, like a dropdown with values "Yes", "No" (i.e. `value="Yes"`)
+- Explain how phone numbers and emails are being handled (i.e. the type prefix). Verify that that's ok.
+- 
