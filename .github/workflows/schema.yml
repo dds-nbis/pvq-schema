@@ -21,10 +21,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install Dependencies
         run: npm install
 
       - name: Run Schema Generator
-        run: node schema-generation/schema-generator/generate-schema-runner schema-generation/test 
+        run: node schema-generation/schema-generator/generate-schema-runner test 

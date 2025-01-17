@@ -45,7 +45,6 @@ async function main() {
 
         // fs.writeFileSync(schemaFilePath, JSON.stringify(schema, null, 2));
         // fs.writeFileSync(sampleFilePath, JSON.stringify(sampleDoc, null, 2));
-
         console.info(`Generated files for ${type}:`);
         console.info(`  Schema: ${schemaFilePath}`);
         console.info(`  Sample: ${sampleFilePath}`);
