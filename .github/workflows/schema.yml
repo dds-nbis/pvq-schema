@@ -27,4 +27,10 @@ jobs:
         run: npm install
 
       - name: Run Schema Generator
-        run: node schema-generation/schema-generator/generate-schema-runner test 
+        run: node schema-generation/schema-generator/generate-schema-runner schema
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pvq-schema
+          path: schema-generation/schema-generator/schema/*
+
