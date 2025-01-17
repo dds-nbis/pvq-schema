@@ -2,7 +2,7 @@
 
 The PVQ JSON schemas define the JSON format for saving applicant responses to the US Personnel
 Vetting Questionnaire. There are three variants of the PVQ JSON schema, containing different sets of
-questions, based on the type of position the applicant is seeking: one for low risk positions, one
+questions based on the type of position the applicant is seeking: one for low risk positions, one
 for public trust positions, and one for national security positions. The type of position this PVQ
 is for is recorded in the top-level `subjectType` JSON attribute, which must have one of these values:
 
@@ -59,9 +59,9 @@ Here are the key things to know about how question responses are represented in 
 - Many parts of the PVQ allow the user to repeat a block of questions multiple times, once for each instance of an activity they
   should report. These repeated groups of questions are represented as an array of objects.
   - These subobjects themselves can contain arrays of objects, if the PVQ repetition logic is nested.
-  - For example, the education section asks users to report all schools you've attended in the last 5 years, and for each school, asks you
+  - For example, the education section asks users to report all schools they've attended in the last 5 years, and for each school, asks them
     to report all the physical campus locations you attended.
-  - The schema models this using a `schools` property within the education section whose value is an array of objects. Each school object
+  - The schema models this using a `schools` property within the education section, whose value is an array of objects. Each school object
     has a `physicalAddresses` property whose value is also an array of objects. Each of those objects has properties like `addressUsStreet`
     and `addressUsCity` to model the various attributes of an address.
 - The schema currently has very little support for validating the presence or absence of required questions- the majority of questions
@@ -104,7 +104,7 @@ The main value for this question must be a string with max length 255. The quest
 associated boolean checkbox property, called `lettersOnly`, corresponding to the "Letters only"
 checkbox for this question in the PVQ form. Boolean checkbox properties like this are optional- data
 consumers should treat missing checkbox properties as if their value is `false`. The third property,
-`_qId` is optional and can be ignored- it exists to allow sample values to be clearly tied to PVQ
+`_qId`, is optional and can be ignored- it exists to allow sample values to be clearly tied to PVQ
 questions in the JSON schema's sample data.
 
 Here's an example of what a question response matching this subschema would look like:
