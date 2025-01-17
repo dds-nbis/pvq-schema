@@ -130,6 +130,11 @@ And here's the same value, in the context of the overall PVQ JSON document:
 }
 ```
 
+Note that questions with dropdown input selectors get represented as strings, including simple Yes/No dropdowns (as opposed to modeling those questions as booleans).
+The yes/no questions are modeled this way both for greater consistency with other questions, and to improve forwards compatibility if the dropdown options for particular questions change (say, by adding "I don't know" as a third option to a yes/no question, as many questions already have). 
+
+Questions with dropdown selectors that allow the selection of multiple values are modeled as arrays of strings, as in the citizenships example described next.
+
 ### String array values
 
 Section 4 of the PVQ asks if the applicant has any additional citizenships, letting them select zero or more from a dropdown list of countries. Questions that let you select multiple values from a list have their values represented as arrays of strings in the schema. Here's an example of what a response to that question looks like in JSON:
