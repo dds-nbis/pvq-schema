@@ -485,7 +485,7 @@ class TypescriptBuilder {
     }
 }
 
-function processQuestions(schemaContext, sampleContext, contextDepth, questions) {
+function processQuestions(schemaContext, sampleContext, contextDepth, questions, dropdownValues) {
     console.debug("Called processQuestions schemaContext=%o sampleContext=%o contextDepth=%s questions=%o", 
         schemaContext, sampleContext, contextDepth, questions);
     const nestedQuestions = [];
