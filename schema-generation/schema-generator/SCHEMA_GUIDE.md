@@ -56,6 +56,8 @@ Here are the key things to know about how question responses are represented in 
   - A phone number object (a structured object with fields like `number`, `extension` and `timeOfDay`)
   - An array of phone number objects
   - No value (for questions that consist only of checkboxes)
+- Questions that ask the user to select a value from a dropdown list represent their answer as a string. 
+  - This includes simple yes/no questions- these answers are represented as the strings "Yes" and "No", not as booleans.
 - Many parts of the PVQ allow the user to repeat a block of questions multiple times, once for each instance of an activity they
   should report. These repeated groups of questions are represented as an array of objects.
   - These subobjects themselves can contain arrays of objects, if the PVQ repetition logic is nested.
@@ -240,7 +242,7 @@ For date questions, the value will be validated to match the format "YYYY-MM-DD"
 
 ### Addresses
 
-When they PVQ asks the applicant to provide an address, they are usually given the choice of a US address or a foreign one. Both address types are represented 
+When the PVQ asks the applicant to provide an address, they are usually given the choice of a US address or a foreign one. Both address types are represented 
 throughout as a set of questions for the various address components like street address, city, state, and military facility information. The PVQ JSON schema
 follows a consistent naming convention for these fields, using a consistent suffix for each address component. Here are the suffixes for the components of
 a US address (with an asterisk representing a variable prefix):
@@ -267,7 +269,7 @@ Foreign addresses are also represented by a group of fields with consistent suff
 - `*NonUsCountry` (the country, as a 3 letter GENC country code, such as "CAN" for Canada)
 - `*NonUsIsUsgFacility` (a yes/no question indicating if the address is on a US government facility abroad, such as diplomatic facilities or military bases)
 - `*NonUsUsgFacilityName` (the name of the US government facility, if any)
-- `*NonUsUsgUsgFacilityPostcode` (the APO/FPO/DPO/Zipcode of the US government facility abroad, if any)
+- `*NonUsUsgFacilityPostcode` (the APO/FPO/DPO/Zipcode of the US government facility abroad, if any)
 
 For example, here are the address property names for a non-US residence in section 5:
 
