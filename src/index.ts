@@ -81,28 +81,16 @@ const Suffix = Type.Object({
   explanation: Type.Optional(Type.String())
 })
 
-export const DateType = Type.Object({
+export const StartDate = Type.Object({
   value: Type.String(),
-  estimated: Type.Boolean(),
+  estimated: Type.Optional(Type.Boolean()),
 })
 
-export const DateTypeWithPresent = Type.Object({
+export const EndDate = Type.Object({
   value: Type.String(),
-  estimated: Type.Boolean(),
-  present: Type.Boolean(),
+  estimated: Type.Optional(Type.Boolean()),
+  present: Type.Optional(Type.Boolean())
 })
-
-export const DateRange = Type.Object({
-  from: Type.Object({
-    date: Type.String(),
-    estimated: Type.Boolean(),
-  }),
-  to: Type.Object({
-    date: Type.String(),
-    estimated: Type.Boolean(),
-    present: Type.Boolean(),
-  }),
-});
 
 export const DateOfBirth = Type.Object({
   date: Type.String(),
@@ -129,7 +117,9 @@ export const AdditionalName = Type.Object({
   lastName: Name,
   middleName: Type.Optional(Name),
   suffix: Type.Optional(Suffix),
-  range: DateRange
+  suffixOtherExplanation: Type.Optional(Type.String()),
+  startDate: StartDate,
+  endDate: EndDate,
 })
 
 export const FullName = Type.Object({
@@ -238,7 +228,8 @@ export const NonCitizen = Type.Object({
 export const AdditionalCountryCitizenship = Type.Object({
   country: Type.String(),
   how: Type.String(),
-  when: DateRange,
+  startDate: StartDate,
+  endDate: EndDate,
   issuedPassport: Type.Boolean(),
   stillActive: Type.Boolean()
 })
@@ -279,7 +270,8 @@ export const TemporaryLivingPurpose = Type.Union([
 export const Residence = Type.Object({
   inUs: Type.Boolean(),
   address: Type.Union([USAddress, NonUsAddress]),
-  dateRange: DateRange,
+  startDate: StartDate,
+  endDate: EndDate,
   temporaryAddressOver90Days: Type.Boolean(),
   temporaryLivingPurpose: TemporaryLivingPurpose,
   temporaryLivingPurposeExplanation: Type.Optional(Type.String())
@@ -296,7 +288,8 @@ export const Frequency = Type.Union([
 
 export const PersonWhoKnowsYou = Type.Object({
   name: FullName,
-  whenKnown: DateRange,
+  firstMetDate: StartDate,
+  lastContactDate: EndDate,
   contactFrequency: Frequency,
   contactFrequencyOtherExplanation: Type.Optional(Type.String()),
   currentRelationship: Type.String(),
@@ -308,14 +301,12 @@ export const PersonWhoKnowsYou = Type.Object({
 export const DisciplinaryAction = Type.Object({
   type: Type.String(),
   explanation: Type.String(),
-  date: Type.Object({
-      date: Type.String(),
-      estimated: Type.Boolean(),
-  }),
+  disciplinaryActionDate: StartDate,
   actionInitiator: FullName,
 })
 export const FederalEmploymentPeriod = Type.Object({
-  dateRange:DateRange,
+  startDate: StartDate,
+  endDate: EndDate,
   disciplinaryActions: Type.Array(DisciplinaryAction),
 })
 export const OtherFederalEmployment = Type.Object({
@@ -350,8 +341,8 @@ export const PreviousSchool = Type.Object({
   schoolTypeExplanation: Type.String(),
   learningExperience: Type.String(),
   learningExperienceExplanation: Type.String(),
-  fromMonth: DateType,
-  toMonth: DateTypeWithPresent,
+  fromMonth: StartDate,
+  toMonth: EndDate,
   isInUs: Type.Boolean(),
   addressUsStreet: Type.String(),
   addressUsCity: Type.String(),
@@ -361,7 +352,7 @@ export const PreviousSchool = Type.Object({
   addressNonUsCountry: Type.String(),
   degreeType: Type.String(),
   degreeTypeExplanation: Type.String(),
-  awardMonth: DateType,
+  awardMonth: StartDate,
 })
 
 export const SchoolInformation = Type.Object({
@@ -370,8 +361,8 @@ export const SchoolInformation = Type.Object({
   schoolType: Type.String(),
   schoolTypeExplanation: Type.String(),
   learningExperience: Type.String(),
-  startDate: Type.Object(DateType),
-  endDate: Type.Object(DateTypeWithPresent),
+  startDate: StartDate,
+  endDate: EndDate,
   isSchoolInUs: Type.Boolean(),
   addressUsStreet: Type.String(),
   addressUsCity: Type.String(),
@@ -382,7 +373,7 @@ export const SchoolInformation = Type.Object({
   receivedDegreeOrDiploma: Type.Boolean(),
   degreeType: Type.String(),
   degreeTypeExplanation: Type.String(),
-  degreeDate: DateType,
+  degreeDate: StartDate,
   differentPhysicalLocation: Type.String(),
   physicalAddresses: Type.Array(PhysicalAddress),
   educationReferenceLastName: Type.String(),
