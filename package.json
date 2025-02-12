@@ -11,16 +11,18 @@
     "build": "tsc"
   },
   "exports": {
-    ".":"./lib/index.js"
+    ".": "./lib/index.js"
   },
   "author": "DDS",
   "devDependencies": {
+    "@types/node": "^22.13.1",
     "typescript": "^5.6.3"
   },
   "files": [
     "lib/**/*"
   ],
   "dependencies": {
+    "@formio/js": "^5.0.1",
     "@sinclair/typebox": "^0.33.17"
   }
 }
