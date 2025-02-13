@@ -3,7 +3,7 @@ import type { EditGridComponent, FormioComponent } from "./formTypes"
 import fs from 'node:fs'
 
 type JsonObj = {
-  type: "object" | "string" | "number" | 'boolean',
+  type: "object" | "string" | "number" | 'boolean' | 'array',
   properties: Record<string, any>
   additionalProperties: boolean
   required: string[]
@@ -22,8 +22,12 @@ function isString(obj: JsonObj): boolean {
   return obj?.properties?.value?.type === 'string'
 }
 
-function isArray(obj: JsonObj): boolean {
+function isArrayValue(obj: JsonObj): boolean {
   return obj?.properties?.value?.type === 'array'
+}
+
+function isArray(obj: JsonObj): boolean {
+  return obj?.type === 'array'
 }
 
 function getLabel(node: JsonObj) {
@@ -32,7 +36,7 @@ function getLabel(node: JsonObj) {
     if (!questionText.includes('Question text: ')) {
       console.error("No question text", node)
     } else {
-      return questionText.substring('Question text:'.length)
+      return questionText.substring('Question text: '.length)
     }
   }
   if (node.title) {
@@ -98,7 +102,7 @@ function handleRefValue(name: string, node: JsonObj): FormioComponent {
       }
     }
   } else {
-    throw unhandledNode(node)
+    return nodeToComponent(name, node)
   }
 }
 
@@ -110,7 +114,10 @@ function getId(node: JsonObj): string {
 }
 
 function handleArray(name: string, node: JsonObj): FormioComponent {
-  const items = node.properties.value.items
+  return _handleArray(name, node, node.items)
+}
+
+function _handleArray(name: string, node: JsonObj, items: any): FormioComponent {
   let components: FormioComponent[]
   if (items.$ref) {
     components = schemaToComponents(name, schema.$defs[items.$ref.substring('#/$defs/'.length)])
@@ -128,6 +135,11 @@ function handleArray(name: string, node: JsonObj): FormioComponent {
     validateWhenHidden: false,
     components
   }
+}
+
+function handleArrayValue(name: string, node: JsonObj): FormioComponent {
+  const items = node.properties.value.items
+  return _handleArray(name, node, items)
 }
 
 function isRawString(node: JsonObj) {
@@ -163,32 +175,41 @@ function handleBoolean(name: string, node: JsonObj): FormioComponent {
 function nodeToComponent(name: string, node: JsonObj): FormioComponent {
   if (isString(node)) {
     return handleString(name, node)
-  } else if (!!valueRef(node)) {
-    return handleRefValue(name, node)
-  } else if (isArray(node)) {
-    return handleArray(name, node)
-  } else if (isRawString(node)) {
-    return handleRawString(name, node)
-  } else if (isBoolean(node)) {
-    return handleBoolean(name, node)
-  } else {
-    throw unhandledNode(name, node)
   }
+  if (!!valueRef(node)) {
+    return handleRefValue(name, node)
+  }
+  if (isArrayValue(node)) {
+    return handleArrayValue(name, node)
+  }
+  if (isArray(node)) {
+    return handleArray(name, node)
+  }
+  if (isRawString(node)) {
+    return handleRawString(name, node)
+  }
+  if (isBoolean(node)) {
+    return handleBoolean(name, node)
+  }
+  throw unhandledNode(name, node)
 }
 
 function schemaToComponents(name: string, obj: JsonObj): FormioComponent[] {
-  const fields = obj.required
+  if (!obj.properties) {
+    return [nodeToComponent(name, obj)]
+  }
+  const fields = Object.keys(obj.properties)
   const components: FormioComponent[] = []
   if (fields) {
     for (const field of fields) {
-      const comp = nodeToComponent(field, obj.properties[field])
-      if (comp) {
-        components.push(comp)
-      } else {
-        throw unhandledNode(field, obj)
-      }
+      components.push(nodeToComponent(field, obj.properties[field]))
     }
+    // if (fields.length !== Object.keys(obj.properties).length) {
+    //   throw unhandledNode(name + "(unhandled fields)", obj)
+    // }
     return components
+  } else if (obj.properties) {
+    throw unhandledNode(name, obj)
   } else {
     return [nodeToComponent(name, obj)]
   }
@@ -204,22 +225,37 @@ outer: for (const sectionName of sectionNames) {
   const section = schema.properties[sectionName]
   if (section.type === 'object') {
     console.log(unCamelCase(sectionName))
-    const sectionFields = section.required as string[]
+    if ([
+      'Employment',
+      'People Who Know You Well',
+      "Relationship Status",
+      "Financial Record",
+      "Foreign Contacts",
+      "Foreign Financial Interests",
+      "Mental Health",
+    ].includes(unCamelCase(sectionName))) {
+      continue
+    }
+    const sectionFields = Object.keys(section.properties)
     for (const sectionField of sectionFields) {
       const field = section.properties[sectionField]
       if (isLeafNode(field)) {
         try {
-          const component = nodeToComponent(sectionField, field)
-          if (component) {
-            form.components.push(component)
-          }
+          form.components.push(nodeToComponent(sectionField, field))
         } catch (e) {
           console.error(e)
           break outer;
         }
       } else {
-        throw unhandledNode(sectionField, field)
+        try {
+          form.components.push(nodeToComponent(sectionField, field))
+        } catch (e) {
+          throw unhandledNode(sectionField, field)
+        }
       }
+    }
+    if (sectionFields.length !== Object.keys(section.properties).length) {
+      throw new Error('top level (unhandled fields)')
     }
   }
 }
