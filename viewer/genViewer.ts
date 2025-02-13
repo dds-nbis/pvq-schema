@@ -111,21 +111,22 @@ function getId(node: JsonObj): string {
 
 function handleArray(name: string, node: JsonObj): FormioComponent {
   const items = node.properties.value.items
+  let components: FormioComponent[]
   if (items.$ref) {
-    const components = schemaToComponents(name, schema.$defs[items.$ref.substring('#/$defs/'.length)])
-    return {
-      type: 'editgrid',
-      label: getLabel(node),
-      tableView: false,
-      rowDrafts: false,
-      input: true,
-      key: getId(node),
-      applyMaskOn: 'change',
-      validateWhenHidden: false,
-      components
-    }
+    components = schemaToComponents(name, schema.$defs[items.$ref.substring('#/$defs/'.length)])
   } else {
-    throw unhandledNode('', node)
+    components = schemaToComponents(name, items)
+  }
+  return {
+    type: 'editgrid',
+    label: getLabel(node),
+    tableView: false,
+    rowDrafts: false,
+    input: true,
+    key: getId(node),
+    applyMaskOn: 'change',
+    validateWhenHidden: false,
+    components
   }
 }
 
@@ -148,7 +149,18 @@ function handleRawString(name: string, node: JsonObj): FormioComponent {
   }
 }
 
-function nodeToComponent(name: string, node: JsonObj): FormioComponent | undefined {
+function handleBoolean(name: string, node: JsonObj): FormioComponent {
+  return {
+    type: "checkbox",
+    key: name,
+    label: unCamelCase(name),
+    input: true,
+    applyMaskOn: 'change',
+    validateWhenHidden: false
+  }
+}
+
+function nodeToComponent(name: string, node: JsonObj): FormioComponent {
   if (isString(node)) {
     return handleString(name, node)
   } else if (!!valueRef(node)) {
@@ -157,6 +169,8 @@ function nodeToComponent(name: string, node: JsonObj): FormioComponent | undefin
     return handleArray(name, node)
   } else if (isRawString(node)) {
     return handleRawString(name, node)
+  } else if (isBoolean(node)) {
+    return handleBoolean(name, node)
   } else {
     throw unhandledNode(name, node)
   }
@@ -165,15 +179,19 @@ function nodeToComponent(name: string, node: JsonObj): FormioComponent | undefin
 function schemaToComponents(name: string, obj: JsonObj): FormioComponent[] {
   const fields = obj.required
   const components: FormioComponent[] = []
-  for (const field of fields) {
-    const comp = nodeToComponent(field, obj.properties[field])
-    if (comp) {
-      components.push(comp)
-    } else {
-      throw unhandledNode(field, obj)
+  if (fields) {
+    for (const field of fields) {
+      const comp = nodeToComponent(field, obj.properties[field])
+      if (comp) {
+        components.push(comp)
+      } else {
+        throw unhandledNode(field, obj)
+      }
     }
+    return components
+  } else {
+    return [nodeToComponent(name, obj)]
   }
-  return components
 }
 
 const form = {
