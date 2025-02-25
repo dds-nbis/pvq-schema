@@ -22,7 +22,6 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "@formio/js": "^5.0.1",
     "@sinclair/typebox": "^0.33.17"
   }
 }
