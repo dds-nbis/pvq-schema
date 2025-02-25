@@ -1,5 +1,5 @@
 import schema from "../schema-generation/schema-generator/ns-schema.json" with { type: "json" }
-import type { EditGridComponent, FormioComponent } from "./formTypes"
+import type { FormioComponent } from "./formTypes"
 import fs from 'node:fs'
 
 type JsonObj = {
