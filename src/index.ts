@@ -328,7 +328,7 @@ export const PhysicalAddress = Type.Object({
   physicalAddressNonUsCity: Type.String(),
   physicalAddressNonUsCountry: Type.String(),
   physicalAddressNonUsIsUsgFacility: Type.Boolean(),
-  pysicalAddressNonUsUsgFacilityName: Type.Object({
+  physicalAddressNonUsUsgFacilityName: Type.Object({
     value: Type.String(),
     notApplicable: Type.Boolean(),
   }),
@@ -374,7 +374,7 @@ export const SchoolInformation = Type.Object({
   degreeType: Type.String(),
   degreeTypeExplanation: Type.String(),
   degreeDate: StartDate,
-  differentPhysicalLocation: Type.String(),
+  differentPhysicalLocation: Type.Boolean(),
   physicalAddresses: Type.Array(PhysicalAddress),
   educationReferenceLastName: Type.String(),
   educationReferenceFirstName: Type.String(),
