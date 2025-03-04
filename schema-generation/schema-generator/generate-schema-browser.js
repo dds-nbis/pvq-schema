@@ -1,10 +1,8 @@
 const DEBUG = false;
 
-
-
 //const APPLICANT_TYPES = ["NATIONAL_SECURITY", "PUBLIC_TRUST", "LOW_RISK"];
 const APPLICANT_TYPES = ["NATIONAL_SECURITY"];
-import { parseDropdownValues, generateSchema, readFile } from './schema-generator.js';
+//import { parseDropdownValues, generateSchema, readFile } from './schema-generator.js';
 
 async function handleSubmit(event) {
 

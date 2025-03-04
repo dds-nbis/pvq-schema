@@ -1,6 +1,6 @@
-const DEBUG = false;
+//const DEBUG = false;
 
-export function parseCSV(csvText) {
+function parseCSV(csvText) {
     const rows = [];
     let currentRow = [];
     let currentValue = '';
@@ -43,7 +43,7 @@ export function parseCSV(csvText) {
     return rows;
 }
 
-export function parseDropdownValues(valuesCsv) {
+function parseDropdownValues(valuesCsv) {
     const output = new Map();
     let count = 0;
     parseCSV(valuesCsv.trim())
@@ -61,7 +61,6 @@ export function parseDropdownValues(valuesCsv) {
     console.debug("Parsed dropdown values count=%s", count);
     return output;
 }
-
 
 /**
  * Generates the schema's "$defs" section, creating one subschema with enumerated values for every 
@@ -104,6 +103,189 @@ function generateCommonDefs(ddValues) {
             },
             "required": ["countryCode", "number", "type", "timeOfDay", "extension", "isDsn"],
             "additionalProperties": false
+        },
+        "us_addr_type1": {
+            "type": "object",
+            "properties": {
+                "streetAddress": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "description": "The street address or PO Box"
+                },
+                "city": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the city or town"
+                },
+                "stateOrTerritory": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 2,
+                    "description": "The standard two letter USPS code for the state or territory"
+                },
+                "zipcode": {
+                    "type": "string",
+                    "pattern": "^\d{5}(?:[- ]\d{4})?$",
+                    "description": "The zipcode"
+                },
+                "isMilitaryInstallation": {
+                    "type": "boolean",
+                    "description": "Whether or not the adddress is on a US military installation"
+                },
+                "militaryInstallationName": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the US military installation the address is on, if any"
+                }
+            },
+            "required": ["streetAddress", "city", "stateOrTerritory", "zipcode", "isMilitaryInstallation"]
+        },
+        "us_addr_type2": {
+            "type": "object",
+            "properties": {
+                "streetAddress": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "description": "The street address"
+                },
+                "city": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the city or town"
+                },
+                "stateOrTerritory": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 2,
+                    "description": "The standard two letter USPS code for the state or territory"
+                },
+                "zipcode": {
+                    "type": "string",
+                    "pattern": "^\d{5}(?:[- ]\d{4})?$",
+                    "description": "The zipcode"
+                }
+            },
+            "required": ["streetAddress", "city", "stateOrTerritory", "zipcode", "isMilitaryInstallation"]
+        },
+        "us_addr_type3": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the city or town"
+                },
+                "stateOrTerritory": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 2,
+                    "description": "The standard two letter USPS code for the state or territory"
+                },
+                "zipcode": {
+                    "type": "string",
+                    "pattern": "^\d{5}(?:[- ]\d{4})?$",
+                    "description": "The zipcode"
+                },
+                "isMilitaryInstallation": {
+                    "type": "boolean",
+                    "description": "Whether or not the adddress is on a US military installation"
+                },
+                "militaryInstallationName": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the US military installation the address is on, if any"
+                }
+            },
+            "required": ["streetAddress", "city", "stateOrTerritory", "zipcode", "isMilitaryInstallation"]
+        },
+        "foreign_addr_type1": {
+            "type": "object",
+            "properties": {
+                "streetAddress": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "description": "The street address"
+                },
+                "city": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the city or town"
+                },
+                "country": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 3,
+                    "description": "The 3 letter GENC code for the country. GENC country codes are typically the same as ISO-3166-1 codes, with exceptions to comply with USG policy."
+                },
+                "isUsgFacility": {
+                    "type": "boolean",
+                    "description": "True if the address is on a US military or diplomatic facility abroad, false otherwise"
+                },
+                "usgFacilityName": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the US military or diplomatic facility the address is on, if any"
+                },
+                "usgFacilityPostcode": {
+                    "type": "string",
+                    "maxLength": 15,
+                    "description": "What is the APO/FPO/DPO ZIP Code of the USG facility, if any"
+                }
+            },
+            "required": ["streetAddress", "city", "country", "isUsgFacility"]
+        },
+        "foreign_addr_type2": {
+            "type": "object",
+            "properties": {
+                "streetAddress": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "description": "The street address"
+                },
+                "city": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the city or town"
+                },
+                "country": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 3,
+                    "description": "The 3 letter GENC code for the country. GENC country codes are typically the same as ISO-3166-1 codes, with exceptions to comply with USG policy."
+                }
+            },
+            "required": ["streetAddress", "city", "country", "isUsgFacility"]
+        },
+        "foreign_addr_type3": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the city or town"
+                },
+                "country": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 3,
+                    "description": "The 3 letter GENC code for the country. GENC country codes are typically the same as ISO-3166-1 codes, with exceptions to comply with USG policy."
+                },
+                "isUsgFacility": {
+                    "type": "boolean",
+                    "description": "True if the address is on a US military or diplomatic facility abroad, false otherwise"
+                },
+                "usgFacilityName": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "The name of the US military or diplomatic facility the address is on, if any"
+                },
+                "usgFacilityPostcode": {
+                    "type": "string",
+                    "maxLength": 15,
+                    "description": "What is the APO/FPO/DPO ZIP Code of the USG facility, if any"
+                }
+            },
+            "required": ["streetAddress", "city", "country", "isUsgFacility"]
         }
     };
     for (const listName of ddValues.keys()) {
@@ -117,14 +299,6 @@ function generateCommonDefs(ddValues) {
         console.debug("Created common dropdown value schema name=%s", defsKey);
     }
     return output;
-}
-
-function coalesce(s, defaultValue) {
-    if (s == null || s.trim().length == 0) {
-        return defaultValue;
-    } else {
-        return s;
-    }
 }
 
 function parseSection(rawSection) {
@@ -405,23 +579,6 @@ Question ID: ${questionId}
     return prop;
 }
 
-function stripPrefix(prefix, value) {
-    console.assert(prefix != null, "stripPrefix: prefix is null");
-    console.assert(typeof value == "string", "stripPrefix: value is not a string");
-    console.assert(value.startsWith(prefix), "stripPrefix: bogus input prefix='%s' value='%s'", prefix, value);
-
-    return value.substring(prefix.length);
-}
-
-function substringBefore(s, delim, defaultValue) {
-    const p = s.indexOf(delim);
-    if (p < 0) {
-        return defaultValue;
-    } else {
-        return s.substring(0, p);
-    }
-}
-
 /**
  * Checks for duplicate property names within a single schema object scope.
  */
@@ -440,49 +597,144 @@ class PropDeduper {
     }
 }
 
-function findDuplicates(arr) {
-    return arr.filter((e, i, a) => a.indexOf(e) !== i);
+function substringBefore(str, suffix) {
+  if (!str || !suffix || !str.endsWith(suffix)) {
+    return null;
+  }
+  return str.slice(0, -suffix.length);
 }
 
-/**
- * Finds everything after the last period in a string and returns it, with the first
- * character uppercased.
- * 
- * If the final part of the input contains anything other than letters, logs an error
- * and returns null.
- * 
- * Used to generate valid Typescript namespace/type names from JSON names.
- */
-function toTypescriptName(str) {
-    const lastIndex = str.lastIndexOf('.');
-    const lastPart = lastIndex === -1 ? str : str.slice(lastIndex + 1);
-    const isLettersOnly = /^[a-zA-Z]+$/.test(lastPart);
-    if (lastPart == "" || !isLettersOnly) {
-        console.error("Value '%s' cannot be turned into a typescript name", str);
-        return null;
+
+
+// I think we should refactor "NonUs" property names to say "Foreign" for less tricky matching
+// Need to continue searching for incomplete aggregations, they may indicate issues in the XLS
+
+// Consider updating this to support both required and optional fields (court martial offense US address in section 9 doesn't have street, for example)... simplifies schema, at the expense of less accurate validation. Validation is horribly inaccurate anyway, maybe that doesn't matter.
+
+class Aggregation {
+  constructor(aggregationType, properties) {
+    // Validate aggregationType is a string
+    if (typeof aggregationType !== 'string') {
+      throw new TypeError('aggregationType must be a string');
     }
-    return lastPart.charAt(0).toUpperCase() + lastPart.slice(1);
+
+    // Validate properties is an array of strings
+    if (!Array.isArray(properties)) {
+      throw new TypeError('properties must be an array');
+    }
+
+    if (properties.some(prop => typeof prop !== 'string')) {
+      throw new TypeError('All elements in properties must be strings');
+    }
+
+    this.aggregationType = aggregationType;
+    this.properties = properties;
+  }
 }
 
-class TypescriptBuilder {
-
-    constructor() {
-        this.currentNamespace = null;
-        this.namespaces = new Map();
+class AggregationType {
+    constructor(name, discriminatorSuffix, otherSuffixes, aggregationSuffix) {
+        this.name = name;
+        this.discriminatorSuffix = discriminatorSuffix;
+        this.otherSuffixes = otherSuffixes;
+        this.aggregationSuffix = aggregationSuffix;
     }
 
-    startNewNamespace(nsName) {
-        const normalized = toTypescriptName(nsName);
-        this.currentNamespace = normalized;
-        this.namespaces.set(this.currentNamespace, {
-            "simpleProps": [],
-            "arrayProps": []
-        });
+    getAggregatedPropName(prefix) {
+        return prefix + this.aggregationSuffix;
     }
 
-    recordSimpleProperty(className, propName, propType) {
-
+    /**
+     * Returns a Set of the property names with the given prefix matching this aggregation.
+     */
+    getPropertyNames(prefix) {
+        const output = new Set();
+        output.add(prefix + this.discriminatorSuffix);
+        for (const suffix of this.otherSuffixes) {
+            output.add(prefix + suffix);
+        }
+        return output;
     }
+
+    /**
+     * Tests whether the given property names contain any property sets compatible
+     * with this aggregation type, returning an array of all matching property name prefixes.
+     * 
+     * A property name prefix matches this aggregation type if the given property keys
+     * contain a property name with that prefix and the expected suffix, for all suffixes
+     * associated with this aggregation type.
+     */
+    testKeys(propKeys) {
+        const candidatePrefixes = Array.from(propKeys)
+            .map(s => this.#matchSuffix(s, this.discriminatorSuffix))
+            .filter(s => s != null && !s.endsWith("Non"));
+        const output = [];
+        for (const prefix of candidatePrefixes) {
+            const missingProps = this.otherSuffixes
+                .map(suffix => prefix + suffix)
+                .filter(expectedProp => !propKeys.has(expectedProp));
+            if (missingProps.length == 0) {
+                output.push(prefix);
+            } else {
+                console.warn("Unable to match all aggregation properties aggregation=%s missing=%o", 
+                    this.name, missingProps)
+            }
+        }
+        return output;
+    }
+
+    /**
+     * Returns the substring before the suffix if s ends with the suffix, otherwise returns null. 
+     */
+    #matchSuffix(s, suffix) {
+        if (!s.endsWith(suffix)) {
+            return null;
+        }
+        return s.slice(0, -1 * suffix.length);
+    }
+}
+
+const US_ADDR_TYPE1 = new AggregationType("us_addr_type1", "UsIsMilitaryInstallation", 
+        ["UsMilitaryInstallationName", "UsStreet", "UsCity", "UsState", "UsZipcode"], "Us");
+const US_ADDR_TYPE2 = new AggregationType("us_addr_type2", "UsStreet", 
+    ["UsCity", "UsState", "UsZipcode"], "Us");
+const US_ADDR_TYPE3 = new AggregationType("us_addr_type3", "UsIsMilitaryInstallation", 
+    ["UsMilitaryInstallationName", "UsCity", "UsState", "UsZipcode"], "Us");
+const FOREIGN_ADDR_TYPE1 = new AggregationType("foreign_addr_type1", "NonUsStreet",
+    ["NonUsCity", "NonUsCountry", "NonUsIsUsgFacility", "NonUsUsgFacilityName", "NonUsUsgFacilityPostcode"], "Foreign");
+const FOREIGN_ADDR_TYPE2 = new AggregationType("foreign_addr_type2", "NonUsStreet",
+    ["NonUsCity", "NonUsCountry"], "Foreign");
+const FOREIGN_ADDR_TYPE3 = new AggregationType("foreign_addr_type3", "NonUsUsgFacilityPostcode",
+    ["NonUsCity", "NonUsCountry", "NonUsIsUsgFacility", "NonUsUsgFacilityName"], "Foreign");
+
+// order matters... earlier aggregation types take precedence over later ones
+const AGGREGATIONS = [US_ADDR_TYPE1, US_ADDR_TYPE2, US_ADDR_TYPE3, FOREIGN_ADDR_TYPE1, FOREIGN_ADDR_TYPE2, FOREIGN_ADDR_TYPE3];
+const AGGREGATION_NAMES = new Set(AGGREGATIONS.map(ag => ag.name));
+
+const US_STREET_SUFFIX = "UsStreet";
+
+function findAggregations(contextSchema) {
+    const output = {};
+    for (const aggregationType of AGGREGATIONS) {
+        const propKeys = new Set(Object.keys(contextSchema.properties));
+        const matchingPrefixes = aggregationType.testKeys(propKeys);
+        for (const prefix of matchingPrefixes) {
+            const aggregationName = aggregationType.name;
+            const origKeys = aggregationType.getPropertyNames(prefix);
+            const aggregatedPropName = aggregationType.getAggregatedPropName(prefix);
+            for (const propName of origKeys) {
+                delete contextSchema.properties[propName];
+            }
+            contextSchema.properties[aggregatedPropName] = {
+                "value": {
+                    "$ref": "#/$defs/" + aggregationName
+                }
+            };
+            console.debug("Found aggregation prefix=%s aggregation=%s", prefix, aggregationName);
+        }
+    }
+
+    return output;
 }
 
 function processQuestions(schemaContext, sampleContext, contextDepth, questions, dropdownValues) {
@@ -538,6 +790,8 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions,
         processQuestions(prop.items, sampleArrayValue, contextDepth + 1, children, dropdownValues);
         deduper.record(arrayPropName, prop);
     }
+
+    findAggregations(schemaContext);
 }
 
 const NATIONAL_SECURITY_PARTS = new Set(["A", "B", "C"]);
@@ -557,7 +811,7 @@ function isQuestionApplicable(subjectType, parsedQuestion) {
     }
 }
 
-export function generateSchema(questionsCsv, subjectType, dropdownValues) {
+function generateSchema(questionsCsv, subjectType, dropdownValues) {
     console.groupCollapsed("Parsing questions CSV");
     const allQuestions = parseCSV(questionsCsv)
         .slice(1) // skip the header row
@@ -624,7 +878,7 @@ export function generateSchema(questionsCsv, subjectType, dropdownValues) {
     return [output, sampleDoc];
 }
 
-export function readFile(file) {
+function readFile(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
 
