@@ -713,7 +713,7 @@ const AGGREGATION_NAMES = new Set(AGGREGATIONS.map(ag => ag.name));
 
 const US_STREET_SUFFIX = "UsStreet";
 
-function findAggregations(contextSchema) {
+function processAggregations(contextSchema) {
     const output = {};
     for (const aggregationType of AGGREGATIONS) {
         const propKeys = new Set(Object.keys(contextSchema.properties));
@@ -791,7 +791,7 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions,
         deduper.record(arrayPropName, prop);
     }
 
-    findAggregations(schemaContext);
+    processAggregations(schemaContext);
 }
 
 const NATIONAL_SECURITY_PARTS = new Set(["A", "B", "C"]);
