@@ -75,6 +75,22 @@ function generateCommonDefs(ddValues) {
             "type": "string",
             "pattern": QUESTION_ID_REGEX
         },
+        "simple_short_text_question": {
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "maxLength": NORMAL_MAX_LENGTH
+                }
+            }
+        },
+        "simple_long_text_question": {
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "maxLength": LONG_MAX_LENGTH
+                }
+            }
+        },
         "phone_number": {
             "properties": {
                 "countryCode": {
@@ -109,7 +125,7 @@ function generateCommonDefs(ddValues) {
             "properties": {
                 "streetAddress": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": NORMAL_MAX_LENGTH,
                     "description": "The street address or PO Box"
                 },
                 "city": {
@@ -145,7 +161,7 @@ function generateCommonDefs(ddValues) {
             "properties": {
                 "streetAddress": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": NORMAL_MAX_LENGTH,
                     "description": "The street address"
                 },
                 "city": {
@@ -203,7 +219,7 @@ function generateCommonDefs(ddValues) {
             "properties": {
                 "streetAddress": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": NORMAL_MAX_LENGTH,
                     "description": "The street address"
                 },
                 "city": {
@@ -239,7 +255,7 @@ function generateCommonDefs(ddValues) {
             "properties": {
                 "streetAddress": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": NORMAL_MAX_LENGTH,
                     "description": "The street address"
                 },
                 "city": {
@@ -352,7 +368,8 @@ const YEAR_REGEX = "^\\d{4}$";
 const NUMBER_REGEX = "^\\d+(\\.\\d+)?$";
 const QUESTION_ID_REGEX = "^[abcd]-\\d+-[0-9a-z]{6}-\\d+$";
 
-const DEFAULT_MAX_LENGTH = 255;
+const NORMAL_MAX_LENGTH = 255;
+const LONG_MAX_LENGTH = 4000;
 
 class QuestionType {
     constructor(isMultivalue, hasEnumList, requiresValue, valuePattern, schemaFormat, maxLength, isPhoneNumber) {
@@ -368,7 +385,7 @@ class QuestionType {
 
 const QUESTION_TYPES = {
     "text": new QuestionType(false, false, true, null),
-    "long_text": new QuestionType(false, false, true, null, null, 4000),
+    "long_text": new QuestionType(false, false, true, null, null, LONG_MAX_LENGTH),
     "number": new QuestionType(false, false, true, NUMBER_REGEX),
     "email": new QuestionType(false, false, true, EMAIL_REGEX),
     "email_multiple": new QuestionType(true, false, true, EMAIL_REGEX),
@@ -381,6 +398,9 @@ const QUESTION_TYPES = {
     "dropdown": new QuestionType(false, true, true, null),
     "dropdown_multiple": new QuestionType(true, true, true, null)
 };
+
+const NORMAL_TEXT_TYPE = QUESTION_TYPES.text;
+const LONG_TEXT_TYPE = QUESTION_TYPES.long_text;
 
 const NORMAL_TEXT_PATTERN = /^(ZIP|U\.S\.|[A-Z]\. |[A-Z][a-z]).*/;
 
@@ -510,7 +530,7 @@ Question ID: ${questionId}
         "properties": {
             "value": {
                 "type": "string",
-                "maxLength": DEFAULT_MAX_LENGTH
+                "maxLength": NORMAL_MAX_LENGTH
             },
             "_qId": {
                 "$ref": "#/$defs/debug_question_id"
@@ -531,6 +551,19 @@ Question ID: ${questionId}
     for (let checkbox of row.checkboxes) {
         prop.properties[checkbox] = {
             "type": "boolean"
+        };
+    }
+
+    // TODO: this code is getting messy, this method should be refactored, probably
+    // to put the question schema generation in a method of the question type, and use
+    // subclassing or something similar
+    if (typeSettings == NORMAL_TEXT_TYPE && row.checkboxes.length == 0) {
+        return {
+            "$ref": "#/$defs/simple_short_text_question"
+        };
+    } else if (typeSettings == LONG_MAX_LENGTH && row.checkboxes.length == 0) {
+        return {
+            "$ref": "#/$defs/simple_long_text_question"
         };
     }
 
@@ -656,6 +689,12 @@ class AggregationType {
         return output;
     }
 
+    getExpectedProperties(prefix) {
+        const output = new Set();
+        output.add(prefix + this.discriminatorSuffix);
+
+    }
+
     /**
      * Tests whether the given property names contain any property sets compatible
      * with this aggregation type, returning an array of all matching property name prefixes.
@@ -670,10 +709,14 @@ class AggregationType {
             .filter(s => s != null && !s.endsWith("Non"));
         const output = [];
         for (const prefix of candidatePrefixes) {
-            const missingProps = this.otherSuffixes
-                .map(suffix => prefix + suffix)
-                .filter(expectedProp => !propKeys.has(expectedProp));
-            if (missingProps.length == 0) {
+            const expected = this.getPropertyNames(prefix);
+            let actual = Array.from(propKeys)
+                .filter(s => s.startsWith(prefix));
+            actual = new Set(actual);
+            const missingProps = expected.difference(actual);
+            //const extraProps = actual.difference(expected);
+
+            if (missingProps.size == 0) {
                 output.push(prefix);
             } else {
                 console.warn("Unable to match all aggregation properties aggregation=%s missing=%o", 
@@ -874,6 +917,8 @@ function generateSchema(questionsCsv, subjectType, dropdownValues) {
         processQuestions(sectionObj, sampleSection, 0, sectionQuestions, dropdownValues);
         console.groupEnd();
     }
+
+    console.debug("Finished schema generation for %s", subjectType);
 
     return [output, sampleDoc];
 }
