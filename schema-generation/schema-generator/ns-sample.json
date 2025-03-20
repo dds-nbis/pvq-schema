@@ -177,7 +177,7 @@
       "_qId": "a-2-128f37-0",
       "unableToObtain": true
     },
-    "passportCardNumberExplanation": {
+    "passportCardUnknownNumberExplanation": {
       "value": "Lorem ipsum dolor sit amet.",
       "_qId": "a-2-manual-1"
     },
@@ -223,7 +223,7 @@
           "_qId": "a-2-1e0d5c-0",
           "unableToObtain": true
         },
-        "passportBooksNumberExplanation": {
+        "passportBookUnknownNumberExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-2-manual-0"
         },
@@ -616,7 +616,7 @@
               "value": "Business or professional conference (This does not include U.S. Government business or military assignments.)",
               "_qId": "b-4-613efe-0"
             },
-            "reasonOtherExplanation": {
+            "travelReasonOtherExplanation": {
               "value": "Sample value",
               "_qId": "b-4-e3bfa7-0"
             },
@@ -779,7 +779,7 @@
           "value": "Vocational/Technical/Trade School",
           "_qId": "a-6-abab69-0"
         },
-        "schoolTypeExplanation": {
+        "schoolTypeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-1dc4d0-0"
         },
@@ -834,7 +834,7 @@
           "value": "Associate's degree",
           "_qId": "a-6-debe9b-0"
         },
-        "degreeTypeExplanation": {
+        "degreeTypeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-1f6626-0"
         },
@@ -870,7 +870,7 @@
           ],
           "_qId": "a-6-2e808a-0"
         },
-        "educationReferenceRelationshipExplanation": {
+        "educationReferenceRelationshipOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-1a8a1b-0"
         },
@@ -1028,7 +1028,7 @@
           "value": "Vocational/Technical/Trade School",
           "_qId": "a-6-de0783-0"
         },
-        "schoolTypeExplanation": {
+        "schoolTypeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-4f1dbd-0"
         },
@@ -1036,7 +1036,7 @@
           "value": "In-person",
           "_qId": "a-6-f3aab4-0"
         },
-        "learningExperienceExplanation": {
+        "learningExperienceOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-108306-0"
         },
@@ -1080,7 +1080,7 @@
           "value": "Associate's degree",
           "_qId": "a-6-15c0ed-0"
         },
-        "degreeTypeExplanation": {
+        "degreeTypeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-1f07c4-0"
         },
@@ -2512,7 +2512,7 @@
           "value": "Active Duty",
           "_qId": "a-9-a8430e-0"
         },
-        "otherDutyStatusExplanation": {
+        "dutyStatusOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-9-1bad7d-0"
         },
@@ -2534,7 +2534,7 @@
               "value": "Letter of Admonishment",
               "_qId": "a-9-18031b-0"
             },
-            "otherTypeExplanation": {
+            "typeOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "a-9-1b99ff-0"
             },
@@ -2691,7 +2691,7 @@
               ],
               "_qId": "a-9-57594e-0"
             },
-            "courtMartialOtherExplanation": {
+            "courtMartialOutcomeOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "a-9-1575f4-0"
             },
@@ -3368,7 +3368,7 @@
           "value": "Yes",
           "_qId": "a-11-4bec83-0"
         },
-        "arrestExplanation": {
+        "noChargeExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-11-129ffd-0"
         },
@@ -3530,7 +3530,7 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-11-743ed6-0"
         },
-        "fineExplanation": {
+        "fineNotPaidExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-11-d02693-0"
         },
@@ -3612,7 +3612,7 @@
               "_qId": "b-11-39a423-0",
               "estimated": true
             },
-            "courtDismissalRequirementsOtherExplanation": {
+            "outcomeOnTrialExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "b-11-1dd7c6-0"
             },
@@ -3928,7 +3928,7 @@
           "value": "Police/law enforcement officer",
           "_qId": "a-12-1231ce-0"
         },
-        "cjpsPositionTypeOtherExplanation": {
+        "cjpsPositionTypeExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-12-1d18b9-0"
         },
@@ -7938,15 +7938,15 @@
           "value": "Yes",
           "_qId": "b-22-8bd5f3-0"
         },
-        "questionedOtherExplanation": {
+        "questioningExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-22-8934e1-0"
         },
-        "police": {
+        "hasPoliceInteraction": {
           "value": "Yes",
           "_qId": "b-22-2773ac-0"
         },
-        "policeOtherExplanation": {
+        "hadPoliceInteractionExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-22-1827aa-0"
         },
@@ -7966,11 +7966,11 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-22-18caf8-0"
         },
-        "contactSuspicious": {
+        "hadSuspiciousContact": {
           "value": "Yes",
           "_qId": "b-22-3e66b5-0"
         },
-        "contactSuspiciousExplanation": {
+        "hadSuspiciousContactExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-22-10d2d7-0"
         },
@@ -8305,7 +8305,7 @@
           "_qId": "b-23-dae7e5-0",
           "estimated": true
         },
-        "notDischargeExplanation": {
+        "notDischargedExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-23-ba295c-0"
         }
@@ -9600,39 +9600,39 @@
               "value": "Yes",
               "_qId": "c-25-b62fcd-0"
             },
-            "otherNameNotKnown": {
+            "nameNotKnown": {
               "value": "",
               "_qId": "c-25-194561-0",
               "dontKnow": true
             },
-            "otherLastName": {
+            "lastName": {
               "value": "Smith",
               "_qId": "c-25-a2018a-0",
               "lettersOnly": true,
               "dontKnow": true
             },
-            "otherFirstName": {
+            "firstName": {
               "value": "John",
               "_qId": "c-25-183104-0",
               "lettersOnly": true,
               "dontKnow": true
             },
-            "otherMiddleName": {
+            "middleName": {
               "value": "Albert",
               "_qId": "c-25-a3fd19-0",
               "lettersOnly": true,
               "noMiddleName": true,
               "dontKnow": true
             },
-            "otherSuffix": {
+            "suffix": {
               "value": "None",
               "_qId": "c-25-69ec2a-0"
             },
-            "otherNameType": {
+            "nameType": {
               "value": "Name prior to marriage",
               "_qId": "c-25-154117-0"
             },
-            "otherNameExplanation": {
+            "nameTypeOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-25-3c20ad-0"
             }
@@ -9821,39 +9821,39 @@
               "value": "Yes",
               "_qId": "c-25-17e7a6-0"
             },
-            "otherNameNotKnown": {
+            "nameNotKnown": {
               "value": "",
               "_qId": "c-25-70c68a-0",
               "dontKnow": true
             },
-            "otherLastName": {
+            "lastName": {
               "value": "Smith",
               "_qId": "c-25-86f8c5-0",
               "lettersOnly": true,
               "dontKnow": true
             },
-            "otherFirstName": {
+            "firstName": {
               "value": "John",
               "_qId": "c-25-1c1db6-0",
               "lettersOnly": true,
               "dontKnow": true
             },
-            "otherMiddleName": {
+            "middleName": {
               "value": "Albert",
               "_qId": "c-25-145ca4-0",
               "lettersOnly": true,
               "noMiddleName": true,
               "dontKnow": true
             },
-            "otherSuffix": {
+            "suffix": {
               "value": "None",
               "_qId": "c-25-9b3734-0"
             },
-            "otherNameType": {
+            "nameType": {
               "value": "Name prior to marriage",
               "_qId": "c-25-391b47-0"
             },
-            "otherNameOtherExplanation": {
+            "nameTypeOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-25-a80731-0"
             }
@@ -10032,11 +10032,11 @@
               "value": "Yes",
               "_qId": "c-26-5f1b73-0"
             },
-            "identifyCoOwners": {
+            "coOwnerIdentity": {
               "value": "Yourself",
               "_qId": "c-26-815aae-0"
             },
-            "coOwnersOtherExplanation": {
+            "coOwnerIdentityOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-26-11e198-0"
             },
@@ -10438,15 +10438,15 @@
           "value": "Sample value",
           "_qId": "c-26-beef69-0"
         },
-        "foreignBenefitRecurringContinueToAccept": {
+        "foreignBenefitRecurringContinuingToAccept": {
           "value": "Yes",
           "_qId": "c-26-1ab743-0"
         },
-        "foreignBenefitRecurringContinueToAcceptExplanation": {
+        "foreignBenefitRecurringContinuingToAcceptExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-7eb3f8-0"
         },
-        "foreignBenefitRecurringContinueToNotAcceptExplanation": {
+        "foreignBenefitRecurringNotContinuingToAcceptExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-1b1ef7-0"
         },
@@ -10540,11 +10540,11 @@
           "value": "Yes",
           "_qId": "c-26-188aef-0"
         },
-        "obligationToCountryExplanation": {
+        "obligationToCountryYesExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-1634f1-0"
         },
-        "obligationToCountryNoObligationExplanation": {
+        "obligationToCountryNoExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-5dfedc-0"
         }
@@ -10646,7 +10646,7 @@
           "value": "Lorem ipsum",
           "_qId": "c-26-131ff7-0"
         },
-        "TotalDollarAmountOfSupport": {
+        "totalDollarAmountOfSupport": {
           "value": "Lorem ipsum",
           "_qId": "c-26-1194b8-0"
         },
@@ -10654,11 +10654,11 @@
           "value": "Sample value",
           "_qId": "c-26-3cf203-0"
         },
-        "PlanToContinueSupport": {
+        "planToContinueSupport": {
           "value": "Yes",
           "_qId": "c-26-e33a21-0"
         },
-        "PlanToContinueSupportExplanation": {
+        "planToContinueSupportExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-18cc5b-0"
         },
@@ -10666,7 +10666,7 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-12230e-0"
         },
-        "CitizenshipOfSupportedIndividual": {
+        "citizenshipOfSupportedIndividual": {
           "value": [
             "CAN"
           ],

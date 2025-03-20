@@ -375,7 +375,7 @@
           ],
           "additionalProperties": false
         },
-        "passportCardNumberExplanation": {
+        "passportCardUnknownNumberExplanation": {
           "$ref": "#/$defs/basic_text"
         },
         "passportCardLastName": {
@@ -461,7 +461,7 @@
                 ],
                 "additionalProperties": false
               },
-              "passportBooksNumberExplanation": {
+              "passportBookUnknownNumberExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "lastName": {
@@ -1267,7 +1267,7 @@
                     "travelReason": {
                       "$ref": "#/$defs/basic_dropdown_TRAVEL_PURPOSE"
                     },
-                    "reasonOtherExplanation": {
+                    "travelReasonOtherExplanation": {
                       "$ref": "#/$defs/basic_long_text"
                     },
                     "wereDetainedByOfficials": {
@@ -1490,7 +1490,7 @@
               "schoolType": {
                 "$ref": "#/$defs/basic_dropdown_SCHOOL_TYPE"
               },
-              "schoolTypeExplanation": {
+              "schoolTypeOtherExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "learningExperience": {
@@ -1566,7 +1566,7 @@
               "degreeType": {
                 "$ref": "#/$defs/basic_dropdown_DEGREE_TYPE"
               },
-              "degreeTypeExplanation": {
+              "degreeTypeOtherExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "degreeDate": {
@@ -1631,7 +1631,7 @@
                   }
                 }
               },
-              "educationReferenceRelationshipExplanation": {
+              "educationReferenceRelationshipOtherExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "educationReferencePhone": {
@@ -1843,13 +1843,13 @@
               "schoolType": {
                 "$ref": "#/$defs/basic_dropdown_SCHOOL_TYPE"
               },
-              "schoolTypeExplanation": {
+              "schoolTypeOtherExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "learningExperience": {
                 "$ref": "#/$defs/basic_dropdown_LEARNING_TYPE"
               },
-              "learningExperienceExplanation": {
+              "learningExperienceOtherExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "fromMonth": {
@@ -1882,7 +1882,7 @@
               "degreeType": {
                 "$ref": "#/$defs/basic_dropdown_DEGREE_TYPE"
               },
-              "degreeTypeExplanation": {
+              "degreeTypeOtherExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "awardMonth": {
@@ -4433,7 +4433,7 @@
               "dutyStatus": {
                 "$ref": "#/$defs/basic_dropdown_MILITARY_DUTY_STATUS"
               },
-              "otherDutyStatusExplanation": {
+              "dutyStatusOtherExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "dischargeType": {
@@ -4453,7 +4453,7 @@
                     "type": {
                       "$ref": "#/$defs/basic_dropdown_MILITARY_DISCIPLINE_ACTION"
                     },
-                    "otherTypeExplanation": {
+                    "typeOtherExplanation": {
                       "$ref": "#/$defs/basic_text"
                     },
                     "date": {
@@ -4614,7 +4614,7 @@
                         }
                       }
                     },
-                    "courtMartialOtherExplanation": {
+                    "courtMartialOutcomeOtherExplanation": {
                       "$ref": "#/$defs/basic_text"
                     },
                     "courtMartialChargeOutcomeConfinement": {
@@ -5620,7 +5620,7 @@
               "arrestInvolvedAlcohol": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
-              "arrestExplanation": {
+              "noChargeExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "reasonNotCharged": {
@@ -5781,7 +5781,7 @@
               "fineNotPaidInFullExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
-              "fineExplanation": {
+              "fineNotPaidExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "courtName": {
@@ -5885,7 +5885,7 @@
                       ],
                       "additionalProperties": false
                     },
-                    "courtDismissalRequirementsOtherExplanation": {
+                    "outcomeOnTrialExplanation": {
                       "$ref": "#/$defs/basic_text"
                     },
                     "wereSentenced": {
@@ -6425,7 +6425,7 @@
               "cjpsPositionType": {
                 "$ref": "#/$defs/basic_dropdown_PUBLIC_SAFETY_JOB"
               },
-              "cjpsPositionTypeOtherExplanation": {
+              "cjpsPositionTypeExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "futureUseIntent": {
@@ -13434,13 +13434,13 @@
               "questioned": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
-              "questionedOtherExplanation": {
+              "questioningExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
-              "police": {
+              "hasPoliceInteraction": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
-              "policeOtherExplanation": {
+              "hadPoliceInteractionExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "contactWithForeignSecurity": {
@@ -13455,10 +13455,10 @@
               "securityConcernExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
-              "contactSuspicious": {
+              "hadSuspiciousContact": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
-              "contactSuspiciousExplanation": {
+              "hadSuspiciousContactExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "attemptForClassifiedInfo": {
@@ -13983,7 +13983,7 @@
                 ],
                 "additionalProperties": false
               },
-              "notDischargeExplanation": {
+              "notDischargedExplanation": {
                 "$ref": "#/$defs/basic_text"
               }
             },
@@ -16758,7 +16758,7 @@
                     "otherNameUse": {
                       "$ref": "#/$defs/basic_dropdown_YES_NO_DONTKNOW"
                     },
-                    "otherNameNotKnown": {
+                    "nameNotKnown": {
                       "type": "object",
                       "properties": {
                         "dontKnow": {
@@ -16766,7 +16766,7 @@
                         }
                       }
                     },
-                    "otherLastName": {
+                    "lastName": {
                       "type": "object",
                       "properties": {
                         "value": {
@@ -16788,7 +16788,7 @@
                       ],
                       "additionalProperties": false
                     },
-                    "otherFirstName": {
+                    "firstName": {
                       "type": "object",
                       "properties": {
                         "value": {
@@ -16810,7 +16810,7 @@
                       ],
                       "additionalProperties": false
                     },
-                    "otherMiddleName": {
+                    "middleName": {
                       "type": "object",
                       "properties": {
                         "value": {
@@ -16835,13 +16835,13 @@
                       ],
                       "additionalProperties": false
                     },
-                    "otherSuffix": {
+                    "suffix": {
                       "$ref": "#/$defs/basic_dropdown_SUFFIX"
                     },
-                    "otherNameType": {
+                    "nameType": {
                       "$ref": "#/$defs/basic_dropdown_OTHER_NAMES"
                     },
-                    "otherNameExplanation": {
+                    "nameTypeOtherExplanation": {
                       "$ref": "#/$defs/basic_text"
                     }
                   },
@@ -17263,7 +17263,7 @@
                     "otherNameUse": {
                       "$ref": "#/$defs/basic_dropdown_YES_NO_DONTKNOW"
                     },
-                    "otherNameNotKnown": {
+                    "nameNotKnown": {
                       "type": "object",
                       "properties": {
                         "dontKnow": {
@@ -17271,7 +17271,7 @@
                         }
                       }
                     },
-                    "otherLastName": {
+                    "lastName": {
                       "type": "object",
                       "properties": {
                         "value": {
@@ -17293,7 +17293,7 @@
                       ],
                       "additionalProperties": false
                     },
-                    "otherFirstName": {
+                    "firstName": {
                       "type": "object",
                       "properties": {
                         "value": {
@@ -17315,7 +17315,7 @@
                       ],
                       "additionalProperties": false
                     },
-                    "otherMiddleName": {
+                    "middleName": {
                       "type": "object",
                       "properties": {
                         "value": {
@@ -17340,13 +17340,13 @@
                       ],
                       "additionalProperties": false
                     },
-                    "otherSuffix": {
+                    "suffix": {
                       "$ref": "#/$defs/basic_dropdown_SUFFIX"
                     },
-                    "otherNameType": {
+                    "nameType": {
                       "$ref": "#/$defs/basic_dropdown_OTHER_NAMES"
                     },
-                    "otherNameOtherExplanation": {
+                    "nameTypeOtherExplanation": {
                       "$ref": "#/$defs/basic_text"
                     }
                   },
@@ -17624,10 +17624,10 @@
                     "coOwnersPastPresent": {
                       "$ref": "#/$defs/basic_dropdown_YES_NO"
                     },
-                    "identifyCoOwners": {
+                    "coOwnerIdentity": {
                       "$ref": "#/$defs/basic_dropdown_COOWNER_FOREIGN_FINANCIAL"
                     },
-                    "coOwnersOtherExplanation": {
+                    "coOwnerIdentityOtherExplanation": {
                       "$ref": "#/$defs/basic_text"
                     },
                     "coOwnersRelationship": {
@@ -18570,13 +18570,13 @@
               "foreignBenefitRecurringReason": {
                 "$ref": "#/$defs/basic_long_text"
               },
-              "foreignBenefitRecurringContinueToAccept": {
+              "foreignBenefitRecurringContinuingToAccept": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
-              "foreignBenefitRecurringContinueToAcceptExplanation": {
+              "foreignBenefitRecurringContinuingToAcceptExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
-              "foreignBenefitRecurringContinueToNotAcceptExplanation": {
+              "foreignBenefitRecurringNotContinuingToAcceptExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "foreignBenefitCountry": {
@@ -18725,10 +18725,10 @@
               "obligationToCountry": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
-              "obligationToCountryExplanation": {
+              "obligationToCountryYesExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
-              "obligationToCountryNoObligationExplanation": {
+              "obligationToCountryNoExplanation": {
                 "$ref": "#/$defs/basic_text"
               }
             },
@@ -18982,22 +18982,22 @@
               "frequencyOfSupport": {
                 "$ref": "#/$defs/basic_text"
               },
-              "TotalDollarAmountOfSupport": {
+              "totalDollarAmountOfSupport": {
                 "$ref": "#/$defs/basic_text"
               },
               "reasonForSupport": {
                 "$ref": "#/$defs/basic_long_text"
               },
-              "PlanToContinueSupport": {
+              "planToContinueSupport": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
-              "PlanToContinueSupportExplanation": {
+              "planToContinueSupportExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
               "doNotPlanToContinueSupportExplanation": {
                 "$ref": "#/$defs/basic_text"
               },
-              "CitizenshipOfSupportedIndividual": {
+              "citizenshipOfSupportedIndividual": {
                 "type": "object",
                 "properties": {
                   "value": {
