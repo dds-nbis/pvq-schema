@@ -121,13 +121,23 @@ function generateCommonDefs(ddValues) {
     for (const listName of ddValues.keys()) {
         console.assert(/^[A-Z_]+$/.test(listName), "corrupt dropdown list name: %s", listName);
         const values = ddValues.get(listName);
-        const defsKey = `dropdown_${listName}`;
-        output[defsKey] = {
+        const valueDefsKey = `dropdown_values_${listName}`;
+        output[valueDefsKey] = {
             "type": "string",
             "enum": values
         };
+        const questionDefsKey = `basic_dropdown_${listName}`;
+        output[questionDefsKey] = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "$ref": `#/$defs/${valueDefsKey}`
+                }
+            },
+            "required": ["value"]
+        };
 
-        console.debug("Created common dropdown value schema name=%s", defsKey);
+        console.debug("Created common dropdown value schema name=%s", valueDefsKey);
     }
     console.debug("Final common def names: %o", Object.keys(output));
     return output;
@@ -347,11 +357,17 @@ class DropdownQuestionType {
     }
 
     generateSchema(checkboxes, listName) {
+        if (checkboxes.length == 0 && !this.isMultivalue) {
+            return {
+                "$ref": `#/$defs/basic_dropdown_${listName}`
+            };
+        }
+
         const result = {
             "type": "object",
             "properties": {
                 "value": {
-                    "$ref": `#/$defs/dropdown_${listName}`
+                    "$ref": `#/$defs/dropdown_values_${listName}`
                 }
             }
         };
