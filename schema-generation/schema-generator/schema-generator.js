@@ -251,6 +251,9 @@ function makeMultivalue(schema) {
     return schema;
 }
 
+let GOOD_Q_COUNTER = 0;
+let BAD_Q_COUNTER = 0;
+
 class TextQuestionType {
     constructor(name, maxLength, regex, isMultivalue) {
         this.name = name;
@@ -269,8 +272,10 @@ class TextQuestionType {
     generateSchema(checkboxes) {
         if (checkboxes.length == 0 && !this.isMultivalue) {
             const defPath = `#/$defs/${this.commonDefName}`;
+            GOOD_Q_COUNTER++;
             return { "$ref": defPath };
         } else {
+            BAD_Q_COUNTER++;
             const result = this.getCommonDefs()[this.commonDefName];
             addCheckboxes(result, checkboxes);
             if (this.isMultivalue) {
@@ -314,8 +319,10 @@ class PhoneNumberQuestionType {
 
     generateSchema(checkboxes) {
         if (checkboxes.length == 0 && !this.isMultivalue) {
+            GOOD_Q_COUNTER++;
             return { "$ref": "#/$defs/basic_phone_number" };
         } else {
+            BAD_Q_COUNTER++;
             const result = getPhoneNumberQuestionSchema();
             addCheckboxes(result, checkboxes);
             if (this.isMultivalue) {
@@ -332,6 +339,7 @@ class CheckboxesQuestionType {
     }
 
     generateSchema(checkboxes) {
+        BAD_Q_COUNTER++;
         const result = {
             "type": "object",
             "properties": {}
@@ -358,10 +366,12 @@ class DropdownQuestionType {
 
     generateSchema(checkboxes, listName) {
         if (checkboxes.length == 0 && !this.isMultivalue) {
+            GOOD_Q_COUNTER++;
             return {
                 "$ref": `#/$defs/basic_dropdown_${listName}`
             };
         }
+        BAD_Q_COUNTER++;
 
         const result = {
             "type": "object",
@@ -490,8 +500,6 @@ function getSampleValue(q, dropdownValues) {
     }
 }
 
-let SIMPLE_Q_COUNTERS = new Map();
-
 function verify(condition, ...args) {
   if (!condition) {
     console.error(...args);
@@ -506,7 +514,6 @@ function generateSimpleProperty(row) {
     let checkboxes = row.checkboxes;
     let dropdownList = row.dropdownList;
     verify(qType, "unable to lookup question type question=%s type=%s");
-    console.debug("Generating question schema question=%s dataType=%s", questionId, dataType);
     let qSchema = qType.generateSchema(checkboxes, dropdownList);
     verify(qSchema != null, "qSchema was null after question type identification question=%s type=%s",
         questionId, dataType);
@@ -538,6 +545,19 @@ function substringBefore(str, suffix) {
   return str.slice(0, -suffix.length);
 }
 
+function startsWithLowercase(str) {
+  if (!str || str.length === 0) {
+    return false; 
+  }
+
+  const firstChar = str.charAt(0);
+
+  // Check if the first character is NOT a lowercase letter
+  // Lowercase letters in ASCII are from 'a' (97) to 'z' (122)
+  return (firstChar >= 'a' && firstChar <= 'z');
+}
+
+
 function processQuestions(schemaContext, sampleContext, contextDepth, questions, dropdownValues) {
     console.debug("Called processQuestions schemaContext=%o sampleContext=%o contextDepth=%s questions=%o", 
         schemaContext, sampleContext, contextDepth, questions);
@@ -548,6 +568,8 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions,
     for (const q of questions) {
         const propName = q.propertyName;
         const questionId = q.questionId;
+        verify(startsWithLowercase(propName), "property name doesn't start with lowercase letter question=%s propName=%s", 
+            questionId, propName);
         console.assert(propName != "IGNORE", "Encountered an ignored question q=%o", q);
         const groupPath = q.groupPath.slice(contextDepth);
         const condition = q.condition;
@@ -650,7 +672,6 @@ function generateSchema(questionsCsv, subjectType, dropdownValues) {
     output["$defs"] = commonDefs;
     console.groupEnd();
 
-    SIMPLE_Q_COUNTERS.clear();
     for (const rawSection of questionsBySection.keys()) {
 
         // if (!rawSection.startsWith("06")) {
@@ -680,8 +701,8 @@ function generateSchema(questionsCsv, subjectType, dropdownValues) {
         console.groupEnd();
     }
 
-    console.debug("Finished schema generation for %s simpleQCounters=%o", 
-            subjectType, SIMPLE_Q_COUNTERS);
+    console.debug("Finished schema generation for %s goodQuestions=%s badQuestions=%s", 
+            subjectType, GOOD_Q_COUNTER, BAD_Q_COUNTER);
 
     return [output, sampleDoc];
 }
