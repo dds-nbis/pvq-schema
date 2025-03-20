@@ -75,23 +75,8 @@ function generateCommonDefs(ddValues) {
             "type": "string",
             "pattern": QUESTION_ID_REGEX
         },
-        "simple_short_text_question": {
-            "properties": {
-                "value": {
-                    "type": "string",
-                    "maxLength": NORMAL_MAX_LENGTH
-                }
-            }
-        },
-        "simple_long_text_question": {
-            "properties": {
-                "value": {
-                    "type": "string",
-                    "maxLength": LONG_MAX_LENGTH
-                }
-            }
-        },
-        "phone_number": {
+        "phone_number_value": {
+            "type": "object",
             "properties": {
                 "countryCode": {
                     "type": "string",
@@ -118,192 +103,18 @@ function generateCommonDefs(ddValues) {
                 }
             },
             "required": ["countryCode", "number", "type", "timeOfDay", "extension", "isDsn"],
-            "additionalProperties": false
-        },
-        "us_addr_type1": {
-            "type": "object",
-            "properties": {
-                "streetAddress": {
-                    "type": "string",
-                    "maxLength": NORMAL_MAX_LENGTH,
-                    "description": "The street address or PO Box"
-                },
-                "city": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the city or town"
-                },
-                "stateOrTerritory": {
-                    "type": "string",
-                    "minLength": 2,
-                    "maxLength": 2,
-                    "description": "The standard two letter USPS code for the state or territory"
-                },
-                "zipcode": {
-                    "type": "string",
-                    "pattern": "^\d{5}(?:[- ]\d{4})?$",
-                    "description": "The zipcode"
-                },
-                "isMilitaryInstallation": {
-                    "type": "boolean",
-                    "description": "Whether or not the adddress is on a US military installation"
-                },
-                "militaryInstallationName": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the US military installation the address is on, if any"
-                }
-            },
-            "required": ["streetAddress", "city", "stateOrTerritory", "zipcode", "isMilitaryInstallation"]
-        },
-        "us_addr_type2": {
-            "type": "object",
-            "properties": {
-                "streetAddress": {
-                    "type": "string",
-                    "maxLength": NORMAL_MAX_LENGTH,
-                    "description": "The street address"
-                },
-                "city": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the city or town"
-                },
-                "stateOrTerritory": {
-                    "type": "string",
-                    "minLength": 2,
-                    "maxLength": 2,
-                    "description": "The standard two letter USPS code for the state or territory"
-                },
-                "zipcode": {
-                    "type": "string",
-                    "pattern": "^\d{5}(?:[- ]\d{4})?$",
-                    "description": "The zipcode"
-                }
-            },
-            "required": ["streetAddress", "city", "stateOrTerritory", "zipcode", "isMilitaryInstallation"]
-        },
-        "us_addr_type3": {
-            "type": "object",
-            "properties": {
-                "city": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the city or town"
-                },
-                "stateOrTerritory": {
-                    "type": "string",
-                    "minLength": 2,
-                    "maxLength": 2,
-                    "description": "The standard two letter USPS code for the state or territory"
-                },
-                "zipcode": {
-                    "type": "string",
-                    "pattern": "^\d{5}(?:[- ]\d{4})?$",
-                    "description": "The zipcode"
-                },
-                "isMilitaryInstallation": {
-                    "type": "boolean",
-                    "description": "Whether or not the adddress is on a US military installation"
-                },
-                "militaryInstallationName": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the US military installation the address is on, if any"
-                }
-            },
-            "required": ["streetAddress", "city", "stateOrTerritory", "zipcode", "isMilitaryInstallation"]
-        },
-        "foreign_addr_type1": {
-            "type": "object",
-            "properties": {
-                "streetAddress": {
-                    "type": "string",
-                    "maxLength": NORMAL_MAX_LENGTH,
-                    "description": "The street address"
-                },
-                "city": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the city or town"
-                },
-                "country": {
-                    "type": "string",
-                    "minLength": 3,
-                    "maxLength": 3,
-                    "description": "The 3 letter GENC code for the country. GENC country codes are typically the same as ISO-3166-1 codes, with exceptions to comply with USG policy."
-                },
-                "isUsgFacility": {
-                    "type": "boolean",
-                    "description": "True if the address is on a US military or diplomatic facility abroad, false otherwise"
-                },
-                "usgFacilityName": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the US military or diplomatic facility the address is on, if any"
-                },
-                "usgFacilityPostcode": {
-                    "type": "string",
-                    "maxLength": 15,
-                    "description": "What is the APO/FPO/DPO ZIP Code of the USG facility, if any"
-                }
-            },
-            "required": ["streetAddress", "city", "country", "isUsgFacility"]
-        },
-        "foreign_addr_type2": {
-            "type": "object",
-            "properties": {
-                "streetAddress": {
-                    "type": "string",
-                    "maxLength": NORMAL_MAX_LENGTH,
-                    "description": "The street address"
-                },
-                "city": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the city or town"
-                },
-                "country": {
-                    "type": "string",
-                    "minLength": 3,
-                    "maxLength": 3,
-                    "description": "The 3 letter GENC code for the country. GENC country codes are typically the same as ISO-3166-1 codes, with exceptions to comply with USG policy."
-                }
-            },
-            "required": ["streetAddress", "city", "country", "isUsgFacility"]
-        },
-        "foreign_addr_type3": {
-            "type": "object",
-            "properties": {
-                "city": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the city or town"
-                },
-                "country": {
-                    "type": "string",
-                    "minLength": 3,
-                    "maxLength": 3,
-                    "description": "The 3 letter GENC code for the country. GENC country codes are typically the same as ISO-3166-1 codes, with exceptions to comply with USG policy."
-                },
-                "isUsgFacility": {
-                    "type": "boolean",
-                    "description": "True if the address is on a US military or diplomatic facility abroad, false otherwise"
-                },
-                "usgFacilityName": {
-                    "type": "string",
-                    "maxLength": 100,
-                    "description": "The name of the US military or diplomatic facility the address is on, if any"
-                },
-                "usgFacilityPostcode": {
-                    "type": "string",
-                    "maxLength": 15,
-                    "description": "What is the APO/FPO/DPO ZIP Code of the USG facility, if any"
-                }
-            },
-            "required": ["streetAddress", "city", "country", "isUsgFacility"]
         }
     };
+
+    for (const typeName in NEW_QUESTION_TYPES) {
+        const defName = `basic_${typeName}`;
+        const instance = NEW_QUESTION_TYPES[typeName];
+        const commonDef = instance.getCommonDef();
+        if (commonDef != null) {
+            output[defName] = commonDef;
+        }
+    }
+
     for (const listName of ddValues.keys()) {
         console.assert(/^[A-Z_]+$/.test(listName), "corrupt dropdown list name: %s", listName);
         const values = ddValues.get(listName);
@@ -312,6 +123,7 @@ function generateCommonDefs(ddValues) {
             "type": "string",
             "enum": values
         };
+
         console.debug("Created common dropdown value schema name=%s", defsKey);
     }
     return output;
@@ -382,6 +194,226 @@ class QuestionType {
         this.isPhoneNumber = isPhoneNumber || false;
     }
 }
+
+function makeQuestionDef(maxLength, regex, schemaFormat) {
+    let schema = {
+        "type": "object",
+        "properties": {
+            "value": {
+                "type": "string"
+            },
+            "_qId": {
+                "$ref": "#/$defs/debug_question_id"
+            }
+
+        },
+        "required": ["value"],
+        "additionalProperties": false
+    };
+    if (maxLength) {
+        schema.properties.value.maxLength = maxLength;
+    }
+    if (regex) {
+        schema.properties.value.pattern = regex;
+    }
+    if (schemaFormat) {
+        schema.properties.value.format = schemaFormat;
+    }
+    return schema;
+}
+
+function addCheckboxes(skeleton, checkboxes) {
+    for (let checkbox of checkboxes) {
+        skeleton.properties[checkbox] = {
+            "type": "boolean"
+        };
+    }
+    return skeleton;
+}
+
+function makeMultivalue(schema) {
+    const valueSpec = schema.properties.value;
+    schema.properties.value = {
+        "type": "array",
+        "items": valueSpec
+    };
+    return schema;
+}
+
+class TextQuestionType {
+    getCommonDef() {
+        return makeQuestionDef(NORMAL_MAX_LENGTH, null, null);
+    }
+
+    generateSchema(checkboxes) {
+        if (checkboxes.length == 0) {
+            return { "$ref": "#/$defs/basic_text" };
+        } else {
+            return addCheckboxes(this.getCommonDef(), checkboxes);
+        }
+    }
+}
+
+class LongTextQuestionType {
+    getCommonDef() {
+        return makeQuestionDef(LONG_MAX_LENGTH, null, null);
+    }
+
+    generateSchema(checkboxes) {
+        if (checkboxes.length == 0) {
+            return { "$ref": "#/$defs/basic_long_text" };
+        } else {
+            return addCheckboxes(this.getCommonDef(), checkboxes);
+        }
+    }
+}
+
+class NumberQuestionType {
+    getCommonDef() {
+        return makeQuestionDef(NORMAL_MAX_LENGTH, NUMBER_REGEX, null);
+    }
+
+    generateSchema(checkboxes) {
+        if (checkboxes.length == 0) {
+            return { "$ref": "#/$defs/basic_number" };
+        } else {
+            return addCheckboxes(this.getCommonDef(), checkboxes);
+        }
+    }
+}
+
+class EmailQuestionType {
+    getCommonDef() {
+        return makeQuestionDef(NORMAL_MAX_LENGTH, EMAIL_REGEX, null);
+    }
+
+    generateSchema(checkboxes, isMultivalue) {
+        if (checkboxes.length == 0 && !isMultivalue) {
+            return { "$ref": "#/$defs/basic_email" };
+        } else {
+            const result = addCheckboxes(this.getCommonDef(), checkboxes);
+            if (isMultivalue) {
+                makeMultivalue(result);
+            }
+            return result;
+        }
+    }
+}
+
+class PhoneNumberQuestionType {
+    getCommonDef() {
+        return {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/phone_number_value"
+                },
+                "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                }
+            },
+            "additionalProperties": false
+        };
+    }
+
+    generateSchema(checkboxes, isMultivalue) {
+        if (checkboxes.length == 0 && !isMultivalue) {
+            return { "$ref": "#/$defs/basic_phone_number" };
+        } else {
+            const result = addCheckboxes(this.getCommonDef(), checkboxes);
+            if (isMultivalue) {
+                makeMultivalue(result);
+            }
+            return result;
+        }
+    }
+}
+
+class CheckboxesQuestionType {
+    getCommonDef() {
+        return null;
+    }
+
+    generateSchema(checkboxes) {
+        const result = {
+            "type": "object",
+            "properties": {}
+        };
+
+        for (const checkbox of checkboxes) {
+            result.properties[checkbox] = {
+                "type": "boolean"
+            };
+        }
+
+        return result;
+    }
+}
+
+class DateQuestionType {
+    getCommonDef() {
+        return makeQuestionDef(NORMAL_MAX_LENGTH, DATE_REGEX, "date");
+    }
+
+    generateSchema(checkboxes) {
+        return addCheckboxes(this.getCommonDef(), checkboxes);
+    }
+}
+
+class MonthQuestionType {
+    getCommonDef() {
+        return makeQuestionDef(NORMAL_MAX_LENGTH, MONTH_REGEX, null);
+    }
+
+    generateSchema(checkboxes) {
+        return addCheckboxes(this.getCommonDef(), checkboxes);
+    }
+}
+
+class YearQuestionType {
+    getCommonDef() {
+        return makeQuestionDef(NORMAL_MAX_LENGTH, YEAR_REGEX, null);
+    }
+
+    generateSchema(checkboxes) {
+        return addCheckboxes(this.getCommonDef(), checkboxes);
+    }
+}
+
+class DropdownQuestionType {
+    getCommonDef() {
+        return null;
+    }
+
+    generateSchema(checkboxes, listName, isMultivalue) {
+        const result = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "$ref": `#/$defs/dropdown_${listName}`
+                }
+            }
+        };
+        addCheckboxes(result, checkboxes);
+        if (isMultivalue) {
+            makeMultivalue(result);
+        }
+        return result;
+    }
+}
+
+const NEW_QUESTION_TYPES = {
+    "text": new TextQuestionType(),
+    "long_text": new LongTextQuestionType(),
+    "number": new NumberQuestionType(),
+    "email": new EmailQuestionType(),
+    "phone_number": new PhoneNumberQuestionType(),
+    "checkboxes": new CheckboxesQuestionType(),
+    "date": new DateQuestionType(),
+    "month": new MonthQuestionType(),
+    "year": new YearQuestionType(),
+    "dropdown": new DropdownQuestionType()
+};
 
 const QUESTION_TYPES = {
     "text": new QuestionType(false, false, true, null),
@@ -499,9 +531,49 @@ function getSampleValue(q, dropdownValues) {
     }
 }
 
+let SIMPLE_Q_COUNTERS = new Map();
+
 function generateSimpleProperty(row, dropdownValues) {
     const dataType = row.dataType;
     const questionId = row.questionId;
+    let qSchema = null;
+    let checkboxes = row.checkboxes;
+    console.debug("Generating question schema question=%s dataType=%s", questionId, dataType);
+    if (dataType == "text") {
+        qSchema = NEW_QUESTION_TYPES.text.generateSchema(checkboxes);
+    } else if (dataType == "long_text") {
+        qSchema = NEW_QUESTION_TYPES.long_text.generateSchema(checkboxes);
+    } else if (dataType == "number") {
+        qSchema = NEW_QUESTION_TYPES.number.generateSchema(checkboxes);
+    } else if (dataType == "email") {
+        qSchema = NEW_QUESTION_TYPES.email.generateSchema(checkboxes, false);
+    } else if (dataType == "email_multiple") {
+        qSchema = NEW_QUESTION_TYPES.email.generateSchema(checkboxes, true);
+    } else if (dataType == "phone_number") {
+        qSchema = NEW_QUESTION_TYPES.phone_number.generateSchema(checkboxes, false);
+    } else if (dataType == "phone_number_multiple") {
+        qSchema = NEW_QUESTION_TYPES.phone_number.generateSchema(checkboxes, true);
+    } else if (dataType == "checkboxes") {
+        qSchema = NEW_QUESTION_TYPES.checkboxes.generateSchema(checkboxes);
+    } else if (dataType == "date") {
+        qSchema = NEW_QUESTION_TYPES.date.generateSchema(checkboxes);
+    } else if (dataType == "month") {
+        qSchema = NEW_QUESTION_TYPES.month.generateSchema(checkboxes);
+    } else if (dataType == "year") {
+        qSchema = NEW_QUESTION_TYPES.year.generateSchema(checkboxes);
+    } else if (dataType == "dropdown") {
+        qSchema = NEW_QUESTION_TYPES.dropdown.generateSchema(checkboxes, row.dropdownList, false);
+    } else if (dataType == "dropdown_multiple") {
+        qSchema = NEW_QUESTION_TYPES.dropdown.generateSchema(checkboxes, row.dropdownList, true);
+    } else {
+        console.assert(false, "Couldn't find type settings question=%s dataType=%s row=%o",
+            questionId, dataType, row);
+        return null;
+    }
+
+    console.assert(qSchema != null, "qSchema was null after question type identification question=%s", questionId);
+    return qSchema;
+
     const typeSettings = QUESTION_TYPES[dataType];
     console.assert(typeSettings, "Unhandled data type type=%s question=%s row=%o", dataType, questionId, row);
 
@@ -542,6 +614,10 @@ Question ID: ${questionId}
         "description": description
     };
 
+    if (questionId == "a-1-11fe54-0") {
+        console.debug("Processing suffix question row=%o", row);
+    }
+
     if (typeSettings.isPhoneNumber) {
         prop.properties.value = {
             "$ref": "#/$defs/phone_number"
@@ -557,14 +633,24 @@ Question ID: ${questionId}
     // TODO: this code is getting messy, this method should be refactored, probably
     // to put the question schema generation in a method of the question type, and use
     // subclassing or something similar
-    if (typeSettings == NORMAL_TEXT_TYPE && row.checkboxes.length == 0) {
-        return {
-            "$ref": "#/$defs/simple_short_text_question"
-        };
-    } else if (typeSettings == LONG_MAX_LENGTH && row.checkboxes.length == 0) {
-        return {
-            "$ref": "#/$defs/simple_long_text_question"
-        };
+    if (row.checkboxes.length == 0) {
+        let prevCount = SIMPLE_Q_COUNTERS.get(dataType) || 0;
+        if (typeSettings == NORMAL_TEXT_TYPE) {
+            SIMPLE_Q_COUNTERS.set(dataType, prevCount + 1);
+            return {
+                "$ref": "#/$defs/simple_short_text_question"
+            };
+        } else if (typeSettings == LONG_TEXT_TYPE) {
+            SIMPLE_Q_COUNTERS.set(dataType, prevCount + 1);
+            return {
+                "$ref": "#/$defs/simple_long_text_question"
+            };
+        } else if (typeSettings.hasEnumList && !typeSettings.isMultivalue) {
+            SIMPLE_Q_COUNTERS.set(dataType, prevCount + 1);
+            return {
+                "$ref": `#/$defs/dropdown_${dropdownList}`
+            };
+        }
     }
 
     if (typeSettings.maxLength) {
@@ -637,149 +723,6 @@ function substringBefore(str, suffix) {
   return str.slice(0, -suffix.length);
 }
 
-
-
-// I think we should refactor "NonUs" property names to say "Foreign" for less tricky matching
-// Need to continue searching for incomplete aggregations, they may indicate issues in the XLS
-
-// Consider updating this to support both required and optional fields (court martial offense US address in section 9 doesn't have street, for example)... simplifies schema, at the expense of less accurate validation. Validation is horribly inaccurate anyway, maybe that doesn't matter.
-
-class Aggregation {
-  constructor(aggregationType, properties) {
-    // Validate aggregationType is a string
-    if (typeof aggregationType !== 'string') {
-      throw new TypeError('aggregationType must be a string');
-    }
-
-    // Validate properties is an array of strings
-    if (!Array.isArray(properties)) {
-      throw new TypeError('properties must be an array');
-    }
-
-    if (properties.some(prop => typeof prop !== 'string')) {
-      throw new TypeError('All elements in properties must be strings');
-    }
-
-    this.aggregationType = aggregationType;
-    this.properties = properties;
-  }
-}
-
-class AggregationType {
-    constructor(name, discriminatorSuffix, otherSuffixes, aggregationSuffix) {
-        this.name = name;
-        this.discriminatorSuffix = discriminatorSuffix;
-        this.otherSuffixes = otherSuffixes;
-        this.aggregationSuffix = aggregationSuffix;
-    }
-
-    getAggregatedPropName(prefix) {
-        return prefix + this.aggregationSuffix;
-    }
-
-    /**
-     * Returns a Set of the property names with the given prefix matching this aggregation.
-     */
-    getPropertyNames(prefix) {
-        const output = new Set();
-        output.add(prefix + this.discriminatorSuffix);
-        for (const suffix of this.otherSuffixes) {
-            output.add(prefix + suffix);
-        }
-        return output;
-    }
-
-    getExpectedProperties(prefix) {
-        const output = new Set();
-        output.add(prefix + this.discriminatorSuffix);
-
-    }
-
-    /**
-     * Tests whether the given property names contain any property sets compatible
-     * with this aggregation type, returning an array of all matching property name prefixes.
-     * 
-     * A property name prefix matches this aggregation type if the given property keys
-     * contain a property name with that prefix and the expected suffix, for all suffixes
-     * associated with this aggregation type.
-     */
-    testKeys(propKeys) {
-        const candidatePrefixes = Array.from(propKeys)
-            .map(s => this.#matchSuffix(s, this.discriminatorSuffix))
-            .filter(s => s != null && !s.endsWith("Non"));
-        const output = [];
-        for (const prefix of candidatePrefixes) {
-            const expected = this.getPropertyNames(prefix);
-            let actual = Array.from(propKeys)
-                .filter(s => s.startsWith(prefix));
-            actual = new Set(actual);
-            const missingProps = expected.difference(actual);
-            //const extraProps = actual.difference(expected);
-
-            if (missingProps.size == 0) {
-                output.push(prefix);
-            } else {
-                console.warn("Unable to match all aggregation properties aggregation=%s missing=%o", 
-                    this.name, missingProps)
-            }
-        }
-        return output;
-    }
-
-    /**
-     * Returns the substring before the suffix if s ends with the suffix, otherwise returns null. 
-     */
-    #matchSuffix(s, suffix) {
-        if (!s.endsWith(suffix)) {
-            return null;
-        }
-        return s.slice(0, -1 * suffix.length);
-    }
-}
-
-const US_ADDR_TYPE1 = new AggregationType("us_addr_type1", "UsIsMilitaryInstallation", 
-        ["UsMilitaryInstallationName", "UsStreet", "UsCity", "UsState", "UsZipcode"], "Us");
-const US_ADDR_TYPE2 = new AggregationType("us_addr_type2", "UsStreet", 
-    ["UsCity", "UsState", "UsZipcode"], "Us");
-const US_ADDR_TYPE3 = new AggregationType("us_addr_type3", "UsIsMilitaryInstallation", 
-    ["UsMilitaryInstallationName", "UsCity", "UsState", "UsZipcode"], "Us");
-const FOREIGN_ADDR_TYPE1 = new AggregationType("foreign_addr_type1", "NonUsStreet",
-    ["NonUsCity", "NonUsCountry", "NonUsIsUsgFacility", "NonUsUsgFacilityName", "NonUsUsgFacilityPostcode"], "Foreign");
-const FOREIGN_ADDR_TYPE2 = new AggregationType("foreign_addr_type2", "NonUsStreet",
-    ["NonUsCity", "NonUsCountry"], "Foreign");
-const FOREIGN_ADDR_TYPE3 = new AggregationType("foreign_addr_type3", "NonUsUsgFacilityPostcode",
-    ["NonUsCity", "NonUsCountry", "NonUsIsUsgFacility", "NonUsUsgFacilityName"], "Foreign");
-
-// order matters... earlier aggregation types take precedence over later ones
-const AGGREGATIONS = [US_ADDR_TYPE1, US_ADDR_TYPE2, US_ADDR_TYPE3, FOREIGN_ADDR_TYPE1, FOREIGN_ADDR_TYPE2, FOREIGN_ADDR_TYPE3];
-const AGGREGATION_NAMES = new Set(AGGREGATIONS.map(ag => ag.name));
-
-const US_STREET_SUFFIX = "UsStreet";
-
-function processAggregations(contextSchema) {
-    const output = {};
-    for (const aggregationType of AGGREGATIONS) {
-        const propKeys = new Set(Object.keys(contextSchema.properties));
-        const matchingPrefixes = aggregationType.testKeys(propKeys);
-        for (const prefix of matchingPrefixes) {
-            const aggregationName = aggregationType.name;
-            const origKeys = aggregationType.getPropertyNames(prefix);
-            const aggregatedPropName = aggregationType.getAggregatedPropName(prefix);
-            for (const propName of origKeys) {
-                delete contextSchema.properties[propName];
-            }
-            contextSchema.properties[aggregatedPropName] = {
-                "value": {
-                    "$ref": "#/$defs/" + aggregationName
-                }
-            };
-            console.debug("Found aggregation prefix=%s aggregation=%s", prefix, aggregationName);
-        }
-    }
-
-    return output;
-}
-
 function processQuestions(schemaContext, sampleContext, contextDepth, questions, dropdownValues) {
     console.debug("Called processQuestions schemaContext=%o sampleContext=%o contextDepth=%s questions=%o", 
         schemaContext, sampleContext, contextDepth, questions);
@@ -833,8 +776,6 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions,
         processQuestions(prop.items, sampleArrayValue, contextDepth + 1, children, dropdownValues);
         deduper.record(arrayPropName, prop);
     }
-
-    processAggregations(schemaContext);
 }
 
 const NATIONAL_SECURITY_PARTS = new Set(["A", "B", "C"]);
@@ -893,7 +834,12 @@ function generateSchema(questionsCsv, subjectType, dropdownValues) {
     output["$defs"] = commonDefs;
     console.groupEnd();
 
+    SIMPLE_Q_COUNTERS.clear();
     for (const rawSection of questionsBySection.keys()) {
+
+        // if (!rawSection.startsWith("06")) {
+        //     continue;
+        // }
 
         const sectionQuestions = questionsBySection.get(rawSection);
         const [sectionNum, sectionName] = parseSection(rawSection);
@@ -918,7 +864,8 @@ function generateSchema(questionsCsv, subjectType, dropdownValues) {
         console.groupEnd();
     }
 
-    console.debug("Finished schema generation for %s", subjectType);
+    console.debug("Finished schema generation for %s simpleQCounters=%o", 
+            subjectType, SIMPLE_Q_COUNTERS);
 
     return [output, sampleDoc];
 }

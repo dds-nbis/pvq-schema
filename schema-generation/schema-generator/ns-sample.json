@@ -345,7 +345,7 @@
       "_qId": "a-3-13e859-0",
       "lettersOnly": true
     },
-    "naturalizedCitizenCertificateFirstname": {
+    "naturalizedCitizenCertificateFirstName": {
       "value": "John",
       "_qId": "a-3-158bbf-0",
       "lettersOnly": true
@@ -682,12 +682,12 @@
     ]
   },
   "residences": {
-    "addressInUs": {
-      "value": "Yes",
-      "_qId": "a-5-184d49-0"
-    },
     "residences": [
       {
+        "addressInUs": {
+          "value": "Yes",
+          "_qId": "a-5-manual-0"
+        },
         "addressUsStreet": {
           "value": "123 Main Street",
           "_qId": "a-5-7962f5-0"
@@ -711,6 +711,10 @@
         "addressUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "a-5-1dcf26-0"
+        },
+        "addressNonUsStreet": {
+          "value": "123 Main Street",
+          "_qId": "a-5-manual-1"
         },
         "addressNonUsCity": {
           "value": "Rapid City",
@@ -755,10 +759,6 @@
         "temporaryResidencePurposeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-5-26078c-0"
-        },
-        "isUs": {
-          "value": "Yes",
-          "_qId": "a-5-10220c-0"
         }
       }
     ]
@@ -929,7 +929,7 @@
           "_qId": "a-6-6e6f3d-0",
           "dontKnow": true
         },
-        "educationReferenceAdderssNonUsNotKnown": {
+        "educationReferenceAddressNonUsNotKnown": {
           "value": "",
           "_qId": "a-6-a7f03b-0",
           "dontKnow": true
@@ -955,7 +955,7 @@
           "_qId": "a-6-42d6e5-0",
           "dontKnow": true
         },
-        "educationReferenceAddressUsgFacilityPostcode": {
+        "educationReferenceAddressNonUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "a-6-329831-0"
         },
@@ -1200,8 +1200,8 @@
           "_qId": "a-7-151202-0",
           "dontKnow": true
         },
-        "militarySupervisorAddressUsStreetAddress": {
-          "value": "Lorem ipsum",
+        "militarySupervisorAddressUsStreet": {
+          "value": "123 Main Street",
           "_qId": "a-7-319b12-0"
         },
         "militarySupervisorAddressUsCity": {
@@ -1220,7 +1220,7 @@
           "value": "Yes",
           "_qId": "a-7-2d4fdb-0"
         },
-        "militarySupervisorAddressMilitaryInstallationName": {
+        "militarySupervisorAddressUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "a-7-9fc07a-0",
           "dontKnow": true
@@ -1765,7 +1765,7 @@
           "_qId": "a-7-e90034-0",
           "lettersOnly": true
         },
-        "unsatisfactoryPerformanceNotifierFirstname": {
+        "unsatisfactoryPerformanceNotifierFirstName": {
           "value": "John",
           "_qId": "a-7-63b3dd-0",
           "lettersOnly": true
@@ -1883,7 +1883,7 @@
             },
             "issuerLastName": {
               "value": "Smith",
-              "_qId": "a-7-manual-0"
+              "_qId": "a-7-manual-1"
             },
             "issuerFirstName": {
               "value": "John",
@@ -2117,8 +2117,8 @@
           "_qId": "a-7-1c71f8-0",
           "dontKnow": true
         },
-        "verifierAddressUsStreetAddress": {
-          "value": "Lorem ipsum",
+        "verifierAddressUsStreet": {
+          "value": "123 Main Street",
           "_qId": "a-7-1d341d-0"
         },
         "verifierAddressUsCity": {
@@ -2146,6 +2146,10 @@
           "value": "",
           "_qId": "a-7-1f1b4e-0",
           "dontKnow": true
+        },
+        "verifierAddressNonUsStreet": {
+          "value": "123 Main Street",
+          "_qId": "a-7-manual-2"
         },
         "verifierAddressNonUsCity": {
           "value": "Rapid City",
@@ -2526,43 +2530,6 @@
         },
         "disciplinaryActions": [
           {
-            "courtMartialChargeOutcomeConfinement": {
-              "value": "Yes",
-              "_qId": "c-9-1430ba-0"
-            },
-            "courtMartialChargeOutcomeConfinementStartDate": {
-              "value": "2020-10",
-              "_qId": "c-9-134c34-0",
-              "estimated": true
-            },
-            "courtMartialChargeOutcomeConfinementEndDate": {
-              "value": "2020-10",
-              "_qId": "c-9-d7f812-0",
-              "estimated": true
-            },
-            "courtMartialChargeOutcomeConfinementParole": {
-              "value": "Yes",
-              "_qId": "c-9-8ebd4b-0"
-            },
-            "courtMartialChargeOutcomeConfinementParoleStartDate": {
-              "value": "2020-10",
-              "_qId": "c-9-6c39f3-0",
-              "estimated": true
-            },
-            "courtMartialChargeOutcomeConfinementParoleEndDate": {
-              "value": "2020-10",
-              "_qId": "c-9-13836f-0",
-              "estimated": true,
-              "present": true
-            }
-          }
-        ]
-      }
-    ],
-    "uniformedSerivce": [
-      {
-        "disciplinaryActions": [
-          {
             "type": {
               "value": "Letter of Admonishment",
               "_qId": "a-9-18031b-0"
@@ -2674,7 +2641,7 @@
               "value": "Yes",
               "_qId": "a-9-f4c5ab-0"
             },
-            "courtMartialOffenseNonUsUsgFacilityname": {
+            "courtMartialOffenseNonUsUsgFacilityName": {
               "value": "US Embassy Wakanda",
               "_qId": "a-9-1712d4-0"
             },
@@ -2727,6 +2694,35 @@
             "courtMartialOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "a-9-1575f4-0"
+            },
+            "courtMartialChargeOutcomeConfinement": {
+              "value": "Yes",
+              "_qId": "c-9-1430ba-0"
+            },
+            "courtMartialChargeOutcomeConfinementStartDate": {
+              "value": "2020-10",
+              "_qId": "c-9-134c34-0",
+              "estimated": true
+            },
+            "courtMartialChargeOutcomeConfinementEndDate": {
+              "value": "2020-10",
+              "_qId": "c-9-d7f812-0",
+              "estimated": true
+            },
+            "courtMartialChargeOutcomeConfinementParole": {
+              "value": "Yes",
+              "_qId": "c-9-8ebd4b-0"
+            },
+            "courtMartialChargeOutcomeConfinementParoleStartDate": {
+              "value": "2020-10",
+              "_qId": "c-9-6c39f3-0",
+              "estimated": true
+            },
+            "courtMartialChargeOutcomeConfinementParoleEndDate": {
+              "value": "2020-10",
+              "_qId": "c-9-13836f-0",
+              "estimated": true,
+              "present": true
             }
           }
         ]
@@ -2754,12 +2750,12 @@
           "_qId": "a-10-dd61d2-1",
           "none": true
         },
-        "firstMetDate": {
+        "startDate": {
           "value": "2020-10",
           "_qId": "a-10-6d6d61-0",
           "estimated": true
         },
-        "lastContactDate": {
+        "endDate": {
           "value": "2020-10",
           "_qId": "a-10-a68db1-0",
           "estimated": true
@@ -4163,7 +4159,7 @@
           "value": "Yes",
           "_qId": "a-12-13604a-0"
         },
-        "providerAddressNonUsUsgFacilityname": {
+        "providerAddressNonUsUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "a-12-132f37-0",
           "notApplicable": true
@@ -4309,7 +4305,7 @@
           "value": "AFB Wakanda",
           "_qId": "a-12-13ea37-0"
         },
-        "providerAdderssNonUsCity": {
+        "providerAddressNonUsCity": {
           "value": "Rapid City",
           "_qId": "a-12-1dbdf4-0"
         },
@@ -5386,7 +5382,7 @@
           "value": "123 Main Street",
           "_qId": "a-16-933e9a-0"
         },
-        "locationusCity": {
+        "locationUsCity": {
           "value": "Rapid City",
           "_qId": "a-16-98c625-0"
         },
@@ -5499,8 +5495,8 @@
           "value": "Yes",
           "_qId": "a-17-698294-0"
         },
-        "locationUsStreetAddress": {
-          "value": "Lorem ipsum",
+        "locationUsStreet": {
+          "value": "123 Main Street",
           "_qId": "a-17-da4aae-0"
         },
         "locationUsCity": {
@@ -5531,7 +5527,7 @@
           "value": "Lorem ipsum",
           "_qId": "a-17-e450f8-0"
         },
-        "locationIsUsgFacility": {
+        "locationNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "a-17-6d9232-0"
         },
@@ -7120,11 +7116,11 @@
           "value": "AFB Wakanda",
           "_qId": "b-20-159151-0"
         },
-        "partnerLiveSameAddressNonUsMilitaryInstallationCity": {
+        "partnerLiveSameAddressNonUsCity": {
           "value": "Rapid City",
           "_qId": "b-20-1035d3-0"
         },
-        "partnerLiveSameAddressNonUsMilitaryInstallationCountry": {
+        "partnerLiveSameAddressNonUsCountry": {
           "value": "AFG",
           "_qId": "b-20-d603a2-0"
         },
@@ -7553,7 +7549,7 @@
           "value": "AFG",
           "_qId": "b-21-9cc43e-0"
         },
-        "locationNonUsUsgFacility": {
+        "locationNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "b-21-caffbf-0"
         },
@@ -7631,7 +7627,7 @@
           "value": "123 Main Street",
           "_qId": "b-21-16f237-0"
         },
-        "naturalizedNcnCourtUsCity": {
+        "naturalizedNcNCourtUsCity": {
           "value": "Rapid City",
           "_qId": "b-21-1a81e1-0"
         },
@@ -9432,7 +9428,7 @@
           "_qId": "c-25-1522e7-0",
           "dontKnow": true
         },
-        "addressNonUsUsgFacility": {
+        "addressNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "c-25-ad328d-0"
         },
@@ -9735,6 +9731,10 @@
           "_qId": "c-25-168cc0-0",
           "dontKnow": true
         },
+        "addressUsIsMilitaryInstallation": {
+          "value": "Yes",
+          "_qId": "c-25-b5f2e9-0"
+        },
         "addressUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "c-25-800f46-0",
@@ -9755,7 +9755,7 @@
           "_qId": "c-25-101716-0",
           "dontKnow": true
         },
-        "addressNonUsUsgFacility": {
+        "addressNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "c-25-1cbaf0-0"
         },
@@ -11240,6 +11240,11 @@
         "addressUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-27-1da89e-0",
+          "dontKnow": true
+        },
+        "addressUsState": {
+          "value": "WA",
+          "_qId": "c-27-manual-0",
           "dontKnow": true
         },
         "addressUsCity": {
