@@ -70,6 +70,7 @@ function parseDropdownValues(valuesCsv) {
  * @returns 
  */
 function generateCommonDefs(ddValues) {
+    console.info("Generating common schema defs");
     const output = {
         "debug_question_id": {
             "type": "string",
@@ -107,11 +108,13 @@ function generateCommonDefs(ddValues) {
     };
 
     for (const typeName in NEW_QUESTION_TYPES) {
-        const defName = `basic_${typeName}`;
         const instance = NEW_QUESTION_TYPES[typeName];
-        const commonDef = instance.getCommonDef();
-        if (commonDef != null) {
-            output[defName] = commonDef;
+        const commonDefs = instance.getCommonDefs();
+        verify((typeof commonDefs) == "object", "getCommonDefs returned bad result for %s", typeName);
+        console.debug("Common defs for %s: %o", typeName, Object.keys(commonDefs));
+        for (const defName in commonDefs) {
+            console.debug("Recording common def name=%s", defName);
+            output[defName] = commonDefs[defName];
         }
     }
 
@@ -126,6 +129,7 @@ function generateCommonDefs(ddValues) {
 
         console.debug("Created common dropdown value schema name=%s", defsKey);
     }
+    console.debug("Final common def names: %o", Object.keys(output));
     return output;
 }
 
@@ -195,7 +199,7 @@ class QuestionType {
     }
 }
 
-function makeQuestionDef(maxLength, regex, schemaFormat) {
+function makeQuestionDef(maxLength, regex) {
     let schema = {
         "type": "object",
         "properties": {
@@ -215,9 +219,6 @@ function makeQuestionDef(maxLength, regex, schemaFormat) {
     }
     if (regex) {
         schema.properties.value.pattern = regex;
-    }
-    if (schemaFormat) {
-        schema.properties.value.format = schemaFormat;
     }
     return schema;
 }
@@ -241,58 +242,28 @@ function makeMultivalue(schema) {
 }
 
 class TextQuestionType {
-    getCommonDef() {
-        return makeQuestionDef(NORMAL_MAX_LENGTH, null, null);
+    constructor(name, maxLength, regex, isMultivalue) {
+        this.name = name;
+        this.maxLength = maxLength || null;
+        this.regex = regex || null;
+        this.isMultivalue = isMultivalue || false;
+        this.commonDefName = "basic_" + this.name;
+    }
+
+    getCommonDefs() {
+        const defs = {};
+        defs[this.commonDefName] = makeQuestionDef(this.maxLength, this.regex);
+        return defs;
     }
 
     generateSchema(checkboxes) {
-        if (checkboxes.length == 0) {
-            return { "$ref": "#/$defs/basic_text" };
+        if (checkboxes.length == 0 && !this.isMultivalue) {
+            const defPath = `#/$defs/${this.commonDefName}`;
+            return { "$ref": defPath };
         } else {
-            return addCheckboxes(this.getCommonDef(), checkboxes);
-        }
-    }
-}
-
-class LongTextQuestionType {
-    getCommonDef() {
-        return makeQuestionDef(LONG_MAX_LENGTH, null, null);
-    }
-
-    generateSchema(checkboxes) {
-        if (checkboxes.length == 0) {
-            return { "$ref": "#/$defs/basic_long_text" };
-        } else {
-            return addCheckboxes(this.getCommonDef(), checkboxes);
-        }
-    }
-}
-
-class NumberQuestionType {
-    getCommonDef() {
-        return makeQuestionDef(NORMAL_MAX_LENGTH, NUMBER_REGEX, null);
-    }
-
-    generateSchema(checkboxes) {
-        if (checkboxes.length == 0) {
-            return { "$ref": "#/$defs/basic_number" };
-        } else {
-            return addCheckboxes(this.getCommonDef(), checkboxes);
-        }
-    }
-}
-
-class EmailQuestionType {
-    getCommonDef() {
-        return makeQuestionDef(NORMAL_MAX_LENGTH, EMAIL_REGEX, null);
-    }
-
-    generateSchema(checkboxes, isMultivalue) {
-        if (checkboxes.length == 0 && !isMultivalue) {
-            return { "$ref": "#/$defs/basic_email" };
-        } else {
-            const result = addCheckboxes(this.getCommonDef(), checkboxes);
-            if (isMultivalue) {
+            const result = this.getCommonDefs()[this.commonDefName];
+            addCheckboxes(result, checkboxes);
+            if (this.isMultivalue) {
                 makeMultivalue(result);
             }
             return result;
@@ -300,28 +271,44 @@ class EmailQuestionType {
     }
 }
 
-class PhoneNumberQuestionType {
-    getCommonDef() {
-        return {
-            "type": "object",
-            "properties": {
-                "value": {
-                    "$ref": "#/$defs/phone_number_value"
-                },
-                "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                }
+function getPhoneNumberValueSchema() {
+    return {
+        "type": "object",
+        "properties": {
+            "value": {
+                "$ref": "#/$defs/phone_number_value"
             },
-            "additionalProperties": false
+            "_qId": {
+                "$ref": "#/$defs/debug_question_id"
+            }
+        },
+        "additionalProperties": false
+    };
+}
+
+class PhoneNumberQuestionType {
+
+    constructor(isMultivalue) {
+        this.isMultivalue = isMultivalue;
+    }
+
+    getCommonDefs() {
+        if (this.isMultivalue) {
+            return {};
+        }
+
+        return {
+            "basic_phone_number": getPhoneNumberValueSchema()
         };
     }
 
-    generateSchema(checkboxes, isMultivalue) {
-        if (checkboxes.length == 0 && !isMultivalue) {
+    generateSchema(checkboxes) {
+        if (checkboxes.length == 0 && !this.isMultivalue) {
             return { "$ref": "#/$defs/basic_phone_number" };
         } else {
-            const result = addCheckboxes(this.getCommonDef(), checkboxes);
-            if (isMultivalue) {
+            const result = getPhoneNumberValueSchema();
+            addCheckboxes(result, checkboxes);
+            if (this.isMultivalue) {
                 makeMultivalue(result);
             }
             return result;
@@ -330,8 +317,8 @@ class PhoneNumberQuestionType {
 }
 
 class CheckboxesQuestionType {
-    getCommonDef() {
-        return null;
+    getCommonDefs() {
+        return {};
     }
 
     generateSchema(checkboxes) {
@@ -350,42 +337,16 @@ class CheckboxesQuestionType {
     }
 }
 
-class DateQuestionType {
-    getCommonDef() {
-        return makeQuestionDef(NORMAL_MAX_LENGTH, DATE_REGEX, "date");
-    }
-
-    generateSchema(checkboxes) {
-        return addCheckboxes(this.getCommonDef(), checkboxes);
-    }
-}
-
-class MonthQuestionType {
-    getCommonDef() {
-        return makeQuestionDef(NORMAL_MAX_LENGTH, MONTH_REGEX, null);
-    }
-
-    generateSchema(checkboxes) {
-        return addCheckboxes(this.getCommonDef(), checkboxes);
-    }
-}
-
-class YearQuestionType {
-    getCommonDef() {
-        return makeQuestionDef(NORMAL_MAX_LENGTH, YEAR_REGEX, null);
-    }
-
-    generateSchema(checkboxes) {
-        return addCheckboxes(this.getCommonDef(), checkboxes);
-    }
-}
-
 class DropdownQuestionType {
-    getCommonDef() {
-        return null;
+    constructor(isMultivalue) {
+        this.isMultivalue = isMultivalue;
     }
 
-    generateSchema(checkboxes, listName, isMultivalue) {
+    getCommonDefs() {
+        return {};
+    }
+
+    generateSchema(checkboxes, listName) {
         const result = {
             "type": "object",
             "properties": {
@@ -395,7 +356,7 @@ class DropdownQuestionType {
             }
         };
         addCheckboxes(result, checkboxes);
-        if (isMultivalue) {
+        if (this.isMultivalue) {
             makeMultivalue(result);
         }
         return result;
@@ -403,16 +364,19 @@ class DropdownQuestionType {
 }
 
 const NEW_QUESTION_TYPES = {
-    "text": new TextQuestionType(),
-    "long_text": new LongTextQuestionType(),
-    "number": new NumberQuestionType(),
-    "email": new EmailQuestionType(),
-    "phone_number": new PhoneNumberQuestionType(),
+    "text": new TextQuestionType("text", NORMAL_MAX_LENGTH),
+    "long_text": new TextQuestionType("long_text"),
+    "number": new TextQuestionType("number", NORMAL_MAX_LENGTH, NUMBER_REGEX),
+    "email": new TextQuestionType("email", NORMAL_MAX_LENGTH, EMAIL_REGEX),
+    "email_multiple": new TextQuestionType("email", NORMAL_MAX_LENGTH, EMAIL_REGEX, true),
+    "date": new TextQuestionType("date", 20, DATE_REGEX),
+    "month": new TextQuestionType("month", 20, MONTH_REGEX),
+    "year": new TextQuestionType("year", 4, YEAR_REGEX),
+    "phone_number": new PhoneNumberQuestionType(false),
+    "phone_number_multiple": new PhoneNumberQuestionType(true),
     "checkboxes": new CheckboxesQuestionType(),
-    "date": new DateQuestionType(),
-    "month": new MonthQuestionType(),
-    "year": new YearQuestionType(),
-    "dropdown": new DropdownQuestionType()
+    "dropdown": new DropdownQuestionType(false),
+    "dropdown_multiple": new DropdownQuestionType(true)
 };
 
 const QUESTION_TYPES = {
@@ -533,169 +497,25 @@ function getSampleValue(q, dropdownValues) {
 
 let SIMPLE_Q_COUNTERS = new Map();
 
-function generateSimpleProperty(row, dropdownValues) {
+function verify(condition, ...args) {
+  if (!condition) {
+    console.error(...args);
+    throw new Error("assertion failed");
+  }
+}
+
+function generateSimpleProperty(row) {
     const dataType = row.dataType;
     const questionId = row.questionId;
-    let qSchema = null;
+    const qType = NEW_QUESTION_TYPES[dataType];
     let checkboxes = row.checkboxes;
-    console.debug("Generating question schema question=%s dataType=%s", questionId, dataType);
-    if (dataType == "text") {
-        qSchema = NEW_QUESTION_TYPES.text.generateSchema(checkboxes);
-    } else if (dataType == "long_text") {
-        qSchema = NEW_QUESTION_TYPES.long_text.generateSchema(checkboxes);
-    } else if (dataType == "number") {
-        qSchema = NEW_QUESTION_TYPES.number.generateSchema(checkboxes);
-    } else if (dataType == "email") {
-        qSchema = NEW_QUESTION_TYPES.email.generateSchema(checkboxes, false);
-    } else if (dataType == "email_multiple") {
-        qSchema = NEW_QUESTION_TYPES.email.generateSchema(checkboxes, true);
-    } else if (dataType == "phone_number") {
-        qSchema = NEW_QUESTION_TYPES.phone_number.generateSchema(checkboxes, false);
-    } else if (dataType == "phone_number_multiple") {
-        qSchema = NEW_QUESTION_TYPES.phone_number.generateSchema(checkboxes, true);
-    } else if (dataType == "checkboxes") {
-        qSchema = NEW_QUESTION_TYPES.checkboxes.generateSchema(checkboxes);
-    } else if (dataType == "date") {
-        qSchema = NEW_QUESTION_TYPES.date.generateSchema(checkboxes);
-    } else if (dataType == "month") {
-        qSchema = NEW_QUESTION_TYPES.month.generateSchema(checkboxes);
-    } else if (dataType == "year") {
-        qSchema = NEW_QUESTION_TYPES.year.generateSchema(checkboxes);
-    } else if (dataType == "dropdown") {
-        qSchema = NEW_QUESTION_TYPES.dropdown.generateSchema(checkboxes, row.dropdownList, false);
-    } else if (dataType == "dropdown_multiple") {
-        qSchema = NEW_QUESTION_TYPES.dropdown.generateSchema(checkboxes, row.dropdownList, true);
-    } else {
-        console.assert(false, "Couldn't find type settings question=%s dataType=%s row=%o",
-            questionId, dataType, row);
-        return null;
-    }
-
-    console.assert(qSchema != null, "qSchema was null after question type identification question=%s", questionId);
-    return qSchema;
-
-    const typeSettings = QUESTION_TYPES[dataType];
-    console.assert(typeSettings, "Unhandled data type type=%s question=%s row=%o", dataType, questionId, row);
-
-    const hasNormalText = NORMAL_TEXT_PATTERN.test(row.questionText);
-    if (!hasNormalText) {
-        console.warn("Weird question text text='%s' questionId=%s", row.questionText, questionId);
-    }
-
-    const hasEnumList = typeSettings.hasEnumList;
-    if (hasEnumList) {
-        console.assert(row.dropdownList, "Dropdown list not defined question=%s type=%s", questionId, dataType);
-    } else {
-        console.assert(!row.dropdownList, "Dropdown list unexpectedly found question=%s type=%s", questionId, dataType);
-    }
-
     let dropdownList = row.dropdownList;
-
-    const description = `
-Question text: ${row.questionText}
-Data type: ${dataType}
-Question ID: ${questionId}
-`.trim();
-
-    let prop = {
-        "type": "object",
-        "properties": {
-            "value": {
-                "type": "string",
-                "maxLength": NORMAL_MAX_LENGTH
-            },
-            "_qId": {
-                "$ref": "#/$defs/debug_question_id"
-            }
-
-        },
-        "additionalProperties": false,
-        "title": `Question ${questionId}`,
-        "description": description
-    };
-
-    if (questionId == "a-1-11fe54-0") {
-        console.debug("Processing suffix question row=%o", row);
-    }
-
-    if (typeSettings.isPhoneNumber) {
-        prop.properties.value = {
-            "$ref": "#/$defs/phone_number"
-        };
-    }
-
-    for (let checkbox of row.checkboxes) {
-        prop.properties[checkbox] = {
-            "type": "boolean"
-        };
-    }
-
-    // TODO: this code is getting messy, this method should be refactored, probably
-    // to put the question schema generation in a method of the question type, and use
-    // subclassing or something similar
-    if (row.checkboxes.length == 0) {
-        let prevCount = SIMPLE_Q_COUNTERS.get(dataType) || 0;
-        if (typeSettings == NORMAL_TEXT_TYPE) {
-            SIMPLE_Q_COUNTERS.set(dataType, prevCount + 1);
-            return {
-                "$ref": "#/$defs/simple_short_text_question"
-            };
-        } else if (typeSettings == LONG_TEXT_TYPE) {
-            SIMPLE_Q_COUNTERS.set(dataType, prevCount + 1);
-            return {
-                "$ref": "#/$defs/simple_long_text_question"
-            };
-        } else if (typeSettings.hasEnumList && !typeSettings.isMultivalue) {
-            SIMPLE_Q_COUNTERS.set(dataType, prevCount + 1);
-            return {
-                "$ref": `#/$defs/dropdown_${dropdownList}`
-            };
-        }
-    }
-
-    if (typeSettings.maxLength) {
-        prop.properties.value.maxLength = typeSettings.maxLength;
-    }
-
-    if (typeSettings.requiresValue) {
-        prop.required = ["value"];
-    } else {
-        // no value is required on checkboxes questions, but if provided, it must be an empty string
-        console.assert(row.checkboxes.length > 0, "no checkboxes defined for checkboxes question question=%s", row.questionId);
-        prop.required = [];
-        prop.properties.value.const = "";
-    }
-
-    if (typeSettings.hasEnumList) {
-        const enumValues = dropdownValues.get(dropdownList);
-        if (enumValues) {
-            const defsKey = `#/$defs/dropdown_${dropdownList}`;
-            prop.properties.value = {
-                "$ref": defsKey
-            };
-        } else {
-            console.error("unknown dropdown list list=%s questionId=%s", dropdownList, questionId);
-            prop.properties.value.enum = [];
-        }
-    } 
-
-    if (typeSettings.valuePattern) {
-        prop.properties.value.pattern = typeSettings.valuePattern;
-    }
-
-    if (typeSettings.schemaFormat) {
-        prop.properties.value.format = typeSettings.schemaFormat;
-    }
-
-    if (typeSettings.isMultivalue) {
-        const valueSpec = prop.properties.value;
-        prop.properties.value = {
-            "type": "array",
-            "items": valueSpec
-        };
-    }
-
-    return prop;
+    verify(qType, "unable to lookup question type question=%s type=%s");
+    console.debug("Generating question schema question=%s dataType=%s", questionId, dataType);
+    let qSchema = qType.generateSchema(checkboxes, dropdownList);
+    verify(qSchema != null, "qSchema was null after question type identification question=%s type=%s",
+        questionId, dataType);
+    return qSchema;
 }
 
 /**
@@ -737,7 +557,7 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions,
         const groupPath = q.groupPath.slice(contextDepth);
         const condition = q.condition;
         if (groupPath.length == 0) {
-            let prop = generateSimpleProperty(q, dropdownValues);
+            let prop = generateSimpleProperty(q);
             schemaContext.properties[propName] = prop;
             if (!DEBUG && condition == "") {
                 schemaContext.required.push(propName);
@@ -831,6 +651,7 @@ function generateSchema(questionsCsv, subjectType, dropdownValues) {
 
     console.groupCollapsed("Parsing dropdown values");
     const commonDefs = generateCommonDefs(dropdownValues);
+    console.debug("Final common defs: %o", commonDefs);
     output["$defs"] = commonDefs;
     console.groupEnd();
 

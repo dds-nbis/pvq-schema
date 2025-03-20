@@ -88,9 +88,8 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
+              "maxLength": 20,
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
             },
             "_qId": {
               "$ref": "#/$defs/debug_question_id"
@@ -307,7 +306,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -327,7 +326,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -467,40 +466,10 @@
           }
         },
         "passportCardIssueDate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/basic_date"
         },
         "passportCardExpirationDate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/basic_date"
         },
         "passportCardIsMostRecent": {
           "type": "object",
@@ -593,40 +562,10 @@
                 }
               },
               "issueDate": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/basic_date"
               },
               "expirationDate": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/basic_date"
               },
               "isMostRecent": {
                 "type": "object",
@@ -698,9 +637,8 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
+              "maxLength": 20,
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
             },
             "_qId": {
               "$ref": "#/$defs/debug_question_id"
@@ -814,22 +752,7 @@
           "$ref": "#/$defs/basic_text"
         },
         "naturalizedCitizenCertificateIssueDate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/basic_date"
         },
         "naturalizedcitizenCertificateLastName": {
           "type": "object",
@@ -993,22 +916,7 @@
           }
         },
         "derivedCitizenCertificateIssueDate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/basic_date"
         },
         "nonUsCitizenResidenceStatus": {
           "type": "object",
@@ -1026,9 +934,8 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
+              "maxLength": 20,
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
             },
             "_qId": {
               "$ref": "#/$defs/debug_question_id"
@@ -1085,9 +992,8 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
+              "maxLength": 20,
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
             },
             "_qId": {
               "$ref": "#/$defs/debug_question_id"
@@ -1132,40 +1038,10 @@
           "additionalProperties": false
         },
         "nonUsCitizenDocumentIssuedate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/basic_date"
         },
         "nonUsCitizenDocumentExpirationdate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-              "format": "date"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/basic_date"
         },
         "nonUsCitizenDocumentLastName": {
           "type": "object",
@@ -1285,9 +1161,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -1306,9 +1181,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -1372,9 +1246,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -1393,9 +1266,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -1523,9 +1395,8 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
-                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                          "format": "date"
+                          "maxLength": 20,
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                         },
                         "_qId": {
                           "$ref": "#/$defs/debug_question_id"
@@ -1544,9 +1415,8 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
-                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                          "format": "date"
+                          "maxLength": 20,
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                         },
                         "_qId": {
                           "$ref": "#/$defs/debug_question_id"
@@ -1773,7 +1643,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -1793,7 +1663,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -1901,7 +1771,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -1921,7 +1791,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -1999,7 +1869,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -2348,38 +2218,10 @@
                 "$ref": "#/$defs/basic_text"
               },
               "fromMonth": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}$"
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/basic_month"
               },
               "toMonth": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}$"
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/basic_month"
               },
               "isInUs": {
                 "type": "object",
@@ -2428,7 +2270,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -2495,7 +2337,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -2515,7 +2357,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -2621,6 +2463,41 @@
                   "value": {
                     "type": "string",
                     "maxLength": 255
+                  },
+                  "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                  },
+                  "dontKnow": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              "militarySupervisorPhoneNumber": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "$ref": "#/$defs/phone_number_value"
+                  },
+                  "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                  },
+                  "dontKnow": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "militarySupervisorEmailAddress": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "pattern": "^(Personal|Work|Unknown): \\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -2794,7 +2671,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -2814,7 +2691,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -2872,7 +2749,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -2952,7 +2829,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -2972,7 +2849,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -3256,6 +3133,21 @@
                 ],
                 "additionalProperties": false
               },
+              "supervisorPhoneNumber": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "$ref": "#/$defs/phone_number_value"
+                  },
+                  "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                  },
+                  "dontKnow": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
               "supervisorEmailAddress": {
                 "type": "object",
                 "properties": {
@@ -3428,7 +3320,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -3984,7 +3876,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -4004,7 +3896,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -4043,7 +3935,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -4155,7 +4047,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -4175,7 +4067,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -4638,7 +4530,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -4658,7 +4550,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -4948,7 +4840,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -4968,7 +4860,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -5027,7 +4919,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -5047,7 +4939,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -5151,7 +5043,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -5171,7 +5063,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -5218,9 +5110,8 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
-                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                          "format": "date"
+                          "maxLength": 20,
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                         },
                         "_qId": {
                           "$ref": "#/$defs/debug_question_id"
@@ -5292,9 +5183,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -5313,9 +5203,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -5402,7 +5291,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -5486,7 +5375,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -5646,7 +5535,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -5666,7 +5555,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -5694,7 +5583,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -5714,7 +5603,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -5798,7 +5687,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -5818,7 +5707,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -6051,7 +5940,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -6121,7 +6010,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -6173,9 +6062,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -6394,7 +6282,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -6467,7 +6355,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -6536,7 +6424,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -6567,7 +6455,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -6609,7 +6497,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -6629,7 +6517,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -6696,7 +6584,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -6716,7 +6604,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -6744,7 +6632,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -6764,7 +6652,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -6799,7 +6687,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -6861,7 +6749,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -6973,7 +6861,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -7190,7 +7078,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -7263,7 +7151,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -7332,7 +7220,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -7363,7 +7251,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -7405,7 +7293,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -7425,7 +7313,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -7492,7 +7380,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -7512,7 +7400,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -7543,7 +7431,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -7563,7 +7451,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -7646,7 +7534,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -7666,7 +7554,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -7745,7 +7633,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -7765,7 +7653,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -7848,7 +7736,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -7868,7 +7756,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -7954,7 +7842,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -7974,7 +7862,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8065,7 +7953,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8085,7 +7973,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8132,7 +8020,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8152,7 +8040,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8273,7 +8161,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8293,7 +8181,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8586,7 +8474,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8606,7 +8494,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -8875,7 +8763,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -8895,7 +8783,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -9055,7 +8943,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9075,7 +8963,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9114,7 +9002,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9134,7 +9022,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9181,7 +9069,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9201,7 +9089,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9394,7 +9282,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9452,7 +9340,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9499,7 +9387,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9554,7 +9442,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9583,7 +9471,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9627,7 +9515,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9674,7 +9562,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9718,7 +9606,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9738,7 +9626,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9836,21 +9724,7 @@
             "type": "object",
             "properties": {
               "taxYear": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}$"
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/basic_year"
               },
               "reason": {
                 "$ref": "#/$defs/basic_long_text"
@@ -9868,7 +9742,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -9897,21 +9771,7 @@
             "type": "object",
             "properties": {
               "taxYear": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}$"
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/basic_year"
               },
               "owedAmount": {
                 "type": "object",
@@ -10024,7 +9884,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -10167,7 +10027,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -10450,7 +10310,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -10654,7 +10514,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -10858,7 +10718,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11069,7 +10929,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11216,7 +11076,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11552,7 +11412,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11572,7 +11432,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11667,7 +11527,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11714,7 +11574,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11734,7 +11594,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11828,7 +11688,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -11848,7 +11708,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12001,7 +11861,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12021,7 +11881,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12182,7 +12042,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12202,7 +12062,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12283,7 +12143,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12303,7 +12163,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12342,7 +12202,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12362,7 +12222,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12409,7 +12269,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12429,7 +12289,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12465,7 +12325,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12485,7 +12345,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12521,7 +12381,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12541,7 +12401,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12635,7 +12495,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12655,7 +12515,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12763,7 +12623,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12783,7 +12643,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12816,7 +12676,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12836,7 +12696,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12884,7 +12744,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12904,7 +12764,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -12964,7 +12824,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -12984,7 +12844,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -13050,7 +12910,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -13070,7 +12930,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -13172,6 +13032,26 @@
                     "type": "boolean"
                   }
                 },
+                "additionalProperties": false
+              },
+              "providerEmailAddress": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "pattern": "^(Personal|Work|Unknown): \\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
+                  },
+                  "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                  },
+                  "dontKnow": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "value"
+                ],
                 "additionalProperties": false
               },
               "providerInUs": {
@@ -13291,7 +13171,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -13311,7 +13191,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -13643,9 +13523,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -13771,9 +13650,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -13885,9 +13763,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14002,9 +13879,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14168,9 +14044,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14222,9 +14097,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14243,9 +14117,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14377,14 +14250,48 @@
               "partnerLiveSameAddressNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
               },
-              "separationDate": {
+              "partnerPhone": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "$ref": "#/$defs/phone_number_value"
+                  },
+                  "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                  },
+                  "dontKnow": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "partnerEmail": {
                 "type": "object",
                 "properties": {
                   "value": {
                     "type": "string",
                     "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "pattern": "^(Personal|Work|Unknown): \\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
+                  },
+                  "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                  },
+                  "dontKnow": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              "separationDate": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14513,9 +14420,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14581,6 +14487,21 @@
                   }
                 }
               },
+              "divorcedPartnerPhone": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "$ref": "#/$defs/phone_number_value"
+                  },
+                  "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                  },
+                  "dontKnow": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
               "divorcedPartnerEmail": {
                 "type": "object",
                 "properties": {
@@ -14609,9 +14530,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14663,9 +14583,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14848,9 +14767,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -14961,7 +14879,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -14981,7 +14899,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -15114,9 +15032,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -15373,9 +15290,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -15523,9 +15439,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -15640,9 +15555,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -15809,9 +15723,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -15844,7 +15757,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -15864,7 +15777,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -16179,7 +16092,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -16199,7 +16112,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -16263,7 +16176,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -16283,7 +16196,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -16530,21 +16443,7 @@
           "additionalProperties": false
         },
         "filingDate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}$"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/basic_month"
         },
         "actionsTaken": {
           "type": "object",
@@ -16709,28 +16608,14 @@
           }
         },
         "paymentFilingDate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255,
-              "pattern": "^\\d{4}-\\d{2}$"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/basic_month"
         },
         "dateOfActualFiling": {
           "type": "object",
           "properties": {
             "value": {
               "type": "string",
-              "maxLength": 255,
+              "maxLength": 20,
               "pattern": "^\\d{4}-\\d{2}$"
             },
             "_qId": {
@@ -16824,7 +16709,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17058,7 +16943,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17188,7 +17073,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17216,7 +17101,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17404,7 +17289,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17432,7 +17317,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17546,7 +17431,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17574,7 +17459,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17778,7 +17663,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -17806,7 +17691,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18010,7 +17895,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18071,7 +17956,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18099,7 +17984,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18204,7 +18089,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18233,7 +18118,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18280,7 +18165,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18473,7 +18358,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18535,7 +18420,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18563,7 +18448,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18684,7 +18569,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18731,7 +18616,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -18935,7 +18820,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -19028,7 +18913,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -19056,7 +18941,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -19211,7 +19096,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -19245,7 +19130,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -19484,7 +19369,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -19767,7 +19652,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -19787,7 +19672,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -19830,6 +19715,21 @@
                 "required": [
                   "value"
                 ],
+                "additionalProperties": false
+              },
+              "phoneNumber": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "$ref": "#/$defs/phone_number_value"
+                  },
+                  "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                  },
+                  "dontKnow": {
+                    "type": "boolean"
+                  }
+                },
                 "additionalProperties": false
               },
               "methodOfContactOtherExplanation": {
@@ -20055,8 +19955,7 @@
                 "type": "object",
                 "properties": {
                   "value": {
-                    "type": "string",
-                    "maxLength": 4000
+                    "type": "string"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -20312,7 +20211,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -20590,7 +20489,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -20939,7 +20838,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -20987,7 +20886,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -21015,7 +20914,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -21074,7 +20973,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -21961,7 +21860,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -22095,7 +21994,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -22121,7 +22020,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -22297,7 +22196,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -22864,7 +22763,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -22884,7 +22783,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -23065,7 +22964,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -23166,7 +23065,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -23230,7 +23129,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -23258,7 +23157,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -23278,7 +23177,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -23540,7 +23439,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -23560,7 +23459,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -23796,7 +23695,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24032,7 +23931,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24077,7 +23976,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24097,7 +23996,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24326,7 +24225,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24346,7 +24245,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24401,7 +24300,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24504,9 +24403,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -24634,9 +24532,8 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
-                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-                    "format": "date"
+                    "maxLength": 20,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                   },
                   "_qId": {
                     "$ref": "#/$defs/debug_question_id"
@@ -24772,7 +24669,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24792,7 +24689,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24856,7 +24753,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -24876,7 +24773,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -25036,7 +24933,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -25056,7 +24953,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -25168,7 +25065,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -25228,7 +25125,7 @@
                 "properties": {
                   "value": {
                     "type": "string",
-                    "maxLength": 255,
+                    "maxLength": 20,
                     "pattern": "^\\d{4}-\\d{2}$"
                   },
                   "_qId": {
@@ -25315,7 +25212,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -25335,7 +25232,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -25358,7 +25255,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -25388,38 +25285,10 @@
                       "$ref": "#/$defs/basic_text"
                     },
                     "imprisonmentStartDate": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255,
-                          "pattern": "^\\d{4}-\\d{2}$"
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/basic_month"
                     },
                     "imprisonmentEndDate": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255,
-                          "pattern": "^\\d{4}-\\d{2}$"
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/basic_month"
                     },
                     "grantedParole": {
                       "type": "object",
@@ -25434,7 +25303,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -25454,7 +25323,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "maxLength": 255,
+                          "maxLength": 20,
                           "pattern": "^\\d{4}-\\d{2}$"
                         },
                         "_qId": {
@@ -25592,8 +25461,7 @@
       "type": "object",
       "properties": {
         "value": {
-          "type": "string",
-          "maxLength": 4000
+          "type": "string"
         },
         "_qId": {
           "$ref": "#/$defs/debug_question_id"
@@ -25638,26 +25506,13 @@
       ],
       "additionalProperties": false
     },
-    "basic_phone_number": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "$ref": "#/$defs/phone_number_value"
-        },
-        "_qId": {
-          "$ref": "#/$defs/debug_question_id"
-        }
-      },
-      "additionalProperties": false
-    },
     "basic_date": {
       "type": "object",
       "properties": {
         "value": {
           "type": "string",
-          "maxLength": 255,
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-          "format": "date"
+          "maxLength": 20,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
         },
         "_qId": {
           "$ref": "#/$defs/debug_question_id"
@@ -25673,7 +25528,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "maxLength": 255,
+          "maxLength": 20,
           "pattern": "^\\d{4}-\\d{2}$"
         },
         "_qId": {
@@ -25690,7 +25545,7 @@
       "properties": {
         "value": {
           "type": "string",
-          "maxLength": 255,
+          "maxLength": 4,
           "pattern": "^\\d{4}$"
         },
         "_qId": {
@@ -25700,6 +25555,18 @@
       "required": [
         "value"
       ],
+      "additionalProperties": false
+    },
+    "basic_phone_number": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/phone_number_value"
+        },
+        "_qId": {
+          "$ref": "#/$defs/debug_question_id"
+        }
+      },
       "additionalProperties": false
     },
     "dropdown_COUNTRIES": {
