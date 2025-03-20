@@ -107,8 +107,8 @@ function generateCommonDefs(ddValues) {
         }
     };
 
-    for (const typeName in NEW_QUESTION_TYPES) {
-        const instance = NEW_QUESTION_TYPES[typeName];
+    for (const typeName in QUESTION_TYPES) {
+        const instance = QUESTION_TYPES[typeName];
         const commonDefs = instance.getCommonDefs();
         verify((typeof commonDefs) == "object", "getCommonDefs returned bad result for %s", typeName);
         console.debug("Common defs for %s: %o", typeName, Object.keys(commonDefs));
@@ -271,7 +271,7 @@ class TextQuestionType {
     }
 }
 
-function getPhoneNumberValueSchema() {
+function getPhoneNumberQuestionSchema() {
     return {
         "type": "object",
         "properties": {
@@ -298,7 +298,7 @@ class PhoneNumberQuestionType {
         }
 
         return {
-            "basic_phone_number": getPhoneNumberValueSchema()
+            "basic_phone_number": getPhoneNumberQuestionSchema()
         };
     }
 
@@ -306,7 +306,7 @@ class PhoneNumberQuestionType {
         if (checkboxes.length == 0 && !this.isMultivalue) {
             return { "$ref": "#/$defs/basic_phone_number" };
         } else {
-            const result = getPhoneNumberValueSchema();
+            const result = getPhoneNumberQuestionSchema();
             addCheckboxes(result, checkboxes);
             if (this.isMultivalue) {
                 makeMultivalue(result);
@@ -363,7 +363,7 @@ class DropdownQuestionType {
     }
 }
 
-const NEW_QUESTION_TYPES = {
+const QUESTION_TYPES = {
     "text": new TextQuestionType("text", NORMAL_MAX_LENGTH),
     "long_text": new TextQuestionType("long_text"),
     "number": new TextQuestionType("number", NORMAL_MAX_LENGTH, NUMBER_REGEX),
@@ -378,27 +378,6 @@ const NEW_QUESTION_TYPES = {
     "dropdown": new DropdownQuestionType(false),
     "dropdown_multiple": new DropdownQuestionType(true)
 };
-
-const QUESTION_TYPES = {
-    "text": new QuestionType(false, false, true, null),
-    "long_text": new QuestionType(false, false, true, null, null, LONG_MAX_LENGTH),
-    "number": new QuestionType(false, false, true, NUMBER_REGEX),
-    "email": new QuestionType(false, false, true, EMAIL_REGEX),
-    "email_multiple": new QuestionType(true, false, true, EMAIL_REGEX),
-    "phone_number": new QuestionType(false, false, true, null, null, null, true),
-    "phone_number_multiple": new QuestionType(true, false, true, null, null, null, true),
-    "checkboxes": new QuestionType(false, false, false, null),
-    "date": new QuestionType(false, false, true, DATE_REGEX, "date"),
-    "month": new QuestionType(false, false, true, MONTH_REGEX),
-    "year": new QuestionType(false, false, true, YEAR_REGEX),
-    "dropdown": new QuestionType(false, true, true, null),
-    "dropdown_multiple": new QuestionType(true, true, true, null)
-};
-
-const NORMAL_TEXT_TYPE = QUESTION_TYPES.text;
-const LONG_TEXT_TYPE = QUESTION_TYPES.long_text;
-
-const NORMAL_TEXT_PATTERN = /^(ZIP|U\.S\.|[A-Z]\. |[A-Z][a-z]).*/;
 
 function getSampleValue(q, dropdownValues) {
     const propName = q.propertyName.toLowerCase();
@@ -507,7 +486,7 @@ function verify(condition, ...args) {
 function generateSimpleProperty(row) {
     const dataType = row.dataType;
     const questionId = row.questionId;
-    const qType = NEW_QUESTION_TYPES[dataType];
+    const qType = QUESTION_TYPES[dataType];
     let checkboxes = row.checkboxes;
     let dropdownList = row.dropdownList;
     verify(qType, "unable to lookup question type question=%s type=%s");
