@@ -1,3 +1,7 @@
 .field:has(> *[id$="_qId"]) {
   display: none;
 }
+
+label[for$="_value"] {
+  display: none;
+}
