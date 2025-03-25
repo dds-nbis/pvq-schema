@@ -1,0 +1,3 @@
+.field:has(> *[id$="_qId"]) {
+  display: none;
+}
