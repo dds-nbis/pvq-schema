@@ -15,6 +15,11 @@ schemaWalk(schema, (obj) => {
   if (desc?.includes("Data type:")) {
     obj.description = desc.substring(desc.indexOf('Question text:') >= 0 ? 'Question text: '.length : 0, desc.indexOf('Data type:'))
   }
+  const title = obj.title as string | undefined
+  if (title && desc && title.startsWith("Question")) {
+    obj.title = obj.description
+    delete obj.description
+  }
 }, (obj) => {
   if (obj.title === 'PVQ Response') {
     for (const prop of Object.keys(obj.properties)) {
