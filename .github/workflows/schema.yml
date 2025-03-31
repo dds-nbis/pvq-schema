@@ -1,0 +1,37 @@
+name: Generate JSON Schema
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - schema
+      - typescript-generation
+    paths:
+      - schema-generation/schema-generator/dropdown-values.csv
+      - schema-generation/schema-generator/pvq-questions.csv
+      - schema-generation/schema-generator/schema-generator.js
+      - schema-generation/schema-generator/generate-schema-runner.js
+
+jobs:
+  generate-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Schema Generator
+        run: node schema-generation/schema-generator/generate-schema-runner schema
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pvq-schema
+          path: schema/*
+

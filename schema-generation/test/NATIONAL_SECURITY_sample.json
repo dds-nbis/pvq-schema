@@ -38,15 +38,15 @@
       "value": "Yes",
       "_qId": "a-1-105c29-0"
     },
-    "birthUsCity": {
+    "usBirthCity": {
       "value": "Rapid City",
       "_qId": "a-1-1acac2-0"
     },
-    "birthUsCounty": {
+    "usBirthCounty": {
       "value": "Lorem ipsum",
       "_qId": "a-1-1f658e-0"
     },
-    "birthUsState": {
+    "usBirthState": {
       "value": "WA",
       "_qId": "a-1-1df9ac-0"
     },
@@ -74,11 +74,11 @@
       "value": "Albert",
       "_qId": "a-1-manual-5"
     },
-    "birthNonUsCity": {
+    "nonUsBirthCity": {
       "value": "Rapid City",
       "_qId": "a-1-bd78df-0"
     },
-    "birthNonUsCountry": {
+    "nonUsBirthCountry": {
       "value": "CAN",
       "_qId": "a-1-1720f5-0"
     },
@@ -97,14 +97,7 @@
     },
     "phoneNumber": {
       "value": [
-        {
-          "countryCode": "1",
-          "number": "2025551234",
-          "type": "Cell",
-          "timeOfDay": "Both",
-          "extension": "",
-          "isDsn": false
-        }
+        "Day: 202-555-1234"
       ],
       "_qId": "a-1-1ee9dc-0"
     },
@@ -177,10 +170,6 @@
       "_qId": "a-2-128f37-0",
       "unableToObtain": true
     },
-    "passportCardUnknownNumberExplanation": {
-      "value": "Lorem ipsum dolor sit amet.",
-      "_qId": "a-2-manual-1"
-    },
     "passportCardLastName": {
       "value": "Smith",
       "_qId": "a-2-19c60c-0"
@@ -222,10 +211,6 @@
           "value": "Lorem ipsum",
           "_qId": "a-2-1e0d5c-0",
           "unableToObtain": true
-        },
-        "passportBookUnknownNumberExplanation": {
-          "value": "Lorem ipsum dolor sit amet.",
-          "_qId": "a-2-manual-0"
         },
         "lastName": {
           "value": "Smith",
@@ -345,7 +330,7 @@
       "_qId": "a-3-13e859-0",
       "lettersOnly": true
     },
-    "naturalizedCitizenCertificateFirstName": {
+    "naturalizedCitizenCertificateFirstname": {
       "value": "John",
       "_qId": "a-3-158bbf-0",
       "lettersOnly": true
@@ -519,7 +504,7 @@
     "foreignPassports": [
       {
         "country": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-4-18d074-0"
         },
         "haveAccess": {
@@ -541,7 +526,7 @@
           "_qId": "b-4-191fdf-0"
         },
         "issueCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-4-56975b-0"
         },
         "lastName": {
@@ -590,7 +575,7 @@
         "tripsUsedIn": [
           {
             "travelCountry": {
-              "value": "AFG",
+              "value": "CAN",
               "_qId": "b-4-723e82-0"
             },
             "startDate": {
@@ -616,8 +601,8 @@
               "value": "Business or professional conference (This does not include U.S. Government business or military assignments.)",
               "_qId": "b-4-613efe-0"
             },
-            "travelReasonOtherExplanation": {
-              "value": "Sample value",
+            "reasonOtherExplanation": {
+              "value": "Lorem ipsum dolor sit amet.",
               "_qId": "b-4-e3bfa7-0"
             },
             "wereDetainedByOfficials": {
@@ -682,12 +667,12 @@
     ]
   },
   "residences": {
+    "addressInUs": {
+      "value": "Yes",
+      "_qId": "a-5-184d49-0"
+    },
     "residences": [
       {
-        "addressInUs": {
-          "value": "Yes",
-          "_qId": "a-5-manual-0"
-        },
         "addressUsStreet": {
           "value": "123 Main Street",
           "_qId": "a-5-7962f5-0"
@@ -708,13 +693,9 @@
           "value": "Yes",
           "_qId": "a-5-d36b3c-0"
         },
-        "addressUsMilitaryInstallationName": {
-          "value": "AFB Wakanda",
+        "addressUsMilitaryInstalationName": {
+          "value": "Lorem ipsum",
           "_qId": "a-5-1dcf26-0"
-        },
-        "addressNonUsStreet": {
-          "value": "123 Main Street",
-          "_qId": "a-5-manual-1"
         },
         "addressNonUsCity": {
           "value": "Rapid City",
@@ -759,6 +740,10 @@
         "temporaryResidencePurposeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-5-26078c-0"
+        },
+        "isInUs": {
+          "value": "Yes",
+          "_qId": "a-5-10220c-0"
         }
       }
     ]
@@ -779,7 +764,7 @@
           "value": "Vocational/Technical/Trade School",
           "_qId": "a-6-abab69-0"
         },
-        "schoolTypeOtherExplanation": {
+        "schoolTypeExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-1dc4d0-0"
         },
@@ -823,7 +808,7 @@
           "_qId": "a-6-1b17b1-0"
         },
         "addressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-6-108734-0"
         },
         "receivedDegreeOrDiploma": {
@@ -834,7 +819,7 @@
           "value": "Associate's degree",
           "_qId": "a-6-debe9b-0"
         },
-        "degreeTypeOtherExplanation": {
+        "degreeTypeExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-1f6626-0"
         },
@@ -870,20 +855,13 @@
           ],
           "_qId": "a-6-2e808a-0"
         },
-        "educationReferenceRelationshipOtherExplanation": {
+        "educationReferenceRelationshipExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-1a8a1b-0"
         },
         "educationReferencePhone": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-6-18e674-0",
           "dontKnow": true
@@ -929,7 +907,7 @@
           "_qId": "a-6-6e6f3d-0",
           "dontKnow": true
         },
-        "educationReferenceAddressNonUsNotKnown": {
+        "educationReferenceAdderssNonUsNotKnown": {
           "value": "",
           "_qId": "a-6-a7f03b-0",
           "dontKnow": true
@@ -943,7 +921,7 @@
           "_qId": "a-6-1527df-0"
         },
         "educationReferenceAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-6-ee6479-0"
         },
         "educationReferenceAddressNonUsIsUsgFacility": {
@@ -955,62 +933,62 @@
           "_qId": "a-6-42d6e5-0",
           "dontKnow": true
         },
-        "educationReferenceAddressNonUsUsgFacilityPostcode": {
+        "educationReferenceAddressUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "a-6-329831-0"
         },
         "physicalAddresses": [
           {
-            "addressInUs": {
+            "physicalAddressInUs": {
               "value": "Yes",
               "_qId": "a-6-19889c-0"
             },
-            "addressUsStreet": {
+            "physicalAddressUsStreet": {
               "value": "123 Main Street",
               "_qId": "a-6-1b1188-0"
             },
-            "addressUsCity": {
+            "physicalAddressUsCity": {
               "value": "Rapid City",
               "_qId": "a-6-1add96-0"
             },
-            "addressUsState": {
+            "physicalAddressUsState": {
               "value": "WA",
               "_qId": "a-6-41a441-0"
             },
-            "addressUsZipcode": {
+            "physicalAddressUsZipcode": {
               "value": "Lorem ipsum",
               "_qId": "a-6-418d86-0"
             },
-            "addressUsIsMilitaryInstallation": {
+            "physicalAddressUsIsMilitaryInstallation": {
               "value": "Yes",
               "_qId": "a-6-57f663-0"
             },
-            "addressUsMilitaryInstallationName": {
+            "physicalAddressUsMilitaryInstallationName": {
               "value": "AFB Wakanda",
               "_qId": "a-6-122976-0"
             },
-            "addressNonUsStreet": {
+            "physicalAddressNonUsStreet": {
               "value": "123 Main Street",
               "_qId": "a-6-a8dd71-0"
             },
-            "addressNonUsCity": {
+            "physicalAddressNonUsCity": {
               "value": "Rapid City",
               "_qId": "a-6-b62688-0"
             },
-            "addressNonUsCountry": {
-              "value": "AFG",
+            "physicalAddressNonUsCountry": {
+              "value": "CAN",
               "_qId": "a-6-111b5d-0"
             },
-            "addressNonUsIsUsgFacility": {
+            "physicalAddressNonUsIsUsgFacility": {
               "value": "Yes",
               "_qId": "a-6-38a5c2-0"
             },
-            "addressNonUsUsgFacilityName": {
+            "pysicalAddressNonUsUsgFacilityName": {
               "value": "US Embassy Wakanda",
               "_qId": "a-6-191d56-0",
               "notApplicable": true
             },
-            "addressNonUsUsgFacilityPostcode": {
+            "physicalAddressNonUsPostCode": {
               "value": "1234-5678",
               "_qId": "a-6-1bb59a-0"
             }
@@ -1028,7 +1006,7 @@
           "value": "Vocational/Technical/Trade School",
           "_qId": "a-6-de0783-0"
         },
-        "schoolTypeOtherExplanation": {
+        "schoolTypeExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-4f1dbd-0"
         },
@@ -1036,7 +1014,7 @@
           "value": "In-person",
           "_qId": "a-6-f3aab4-0"
         },
-        "learningExperienceOtherExplanation": {
+        "learningExperienceExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-108306-0"
         },
@@ -1080,7 +1058,7 @@
           "value": "Associate's degree",
           "_qId": "a-6-15c0ed-0"
         },
-        "degreeTypeOtherExplanation": {
+        "degreeTypeExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-6-1f07c4-0"
         },
@@ -1170,14 +1148,7 @@
           "dontKnow": true
         },
         "militarySupervisorPhoneNumber": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+          "value": "Day: 202-555-1234",
           "_qId": "a-7-1ba906-0",
           "dontKnow": true
         },
@@ -1200,8 +1171,8 @@
           "_qId": "a-7-151202-0",
           "dontKnow": true
         },
-        "militarySupervisorAddressUsStreet": {
-          "value": "123 Main Street",
+        "militarySupervisorAddressUsStreetAddress": {
+          "value": "Lorem ipsum",
           "_qId": "a-7-319b12-0"
         },
         "militarySupervisorAddressUsCity": {
@@ -1220,7 +1191,7 @@
           "value": "Yes",
           "_qId": "a-7-2d4fdb-0"
         },
-        "militarySupervisorAddressUsMilitaryInstallationName": {
+        "militarySupervisorAddressMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "a-7-9fc07a-0",
           "dontKnow": true
@@ -1235,7 +1206,7 @@
           "_qId": "a-7-1c2142-0"
         },
         "militarySupervisorAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-7-a2201d-0"
         },
         "militarySupervisorAddressNonUsIsUsgFacility": {
@@ -1248,7 +1219,7 @@
           "dontKnow": true,
           "notApplicable": true
         },
-        "militarySupervisorAddressNonUsUsgFacilityPostcode": {
+        "militarySupervisorAddressNonUsPostcode": {
           "value": "1234-5678",
           "_qId": "a-7-c20837-0",
           "dontKnow": true
@@ -1271,14 +1242,7 @@
               "present": true
             },
             "militaryUnitPhoneNumber": {
-              "value": {
-                "countryCode": "1",
-                "number": "2025551234",
-                "type": "Cell",
-                "timeOfDay": "Both",
-                "extension": "",
-                "isDsn": false
-              },
+              "value": "Day: 202-555-1234",
               "_qId": "a-7-1b38a7-0"
             },
             "militaryUnitDutyStatus": {
@@ -1298,7 +1262,7 @@
               "_qId": "a-7-1bee7f-0"
             },
             "militaryDisciplinaryActionReason": {
-              "value": "Sample value",
+              "value": "Lorem ipsum",
               "_qId": "a-7-1a3e4f-0"
             },
             "militaryDisciplinaryActionDate": {
@@ -1306,7 +1270,7 @@
               "_qId": "a-7-1f61bb-0",
               "estimated": true
             },
-            "militaryDisciplinaryActionIssuerNotKnown": {
+            "militaryDisciplinaryActionIssuer": {
               "value": "",
               "_qId": "a-7-1593c3-0",
               "dontKnow": true
@@ -1364,17 +1328,10 @@
           "_qId": "a-7-18ef27-0"
         },
         "employerPhoneNumber": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+          "value": "Day: 202-555-1234",
           "_qId": "a-7-1c6978-0"
         },
-        "addressInUs": {
+        "addressIsInUs": {
           "value": "Yes",
           "_qId": "a-7-1fb675-0"
         },
@@ -1390,7 +1347,7 @@
           "value": "WA",
           "_qId": "a-7-8eaa30-0"
         },
-        "addressUsZipcode": {
+        "addressUszipcode": {
           "value": "Lorem ipsum",
           "_qId": "a-7-16c853-0"
         },
@@ -1407,7 +1364,7 @@
           "_qId": "a-7-149607-0"
         },
         "addressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-7-135292-0"
         },
         "addressNonUsIsUsgFacility": {
@@ -1460,7 +1417,7 @@
           "_qId": "a-7-182091-0"
         },
         "workAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-7-7c23db-0"
         },
         "workAddressNonUsIsUsgFacility": {
@@ -1480,15 +1437,11 @@
           "value": "Site manager",
           "_qId": "a-7-1384ec-0"
         },
-        "wasInternship": {
+        "employmentCategory": {
           "value": "",
           "_qId": "a-7-4fa67b-0",
           "yes": true,
-          "no": true
-        },
-        "wasFullTime": {
-          "value": "",
-          "_qId": "a-7-manual-0",
+          "no": true,
           "fullTime": true,
           "partTime": true
         },
@@ -1513,14 +1466,7 @@
           "dontKnow": true
         },
         "supervisorPhoneNumber": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+          "value": "Day: 202-555-1234",
           "_qId": "a-7-f5c0ca-0",
           "dontKnow": true
         },
@@ -1575,7 +1521,7 @@
           "_qId": "a-7-e15a02-0"
         },
         "supervisorAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-7-15b960-0"
         },
         "supervisorAddressNonUsIsUsgFacility": {
@@ -1608,7 +1554,7 @@
           "dontKnow": true
         },
         "firedReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-7-6c48c9-0"
         },
         "firedInWriting": {
@@ -1631,14 +1577,7 @@
         },
         "firingPersonPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-7-165987-0",
           "dontKnow": true
@@ -1655,7 +1594,7 @@
           "_qId": "a-7-20a26d-0"
         },
         "futureFiringReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-7-656f96-0"
         },
         "quitBeforeFiringNotifiedInWriting": {
@@ -1678,14 +1617,7 @@
         },
         "quitBeforeFiringNotifierPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-7-4d8807-0",
           "dontKnow": true
@@ -1702,7 +1634,7 @@
           "_qId": "a-7-c50684-0"
         },
         "misconductDescription": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-7-83ff74-0"
         },
         "notifiedOfMisconductInWriting": {
@@ -1725,14 +1657,7 @@
         },
         "misconductNotifierPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-7-17669e-0",
           "dontKnow": true
@@ -1749,7 +1674,7 @@
           "_qId": "a-7-86783f-0"
         },
         "unsatisfactoryPerformanceDescription": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-7-f81f39-0"
         },
         "unsatisfactoryPerformanceNotifiedInWriting": {
@@ -1765,21 +1690,14 @@
           "_qId": "a-7-e90034-0",
           "lettersOnly": true
         },
-        "unsatisfactoryPerformanceNotifierFirstName": {
+        "unsatisfactoryPerformanceNotifierFirstname": {
           "value": "John",
           "_qId": "a-7-63b3dd-0",
           "lettersOnly": true
         },
         "unsatisfactoryPerformanceNotifierPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-7-15a679-0",
           "dontKnow": true
@@ -1796,7 +1714,7 @@
           "_qId": "a-7-926f1e-0"
         },
         "investigationReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-7-917eb5-0"
         },
         "investigationNotifiedInWriting": {
@@ -1819,14 +1737,7 @@
         },
         "investigationNotifierPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-7-1a2d7c-0",
           "dontKnow": true
@@ -1839,7 +1750,7 @@
           "dontKnow": true
         },
         "otherReasonForLeaving": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-7-17c3ff-0"
         },
         "haveAdditionalEmploymentPeriod": {
@@ -1864,7 +1775,7 @@
               "_qId": "a-7-85e666-0"
             },
             "reason": {
-              "value": "Sample value",
+              "value": "Lorem ipsum",
               "_qId": "a-7-1f1cfe-0"
             },
             "date": {
@@ -1876,14 +1787,14 @@
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "a-7-a104d6-0"
             },
-            "issuerNotKnown": {
+            "issuer": {
               "value": "",
               "_qId": "a-7-171b88-0",
               "dontKnow": true
             },
             "issuerLastName": {
               "value": "Smith",
-              "_qId": "a-7-manual-1"
+              "_qId": "a-7-manual-0"
             },
             "issuerFirstName": {
               "value": "John",
@@ -1896,14 +1807,7 @@
             },
             "issuerPhoneNumber": {
               "value": [
-                {
-                  "countryCode": "1",
-                  "number": "2025551234",
-                  "type": "Cell",
-                  "timeOfDay": "Both",
-                  "extension": "",
-                  "isDsn": false
-                }
+                "Day: 202-555-1234"
               ],
               "_qId": "a-7-1bc751-0",
               "dontKnow": true
@@ -1940,21 +1844,14 @@
           "value": "Site manager",
           "_qId": "a-7-4f6e33-0"
         },
-        "wasFullTime": {
+        "jobType": {
           "value": "",
           "_qId": "a-7-1b1975-0",
           "fullTime": true,
           "partTime": true
         },
         "companyPhoneNumber": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+          "value": "Day: 202-555-1234",
           "_qId": "a-7-49da66-0"
         },
         "companyEmailAddress": {
@@ -2004,7 +1901,7 @@
           "_qId": "a-7-1fc762-0"
         },
         "companyAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-7-1f572a-0"
         },
         "companyAddressNonUsIsUsgFacility": {
@@ -2057,7 +1954,7 @@
           "_qId": "a-7-17674c-0"
         },
         "workAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-7-150b87-0"
         },
         "workAddressNonUsIsUsgFacility": {
@@ -2089,14 +1986,7 @@
         },
         "verifierPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-7-117dd0-0",
           "dontKnow": true
@@ -2108,7 +1998,7 @@
           "_qId": "a-7-2602d3-0",
           "dontKnow": true
         },
-        "verifierInUs": {
+        "verifierIsInUs": {
           "value": "Yes",
           "_qId": "a-7-1f9f12-0"
         },
@@ -2117,8 +2007,8 @@
           "_qId": "a-7-1c71f8-0",
           "dontKnow": true
         },
-        "verifierAddressUsStreet": {
-          "value": "123 Main Street",
+        "verifierAddressUsStreetAddress": {
+          "value": "Lorem ipsum",
           "_qId": "a-7-1d341d-0"
         },
         "verifierAddressUsCity": {
@@ -2147,16 +2037,12 @@
           "_qId": "a-7-1f1b4e-0",
           "dontKnow": true
         },
-        "verifierAddressNonUsStreet": {
-          "value": "123 Main Street",
-          "_qId": "a-7-manual-2"
-        },
         "verifierAddressNonUsCity": {
           "value": "Rapid City",
           "_qId": "a-7-be8ea6-0"
         },
         "verifierAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-7-10cab8-0"
         },
         "verifierAddressNonUsIsUsgFacility": {
@@ -2206,14 +2092,7 @@
         },
         "verifierPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-7-e054c1-0",
           "dontKnow": true
@@ -2229,7 +2108,7 @@
           "value": "Yes",
           "_qId": "a-7-1c0d88-0"
         },
-        "unemploymentVerifierAddressUsNotKnown": {
+        "unemploymentVerifierUsAddress": {
           "value": "",
           "_qId": "a-7-1c00a7-0",
           "dontKnow": true
@@ -2269,7 +2148,7 @@
           "_qId": "a-7-990c88-0"
         },
         "verifierAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-7-1bcc0f-0"
         },
         "verifierAddressNonUsIsUsgFacility": {
@@ -2300,7 +2179,7 @@
           "_qId": "b-7-1e4f85-0"
         },
         "country": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-7-1f6073-0"
         },
         "agency": {
@@ -2335,7 +2214,7 @@
           "present": true
         },
         "reasonForLeaving": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-7-d0fa9e-0"
         },
         "foreignGovernmentContacts": {
@@ -2383,28 +2262,28 @@
               "value": "Yes",
               "_qId": "b-7-15728d-0"
             },
-            "addressUsStreet": {
+            "usStreet": {
               "value": "123 Main Street",
               "_qId": "b-7-d5bc1e-0"
             },
-            "addressUsCity": {
+            "usCity": {
               "value": "Rapid City",
               "_qId": "b-7-1bbc1b-0"
             },
-            "addressUsState": {
+            "usState": {
               "value": "WA",
               "_qId": "b-7-1e7bcc-0"
             },
-            "addressUsZipcode": {
+            "usZipcode": {
               "value": "Lorem ipsum",
               "_qId": "b-7-193463-0"
             },
-            "addressNonUsCity": {
+            "nonUsCity": {
               "value": "Rapid City",
               "_qId": "b-7-1124aa-0"
             },
-            "addressNonUsCountry": {
-              "value": "AFG",
+            "nonUsCountry": {
+              "value": "CAN",
               "_qId": "b-7-14c514-0"
             },
             "currentRelationship": {
@@ -2438,7 +2317,7 @@
           "_qId": "a-8-10084f-0"
         },
         "reasonForLeaving": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-8-191cab-0"
         },
         "disciplinaryActions": [
@@ -2448,7 +2327,7 @@
               "_qId": "a-8-1ea156-0"
             },
             "disciplinaryActionReason": {
-              "value": "Sample value",
+              "value": "Lorem ipsum",
               "_qId": "a-8-3ebfb0-0"
             },
             "disciplinaryActionDate": {
@@ -2479,7 +2358,7 @@
     ]
   },
   "usUniformedService": {
-    "haveServedUsUniformedService": {
+    "haveServedInUsUniformedService": {
       "value": "Yes",
       "_qId": "a-9-154391-0"
     },
@@ -2512,7 +2391,7 @@
           "value": "Active Duty",
           "_qId": "a-9-a8430e-0"
         },
-        "dutyStatusOtherExplanation": {
+        "otherDutyStatusExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-9-1bad7d-0"
         },
@@ -2521,7 +2400,7 @@
           "_qId": "a-9-144a21-0"
         },
         "dischargeReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-9-7ae245-0"
         },
         "disciplinaryActionsUniformedService": {
@@ -2530,11 +2409,48 @@
         },
         "disciplinaryActions": [
           {
+            "courtMartialChargeOutcomeConfinement": {
+              "value": "Yes",
+              "_qId": "c-9-1430ba-0"
+            },
+            "courtMartialChargeOutcomeConfinementStartDate": {
+              "value": "2020-10",
+              "_qId": "c-9-134c34-0",
+              "estimated": true
+            },
+            "courtMartialChargeOutcomeConfinementEndDate": {
+              "value": "2020-10",
+              "_qId": "c-9-d7f812-0",
+              "estimated": true
+            },
+            "courtMartialChargeOutcomeConfinementParole": {
+              "value": "Yes",
+              "_qId": "c-9-8ebd4b-0"
+            },
+            "courtMartialChargeOutcomeConfinementParoleStartDate": {
+              "value": "2020-10",
+              "_qId": "c-9-6c39f3-0",
+              "estimated": true
+            },
+            "courtMartialChargeOutcomeConfinementParoleEndDate": {
+              "value": "2020-10",
+              "_qId": "c-9-13836f-0",
+              "estimated": true,
+              "present": true
+            }
+          }
+        ]
+      }
+    ],
+    "uniformedSerivce": [
+      {
+        "disciplinaryActions": [
+          {
             "type": {
               "value": "Letter of Admonishment",
               "_qId": "a-9-18031b-0"
             },
-            "typeOtherExplanation": {
+            "otherTypeExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "a-9-1b99ff-0"
             },
@@ -2548,10 +2464,10 @@
               "_qId": "a-9-126fee-0"
             },
             "reason": {
-              "value": "Sample value",
+              "value": "Lorem ipsum",
               "_qId": "a-9-1255a2-0"
             },
-            "courtMartialIssuerNotKnown": {
+            "INSPECT_LATER": {
               "value": "",
               "_qId": "a-9-c4029b-0",
               "dontKnow": true
@@ -2634,14 +2550,14 @@
               "_qId": "a-9-cce80f-0"
             },
             "courtMartialOffenseNonUsCountry": {
-              "value": "AFG",
+              "value": "CAN",
               "_qId": "a-9-1286f8-0"
             },
             "courtMartialOffenseNonUsIsUsgFacility": {
               "value": "Yes",
               "_qId": "a-9-f4c5ab-0"
             },
-            "courtMartialOffenseNonUsUsgFacilityName": {
+            "courtMartialOffenseNonUsUsgFacilityname": {
               "value": "US Embassy Wakanda",
               "_qId": "a-9-1712d4-0"
             },
@@ -2691,38 +2607,9 @@
               ],
               "_qId": "a-9-57594e-0"
             },
-            "courtMartialOutcomeOtherExplanation": {
+            "courtMartialOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "a-9-1575f4-0"
-            },
-            "courtMartialChargeOutcomeConfinement": {
-              "value": "Yes",
-              "_qId": "c-9-1430ba-0"
-            },
-            "courtMartialChargeOutcomeConfinementStartDate": {
-              "value": "2020-10",
-              "_qId": "c-9-134c34-0",
-              "estimated": true
-            },
-            "courtMartialChargeOutcomeConfinementEndDate": {
-              "value": "2020-10",
-              "_qId": "c-9-d7f812-0",
-              "estimated": true
-            },
-            "courtMartialChargeOutcomeConfinementParole": {
-              "value": "Yes",
-              "_qId": "c-9-8ebd4b-0"
-            },
-            "courtMartialChargeOutcomeConfinementParoleStartDate": {
-              "value": "2020-10",
-              "_qId": "c-9-6c39f3-0",
-              "estimated": true
-            },
-            "courtMartialChargeOutcomeConfinementParoleEndDate": {
-              "value": "2020-10",
-              "_qId": "c-9-13836f-0",
-              "estimated": true,
-              "present": true
             }
           }
         ]
@@ -2750,12 +2637,12 @@
           "_qId": "a-10-dd61d2-1",
           "none": true
         },
-        "startDate": {
+        "firstMetDate": {
           "value": "2020-10",
           "_qId": "a-10-6d6d61-0",
           "estimated": true
         },
-        "endDate": {
+        "lastContactDate": {
           "value": "2020-10",
           "_qId": "a-10-a68db1-0",
           "estimated": true
@@ -2773,14 +2660,7 @@
           "_qId": "a-10-a838ba-0"
         },
         "phoneNumber": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+          "value": "Day: 202-555-1234",
           "_qId": "a-10-7ad75b-0"
         },
         "emailAddress": {
@@ -2824,7 +2704,7 @@
           "_qId": "a-10-f212ba-0"
         },
         "addressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-10-1526a3-0"
         },
         "addressNonUsIsUsgFacility": {
@@ -2899,7 +2779,7 @@
       "_qId": "a-11-113b20-0"
     },
     "currentCourtOrderNonUsCountry": {
-      "value": "AFG",
+      "value": "CAN",
       "_qId": "a-11-746d78-0"
     },
     "currentCourtOrderProtectedParty": {
@@ -2918,7 +2798,7 @@
       "estimated": true
     },
     "currentCourtOrderReason": {
-      "value": "Sample value",
+      "value": "Lorem ipsum",
       "_qId": "a-11-bcd5c6-0"
     },
     "previousFelonyCharges": {
@@ -2965,7 +2845,7 @@
           "_qId": "a-11-154de5-0"
         },
         "offenseLocationNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-11-d2b702-0"
         },
         "involvedDomesticViolence": {
@@ -2989,7 +2869,7 @@
           "_qId": "a-11-1c9fba-0"
         },
         "offenseDescription": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-11-191dad-0"
         },
         "lawEnforcementAgency": {
@@ -3021,7 +2901,7 @@
           "_qId": "a-11-109c98-0"
         },
         "chargingAgencyNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-11-c5ef0f-0"
         },
         "wasArrested": {
@@ -3061,7 +2941,7 @@
           "_qId": "a-11-1e855d-0"
         },
         "arrestingAgencyNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-11-f195c3-0"
         },
         "wentToCourt": {
@@ -3097,7 +2977,7 @@
           "value": "Lorem ipsum",
           "_qId": "a-11-134486-0"
         },
-        "courtInUs": {
+        "courtIsInUs": {
           "value": "Yes",
           "_qId": "a-11-6d9abb-0"
         },
@@ -3122,7 +3002,7 @@
           "_qId": "a-11-289561-0"
         },
         "courtNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-11-1c6405-0"
         },
         "isCaseClosed": {
@@ -3237,7 +3117,7 @@
               "_qId": "a-11-c44ffb-0"
             },
             "imprisonmentFacilityNonUsCountry": {
-              "value": "AFG",
+              "value": "CAN",
               "_qId": "a-11-251312-0"
             },
             "grantedSupervisedRelease": {
@@ -3308,11 +3188,11 @@
           "_qId": "a-11-106776-0"
         },
         "arrestedWithoutChargeNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-11-6f325a-0"
         },
         "arrestReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-11-11df79-0"
         },
         "offenseDate": {
@@ -3345,7 +3225,7 @@
           "_qId": "a-11-2093b3-0"
         },
         "arrestLocationNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-11-1ed54d-0"
         },
         "arrestInvolvedDomesticViolence": {
@@ -3368,12 +3248,12 @@
           "value": "Yes",
           "_qId": "a-11-4bec83-0"
         },
-        "noChargeExplanation": {
+        "arrestExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-11-129ffd-0"
         },
         "reasonNotCharged": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-11-146880-0"
         }
       }
@@ -3381,7 +3261,7 @@
     "previousOffenses": [
       {
         "offenseDate": {
-          "value": "2020-10",
+          "value": "",
           "_qId": "b-11-1a9892-0",
           "estimated": true
         },
@@ -3410,7 +3290,7 @@
           "_qId": "b-11-17d396-0"
         },
         "incidentNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-11-c21a39-0"
         },
         "involvedDomesticViolence": {
@@ -3437,7 +3317,7 @@
           "value": "Lorem ipsum",
           "_qId": "b-11-1bd458-0"
         },
-        "agencyInUs": {
+        "agencyIsInUs": {
           "value": "Yes",
           "_qId": "b-11-693c4f-0"
         },
@@ -3462,7 +3342,7 @@
           "_qId": "b-11-1e7b40-0"
         },
         "agencyAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-11-1d2476-0"
         },
         "wereArrested": {
@@ -3477,7 +3357,7 @@
           "value": "Lorem ipsum",
           "_qId": "b-11-45743a-0"
         },
-        "arrestingAgencyInUs": {
+        "arrestingAgencyIsInUs": {
           "value": "Yes",
           "_qId": "b-11-873e56-0"
         },
@@ -3502,7 +3382,7 @@
           "_qId": "b-11-1f6106-0"
         },
         "arrestingAgencyAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-11-10a2e5-0"
         },
         "wentToCourt": {
@@ -3530,7 +3410,7 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-11-743ed6-0"
         },
-        "fineNotPaidExplanation": {
+        "fineExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-11-d02693-0"
         },
@@ -3538,7 +3418,7 @@
           "value": "Lorem ipsum",
           "_qId": "b-11-48ce1e-0"
         },
-        "courtInUs": {
+        "courtIsInUs": {
           "value": "Yes",
           "_qId": "b-11-704518-0"
         },
@@ -3563,7 +3443,7 @@
           "_qId": "b-11-175e96-0"
         },
         "courtNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-11-14da52-0"
         },
         "isCaseClosed": {
@@ -3612,7 +3492,7 @@
               "_qId": "b-11-39a423-0",
               "estimated": true
             },
-            "outcomeOnTrialExplanation": {
+            "courtDismissalRequirementsOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "b-11-1dd7c6-0"
             },
@@ -3626,9 +3506,7 @@
               "estimated": true
             },
             "sentenceType": {
-              "value": [
-                "Fined"
-              ],
+              "value": "Fined",
               "_qId": "b-11-10bf4e-0"
             },
             "sentenceTypeOtherExplanation": {
@@ -3653,7 +3531,7 @@
               "value": "Lorem ipsum",
               "_qId": "b-11-796f71-0"
             },
-            "imprisonmentFacilityInUs": {
+            "imprisonmentFacilityInus": {
               "value": "Yes",
               "_qId": "b-11-159464-0"
             },
@@ -3678,7 +3556,7 @@
               "_qId": "b-11-3ec034-0"
             },
             "imprisonmentFacilityNonUsCountry": {
-              "value": "AFG",
+              "value": "CAN",
               "_qId": "b-11-10a3b6-0"
             },
             "grantedSupervisedRelease": {
@@ -3817,11 +3695,11 @@
           "_qId": "a-12-3a183e-0"
         },
         "futureUseIntentReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-12-74dbf3-0"
         },
         "noFutureUseIntentReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-12-1ca50f-0"
         }
       }
@@ -3875,11 +3753,11 @@
           "_qId": "a-12-4378af-0"
         },
         "futureUseIntentReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-12-1c6407-0"
         },
         "noFutureUseIntentReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-12-16554e-0"
         }
       }
@@ -3928,7 +3806,7 @@
           "value": "Police/law enforcement officer",
           "_qId": "a-12-1231ce-0"
         },
-        "cjpsPositionTypeExplanation": {
+        "cjpsPositionTypeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-12-1d18b9-0"
         },
@@ -3937,11 +3815,11 @@
           "_qId": "a-12-1c3b7a-0"
         },
         "futureUseIntentReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-12-5c3fbf-0"
         },
         "noFutureUseIntentReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-12-f815ed-0"
         }
       }
@@ -4104,14 +3982,7 @@
         },
         "providerPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-12-1037b9-0",
           "dontKnow": true
@@ -4152,19 +4023,19 @@
           "_qId": "a-12-3a62da-0"
         },
         "providerAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-12-8a0253-0"
         },
         "providerAddressNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "a-12-13604a-0"
         },
-        "providerAddressNonUsUsgFacilityName": {
+        "providerAddressNonUsUsgFacilityname": {
           "value": "US Embassy Wakanda",
           "_qId": "a-12-132f37-0",
           "notApplicable": true
         },
-        "providerAddressNonUsUsgFacilityPostcode": {
+        "proivderAddressNonUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "a-12-b86c5a-0"
         },
@@ -4173,7 +4044,7 @@
           "_qId": "a-12-1f8040-0"
         },
         "treatmentNotCompletedReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-12-1d4149-0"
         },
         "treatmentCurrentStatus": {
@@ -4207,14 +4078,16 @@
           "_qId": "a-12-cbdbda-0"
         },
         "drugType": {
-          "value": [
-            "Cocaine or crack cocaine (such as rock or freebase)"
-          ],
+          "value": "Cocaine or crack cocaine (such as rock or freebase)",
           "_qId": "a-12-10c10d-0"
         },
         "drugTypeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-12-26f2f7-0"
+        },
+        "INSPECT_LATER": {
+          "value": "Lorem ipsum",
+          "_qId": "a-12-1f0421-0"
         },
         "startDate": {
           "value": "2020-10",
@@ -4258,14 +4131,7 @@
         },
         "providerPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "a-12-19a220-0",
           "dontKnow": true
@@ -4305,12 +4171,12 @@
           "value": "AFB Wakanda",
           "_qId": "a-12-13ea37-0"
         },
-        "providerAddressNonUsCity": {
+        "providerAdderssNonUsCity": {
           "value": "Rapid City",
           "_qId": "a-12-1dbdf4-0"
         },
         "providerAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-12-170000-0"
         },
         "providerAddressNonUsIsUsgFacility": {
@@ -4322,7 +4188,7 @@
           "_qId": "a-12-1289f9-0",
           "notApplicable": true
         },
-        "providerNonUsAddressUsgFacilityPostcode": {
+        "proivderNonUsAddressUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "a-12-1d42d8-0"
         },
@@ -4384,7 +4250,7 @@
       "value": "Yes",
       "_qId": "a-13-950c02-0"
     },
-    "cannabisUseInCjpsPosition": {
+    "cannabisUseInJusticeOrPublicSafetyPosition": {
       "value": "Yes",
       "_qId": "a-13-1a7497-0"
     },
@@ -4621,7 +4487,7 @@
           "dontKnow": true
         },
         "suspensionReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-14-1a4236-0"
         },
         "suspensionOutcome": {
@@ -4651,7 +4517,7 @@
           "dontKnow": true
         },
         "revocationReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-14-1ea1a1-0"
         }
       }
@@ -4673,7 +4539,7 @@
           "dontKnow": true
         },
         "denialReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-14-2b4e95-0"
         }
       }
@@ -4699,11 +4565,11 @@
           "dontKnow": true
         },
         "suspensionReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-14-e5015b-0"
         },
         "suspensionReasonOtherExplanation": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-14-30c8be-0"
         },
         "reinstatedDate": {
@@ -4731,7 +4597,7 @@
           "dontKnow": true
         },
         "revocationReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-14-583fc3-0"
         }
       }
@@ -4775,7 +4641,7 @@
           "estimated": true
         },
         "debarringReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-14-1d2f3c-0"
         }
       }
@@ -4783,7 +4649,7 @@
     "foreignClearanceInvestigations": [
       {
         "investigatingCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-14-cde231-0"
         },
         "clearanceGranted": {
@@ -4813,7 +4679,7 @@
           "_qId": "a-15-aca268-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-15-1f48ad-0"
         },
         "intendToFile": {
@@ -4826,7 +4692,7 @@
           "estimated": true
         },
         "noIntentionToFileReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-15-271a2d-0"
         }
       }
@@ -4843,9 +4709,7 @@
           "dontKnow": true
         },
         "actionsTaken": {
-          "value": [
-            "None"
-          ],
+          "value": "None",
           "_qId": "a-15-1ec961-0"
         },
         "noActionsTakenExplanation": {
@@ -4887,7 +4751,7 @@
           "estimated": true
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-15-1535d6-0"
         },
         "debtDate": {
@@ -4895,11 +4759,11 @@
           "_qId": "a-15-18f5b7-0",
           "estimated": true
         },
-        "hadLegalJudgment": {
+        "hadLegalJudgement": {
           "value": "Yes",
           "_qId": "a-15-1d3187-0"
         },
-        "legalJudgmentType": {
+        "legalJudgementType": {
           "value": "Lorem ipsum",
           "_qId": "a-15-b2b8bf-0",
           "judgment": true,
@@ -4925,14 +4789,12 @@
           "value": "Lorem ipsum",
           "_qId": "a-15-1ba12a-0"
         },
-        "judgmentAmount": {
+        "judgementAmount": {
           "value": "100",
           "_qId": "a-15-a2b656-0"
         },
         "actionsTaken": {
-          "value": [
-            "None"
-          ],
+          "value": "None",
           "_qId": "a-15-10fcff-0"
         },
         "actionsTakenOtherExplanation": {
@@ -4971,9 +4833,7 @@
           "estimated": true
         },
         "location": {
-          "value": [
-            "Home address"
-          ],
+          "value": "Home address",
           "_qId": "a-16-1ea851-0"
         },
         "locationOtherExplanation": {
@@ -5013,7 +4873,7 @@
           "_qId": "a-16-15fd4c-0"
         },
         "locationNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-16-1b028a-0"
         },
         "locationNonUsIsUsgFacility": {
@@ -5081,7 +4941,8 @@
         },
         "recipientSuffix": {
           "value": "None",
-          "_qId": "a-16-6c9d08-0"
+          "_qId": "a-16-6c9d08-0",
+          "none": true
         },
         "frequency": {
           "value": "1",
@@ -5092,17 +4953,15 @@
           "_qId": "a-16-1e6b7d-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-16-56a18d-0"
         },
         "disciplinaryActions": {
-          "value": [
-            "Workplace disciplinary or administrative actions."
-          ],
+          "value": "Workplace disciplinary or administrative actions.",
           "_qId": "a-16-1a9b31-0"
         },
         "disciplinaryActionDetails": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-16-f1cdcc-0"
         },
         "disciplinaryActionOtherExplanation": {
@@ -5119,9 +4978,7 @@
           "estimated": true
         },
         "location": {
-          "value": [
-            "Home address"
-          ],
+          "value": "Home address",
           "_qId": "a-16-1e90fb-0"
         },
         "locationOtherExplanation": {
@@ -5161,7 +5018,7 @@
           "_qId": "a-16-1e7d55-0"
         },
         "locationNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-16-14e874-0"
         },
         "locationNonUsIsUsgFacility": {
@@ -5215,17 +5072,15 @@
           "_qId": "a-16-5c55fb-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-16-13348e-0"
         },
         "disciplinaryActions": {
-          "value": [
-            "Workplace disciplinary or administrative actions."
-          ],
+          "value": "Workplace disciplinary or administrative actions.",
           "_qId": "a-16-970e36-0"
         },
         "disciplinaryActionDetails": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-16-18e94f-0"
         },
         "disciplinaryActionOtherExplanation": {
@@ -5242,9 +5097,7 @@
           "estimated": true
         },
         "location": {
-          "value": [
-            "Home address"
-          ],
+          "value": "Home address",
           "_qId": "a-16-ff38a7-0"
         },
         "locationOtherExplanation": {
@@ -5284,7 +5137,7 @@
           "_qId": "a-16-18e203-0"
         },
         "locationNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-16-e26173-0"
         },
         "locationNonUsIsUsgFacility": {
@@ -5338,17 +5191,15 @@
           "_qId": "a-16-13cd2f-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-16-bdb8de-0"
         },
         "disciplinaryActions": {
-          "value": [
-            "Workplace disciplinary or administrative actions."
-          ],
+          "value": "Workplace disciplinary or administrative actions.",
           "_qId": "a-16-b2ad3a-0"
         },
         "disciplinaryActionDetails": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-16-3946f2-0"
         },
         "disciplinaryActionOtherExplanation": {
@@ -5365,9 +5216,7 @@
           "estimated": true
         },
         "location": {
-          "value": [
-            "Home address"
-          ],
+          "value": "Home address",
           "_qId": "a-16-81cca7-0"
         },
         "locationOtherExplanation": {
@@ -5382,7 +5231,7 @@
           "value": "123 Main Street",
           "_qId": "a-16-933e9a-0"
         },
-        "locationUsCity": {
+        "locationusCity": {
           "value": "Rapid City",
           "_qId": "a-16-98c625-0"
         },
@@ -5407,19 +5256,19 @@
           "_qId": "a-16-1afedf-0"
         },
         "locationNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-16-1cb63d-0"
         },
-        "locationNonUsIsUsgFacility": {
+        "locationIsUsgFacility": {
           "value": "Yes",
           "_qId": "a-16-93284e-0"
         },
-        "locationNonUsUsgFacilityName": {
+        "locationUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "a-16-dceaee-0",
           "notApplicable": true
         },
-        "locationNonUsUsgFacilityPostcode": {
+        "locationUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "a-16-11577c-0"
         },
@@ -5445,17 +5294,15 @@
           "_qId": "a-16-973c50-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-16-15ea4d-0"
         },
         "disciplinaryActions": {
-          "value": [
-            "Workplace disciplinary or administrative actions."
-          ],
+          "value": "Workplace disciplinary or administrative actions.",
           "_qId": "a-16-cf7902-0"
         },
         "disciplinaryActionDetails": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-16-7b1725-0"
         },
         "disciplinaryActionOtherExplanation": {
@@ -5482,9 +5329,7 @@
           "estimated": true
         },
         "location": {
-          "value": [
-            "Home address"
-          ],
+          "value": "Home address",
           "_qId": "a-17-63f14e-0"
         },
         "locationOtherExplanation": {
@@ -5495,8 +5340,8 @@
           "value": "Yes",
           "_qId": "a-17-698294-0"
         },
-        "locationUsStreet": {
-          "value": "123 Main Street",
+        "locationUsStreetAddress": {
+          "value": "Lorem ipsum",
           "_qId": "a-17-da4aae-0"
         },
         "locationUsCity": {
@@ -5527,7 +5372,7 @@
           "value": "Lorem ipsum",
           "_qId": "a-17-e450f8-0"
         },
-        "locationNonUsIsUsgFacility": {
+        "locationIsUsgFacility": {
           "value": "Yes",
           "_qId": "a-17-6d9232-0"
         },
@@ -5549,13 +5394,11 @@
           "_qId": "a-17-1245d8-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-17-1c1d15-0"
         },
         "disciplinaryActions": {
-          "value": [
-            "Workplace disciplinary or administrative actions."
-          ],
+          "value": "Workplace disciplinary or administrative actions.",
           "_qId": "a-17-148615-0"
         },
         "disciplinaryActionOtherExplanation": {
@@ -5563,7 +5406,7 @@
           "_qId": "a-17-1642c1-0"
         },
         "disciplinaryActionDetails": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-17-1c9bf2-0"
         }
       }
@@ -5576,9 +5419,7 @@
           "estimated": true
         },
         "location": {
-          "value": [
-            "Home address"
-          ],
+          "value": "Home address",
           "_qId": "a-17-2d4d37-0"
         },
         "locationOtherExplanation": {
@@ -5635,13 +5476,11 @@
           "_qId": "a-17-12dc3a-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-17-773e9e-0"
         },
         "disciplinaryActions": {
-          "value": [
-            "Workplace disciplinary or administrative actions."
-          ],
+          "value": "Workplace disciplinary or administrative actions.",
           "_qId": "a-17-82b8b1-0"
         },
         "disciplinaryActionOtherExplanation": {
@@ -5649,7 +5488,7 @@
           "_qId": "a-17-137c9e-0"
         },
         "disciplinaryActionDetails": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-17-352830-0"
         }
       }
@@ -5660,7 +5499,7 @@
       "value": "Yes",
       "_qId": "a-18-ef8dfd-0"
     },
-    "engagedUsgOverthrowActivities": {
+    "engagedInUsgOverthrowActivities": {
       "value": "Yes",
       "_qId": "a-18-192826-0"
     },
@@ -5759,7 +5598,7 @@
           "_qId": "a-18-1f7e48-0"
         },
         "orgAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-18-1e66f2-0"
         },
         "hasWebPage": {
@@ -5782,11 +5621,11 @@
           "present": true
         },
         "reasonForContinuedMembership": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-1cde0f-0"
         },
         "reasonForLeaving": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-1dd80e-0"
         },
         "positionsHeld": {
@@ -5826,7 +5665,7 @@
           "_qId": "a-18-1e06c2-0"
         },
         "reasonForJoining": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-16fec9-0"
         },
         "roleInOrg": {
@@ -5838,7 +5677,7 @@
     "usgOverthrowActivities": [
       {
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-19ddbc-0"
         },
         "startDate": {
@@ -5853,7 +5692,7 @@
           "estimated": true
         },
         "activityDescription": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-148c9b-0"
         }
       }
@@ -5861,7 +5700,7 @@
     "usgOverthrowAdvocacyActivities": [
       {
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-fd4084-0"
         },
         "startDate": {
@@ -5875,7 +5714,7 @@
           "estimated": true
         },
         "activityDescription": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-149004-0"
         }
       }
@@ -5919,7 +5758,7 @@
           "_qId": "a-18-99e5c7-0"
         },
         "orgAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-18-90c391-0"
         },
         "hasWebPage": {
@@ -5942,11 +5781,11 @@
           "present": true
         },
         "reasonForMembership": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-8140ca-0"
         },
         "reasonForLeaving": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-101b8d-0"
         },
         "positionsHeld": {
@@ -5986,7 +5825,7 @@
           "_qId": "a-18-faa046-0"
         },
         "reasonForJoining": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-b09c24-0"
         },
         "roleInOrg": {
@@ -6034,7 +5873,7 @@
           "_qId": "a-18-1e093a-0"
         },
         "orgAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-18-209872-0"
         },
         "hasWebPage": {
@@ -6057,11 +5896,11 @@
           "present": true
         },
         "reasonForMembership": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-bca70a-0"
         },
         "reasonForLeaving": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-1568ef-0"
         },
         "positionsHeld": {
@@ -6101,7 +5940,7 @@
           "_qId": "a-18-196630-0"
         },
         "reasonForJoining": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-1b2b77-0"
         },
         "roleInOrg": {
@@ -6149,7 +5988,7 @@
           "_qId": "a-18-138d26-0"
         },
         "orgAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-18-14d04c-0"
         },
         "hasWebPage": {
@@ -6172,11 +6011,11 @@
           "present": true
         },
         "reasonForMembership": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-14bf5e-0"
         },
         "reasonForLeaving": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-3dfbde-0"
         },
         "confirmPositionsHeld": {
@@ -6204,7 +6043,7 @@
           "_qId": "a-18-8c3eac-0"
         },
         "reasonForJoining": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-5b9cea-0"
         },
         "roleInOrg": {
@@ -6216,7 +6055,7 @@
     "actsOfViolenceAgainstSpecificGroups": [
       {
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-11adb9-0"
         },
         "startDate": {
@@ -6231,7 +6070,7 @@
           "present": true
         },
         "description": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-c7692c-0"
         }
       }
@@ -6239,7 +6078,7 @@
     "actsOfViolenceAgainstGovernmentOfficials": [
       {
         "targettingReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-16b7d6-0"
         },
         "startDate": {
@@ -6254,7 +6093,7 @@
           "present": true
         },
         "violenceAgainstGovernmentOfficialDescription": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-a5f9bf-0"
         }
       }
@@ -6266,7 +6105,7 @@
           "_qId": "a-18-d87a69-0"
         },
         "targettingReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-1ebcde-0"
         },
         "startDate": {
@@ -6280,7 +6119,7 @@
           "estimated": true
         },
         "description": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-1aadd7-0"
         }
       }
@@ -6288,7 +6127,7 @@
     "actsOfViolenceAgainstCriticalInfrastructure": [
       {
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-2565fc-0"
         },
         "startDate": {
@@ -6302,7 +6141,7 @@
           "estimated": true
         },
         "description": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-e83c1f-0"
         }
       }
@@ -6310,7 +6149,7 @@
     "violenceAdvocacyAgainstSpecificGroups": [
       {
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-dc22b9-0"
         },
         "startDate": {
@@ -6324,7 +6163,7 @@
           "estimated": true
         },
         "description": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-df9526-0"
         }
       }
@@ -6368,7 +6207,7 @@
           "_qId": "a-18-133fee-0"
         },
         "addressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "a-18-1042e7-0"
         },
         "hasWebPage": {
@@ -6391,11 +6230,11 @@
           "present": true
         },
         "reasonForMembership": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-2a8c84-0"
         },
         "reasonForLeaving": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-9d3f29-0"
         },
         "confirmPositionsHeld": {
@@ -6439,7 +6278,7 @@
           "_qId": "a-18-12435a-0"
         },
         "reasonForJoining": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-18a987-0"
         },
         "role": {
@@ -6451,11 +6290,11 @@
     "terroristActs": [
       {
         "description": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-1c7f68-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-1d840a-0"
         },
         "startDate": {
@@ -6485,11 +6324,11 @@
           "present": true
         },
         "reasonForContinuing": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-17d7ce-0"
         },
         "reasonForStopping": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-232bc9-0"
         },
         "relationship": {
@@ -6501,11 +6340,11 @@
     "terrorismAdvocacyActivities": [
       {
         "description": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "a-18-1cbd16-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "a-18-10bdf6-0"
         },
         "startDate": {
@@ -6527,8 +6366,8 @@
       "value": "Yes",
       "_qId": "b-19-1c318b-0"
     },
-    "negativeImpactDescription": {
-      "value": "Sample value",
+    "description": {
+      "value": "Lorem ipsum dolor sit amet.",
       "_qId": "b-19-9e36c3-0"
     },
     "startDate": {
@@ -6599,14 +6438,7 @@
         },
         "providerPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "b-19-a1fbc6-0",
           "dontKnow": true
@@ -6620,7 +6452,7 @@
           "value": "Yes",
           "_qId": "b-19-1423c0-0"
         },
-        "providerAddressUsNotKnown": {
+        "providerUsAddressNotKnown": {
           "value": "",
           "_qId": "b-19-1b5a9a-0",
           "dontKnow": true
@@ -6659,14 +6491,14 @@
           "_qId": "b-19-440fd1-0"
         },
         "providerAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-19-1da865-0"
         },
         "providerAddressNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "b-19-4907e9-0"
         },
-        "providerNonUsAddressUsgFacilityPostcode": {
+        "proivderNonUsAddressUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "b-19-1a2349-0"
         },
@@ -6707,8 +6539,8 @@
           "estimated": true,
           "present": true
         },
-        "providerNameNotKnown": {
-          "value": "",
+        "INSPECT_LATER": {
+          "value": "Lorem ipsum",
           "_qId": "b-19-115943-0",
           "dontKnow": true
         },
@@ -6727,7 +6559,7 @@
           "_qId": "b-19-fae80a-0",
           "none": true
         },
-        "providerStillPractices": {
+        "proividerStillPractices": {
           "value": "Yes",
           "_qId": "b-19-c1f007-0"
         },
@@ -6738,19 +6570,12 @@
         },
         "providerPhoneNumber": {
           "value": [
-            {
-              "countryCode": "1",
-              "number": "2025551234",
-              "type": "Cell",
-              "timeOfDay": "Both",
-              "extension": "",
-              "isDsn": false
-            }
+            "Day: 202-555-1234"
           ],
           "_qId": "b-19-158491-0",
           "dontKnow": true
         },
-        "providerEmail": {
+        "proivderEmail": {
           "value": [
             "Personal: lorem.ipsum@gmail.com"
           ],
@@ -6800,14 +6625,14 @@
           "_qId": "b-19-13f808-0"
         },
         "providerAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-19-17bb58-0"
         },
         "providerAddressNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "b-19-516246-0"
         },
-        "providerNonUsAddressUsgFacilityPostcode": {
+        "proivderNonUsAddressUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "b-19-1734da-0"
         },
@@ -6876,7 +6701,7 @@
           "_qId": "b-20-55c580-0"
         },
         "partnerBirthNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-20-9dba11-0"
         },
         "partnerCitizenship": {
@@ -6995,46 +6820,46 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-20-2cff1d-0"
         },
-        "partnerAuthorizedToBeUsDocument": {
+        "partnerAuthorizedToBeInUsDocument": {
           "value": "I-551 Permanent Resident",
           "_qId": "b-20-1346e2-0"
         },
-        "partnerAuthorizedToBeUsDocumentTitle": {
+        "partnerAuthorizedToBeInUsDocumentTitle": {
           "value": "Lorem ipsum",
           "_qId": "b-20-1ee421-0"
         },
-        "partnerAuthorizedToBeUsDocumentNumber": {
+        "partnerAuthorizedToBeInUsDocumentNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-20-1642d6-0",
           "noNumber": true,
           "dontKnow": true
         },
-        "partnerOtherDocumentAuthorizedToBeUsArn": {
+        "partnerOtherDocumentAuthorizedToBeInUsArn": {
           "value": "Lorem ipsum",
           "_qId": "b-20-1f9ab3-0",
           "dontKnow": true
         },
-        "partnerOtherDocumentAuthorizedToBeUsNonCitDocI94Number": {
+        "partnerOtherDocumentAuthorizedToBeInUsNonCitDocI94Number": {
           "value": "Lorem ipsum",
           "_qId": "b-20-12c994-0",
           "dontKnow": true
         },
-        "partnerOtherDocumentAuthorizedToBeUsNonCitDocVisaNumber": {
+        "partnerOtherDocumentAuthorizedToBeInUsNonCitDocVisaNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-20-b0d2ba-0",
           "dontKnow": true
         },
-        "partnerOtherDocumentAuthorizedToBeUsNonCitDocI20Number": {
+        "partnerOtherDocumentAuthorizedToBeInUsNonCitDocI20Number": {
           "value": "Lorem ipsum",
           "_qId": "b-20-fb0636-0",
           "dontKnow": true
         },
-        "partnerOtherDocumentAuthorizedToBeUsNonCitDocDs2019Number": {
+        "partnerOtherDocumentAuthorizedToBeInUsNonCitDocDs2019Number": {
           "value": "Lorem ipsum",
           "_qId": "b-20-1aa393-0",
           "dontKnow": true
         },
-        "partnerOtherDocumentAuthorizedToBeUsDocumentExpiration": {
+        "partnerOtherDocumentAuthorizedToBeInUsDocumentExpiration": {
           "value": "2020-01-01",
           "_qId": "b-20-139244-0",
           "estimated": true,
@@ -7042,7 +6867,7 @@
           "dontKnow": true
         },
         "partnerSsn": {
-          "value": "Lorem ipsum",
+          "value": "",
           "_qId": "b-20-595f06-0",
           "notApplicable": true
         },
@@ -7064,15 +6889,15 @@
           "value": "Yes",
           "_qId": "b-20-1db849-0"
         },
-        "partnerUnionUsCity": {
+        "partnerUnionInUsCity": {
           "value": "Rapid City",
           "_qId": "b-20-16ce61-0"
         },
-        "partnerUnionUsCounty": {
+        "partnerUnionInUsCounty": {
           "value": "Lorem ipsum",
           "_qId": "b-20-1e47f4-0"
         },
-        "partnerUnionUsState": {
+        "partnerUnionInUsState": {
           "value": "WA",
           "_qId": "b-20-11a27b-0"
         },
@@ -7081,7 +6906,7 @@
           "_qId": "b-20-8a87a9-0"
         },
         "partnerUnionNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-20-14fdca-0"
         },
         "partnerLiveSameAddress": {
@@ -7116,12 +6941,12 @@
           "value": "AFB Wakanda",
           "_qId": "b-20-159151-0"
         },
-        "partnerLiveSameAddressNonUsCity": {
+        "partnerLiveSameAddressNonUsMilitaryInstallationCity": {
           "value": "Rapid City",
           "_qId": "b-20-1035d3-0"
         },
-        "partnerLiveSameAddressNonUsCountry": {
-          "value": "AFG",
+        "partnerLiveSameAddressNonUsMilitaryInstallationCountry": {
+          "value": "CAN",
           "_qId": "b-20-d603a2-0"
         },
         "partnerLiveSameAddressNonUsIsUsgFacility": {
@@ -7138,14 +6963,7 @@
           "_qId": "b-20-182810-0"
         },
         "partnerPhone": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+          "value": "Day: 202-555-1234",
           "_qId": "b-20-1ee29a-0",
           "dontKnow": true
         },
@@ -7159,7 +6977,7 @@
           "_qId": "b-20-12a5c1-0",
           "estimated": true
         },
-        "separationDocumentIsLegalUs": {
+        "separationDocumentIsLegalInUs": {
           "value": "Yes",
           "_qId": "b-20-10e12f-0"
         },
@@ -7188,7 +7006,7 @@
           "_qId": "b-20-1e4729-0"
         },
         "separationRecordOfficeNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-20-865ec7-0"
         },
         "divorcedPartnerLastName": {
@@ -7238,7 +7056,7 @@
           "_qId": "b-20-3e7e35-0"
         },
         "divorcedPartnerBirthNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-20-1e53aa-0"
         },
         "divorcedPartnerCitizenships": {
@@ -7252,14 +7070,7 @@
           "_qId": "b-20-fc0839-0"
         },
         "divorcedPartnerPhone": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+          "value": "Day: 202-555-1234",
           "_qId": "b-20-719e60-0",
           "dontKnow": true
         },
@@ -7279,15 +7090,15 @@
           "value": "Yes",
           "_qId": "b-20-a19329-0"
         },
-        "divorcedPartnerUnionUsCity": {
+        "divorcedPartnerUnionInUsCity": {
           "value": "Rapid City",
           "_qId": "b-20-1afe02-0"
         },
-        "divorcedPartnerUnionUsCounty": {
+        "divorcedPartnerUnionInUsCounty": {
           "value": "Lorem ipsum",
           "_qId": "b-20-c20748-0"
         },
-        "divorcedPartnerUnionUsState": {
+        "divorcedPartnerUnionInUsState": {
           "value": "WA",
           "_qId": "b-20-1fa135-0"
         },
@@ -7296,7 +7107,7 @@
           "_qId": "b-20-1c5bc8-0"
         },
         "divorcedPartnerUnionNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-20-1529a6-0"
         },
         "divorcedPartnerDivorceDate": {
@@ -7308,58 +7119,58 @@
           "value": "Yes",
           "_qId": "b-20-1c2d2d-0"
         },
-        "divorcedPartnerAddressUsNotKnown": {
+        "divorcedPartnerAliveAddressInUsNotKnown": {
           "value": "",
           "_qId": "b-20-19e43a-0",
           "dontKnow": true
         },
-        "divorcedPartnerUsStreet": {
+        "divorcedPartnerAliveInUsStreet": {
           "value": "123 Main Street",
           "_qId": "b-20-850bef-0"
         },
-        "divorcedPartnerUsCity": {
+        "divorcedPartnerAliveInUsCity": {
           "value": "Rapid City",
           "_qId": "b-20-194bfb-0"
         },
-        "divorcedPartnerUsState": {
+        "divorcedPartnerAliveInUsState": {
           "value": "WA",
           "_qId": "b-20-126726-0"
         },
-        "divorcedPartnerUsZipcode": {
+        "divorcedPartnerAliveInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "b-20-16c33d-0"
         },
-        "divorcedPartnerUsMilitaryInstallation": {
+        "divorcedPartnerAliveInUsMilitaryInstallation": {
           "value": "Yes",
           "_qId": "b-20-e1b2a8-0"
         },
-        "divorcedPartnerUsMilitaryInstallationName": {
+        "divorcedPartnerAliveInUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "b-20-18f837-0"
         },
-        "divorcedPartnerAddressNonUsNotKnown": {
+        "divorcedPartnerAliveAddressNonUsNotKnown": {
           "value": "",
           "_qId": "b-20-6edfe4-0",
           "dontKnow": true
         },
-        "divorcedPartnerNonUsCity": {
+        "divorcedPartnerAliveNonUsCity": {
           "value": "Rapid City",
           "_qId": "b-20-224559-0"
         },
-        "divorcedPartnerNonUsCountry": {
-          "value": "AFG",
+        "divorcedPartnerAliveNonUsCountry": {
+          "value": "CAN",
           "_qId": "b-20-577628-0"
         },
-        "divorcedPartnerNonUsIsUsgFacility": {
+        "divorcedPartnerAliveNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "b-20-154bf6-0"
         },
-        "divorcedPartnerNonUsUsgFacilityName": {
+        "divorcedPartnerAliveNonUsUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "b-20-1d58b7-0",
           "notApplicable": true
         },
-        "divorcedPartnerNonUsUsgFacilityPostcode": {
+        "divorcedPartnerAliveNonUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "b-20-1a62a1-0"
         },
@@ -7478,24 +7289,24 @@
           "value": "Yes",
           "_qId": "b-21-cbf0b6-0"
         },
-        "bornUsCity": {
+        "bornInUsCity": {
           "value": "Rapid City",
           "_qId": "b-21-6c1506-0"
         },
-        "bornUsCounty": {
+        "bornInUsCounty": {
           "value": "Lorem ipsum",
           "_qId": "b-21-44a5b0-0"
         },
-        "bornUsState": {
+        "bornInUsState": {
           "value": "WA",
           "_qId": "b-21-1f6cad-0"
         },
-        "notBornUsCity": {
+        "notBornInUsCity": {
           "value": "Rapid City",
           "_qId": "b-21-f7bf3d-0"
         },
-        "notBornUsCountry": {
-          "value": "AFG",
+        "notBornInUsCountry": {
+          "value": "CAN",
           "_qId": "b-21-655a22-0"
         },
         "citizenship": {
@@ -7508,386 +7319,390 @@
           "value": "Yes",
           "_qId": "b-21-1208fb-0"
         },
-        "usedOtherNames": {
+        "aliveUsedOtherNames": {
           "value": "Yes",
           "_qId": "b-21-86690b-0"
         },
-        "locationInUs": {
+        "iGNORE": {
+          "value": "Yes",
+          "_qId": "b-21-139999-0"
+        },
+        "aliveLocationInUs": {
           "value": "Yes",
           "_qId": "b-21-14b3cf-0"
         },
-        "locationUsStreet": {
+        "aliveLocationInUsStreet": {
           "value": "123 Main Street",
           "_qId": "b-21-e397d6-0"
         },
-        "locationUsCity": {
+        "aliveLocationInUsCity": {
           "value": "Rapid City",
           "_qId": "b-21-16f786-0"
         },
-        "locationUsState": {
+        "aliveLocationInUsState": {
           "value": "WA",
           "_qId": "b-21-7dce09-0"
         },
-        "locationUsZipcode": {
+        "aliveLocationInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "b-21-16708e-0"
         },
-        "locationUsMilitaryInstallation": {
+        "aliveLocationInUsMilitaryInstallation": {
           "value": "Yes",
           "_qId": "b-21-146445-0"
         },
-        "locationUsMilitaryInstallationName": {
+        "aliveLocationInUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "b-21-8c2f86-0",
           "dontKnow": true
         },
-        "locationNonUsCity": {
+        "aliveLocationNonUsCity": {
           "value": "Rapid City",
           "_qId": "b-21-1e2a83-0"
         },
-        "locationNonUsCountry": {
-          "value": "AFG",
+        "aliveLocationNonUsCountry": {
+          "value": "CAN",
           "_qId": "b-21-9cc43e-0"
         },
-        "locationNonUsIsUsgFacility": {
+        "aliveLocationNonUsUsgFacility": {
           "value": "Yes",
           "_qId": "b-21-caffbf-0"
         },
-        "locationNonUsUsgFacilityName": {
+        "aliveLocationNonUsUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "b-21-70c465-0",
           "notApplicable": true
         },
-        "locationNonUsUsgFacilityPostcode": {
-          "value": "1234-5678",
+        "aliveLocationNonUsUsgFacilityPostpcode": {
+          "value": "Lorem ipsum",
           "_qId": "b-21-8711fc-0",
           "dontKnow": true
         },
-        "citizenshipStatus": {
+        "aliveCitizenshipStatus": {
           "value": "A U.S. citizen by birth in the U.S. or a U.S. territory.",
           "_qId": "b-21-1a5c5e-0",
           "dontKnow": true
         },
-        "usBornAbroadDocumentType": {
+        "aliveUsBornAbroadDocumentType": {
           "value": "Form FS-240 (Consular Report of Birth Abroad)",
           "_qId": "b-21-1b1ff2-0"
         },
-        "usBornAbroadDocumentTypeName": {
+        "aliveUsBornAbroadDocumentTypeName": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1f3d6f-0"
         },
-        "usBornAbroadDocumentTypeNumber": {
+        "aliveUsBornAbroadDocumentTypeNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-21-a73e0a-0",
           "noNumber": true,
           "dontKnow": true
         },
-        "usBornAbroadDocumentFsAndDsFormNumber": {
+        "aliveUsBornAbroadDocumentFsAndDsFormNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-21-96d94a-0",
           "noNumber": true,
           "dontKnow": true
         },
-        "usBornAbroadDocumentExpirationDate": {
+        "aliveUsBornAbroadDocumentExpirationDate": {
           "value": "2020-01-01",
           "_qId": "b-21-8f4410-0",
           "notApplicable": true,
           "dontKnow": true
         },
-        "naturalizedDocumentType": {
+        "aliveNaturalizedDocumentType": {
           "value": "Form N-550 or Form N-570 (Certificate of Naturalization)",
           "_qId": "b-21-e66312-0"
         },
-        "naturalizedDocumentTitle": {
+        "aliveNaturalizedDocumentTitle": {
           "value": "Lorem ipsum",
           "_qId": "b-21-15c0cb-0"
         },
-        "naturalizedDocumentNumber": {
+        "aliveNaturalizedDocumentNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1fdd11-0",
           "noNumber": true,
           "dontKnow": true
         },
-        "naturalizedDocumentArn": {
+        "aliveNaturalizedDocumentArn": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1ff40a-0",
           "dontKnow": true
         },
-        "naturalizedDocumentNcn": {
+        "aliveNaturalizedDocumentNcn": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1ccd19-0",
           "dontKnow": true
         },
-        "naturalizedNcNCourtName": {
+        "aliveNaturalizedNcNCourtName": {
           "value": "Lorem ipsum",
           "_qId": "b-21-9dbca5-0",
           "dontKnow": true
         },
-        "naturalizedNcNCourtUsStreet": {
+        "aliveNaturalizedNcNCourtUsStreet": {
           "value": "123 Main Street",
           "_qId": "b-21-16f237-0"
         },
-        "naturalizedNcNCourtUsCity": {
+        "aliveNaturalizedNcnCourtUsCity": {
           "value": "Rapid City",
           "_qId": "b-21-1a81e1-0"
         },
-        "naturalizedNcNCourtUsState": {
+        "aliveNaturalizedNcNCourtUsState": {
           "value": "WA",
           "_qId": "b-21-1de961-0"
         },
-        "naturalizedNcNCourtUsZipcode": {
+        "aliveNaturalizedNcNCourtUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "b-21-2eca87-0"
         },
-        "naturalizedDocumentArnMriv": {
+        "aliveNaturalizedDocumentArnMriv": {
           "value": "Lorem ipsum",
           "_qId": "b-21-34373f-0",
           "dontKnow": true
         },
-        "naturalizedDocumentArnMrivExpirationDate": {
+        "aliveNaturalizedDocumentArnMrivExpirationDate": {
           "value": "2020-01-01",
           "_qId": "b-21-a97af4-0",
           "estimated": true,
           "notApplicable": true,
           "dontKnow": true
         },
-        "derivedDocumentType": {
+        "aliveDerivedDocumentType": {
           "value": "Certificate of Citizenship (Form N-560 or Form N-561)",
           "_qId": "b-21-30acf4-0"
         },
-        "derivedDocumentTitle": {
+        "aliveDerivedDocumentTitle": {
           "value": "Lorem ipsum",
           "_qId": "b-21-b8372d-0"
         },
-        "derivedDocumentNumber": {
+        "aliveDerivedDocumentNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-21-da95a5-0",
           "noNumber": true,
           "dontKnow": true
         },
-        "derivedDocumentArn": {
+        "aliveDerivedDocumentArn": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1aaf16-0",
           "dontKnow": true
         },
-        "derivedDocumentNcn": {
+        "aliveDerivedDocumentNcn": {
           "value": "Lorem ipsum",
           "_qId": "b-21-155375-0",
           "dontKnow": true
         },
-        "derivedDocumentI551Number": {
+        "aliveDerivedDocumentI551Number": {
           "value": "Lorem ipsum",
           "_qId": "b-21-75e1b8-0",
           "dontKnow": true
         },
-        "derivedDocumentI551ExpirationDate": {
+        "aliveDerivedDocumentI551ExpirationDate": {
           "value": "2020-01-01",
           "_qId": "b-21-2e88c5-0",
           "estimated": true,
           "notApplicable": true,
           "dontKnow": true
         },
-        "notUsCitizenResidencyStatus": {
+        "aliveNotUsCitizenResidencyStatus": {
           "value": "Permanent Resident",
           "_qId": "b-21-d9c1cb-0",
           "dontKnow": true
         },
-        "notUsCitizenResidencyStatusOtherExplanation": {
+        "aliveNotUsCitizenResidencyStatusOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-21-b2c8bb-0"
         },
-        "notUsCitizenAuthorizationDocumentType": {
+        "aliveNotUsCitizenAuthorizationDocumentType": {
           "value": "I-551 Permanent Resident",
           "_qId": "b-21-1bfc32-0"
         },
-        "notUsCitizenAuthorizationDocumentTitle": {
+        "aliveNotUsCitizenAuthorizationDocumentTitle": {
           "value": "Lorem ipsum",
           "_qId": "b-21-467508-0"
         },
-        "notUsCitizenAuthorizationDocumentNumber": {
+        "aliveNotUsCitizenAuthorizationDocumentNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-21-558578-0",
           "noNumber": true,
           "dontKnow": true
         },
-        "notUsCitizenArn": {
+        "aliveNotUsCitizenArn": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1cbae5-0",
           "dontKnow": true
         },
-        "notUsCitizenI94DocumentNumber": {
+        "aliveNotUsCitizenI94DocumentNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-21-17e1aa-0",
           "dontKnow": true
         },
-        "notUsCitizenUsVisaCardDocumentNumber": {
+        "aliveNotUsCitizenUsVisaCardDocumentNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1bd176-0",
           "dontKnow": true
         },
-        "notUsCitizenI20Number": {
+        "aliveNotUsCitizenI20Number": {
           "value": "Lorem ipsum",
           "_qId": "b-21-a7ab22-0",
           "dontKnow": true
         },
-        "notUsCitizenDs2019DocumentNumber": {
+        "aliveNotUsCitizenDs2019DocumentNumber": {
           "value": "Lorem ipsum",
           "_qId": "b-21-10cdcd-0",
           "dontKnow": true
         },
-        "notUsCitizenAuthorizationDocumentExpirationDate": {
+        "aliveNotUsCitizenAuthorizationDocumentExpirationDate": {
           "value": "2020-01-01",
           "_qId": "b-21-49bb9f-0",
           "estimated": true,
           "notApplicable": true,
           "dontKnow": true
         },
-        "notUsCitizenContact": {
+        "aliveNotUsCitizenContact": {
           "value": "Yes",
           "_qId": "b-21-19c9c9-0"
         },
-        "notUsCitizenContactStartDate": {
+        "aliveNotUsCitizenContactStartDate": {
           "value": "2020-10",
           "_qId": "b-21-137db5-0",
           "estimated": true
         },
-        "notUsCitizenContactEndDate": {
+        "aliveNotUsCitizenContactEndDate": {
           "value": "2020-10",
           "_qId": "b-21-b8a5ed-0",
           "estimated": true
         },
-        "notUsCitizenContactMethods": {
+        "aliveNotUsCitizenContactMethods": {
           "value": [
             "None"
           ],
           "_qId": "b-21-ac7574-0"
         },
-        "notUsCitizenContactMethodsOtherExplanation": {
+        "aliveNotUsCitizenContactMethodsOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-21-8a37e1-0"
         },
-        "notUsCitizenContactFrequency": {
+        "aliveNotUsCitizenContactFrequency": {
           "value": "Daily",
           "_qId": "b-21-d7a23c-0"
         },
-        "notUsCitizenContactFrequencyOtherExplanation": {
+        "aliveNotUsCitizenContactFrequencyOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-21-1b5d59-0"
         },
-        "notUsCitizenEmployer": {
+        "aliveNotUsCitizenEmployer": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1b84d8-0",
           "neverWorked": true,
           "dontKnow": true
         },
-        "notUsCitizenOccupation": {
+        "aliveNotUsCitizenOccupation": {
           "value": "Lorem ipsum",
           "_qId": "b-21-1d99d5-0"
         },
-        "nonUsCitizenEmployerLocationInUs": {
+        "aliveNotUsCitizenEmployerLocationInUs": {
           "value": "Lorem ipsum",
           "_qId": "b-21-193212-0",
           "notApplicable": true,
           "dontKnow": true
         },
-        "notUsCitizenEmployerLocationUsStreet": {
+        "aliveNotUsCitizenEmployerLocationUsStreet": {
           "value": "123 Main Street",
           "_qId": "b-21-2cb6bd-0"
         },
-        "notUsCitizenEmployerLocationUsCity": {
+        "aliveNotUsCitizenEmployerLocationUsCity": {
           "value": "Rapid City",
           "_qId": "b-21-8b7a5e-0"
         },
-        "notUsCitizenEmployerLocationUsState": {
+        "aliveNotUsCitizenEmployerLocationUsState": {
           "value": "WA",
           "_qId": "b-21-c1129a-0"
         },
-        "notUsCitizenEmployerLocationUsZipcode": {
+        "aliveNotUsCitizenEmployerLocationUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "b-21-b5f31c-0"
         },
-        "notUsCitizenEmployerLocationUsIsMilitaryInstallation": {
+        "aliveNotUsCitizenEmployerLocationUsIsMilitaryInstallation": {
           "value": "Yes",
           "_qId": "b-21-fd5525-0"
         },
-        "notUsCitizenEmployerLocationUsMilitaryInstallationName": {
+        "aliveNotUsCitizenEmployerLocationUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "b-21-4bfe6c-0",
           "dontKnow": true
         },
-        "notUsCitizenEmployerLocationNonUsCity": {
+        "aliveNotUsCitizenEmployerLocationNonUsCity": {
           "value": "Rapid City",
           "_qId": "b-21-a9fb1c-0"
         },
-        "notUsCitizenEmployerLocationNonUsCountry": {
-          "value": "AFG",
+        "aliveNotUsCitizenEmployerLocationNonUsCountry": {
+          "value": "CAN",
           "_qId": "b-21-b3e06c-0"
         },
-        "notUsCitizenEmployerLocationNonUsIsUsgFacility": {
+        "aliveNotUsCitizenEmployerLocationNonUsIsUsgFacility": {
           "value": "Yes",
           "_qId": "b-21-965021-0"
         },
-        "notUsCitizenEmployerLocationNonUsUsgFacilityName": {
+        "aliveNotUsCitizenEmployerLocationNonUsUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "b-21-1cb1a3-0",
           "dontKnow": true,
           "notApplicable": true
         },
-        "notUsCitizenEmployerLocationNonUsUsgFacilityPostcode": {
+        "aliveNotUsCitizenEmployerLocationNonUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "b-21-149d06-0",
           "dontKnow": true
         },
-        "notUsCitizenForeignGovernmentAffiliation": {
+        "aliveNotUsCitizenForeignGovernmentAffiliation": {
           "value": "Yes",
           "_qId": "b-21-1e7707-0"
         },
-        "notUsCitizenForeignGovernmentAffiliationType": {
+        "aliveNotUsCitizenForeignGovernmentAffiliationType": {
           "value": "Lorem ipsum",
           "_qId": "b-21-11c5bb-0",
           "dontKnow": true
         },
         "otherNames": [
           {
-            "lastName": {
+            "aliveOtherLastName": {
               "value": "Smith",
               "_qId": "b-21-fb4649-0",
               "lettersOnly": true
             },
-            "firstName": {
+            "aliveOtherFirstName": {
               "value": "John",
               "_qId": "b-21-1e3164-0",
               "lettersOnly": true
             },
-            "middleName": {
+            "aliveOtherMiddleName": {
               "value": "Albert",
               "_qId": "b-21-16f61f-0",
               "lettersOnly": true,
               "noMiddleName": true
             },
-            "suffix": {
+            "aliveOtherNameSuffix": {
               "value": "None",
               "_qId": "b-21-90ca01-0"
             },
-            "nameType": {
+            "aliveOtherNameType": {
               "value": "Name prior to marriage",
               "_qId": "b-21-136b2e-0"
             },
-            "nameTypeOtherExplanation": {
+            "aliveOtherNameOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "b-21-1dd33c-0"
             },
-            "nameDatesNotKnown": {
+            "aliveOtherNameUse": {
               "value": "",
               "_qId": "b-21-1a0f5e-0",
               "dontKnow": true
             },
-            "startDate": {
+            "aliveOtherNameStart": {
               "value": "2020-10",
               "_qId": "b-21-12fd03-0",
               "estimated": true
             },
-            "endDate": {
+            "aliveOtherNameEnd": {
               "value": "2020-10",
               "_qId": "b-21-10f509-0",
               "estimated": true,
@@ -7906,7 +7721,7 @@
     "foreignTravel": [
       {
         "country": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-22-ca2ef3-0"
         },
         "startDate": {
@@ -7925,9 +7740,7 @@
           "_qId": "b-22-176514-0"
         },
         "purpose": {
-          "value": [
-            "Business or professional conference (This does not include U.S. Government business or military assignments.)"
-          ],
+          "value": "Business or professional conference (This does not include U.S. Government business or military assignments.)",
           "_qId": "b-22-6f5f22-0"
         },
         "purposeOtherExplanation": {
@@ -7938,15 +7751,15 @@
           "value": "Yes",
           "_qId": "b-22-8bd5f3-0"
         },
-        "questioningExplanation": {
+        "questionedOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-22-8934e1-0"
         },
-        "hasPoliceInteraction": {
+        "police": {
           "value": "Yes",
           "_qId": "b-22-2773ac-0"
         },
-        "hadPoliceInteractionExplanation": {
+        "policeOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-22-1827aa-0"
         },
@@ -7966,11 +7779,11 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-22-18caf8-0"
         },
-        "hadSuspiciousContact": {
+        "contactSuspicious": {
           "value": "Yes",
           "_qId": "b-22-3e66b5-0"
         },
-        "hadSuspiciousContactExplanation": {
+        "contactSuspiciousExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-22-10d2d7-0"
         },
@@ -8006,7 +7819,7 @@
       "value": "Yes",
       "_qId": "b-23-4faaa4-0"
     },
-    "haveHadCivilJudgments": {
+    "haveHadCivilJudgements": {
       "value": "Yes",
       "_qId": "b-23-1d42ba-0"
     },
@@ -8056,9 +7869,7 @@
       "_qId": "b-23-1aaf4b-0"
     },
     "actionsTaken": {
-      "value": [
-        "None"
-      ],
+      "value": "None",
       "_qId": "b-23-113945-0"
     },
     "actionsTakenNoneExplanation": {
@@ -8119,7 +7930,7 @@
       "_qId": "b-23-13596f-0"
     },
     "creditCounselingServiceAddressNonUsCountry": {
-      "value": "AFG",
+      "value": "CAN",
       "_qId": "b-23-62658a-0"
     },
     "creditCounselingServiceAddressNonUsIsUsgFacility": {
@@ -8136,14 +7947,7 @@
       "_qId": "b-23-12cebf-0"
     },
     "creditCounselingServicePhone": {
-      "value": {
-        "countryCode": "1",
-        "number": "2025551234",
-        "type": "Cell",
-        "timeOfDay": "Both",
-        "extension": "",
-        "isDsn": false
-      },
+      "value": "Day: 202-555-1234",
       "_qId": "b-23-7157f6-0"
     },
     "creditCounselingServiceHasBeenEffective": {
@@ -8155,7 +7959,7 @@
       "_qId": "b-23-b92047-0"
     },
     "creditCounselingServiceEffectivenessReason": {
-      "value": "Sample value",
+      "value": "Lorem ipsum",
       "_qId": "b-23-12cf93-0"
     },
     "paidInFull": {
@@ -8275,24 +8079,24 @@
           "_qId": "b-23-1a4fa8-0",
           "none": true
         },
-        "administratorNameUsAddressNotKnown": {
+        "administratorNameAddress": {
           "value": "",
           "_qId": "b-23-11d2fe-0",
           "dontKnow": true
         },
-        "administratorNameUsAddressStreet": {
+        "administratorNameAddressStreet": {
           "value": "123 Main Street",
           "_qId": "b-23-1fed5f-0"
         },
-        "administratorNameUsAddressCity": {
+        "administratorNameAddressCity": {
           "value": "Rapid City",
           "_qId": "b-23-fd69e3-0"
         },
-        "administratorNameUsAddressState": {
+        "administratorNameAddressState": {
           "value": "WA",
           "_qId": "b-23-1d7a69-0"
         },
-        "administratorNameUsAddressZipcode": {
+        "administratorNameAddressZipcode": {
           "value": "Lorem ipsum",
           "_qId": "b-23-170b28-0"
         },
@@ -8305,7 +8109,7 @@
           "_qId": "b-23-dae7e5-0",
           "estimated": true
         },
-        "notDischargedExplanation": {
+        "notDischargeExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-23-ba295c-0"
         }
@@ -8344,7 +8148,7 @@
           "estimated": true
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-23-18e81a-0"
         },
         "dueDate": {
@@ -8430,7 +8234,7 @@
           "estimated": true
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-23-afb8a5-0"
         },
         "pastDueDate": {
@@ -8491,7 +8295,7 @@
           "estimated": true
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-23-1f20de-0"
         },
         "date": {
@@ -8596,7 +8400,7 @@
           "_qId": "b-23-1e6731-0"
         },
         "reasonOtherExplanation": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-23-15af94-0"
         },
         "amountOwed": {
@@ -8728,7 +8532,7 @@
           "estimated": true
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-23-1689c1-0"
         },
         "date": {
@@ -8809,7 +8613,7 @@
           "_qId": "b-23-46d97c-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-23-1cd932-0"
         },
         "reposessionDate": {
@@ -8934,7 +8738,7 @@
           "estimated": true
         },
         "missedPaymentReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-23-626580-0"
         },
         "dateEvicted": {
@@ -8999,7 +8803,7 @@
           "_qId": "b-23-a15ddd-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-23-bbd6d6-0"
         },
         "dateSeized": {
@@ -9092,12 +8896,16 @@
           "value": "AFB Wakanda",
           "_qId": "b-23-1bdf07-0"
         },
+        "orgAddressNonUsLocation": {
+          "value": "Lorem ipsum",
+          "_qId": "b-23-c684fc-0"
+        },
         "orgAddressNonUsCity": {
           "value": "Rapid City",
           "_qId": "b-23-16fe34-0"
         },
         "orgAddressNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-23-15be2e-0"
         },
         "orgAddressNonUsIsUsgFacility": {
@@ -9138,7 +8946,7 @@
           "estimated": true
         },
         "description": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-23-925db2-0"
         },
         "resolutionActionsTaken": {
@@ -9160,7 +8968,7 @@
           "_qId": "b-23-1b2584-0"
         },
         "reason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "b-23-1d78d1-0"
         },
         "totalAmount": {
@@ -9200,7 +9008,7 @@
     ]
   },
   "civilCourtActions": {
-    "werePartyToCivilCase": {
+    "civilCourtActionFiveYears": {
       "value": "Yes",
       "_qId": "b-24-1d1483-0"
     },
@@ -9216,7 +9024,7 @@
           "value": "Lorem ipsum",
           "_qId": "b-24-b5352a-0"
         },
-        "courtUsAddress": {
+        "courtInUs": {
           "value": "Yes",
           "_qId": "b-24-3dc275-0"
         },
@@ -9241,14 +9049,14 @@
           "_qId": "b-24-14dc8a-0"
         },
         "courtNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "b-24-1599eb-0"
         },
-        "actionDescription": {
-          "value": "Sample value",
+        "description": {
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "b-24-1102f7-0"
         },
-        "isCaseClosed": {
+        "actionIsClosed": {
           "value": "Yes",
           "_qId": "b-24-ee607c-0"
         },
@@ -9311,7 +9119,7 @@
     ]
   },
   "foreignContacts": {
-    "hadContactRecently": {
+    "contactFiveYears": {
       "value": "Yes",
       "_qId": "c-25-13e744-0"
     },
@@ -9321,6 +9129,10 @@
     },
     "foreignNationalContacts": [
       {
+        "name": {
+          "value": "Lorem ipsum",
+          "_qId": "c-25-112f4e-0"
+        },
         "lastName": {
           "value": "Smith",
           "_qId": "c-25-5dece1-0",
@@ -9356,7 +9168,7 @@
           "estimated": true,
           "dontKnow": true
         },
-        "placeOfBirthNotKNown": {
+        "placeOfBirth": {
           "value": "",
           "_qId": "c-25-147280-0",
           "dontKnow": true
@@ -9367,7 +9179,7 @@
           "dontKnow": true
         },
         "countryOfBirth": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-25-145c33-0"
         },
         "citizenshipCause": {
@@ -9379,65 +9191,65 @@
           "value": "Yes",
           "_qId": "c-25-129471-0"
         },
-        "addressUsNotKnown": {
+        "liveInUsAddress": {
           "value": "",
           "_qId": "c-25-10e257-0",
           "dontKnow": true
         },
-        "addressUsStreet": {
+        "liveInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-25-8d3a83-0",
           "dontKnow": true
         },
-        "addressUsCity": {
+        "liveInUsCity": {
           "value": "Rapid City",
           "_qId": "c-25-1b159f-0",
           "dontKnow": true
         },
-        "addressUsState": {
+        "liveInUsState": {
           "value": "WA",
           "_qId": "c-25-1ca5f4-0",
           "dontKnow": true
         },
-        "addressUsZipcode": {
+        "liveInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-25-daa835-0",
           "dontKnow": true
         },
-        "addressUsMilitaryInstallation": {
+        "liveInUsMilitaryInstallation": {
           "value": "Yes",
           "_qId": "c-25-ccade1-0"
         },
-        "addressUsMilitaryInstallationName": {
+        "liveInUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "c-25-b7e5d6-0",
           "dontKnow": true
         },
-        "addressNonUsNotKnown": {
+        "liveNonUs": {
           "value": "",
           "_qId": "c-25-168d77-0",
           "dontKnow": true
         },
-        "addressNonUsCity": {
+        "liveNonUsCity": {
           "value": "Rapid City",
           "_qId": "c-25-7b4e00-0",
           "dontKnow": true
         },
-        "addressNonUsCountry": {
-          "value": "AFG",
+        "liveNonUsCountry": {
+          "value": "CAN",
           "_qId": "c-25-1522e7-0",
           "dontKnow": true
         },
-        "addressNonUsIsUsgFacility": {
+        "liveNonUsUsgFacility": {
           "value": "Yes",
           "_qId": "c-25-ad328d-0"
         },
-        "addressNonUsUsgFacilityName": {
+        "liveNonUsUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "c-25-132576-0",
           "dontKnow": true
         },
-        "addressNonUsUsgFacilityPostcode": {
+        "liveNonUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "c-25-1ff7b8-0",
           "dontKnow": true
@@ -9466,20 +9278,13 @@
           ],
           "_qId": "c-25-37cb00-0"
         },
-        "emailAddress": {
+        "email": {
           "value": "Lorem ipsum",
           "_qId": "c-25-291c1d-0",
           "dontKnow": true
         },
-        "phoneNumber": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+        "phone": {
+          "value": "Day: 202-555-1234",
           "_qId": "c-25-131260-0",
           "dontKnow": true
         },
@@ -9506,11 +9311,12 @@
           "_qId": "c-25-1866a4-0",
           "dontKnow": true
         },
-        "employerAddressInUs": {
-          "value": "Yes",
-          "_qId": "c-25-1bae5c-0"
+        "employerIsInUs": {
+          "value": "",
+          "_qId": "c-25-1bae5c-0",
+          "dontKnow": true
         },
-        "employerAddressNotKnown": {
+        "employerAddress": {
           "value": "",
           "_qId": "c-25-1789ee-0",
           "dontKnow": true
@@ -9540,32 +9346,32 @@
           "_qId": "c-25-1c97e7-0",
           "dontKnow": true
         },
-        "employerNonUsAddressNotKnown": {
+        "employerNotInUsAddress": {
           "value": "",
           "_qId": "c-25-1bfa98-0",
           "dontKnow": true
         },
-        "employerNonUsCity": {
+        "employerNotInUsCity": {
           "value": "Rapid City",
           "_qId": "c-25-414626-0",
           "dontKnow": true
         },
-        "employerNonUsCountry": {
-          "value": "AFG",
+        "employerNotInUsCountry": {
+          "value": "CAN",
           "_qId": "c-25-ba1e13-0",
           "dontKnow": true
         },
-        "employerNotUsUsgFacility": {
+        "employerNotInUsUsgFacility": {
           "value": "Yes",
           "_qId": "c-25-17cf48-0"
         },
-        "employerNotUsUsgFacilityName": {
+        "employerNotInUsUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "c-25-18fb1e-0",
           "dontKnow": true,
           "notApplicable": true
         },
-        "employerNotUsUsgFacilityPostcode": {
+        "employerNotInUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "c-25-fd8369-0",
           "dontKnow": true
@@ -9582,7 +9388,7 @@
           "_qId": "c-25-10146a-0"
         },
         "foreignGovernmentWorkDescription": {
-          "value": "Sample value",
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-25-142678-0",
           "dontKnow": true
         },
@@ -9600,39 +9406,39 @@
               "value": "Yes",
               "_qId": "c-25-b62fcd-0"
             },
-            "nameNotKnown": {
+            "whatOtherName": {
               "value": "",
               "_qId": "c-25-194561-0",
               "dontKnow": true
             },
-            "lastName": {
+            "otherLastName": {
               "value": "Smith",
               "_qId": "c-25-a2018a-0",
               "lettersOnly": true,
               "dontKnow": true
             },
-            "firstName": {
+            "otherFirstName": {
               "value": "John",
               "_qId": "c-25-183104-0",
               "lettersOnly": true,
               "dontKnow": true
             },
-            "middleName": {
+            "otherMiddleName": {
               "value": "Albert",
               "_qId": "c-25-a3fd19-0",
               "lettersOnly": true,
               "noMiddleName": true,
               "dontKnow": true
             },
-            "suffix": {
+            "otherSuffix": {
               "value": "None",
               "_qId": "c-25-69ec2a-0"
             },
-            "nameType": {
+            "otherNameType": {
               "value": "Name prior to marriage",
               "_qId": "c-25-154117-0"
             },
-            "nameTypeOtherExplanation": {
+            "otherNameExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-25-3c20ad-0"
             }
@@ -9646,7 +9452,7 @@
           "value": "Yes",
           "_qId": "c-25-191173-0"
         },
-        "nameNotKnown": {
+        "name": {
           "value": "",
           "_qId": "c-25-1f72ae-0",
           "dontKnow": true
@@ -9674,7 +9480,7 @@
           "value": "Lorem ipsum",
           "_qId": "c-25-16e763-0"
         },
-        "citizenship": {
+        "ctizenship": {
           "value": [
             "CAN"
           ],
@@ -9687,7 +9493,7 @@
           "estimated": true,
           "dontKnow": true
         },
-        "placeOfBirthNotKnown": {
+        "placeOfBirth": {
           "value": "",
           "_qId": "c-25-1f1d01-0",
           "dontKnow": true
@@ -9698,7 +9504,7 @@
           "dontKnow": true
         },
         "countryOfBirth": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-25-11103c-0",
           "dontKnow": true
         },
@@ -9706,65 +9512,65 @@
           "value": "Yes",
           "_qId": "c-25-1d9c8a-0"
         },
-        "addressUsNotKnown": {
+        "liveInUsAddress": {
           "value": "",
           "_qId": "c-25-787d57-0",
           "dontKnow": true
         },
-        "addressUsStreet": {
+        "inUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-25-130dcf-0",
           "dontKnow": true
         },
-        "addressUsCity": {
+        "inUsCity": {
           "value": "Rapid City",
           "_qId": "c-25-1b8290-0",
           "dontKnow": true
         },
-        "addressUsState": {
+        "inUsState": {
           "value": "WA",
           "_qId": "c-25-1ca55d-0",
           "dontKnow": true
         },
-        "addressUsZipcode": {
+        "inUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-25-168cc0-0",
           "dontKnow": true
         },
-        "addressUsIsMilitaryInstallation": {
+        "inUsMilitaryInstallation": {
           "value": "Yes",
           "_qId": "c-25-b5f2e9-0"
         },
-        "addressUsMilitaryInstallationName": {
+        "inUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "c-25-800f46-0",
           "dontKnow": true
         },
-        "addressNonUsNotKnown": {
+        "nonInUsAddress": {
           "value": "",
           "_qId": "c-25-627c5b-0",
           "dontKnow": true
         },
-        "addressNonUsCity": {
+        "nonUsCity": {
           "value": "Rapid City",
           "_qId": "c-25-1cb6c8-0",
           "dontKnow": true
         },
-        "addressNonUsCountry": {
-          "value": "AFG",
+        "nonUsCountry": {
+          "value": "CAN",
           "_qId": "c-25-101716-0",
           "dontKnow": true
         },
-        "addressNonUsIsUsgFacility": {
+        "nonUsUsgFacility": {
           "value": "Yes",
           "_qId": "c-25-1cbaf0-0"
         },
-        "addressNonUsUsgFacilityName": {
+        "nonUsUsgFacilityName": {
           "value": "US Embassy Wakanda",
           "_qId": "c-25-1682d1-0",
           "dontKnow": true
         },
-        "addressNonUsUsgFacilityPostcode": {
+        "nonUsUsgFacilityPostcode": {
           "value": "1234-5678",
           "_qId": "c-25-959e3d-0",
           "dontKnow": true
@@ -9811,7 +9617,7 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-25-16e15e-0"
         },
-        "influenceReason": {
+        "whyHaveInfluence": {
           "value": "Lorem ipsum",
           "_qId": "c-25-1837c7-0"
         },
@@ -9821,39 +9627,39 @@
               "value": "Yes",
               "_qId": "c-25-17e7a6-0"
             },
-            "nameNotKnown": {
+            "otherName": {
               "value": "",
               "_qId": "c-25-70c68a-0",
               "dontKnow": true
             },
-            "lastName": {
+            "otherLastName": {
               "value": "Smith",
               "_qId": "c-25-86f8c5-0",
               "lettersOnly": true,
               "dontKnow": true
             },
-            "firstName": {
+            "otherFirstName": {
               "value": "John",
               "_qId": "c-25-1c1db6-0",
               "lettersOnly": true,
               "dontKnow": true
             },
-            "middleName": {
+            "otherMiddleName": {
               "value": "Albert",
               "_qId": "c-25-145ca4-0",
               "lettersOnly": true,
               "noMiddleName": true,
               "dontKnow": true
             },
-            "suffix": {
+            "otherSuffix": {
               "value": "None",
               "_qId": "c-25-9b3734-0"
             },
-            "nameType": {
+            "otherNameType": {
               "value": "Name prior to marriage",
               "_qId": "c-25-391b47-0"
             },
-            "nameTypeOtherExplanation": {
+            "otherNameOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-25-a80731-0"
             }
@@ -9922,74 +9728,74 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-766d23-0"
         },
-        "realEstateType": {
+        "typeRealEstate": {
           "value": "Home",
           "_qId": "c-26-923277-0"
         },
-        "realEstateTypeOtherExplanation": {
+        "typeRealEstateOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-f4a9ef-0"
         },
-        "realEstateStreet": {
+        "typeRealEstateStreet": {
           "value": "123 Main Street",
           "_qId": "c-26-98608e-0"
         },
-        "realEstateCity": {
+        "typeRealEstateCity": {
           "value": "Rapid City",
           "_qId": "c-26-1cfa34-0"
         },
-        "realEstateCountry": {
-          "value": "AFG",
+        "typeRealEstateCountry": {
+          "value": "CAN",
           "_qId": "c-26-f09c8e-0"
         },
-        "realEstateDateAcquired": {
+        "typeRealEstateDateAcquired": {
           "value": "2020-10",
           "_qId": "c-26-1b5ec3-0",
           "estimated": true
         },
-        "realEstateAcquisitionDetail": {
+        "typeRealEstateAcquisitionDetail": {
           "value": "Bought it",
           "_qId": "c-26-1f75d5-0"
         },
-        "realEstateAcquisitionOtherExplanation": {
+        "typeRealEstateAcquisitionOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-d0b83b-0"
         },
-        "realEstatePurchasePrice": {
+        "typeRealEstatePurchasePrice": {
           "value": "Lorem ipsum",
           "_qId": "c-26-146d90-0"
         },
-        "realEstateCurrentlyOwned": {
+        "typeRealEstateCurrentlyOwned": {
           "value": "Yes",
           "_qId": "c-26-f371f9-0"
         },
-        "realEstateCurrentValue": {
+        "typeRealEstateCurrentValue": {
           "value": "Lorem ipsum",
           "_qId": "c-26-222532-0"
         },
-        "realEstateValueAtSale": {
+        "typeRealEstateValueAtSale": {
           "value": "Lorem ipsum",
           "_qId": "c-26-5fd148-0"
         },
-        "realEstateDateOfSale": {
+        "typeRealEstateDateOfSale": {
           "value": "2020-10",
           "_qId": "c-26-173e7d-0",
           "estimated": true
         },
         "countryOfAssociation": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-26-f76b4e-0"
         },
-        "acquisitionDate": {
+        "dateOfAcquisition": {
           "value": "2020-10",
           "_qId": "c-26-18b720-0",
           "estimated": true
         },
-        "acquisitionMeans": {
+        "meansOfAcquisition": {
           "value": "Bought it",
           "_qId": "c-26-7c02b7-0"
         },
-        "acquisitionMeansOtherExplanation": {
+        "meansOfAcquisitionOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-12f960-0"
         },
@@ -10032,11 +9838,11 @@
               "value": "Yes",
               "_qId": "c-26-5f1b73-0"
             },
-            "coOwnerIdentity": {
+            "identifyCoOwners": {
               "value": "Yourself",
               "_qId": "c-26-815aae-0"
             },
-            "coOwnerIdentityOtherExplanation": {
+            "coOwnersOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-26-11e198-0"
             },
@@ -10077,40 +9883,40 @@
               "value": "Yes",
               "_qId": "c-26-1e506d-0"
             },
-            "coOwnersUsAddressNotKnown": {
+            "coOwnersInUsAddress": {
               "value": "",
               "_qId": "c-26-492c8f-0",
               "dontKnow": true
             },
-            "coOwnersUsStreet": {
+            "coOwnersInUsStreet": {
               "value": "123 Main Street",
               "_qId": "c-26-1661e9-0",
               "dontKnow": true
             },
-            "coOwnersUsCity": {
+            "coOwnersInUsCity": {
               "value": "Rapid City",
               "_qId": "c-26-1d327c-0",
               "dontKnow": true
             },
-            "coOwnersUsState": {
+            "coOwnersInUsState": {
               "value": "WA",
               "_qId": "c-26-1b49da-0"
             },
-            "coOwnersUsZipcode": {
+            "coOwnersInUsZipcode": {
               "value": "Lorem ipsum",
               "_qId": "c-26-12097a-0",
               "dontKnow": true
             },
-            "coOwnersUsMilitaryInstallation": {
+            "coOwnersInUsMilitaryInstallation": {
               "value": "Yes",
               "_qId": "c-26-32ea7a-0"
             },
-            "coOwnersUsMilitaryInstallationName": {
+            "coOwnersInUsMilitaryInstallationName": {
               "value": "AFB Wakanda",
               "_qId": "c-26-136458-0",
               "dontKnow": true
             },
-            "coOwnersNonUsAddressNotKnown": {
+            "coOwnersNonUsAddress": {
               "value": "",
               "_qId": "c-26-145e93-0",
               "dontKnow": true
@@ -10121,7 +9927,7 @@
               "dontKnow": true
             },
             "coOwnersNonUsCountry": {
-              "value": "AFG",
+              "value": "CAN",
               "_qId": "c-26-a7d861-0"
             },
             "coOwnersNonUsUsgFacility": {
@@ -10150,109 +9956,109 @@
               "value": "Lorem ipsum",
               "_qId": "c-26-7cf6a9-0"
             },
-            "controllerRelationship": {
+            "controllerOfInterestRelationship": {
               "value": "Yourself",
               "_qId": "c-26-101b5e-0"
             },
-            "controllerRelationshipOtherExplanation": {
+            "controllerOfInterestRelationshipOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-26-2d2f70-0",
               "none": true
             },
-            "controllerLastName": {
+            "controllerOfInterestLastName": {
               "value": "Smith",
               "_qId": "c-26-17c4d7-0",
               "lettersOnly": true
             },
-            "controllerFirstName": {
+            "controllerOfInterestFirstName": {
               "value": "John",
               "_qId": "c-26-87f2f1-0",
               "lettersOnly": true
             },
-            "controllerMiddleName": {
+            "controllerOfInterestMiddleName": {
               "value": "Albert",
               "_qId": "c-26-967a26-0",
               "lettersOnly": true,
               "noMiddleName": true
             },
-            "controllerSuffix": {
+            "controllerOfInterestSuffix": {
               "value": "None",
               "_qId": "c-26-12e638-0",
               "none": true
             },
-            "controllerCitizenship": {
+            "controllerOfInterestCitizenship": {
               "value": [
                 "CAN"
               ],
               "_qId": "c-26-53dcdb-0",
               "dontKnow": true
             },
-            "controllerInUs": {
+            "controllerOfInterestLiveInUs": {
               "value": "Yes",
               "_qId": "c-26-f349f7-0"
             },
-            "controllerUsAddressNotKnown": {
+            "controllerOfInterestLiveInUsAddress": {
               "value": "",
               "_qId": "c-26-17a547-0",
               "dontKnow": true
             },
-            "controllerUsStreet": {
+            "controllerOfInterestLiveInUsStreet": {
               "value": "123 Main Street",
               "_qId": "c-26-9298a3-0",
               "dontKnow": true
             },
-            "controllerUsCity": {
+            "controllerOfInterestLiveInUsCity": {
               "value": "Rapid City",
               "_qId": "c-26-462fa1-0",
               "dontKnow": true
             },
-            "controllerUsState": {
+            "controllerOfInterestLiveInUsState": {
               "value": "WA",
               "_qId": "c-26-e9105d-0"
             },
-            "controllerUsZipcode": {
+            "controllerOfInterestLiveInUsZipcode": {
               "value": "Lorem ipsum",
               "_qId": "c-26-1a08e1-0",
               "dontKnow": true
             },
-            "controllerUsMilitaryInstallation": {
+            "controllerOfInterestLiveInUsMilitaryInstallation": {
               "value": "Yes",
               "_qId": "c-26-133588-0"
             },
-            "controllerUsMilitaryInstallationName": {
+            "controllerOfInterestLiveInUsMilitaryInstallationName": {
               "value": "AFB Wakanda",
               "_qId": "c-26-11824a-0",
               "notApplicable": true
             },
-            "controllerNonUsLocationNotKnown": {
+            "controllerOfInterestNonUsLocation": {
               "value": "",
               "_qId": "c-26-435f1b-0",
               "dontKnow": true
             },
-            "controllerNonUsCity": {
+            "controllerOfInterestNonCity": {
               "value": "Rapid City",
               "_qId": "c-26-544e49-0",
               "dontKnow": true
             },
-            "controllerNonUsCountry": {
-              "value": "AFG",
+            "controllerOfInterestNonUsCountry": {
+              "value": "CAN",
               "_qId": "c-26-111eb3-0"
             },
-            "controllerNonUsUsgFacility": {
+            "controllerOfInterestNonUsUsgFacility": {
               "value": "Yes",
               "_qId": "c-26-1358e0-0"
             },
-            "controllerNonUsUsgFacilityName": {
+            "controllerOfInterestNonUsUsgFacilityName": {
               "value": "US Embassy Wakanda",
               "_qId": "c-26-178fb1-0",
               "notApplicable": true
             },
-            "controllerNonUsUsgFacilityZipcode": {
+            "controllerOfInterestNonUsUsgFacilityZipcode": {
               "value": "Lorem ipsum",
               "_qId": "c-26-13ad63-0",
               "dontKnow": true
             },
-            "controllerAdditionalPersonExplanation": {
+            "controllerOfInterestAdditionalPersonExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-26-fb2583-0"
             }
@@ -10300,11 +10106,11 @@
           "_qId": "c-26-1caa77-0"
         },
         "onBehalfCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-26-1f1526-0"
         },
         "onBehalfReasonForControl": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "c-26-191802-0"
         }
       }
@@ -10345,7 +10151,7 @@
           "_qId": "c-26-53a428-0"
         },
         "interestCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-26-f13d37-0"
         },
         "interestDateOfReceipt": {
@@ -10354,7 +10160,7 @@
           "estimated": true
         },
         "interestReasonForReceipt": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "c-26-12aa71-0"
         }
       }
@@ -10410,7 +10216,7 @@
           "_qId": "c-26-ccfeee-0"
         },
         "foreignBenefitReasonForReceipt": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "c-26-1fd91b-0"
         },
         "foreignBenefitRecurringDateofFirstReceipt": {
@@ -10430,28 +10236,28 @@
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-f8447f-0"
         },
-        "foreignBenefitRecurringTotalDollarAmount": {
+        "foreignBenefitRecurringTotalDollarAmountToDate": {
           "value": "Lorem ipsum",
           "_qId": "c-26-500bba-0"
         },
         "foreignBenefitRecurringReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "c-26-beef69-0"
         },
-        "foreignBenefitRecurringContinuingToAccept": {
+        "foreignBenefitRecurringContinueToAccept": {
           "value": "Yes",
           "_qId": "c-26-1ab743-0"
         },
-        "foreignBenefitRecurringContinuingToAcceptExplanation": {
+        "foreignBenefitRecurringContinueToAcceptExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-7eb3f8-0"
         },
-        "foreignBenefitRecurringNotContinuingToAcceptExplanation": {
+        "foreignBenefitRecurringContinueToNotAcceptExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-1b1ef7-0"
         },
         "foreignBenefitCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-26-1be8a8-0"
         },
         "foreignBenefitObligationRequirements": {
@@ -10517,11 +10323,11 @@
           "_qId": "c-26-9ecc14-0"
         },
         "benefitCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-26-12ec78-0"
         },
         "benefitReason": {
-          "value": "Sample value",
+          "value": "Lorem ipsum",
           "_qId": "c-26-1dac1b-0"
         },
         "totalDollarAmount": {
@@ -10540,11 +10346,11 @@
           "value": "Yes",
           "_qId": "c-26-188aef-0"
         },
-        "obligationToCountryYesExplanation": {
+        "obligationToCountryExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-1634f1-0"
         },
-        "obligationToCountryNoExplanation": {
+        "obligationToCountryNoObligationExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-5dfedc-0"
         }
@@ -10577,40 +10383,40 @@
           "value": "Yes",
           "_qId": "c-26-3fa0ab-0"
         },
-        "supportedLiveUsAddressNotKnown": {
+        "supportedLiveInUsAddress": {
           "value": "",
           "_qId": "c-26-f2c534-0",
           "dontKnow": true
         },
-        "supportedLiveUsStreet": {
+        "supportedLiveInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-26-5e966b-0",
           "dontKnow": true
         },
-        "supportedLiveUsCity": {
+        "supportedLiveInUsCity": {
           "value": "Rapid City",
           "_qId": "c-26-151e4b-0",
           "dontKnow": true
         },
-        "supportedLiveUsState": {
+        "supportedLiveInUsState": {
           "value": "WA",
           "_qId": "c-26-de1a87-0"
         },
-        "supportedLiveUsZipcode": {
+        "supportedLiveInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-26-11d9df-0",
           "dontKnow": true
         },
-        "supportedLiveUsMilitaryInstallation": {
+        "supportedLiveInUsMilitaryInstallation": {
           "value": "Yes",
           "_qId": "c-26-174659-0"
         },
-        "supportedLiveUsMilitaryInstallationName": {
+        "supportedLiveInUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "c-26-e613b6-0",
           "dontKnow": true
         },
-        "supportedNonUsAddressNotKnown": {
+        "supportedNonUs": {
           "value": "",
           "_qId": "c-26-1f4302-0",
           "dontKnow": true
@@ -10621,7 +10427,7 @@
           "dontKnow": true
         },
         "supportedNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-26-86d444-0"
         },
         "supportedNonUsUsgFacility": {
@@ -10642,34 +10448,32 @@
           "value": "Lorem ipsum",
           "_qId": "c-26-147696-0"
         },
-        "frequencyOfSupport": {
+        "FrequencyOfSupport": {
           "value": "Lorem ipsum",
           "_qId": "c-26-131ff7-0"
         },
-        "totalDollarAmountOfSupport": {
+        "TotalDollarAmountOfSupport": {
           "value": "Lorem ipsum",
           "_qId": "c-26-1194b8-0"
         },
-        "reasonForSupport": {
-          "value": "Sample value",
+        "ReasonForSupport": {
+          "value": "Lorem ipsum",
           "_qId": "c-26-3cf203-0"
         },
-        "planToContinueSupport": {
+        "PlanToContinueSupport": {
           "value": "Yes",
           "_qId": "c-26-e33a21-0"
         },
-        "planToContinueSupportExplanation": {
+        "PlanToContinueSupportExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-18cc5b-0"
         },
-        "doNotPlanToContinueSupportExplanation": {
+        "DoNotPlanToContinueSupportExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-26-12230e-0"
         },
-        "citizenshipOfSupportedIndividual": {
-          "value": [
-            "CAN"
-          ],
+        "CitizenshipOfSupportedIndividual": {
+          "value": "CAN",
           "_qId": "c-26-1975b7-0"
         }
       }
@@ -10680,23 +10484,23 @@
       "value": "Yes",
       "_qId": "c-27-1bc527-0"
     },
-    "advisedForeignCovernment": {
+    "adviseForeignGovernmentFiveYears": {
       "value": "Yes",
       "_qId": "c-27-169a45-0"
     },
-    "receivedJobOffer": {
+    "foreignNationalJobOfferFiveYears": {
       "value": "Yes",
       "_qId": "c-27-a85842-0"
     },
-    "haveOtherForeignVentures": {
+    "foreignNationalBusinessVentureFiveYears": {
       "value": "Yes",
       "_qId": "c-27-1bc30d-0"
     },
-    "haveHadForeignGovernmentContact": {
+    "contactForeignGovernment": {
       "value": "Yes",
       "_qId": "c-27-1a9922-0"
     },
-    "haveSponsoredForeignNational": {
+    "sponsorFiveYears": {
       "value": "Yes",
       "_qId": "c-27-1ea64e-0"
     },
@@ -10710,59 +10514,59 @@
     },
     "adviseForeignOrganizations": [
       {
-        "typeOfSupport": {
+        "typeOfSupportToOrganization": {
           "value": "Lorem ipsum",
           "_qId": "c-27-7feee0-0",
           "dontKnow": true
         },
-        "pointOfContactLastName": {
+        "organizationPointOfContactLastName": {
           "value": "Smith",
           "_qId": "c-27-62c199-0",
           "lettersOnly": true
         },
-        "pointOfContactFirstName": {
+        "organizationPointOfContactFirstName": {
           "value": "John",
           "_qId": "c-27-1236a6-0",
           "lettersOnly": true
         },
-        "pointOfContactMiddleName": {
+        "organizationPointOfContactMiddleName": {
           "value": "Albert",
           "_qId": "c-27-16612e-0",
           "lettersOnly": true,
           "noMiddleName": true
         },
-        "pointOfContactSuffix": {
+        "organizationPointOfContactSuffix": {
           "value": "None",
           "_qId": "c-27-137d26-0"
         },
-        "pointOfContactRoleInCompany": {
+        "organizationPointOfContactRoleInCompany": {
           "value": "Lorem ipsum",
           "_qId": "c-27-1515e8-0"
         },
-        "nameOfCompany": {
+        "organizationNameOfCompany": {
           "value": "Lorem ipsum",
           "_qId": "c-27-874855-0"
         },
-        "countryOfCompany": {
-          "value": "AFG",
+        "organizationCountryOfCompany": {
+          "value": "CAN",
           "_qId": "c-27-7709fd-0"
         },
-        "startDate": {
+        "organizationStartDate": {
           "value": "2020-10",
           "_qId": "c-27-1ee808-0",
           "estimated": true
         },
-        "endDate": {
+        "organizationEndDate": {
           "value": "2020-10",
           "_qId": "c-27-1c8ebd-0",
           "estimated": true,
           "present": true
         },
-        "receivedCompensation": {
+        "organizationReceivedCompensation": {
           "value": "Yes",
           "_qId": "c-27-1a0d28-0"
         },
-        "compensationType": {
+        "organizationCompensationType": {
           "value": "Lorem ipsum",
           "_qId": "c-27-1d093e-0"
         }
@@ -10770,7 +10574,7 @@
     ],
     "adviseForeignGovernments": [
       {
-        "familyMember": {
+        "familyMemberWhoAdvisesGovernment": {
           "value": "Myself",
           "_qId": "c-27-1f58fc-0"
         },
@@ -10858,7 +10662,7 @@
           "value": "Lorem ipsum",
           "_qId": "c-27-1fcfd3-0"
         },
-        "dateOfOffer": {
+        "dateofOffer": {
           "value": "2020-10",
           "_qId": "c-27-1fd9f8-0",
           "estimated": true
@@ -10867,68 +10671,68 @@
           "value": "Yes",
           "_qId": "c-27-8d2ee2-0"
         },
-        "offerUsStreet": {
+        "offerMadeInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-27-1515a8-0"
         },
-        "offerUsCity": {
+        "offerMadeInUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-4b6f0c-0"
         },
-        "offerUsState": {
+        "offerMadeInUsState": {
           "value": "WA",
           "_qId": "c-27-15fa6d-0"
         },
-        "offerUsZipcode": {
+        "offerMadeInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-27-2f2152-0"
         },
-        "offerNonUsCity": {
+        "offerNotMadeInUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-3c3a5d-0"
         },
-        "offerNonUsCountry": {
-          "value": "AFG",
+        "offerNotMadeInUsCountry": {
+          "value": "CAN",
           "_qId": "c-27-1371ad-0"
         },
-        "accepted": {
+        "offerAcceptance": {
           "value": "Yes",
           "_qId": "c-27-1364b6-0"
         },
-        "acceptanceDate": {
+        "offerAcceptanceDate": {
           "value": "2020-10",
           "_qId": "c-27-17c3ef-0",
           "estimated": true
         },
-        "performedWork": {
+        "offerAcceptancePerformWork": {
           "value": "Yes",
           "_qId": "c-27-310a7a-0"
         },
-        "startDate": {
+        "offerAcceptancePerformWorkStartDate": {
           "value": "2020-10",
           "_qId": "c-27-e1bb8b-0",
           "estimated": true
         },
-        "endDate": {
+        "offerAcceptancePerformWorkEndDate": {
           "value": "2020-10",
           "_qId": "c-27-9b43a6-0",
           "estimated": true,
           "present": true
         },
-        "compensationAmount": {
+        "offerAcceptancePerformWorkCompensation": {
           "value": "Lorem ipsum",
           "_qId": "c-27-fdd5f2-0"
         },
-        "haveOngoingObligations": {
+        "offerAcceptancePerformWorkOngoingObligation": {
           "value": "Yes",
           "_qId": "c-27-19c8c6-0"
         },
-        "haveOngoingObligationsExplanation": {
+        "offerAcceptancePerformWorkOngoingObligationExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-27-3cd982-0"
         },
-        "offerRejectionReason": {
-          "value": "Sample value",
+        "offerDidNotAcceptReason": {
+          "value": "Lorem ipsum",
           "_qId": "c-27-1f5da2-0"
         }
       }
@@ -10959,48 +10763,46 @@
           "value": "Yes",
           "_qId": "c-27-8a8bb3-0"
         },
-        "partnerAddressUsNotKnown": {
+        "partnerLiveInUsLocation": {
           "value": "",
           "_qId": "c-27-ea3b88-0",
           "dontKnow": true
         },
-        "partnerUsStreet": {
+        "partnerLiveInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-27-8fb23e-0",
           "dontKnow": true
         },
-        "partnerUsCity": {
+        "partnerLiveInUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-66f467-0",
           "dontKnow": true
         },
-        "partnerUsState": {
+        "partnerLiveInUsState": {
           "value": "WA",
           "_qId": "c-27-19df53-0"
         },
-        "partnerUsZipcode": {
+        "partnerLiveInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-27-da7c39-0",
           "dontKnow": true
         },
-        "partnerAddressNonUsNotKnown": {
+        "partnerNotInUs": {
           "value": "",
           "_qId": "c-27-cd414d-0",
           "dontKnow": true
         },
-        "partnerNonUsCity": {
+        "partnerNotInUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-3b679a-0",
           "dontKnow": true
         },
-        "partnerNonUsCountry": {
-          "value": "AFG",
+        "partnerNotInUsCountry": {
+          "value": "CAN",
           "_qId": "c-27-24aa60-0"
         },
         "partnerCitizenship": {
-          "value": [
-            "CAN"
-          ],
+          "value": "CAN",
           "_qId": "c-27-b39281-0",
           "dontKnow": true
         },
@@ -11016,31 +10818,31 @@
           "value": "Lorem ipsum",
           "_qId": "c-27-1a30c0-0"
         },
-        "startDate": {
+        "businessVentureStartDate": {
           "value": "2020-10",
           "_qId": "c-27-b3c2a2-0",
           "estimated": true
         },
-        "endDate": {
+        "businessVentureEndDate": {
           "value": "2020-10",
           "_qId": "c-27-275db7-0",
           "estimated": true,
           "present": true
         },
-        "role": {
+        "businessVentureRole": {
           "value": "I owned the business",
           "_qId": "c-27-77d5f6-0"
         },
-        "roleOtherExplanation": {
+        "businessVentureRoleOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-27-aea97b-0"
         },
-        "supportAmount": {
+        "businessVentureTotalDollarAmount": {
           "value": "100",
           "_qId": "c-27-1e0c80-0",
           "estimated": true
         },
-        "compensationType": {
+        "businessVentureCompensation": {
           "value": "Lorem ipsum",
           "_qId": "c-27-d0c414-0"
         }
@@ -11073,28 +10875,28 @@
           "_qId": "c-27-185040-0"
         },
         "governmentCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-27-8e79e1-0"
         },
-        "agencyType": {
+        "governmentAgencyType": {
           "value": "Military or Armed Forces",
           "_qId": "c-27-1fd424-0"
         },
-        "agencyTypeOtherExplanation": {
+        "governmentAgencyOtherExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-27-33fc0e-0"
         },
-        "agencyName": {
+        "governmentAgencyName": {
           "value": "Lorem ipsum",
           "_qId": "c-27-155b63-0",
           "dontKnow": true
         },
-        "contactReason": {
-          "value": "Sample value",
+        "reasonForForeignGovernmentContact": {
+          "value": "Lorem ipsum",
           "_qId": "c-27-1405fb-0"
         },
-        "representativeNameNotKnown": {
-          "value": "",
+        "representativeName": {
+          "value": "Lorem ipsum",
           "_qId": "c-27-4a8c7e-0",
           "dontKnow": true
         },
@@ -11119,31 +10921,31 @@
           "value": "Yes",
           "_qId": "c-27-fb8162-0"
         },
-        "lastContactUsAddressNotKnown": {
+        "lastContactInUsAddress": {
           "value": "",
           "_qId": "c-27-f2ef79-0",
           "dontKnow": true
         },
-        "lastContactUsStreet": {
+        "lastContactInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-27-15ad5c-0",
           "dontKnow": true
         },
-        "lastContactUsCity": {
+        "lastContactInUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-11448c-0",
           "dontKnow": true
         },
-        "lastContactUsState": {
+        "lastContactInUsState": {
           "value": "WA",
           "_qId": "c-27-1a1a03-0"
         },
-        "lastContactUsZipcode": {
+        "lastContactInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-27-11dc76-0",
           "dontKnow": true
         },
-        "lastContactNonUsNotKnown": {
+        "lastContactNonUs": {
           "value": "",
           "_qId": "c-27-1c4738-0",
           "dontKnow": true
@@ -11154,7 +10956,7 @@
           "dontKnow": true
         },
         "lastContactNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-27-16bb1d-0"
         },
         "futureContactPlans": {
@@ -11167,187 +10969,180 @@
         }
       }
     ],
-    "sponsorships": [
+    "sponsorForeignNationalsToUS": [
       {
-        "reason": {
+        "sponsorReason": {
           "value": "So they could attend school in the U.S.",
           "_qId": "c-27-2d2600-0"
         },
-        "reasonOtherExplanation": {
-          "value": "Sample value",
+        "sponsorReasonOtherExplanation": {
+          "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-27-16b50c-0"
         },
-        "lastName": {
+        "sponsoredLastName": {
           "value": "Smith",
           "_qId": "c-27-105e70-0",
           "lettersOnly": true
         },
-        "firstName": {
+        "sponsoredFirstName": {
           "value": "John",
           "_qId": "c-27-6de93c-0",
           "lettersOnly": true
         },
-        "middleName": {
+        "sponsoredMiddleName": {
           "value": "Albert",
           "_qId": "c-27-1fcf3a-0",
           "lettersOnly": true,
           "noMiddleName": true
         },
-        "suffix": {
+        "sponsoredSuffix": {
           "value": "None",
           "_qId": "c-27-e61170-0"
         },
-        "dateOfBirth": {
+        "sponsoredDateOfBirth": {
           "value": "2020-10",
           "_qId": "c-27-121d0a-0",
           "estimated": true,
           "dontKnow": true
         },
-        "cityOfBirth": {
+        "sponsoredCityOfBirth": {
           "value": "Lorem ipsum",
           "_qId": "c-27-c310f7-0"
         },
-        "countryOfBirth": {
-          "value": "AFG",
+        "sponsoredCountryOfBirth": {
+          "value": "CAN",
           "_qId": "c-27-1e6a6d-0"
         },
-        "citizenship": {
-          "value": [
-            "CAN"
-          ],
+        "sponsoredCitizenship": {
+          "value": "CAN",
           "_qId": "c-27-12353d-0"
         },
-        "startDate": {
+        "sponsoredStartDate": {
           "value": "2020-10",
           "_qId": "c-27-14f928-0",
           "estimated": true
         },
-        "endDate": {
+        "sponsoredEndDate": {
           "value": "2020-10",
           "_qId": "c-27-13e49d-0",
           "estimated": true,
           "present": true
         },
-        "addressInUs": {
+        "sponsoredinUs": {
           "value": "Yes",
           "_qId": "c-27-29a32b-0"
         },
-        "addressUsNotKnown": {
+        "sponsoredUsAddress": {
           "value": "",
           "_qId": "c-27-7a5c6d-0",
           "dontKnow": true
         },
-        "addressUsStreet": {
+        "sponsoredUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-27-1da89e-0",
           "dontKnow": true
         },
-        "addressUsState": {
-          "value": "WA",
-          "_qId": "c-27-manual-0",
-          "dontKnow": true
-        },
-        "addressUsCity": {
+        "sponsoredUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-7c5a8a-0",
           "dontKnow": true
         },
-        "addressUsZipcode": {
+        "sponsoredUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-27-17116c-0",
           "dontKnow": true
         },
-        "addressUsMilitaryInstallation": {
+        "sponsoredUsMilitaryInstallation": {
           "value": "Yes",
           "_qId": "c-27-d5634d-0"
         },
-        "addressUsMilitaryInstallationName": {
+        "sponsoredUsMilitaryInstallationName": {
           "value": "AFB Wakanda",
           "_qId": "c-27-186b03-0",
           "dontKnow": true
         },
-        "addressNonUsNotKnown": {
+        "sponsoredNonUsAddress": {
           "value": "",
           "_qId": "c-27-27f195-0",
           "dontKnow": true
         },
-        "addressNonUsCity": {
+        "sponsoredNonUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-91c581-0",
           "dontKnow": true
         },
-        "addressNonUsCountry": {
-          "value": "AFG",
+        "sponsoredNonUsCountry": {
+          "value": "CAN",
           "_qId": "c-27-a64fee-0"
         },
-        "privateOrganization": {
+        "sponsoredPrivateOrganization": {
           "value": "Yes",
           "_qId": "c-27-19b701-0"
         },
-        "privateOrganizationName": {
+        "sponsoredPrivateOrganizationName": {
           "value": "Lorem ipsum",
           "_qId": "c-27-13f960-0"
         },
-        "privateOrganizationUsAddress": {
+        "sponsoredPrivateOrganizationInUs": {
           "value": "Yes",
           "_qId": "c-27-147ff0-0"
         },
-        "privateOrganizationUsStreet": {
+        "sponsoredPrivateOrganizationInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-27-1501c8-0"
         },
-        "privateOrganizationUsCity": {
+        "sponsoredPrivateOrganizationInUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-1a5416-0"
         },
-        "privateOrganizationUsState": {
+        "sponsoredPrivateOrganizationInUsState": {
           "value": "WA",
           "_qId": "c-27-93c09d-0"
         },
-        "privateOrganizationUsZipcode": {
+        "sponsoredPrivateOrganizationInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-27-173225-0"
         },
-        "privateOrganizationNonUsCity": {
+        "sponsoredPrivateOrganizationNonUsCity": {
           "value": "Rapid City",
           "_qId": "c-27-1e814d-0"
         },
-        "privateOrganizationNonUsCountry": {
-          "value": "AFG",
+        "sponsoredPrivateOrganizationNonUsCountry": {
+          "value": "CAN",
           "_qId": "c-27-74830d-0"
         }
       }
     ],
     "foreignPoliticalOffices": [
       {
-        "positionHeld": {
+        "officeHeld": {
           "value": "Lorem ipsum",
           "_qId": "c-27-17ae6d-0"
         },
-        "startDate": {
+        "officeStartDate": {
           "value": "2020-10",
           "_qId": "c-27-15980c-0",
           "estimated": true
         },
-        "endDate": {
+        "officeEndDate": {
           "value": "2020-10",
           "_qId": "c-27-a4e7c6-0",
           "estimated": true,
           "present": true
         },
-        "country": {
-          "value": "AFG",
+        "officeCountry": {
+          "value": "CAN",
           "_qId": "c-27-111483-0"
         },
-        "reason": {
-          "value": "Sample value",
+        "officeReason": {
+          "value": "Lorem ipsum",
           "_qId": "c-27-171053-0"
         },
-        "eligibility": {
+        "officeEligibility": {
           "value": "Yes",
           "_qId": "c-27-dbbff0-0"
         },
-        "eligibilityExplanation": {
+        "officeEligibilityExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-27-a826f0-0"
         }
@@ -11355,24 +11150,24 @@
     ],
     "foreignElectionVoting": [
       {
-        "dateofvoting": {
+        "voteDate": {
           "value": "2020-10",
           "_qId": "c-27-1e79c5-0",
           "estimated": true
         },
-        "country": {
-          "value": "AFG",
+        "voteCountry": {
+          "value": "CAN",
           "_qId": "c-27-1c6dff-0"
         },
-        "reason": {
-          "value": "Sample value",
+        "voteReason": {
+          "value": "Lorem ipsum",
           "_qId": "c-27-1c0208-0"
         },
-        "eligibility": {
+        "voteEligibility": {
           "value": "Yes",
           "_qId": "c-27-1505a3-0"
         },
-        "eligibilityExplanation": {
+        "voteEligibilityExplanation": {
           "value": "Lorem ipsum dolor sit amet.",
           "_qId": "c-27-5ee134-0"
         }
@@ -11380,7 +11175,7 @@
     ]
   },
   "mentalHealth": {
-    "declaredIncompetent": {
+    "declarationIncompetent": {
       "value": "Yes",
       "_qId": "c-28-1a4657-0"
     },
@@ -11388,7 +11183,7 @@
       "value": "Yes",
       "_qId": "c-28-1e9fa2-0"
     },
-    "haveBeenHospitalizedForMentalHealth": {
+    "haveBeenHospitalized": {
       "value": "Yes",
       "_qId": "c-28-fdbf05-0"
     },
@@ -11396,34 +11191,34 @@
       "value": "Yes",
       "_qId": "c-28-11357c-0"
     },
-    "incompetencyDeclarations": [
+    "mentallyIncompetent": [
       {
         "courtName": {
           "value": "Lorem ipsum",
           "_qId": "c-28-12ff90-0"
         },
-        "declarationDate": {
+        "courtDateOfDeclaration": {
           "value": "2020-01-01",
           "_qId": "c-28-ee7b8e-0",
           "estimated": true
         },
-        "courtUsAddress": {
+        "courtInUs": {
           "value": "Yes",
           "_qId": "c-28-1304d1-0"
         },
-        "courtUsStreet": {
+        "courtInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-28-f3d9b5-0"
         },
-        "courtUsCity": {
+        "courtInUsCity": {
           "value": "Rapid City",
           "_qId": "c-28-c16425-0"
         },
-        "courtUsState": {
+        "courtInUsState": {
           "value": "WA",
           "_qId": "c-28-175a48-0"
         },
-        "courtUsZipcode": {
+        "courtInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-28-196089-0"
         },
@@ -11432,48 +11227,48 @@
           "_qId": "c-28-36d2f8-0"
         },
         "courtNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-28-1a6974-0"
         },
-        "appealedDecision": {
-          "value": "Yes",
-          "_qId": "c-28-1e4e0e-0"
-        },
-        "appeals": [
+        "appealDecision": [
           {
-            "courtName": {
+            "courtAppeal": {
+              "value": "Yes",
+              "_qId": "c-28-1e4e0e-0"
+            },
+            "courtAppealName": {
               "value": "Lorem ipsum",
               "_qId": "c-28-1a774e-0"
             },
-            "courtUSAddress": {
+            "courtAppealInUs": {
               "value": "Yes",
               "_qId": "c-28-612498-0"
             },
-            "courtUsStreet": {
+            "courtAppealInUsStreet": {
               "value": "123 Main Street",
               "_qId": "c-28-d9aa5b-0"
             },
-            "courtUsCity": {
+            "courtAppealInUsCity": {
               "value": "Rapid City",
               "_qId": "c-28-12eb89-0"
             },
-            "courtUsState": {
+            "courtAppealInUsState": {
               "value": "WA",
               "_qId": "c-28-16303a-0"
             },
-            "courtUsZipcode": {
+            "courtAppealInUsZipcode": {
               "value": "Lorem ipsum",
               "_qId": "c-28-7104c1-0"
             },
-            "courtNonUsCity": {
+            "courtAppealNonUsCity": {
               "value": "Rapid City",
               "_qId": "c-28-1a7393-0"
             },
-            "courtNonUsCountry": {
-              "value": "AFG",
+            "courtAppealNonUsCountry": {
+              "value": "CAN",
               "_qId": "c-28-15c229-0"
             },
-            "appealDisposition": {
+            "courtAppealDisposition": {
               "value": "Lorem ipsum",
               "_qId": "c-28-3e212c-0"
             }
@@ -11483,7 +11278,7 @@
     ],
     "mentalHealthConsultations": [
       {
-        "courtName": {
+        "court": {
           "value": "Lorem ipsum",
           "_qId": "c-28-1580f9-0"
         },
@@ -11492,23 +11287,23 @@
           "_qId": "c-28-80263f-0",
           "estimated": true
         },
-        "courtUsAddress": {
+        "courtInUs": {
           "value": "Yes",
           "_qId": "c-28-1104ba-0"
         },
-        "courtUsStreet": {
+        "courtInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-28-189a07-0"
         },
-        "courtUsCity": {
+        "courtInUsCity": {
           "value": "Rapid City",
           "_qId": "c-28-113579-0"
         },
-        "courtUsState": {
+        "courtInUsState": {
           "value": "WA",
           "_qId": "c-28-184b6c-0"
         },
-        "courtUsZipcode": {
+        "courtInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-28-1336bd-0"
         },
@@ -11517,18 +11312,18 @@
           "_qId": "c-28-1cdcb8-0"
         },
         "courtNonUsCountry": {
-          "value": "AFG",
+          "value": "CAN",
           "_qId": "c-28-c04841-0"
         },
-        "disposition": {
+        "courtDisposition": {
           "value": "Lorem ipsum",
           "_qId": "c-28-1566e7-0"
         },
-        "appealedCourtDecision": {
+        "courtDispositionAppeal": {
           "value": "Yes",
           "_qId": "c-28-1cd693-0"
         },
-        "appeals": [
+        "appealDecision": [
           {
             "appealCourtName": {
               "value": "Lorem ipsum",
@@ -11538,19 +11333,19 @@
               "value": "Yes",
               "_qId": "c-28-1de181-0"
             },
-            "appealCourtUsStreet": {
+            "appealCourtInUsStreet": {
               "value": "123 Main Street",
               "_qId": "c-28-14bfeb-0"
             },
-            "appealCourtUsCity": {
+            "appealCourtInUsCity": {
               "value": "Rapid City",
               "_qId": "c-28-aeca71-0"
             },
-            "appealCourtUsState": {
+            "appealCourtInUsState": {
               "value": "WA",
               "_qId": "c-28-b27a3b-0"
             },
-            "appealCourtUsZipcode": {
+            "appealCourtInUsZipcode": {
               "value": "Lorem ipsum",
               "_qId": "c-28-66d0e8-0"
             },
@@ -11559,10 +11354,10 @@
               "_qId": "c-28-1572bc-0"
             },
             "appealCourtNonUsCountry": {
-              "value": "AFG",
+              "value": "CAN",
               "_qId": "c-28-168862-0"
             },
-            "appealDisposition": {
+            "appealCourtNonUsDisposition": {
               "value": "Lorem ipsum",
               "_qId": "c-28-807aba-0"
             }
@@ -11570,233 +11365,212 @@
         ]
       }
     ],
-    "mentalHealthHospitalizations": [
+    "hospitalizations": [
       {
-        "voluntary": {
+        "mentalHealthVoluntary": {
           "value": "Yes",
           "_qId": "c-28-15bbe7-0"
         },
-        "startDate": {
+        "mentalHealthStartDate": {
           "value": "2020-10",
           "_qId": "c-28-1610aa-0",
           "estimated": true
         },
-        "endDate": {
+        "mentalHealthEndDate": {
           "value": "2020-10",
           "_qId": "c-28-156ef1-0",
           "estimated": true
         },
-        "name": {
+        "mentalHealthHospitalName": {
           "value": "Lorem ipsum",
           "_qId": "c-28-64680b-0"
         },
-        "usAddress": {
+        "mentalHealthHospitalInUs": {
           "value": "Lorem ipsum",
           "_qId": "c-28-1fdfab-0"
         },
-        "usStreet": {
+        "mentalHealthHospitalInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-28-61b705-0"
         },
-        "usCity": {
+        "mentalHealthHospitalInUsCity": {
           "value": "Rapid City",
           "_qId": "c-28-1da380-0"
         },
-        "usState": {
+        "mentalHealthHospitalInUsState": {
           "value": "WA",
           "_qId": "c-28-77597a-0"
         },
-        "usZipcode": {
+        "mentalHealthHospitalInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-28-2995c5-0"
         },
-        "nonUsCity": {
+        "mentalHealthHospitalNonUsCity": {
           "value": "Rapid City",
           "_qId": "c-28-ba0df5-0"
         },
-        "nonUsCountry": {
-          "value": "AFG",
+        "mentalHealthHospitalNonUsCountry": {
+          "value": "CAN",
           "_qId": "c-28-1c8f9d-0"
         }
       }
     ],
-    "personalityDisorderDiagnoses": [
+    "diagnosedPersonalityDisorders": [
       {
-        "startDate": {
+        "diagnosedStartDate": {
           "value": "2020-10",
           "_qId": "c-28-5260bc-0",
           "estimated": true
         },
-        "endDate": {
+        "diagnosedEndDate": {
           "value": "2020-10",
           "_qId": "c-28-1c7da8-0",
           "estimated": true,
           "present": true
         },
-        "doctorName": {
+        "diagnosedDoctorName": {
           "value": "Lorem ipsum",
           "_qId": "c-28-43547a-0"
         },
-        "doctorPhone": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+        "diagnosedDoctorPhone": {
+          "value": "Day: 202-555-1234",
           "_qId": "c-28-3a2bc7-0"
         },
-        "doctorUsAddress": {
+        "diagnosedDoctorInUsAddress": {
           "value": "Yes",
           "_qId": "c-28-166cdd-0"
         },
-        "doctorUsStreet": {
+        "diagnosedDoctorInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-28-1b4701-0"
         },
-        "doctorUsCity": {
+        "diagnosedDoctorInUsCity": {
           "value": "Rapid City",
           "_qId": "c-28-d43907-0"
         },
-        "doctorUsState": {
+        "diagnosedDoctorInUsState": {
           "value": "WA",
           "_qId": "c-28-4444b4-0"
         },
-        "doctorUsZipcode": {
+        "diagnosedDoctorInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-28-1ef7f1-0"
         },
-        "doctorNonUsCity": {
+        "diagnosedDoctorNonUsCity": {
           "value": "Rapid City",
           "_qId": "c-28-421713-0"
         },
-        "doctorNonUsCountry": {
-          "value": "AFG",
+        "diagnosedDoctorNonUsCountry": {
+          "value": "CAN",
           "_qId": "c-28-bd33db-0"
         },
-        "sameTreatmentFacility": {
+        "diagnosedTreatmentLocation": {
           "value": "Yes",
           "_qId": "c-28-625980-0"
         },
-        "facilityName": {
+        "diagnosedTreatmentName": {
           "value": "Lorem ipsum",
           "_qId": "c-28-188f00-0"
         },
-        "facilityPhone": {
-          "value": {
-            "countryCode": "1",
-            "number": "2025551234",
-            "type": "Cell",
-            "timeOfDay": "Both",
-            "extension": "",
-            "isDsn": false
-          },
+        "diagnosedTreatmentPhone": {
+          "value": "Day: 202-555-1234",
           "_qId": "c-28-513d9c-0"
         },
-        "facilityUsAddress": {
+        "diagnosedTreatmentInUs": {
           "value": "Yes",
           "_qId": "c-28-1c73a3-0"
         },
-        "facilityUsStreet": {
+        "diagnosedTreatmentInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-28-dab5c5-0"
         },
-        "facilityUsCity": {
+        "diagnosedTreatmentInUsCity": {
           "value": "Rapid City",
           "_qId": "c-28-b6e026-0"
         },
-        "facilityUsState": {
+        "diagnosedTreatmentInUsState": {
           "value": "WA",
           "_qId": "c-28-10bff1-0"
         },
-        "facilityUsZipcode": {
+        "diagnosedTreatmentInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-28-a625a7-0"
         },
-        "facilityNonUsCity": {
+        "diagnosedTreatmentNonUsCity": {
           "value": "Rapid City",
           "_qId": "c-28-374075-0"
         },
-        "facilityNonUsCountry": {
-          "value": "AFG",
+        "diagnosedTreatmentNonUsCountry": {
+          "value": "CAN",
           "_qId": "c-28-1e9110-0"
         },
-        "psychoticSymptoms": {
-          "value": "Yes",
-          "_qId": "c-28-1076c7-0"
-        },
-        "manicEpisode": {
-          "value": "Yes",
-          "_qId": "c-28-4b63c9-0"
-        },
-        "impulsiveBehavior": {
-          "value": "Yes",
-          "_qId": "c-28-c4ea9d-0"
-        },
-        "planToHurt": {
-          "value": "Yes",
-          "_qId": "c-28-a0e2a2-0"
-        },
-        "episodes": [
+        "anotherEpisode": [
           {
-            "seekTreatment": {
+            "otherPsychotic": {
+              "value": "Yes",
+              "_qId": "c-28-1076c7-0"
+            },
+            "otherManic": {
+              "value": "Yes",
+              "_qId": "c-28-4b63c9-0"
+            },
+            "otherImpulsiveBehavior": {
+              "value": "Yes",
+              "_qId": "c-28-c4ea9d-0"
+            },
+            "otherPlanToHurt": {
+              "value": "Yes",
+              "_qId": "c-28-a0e2a2-0"
+            },
+            "otherSeekTreatment": {
               "value": "Yes",
               "_qId": "c-28-ad4f96-0"
             },
-            "seekTreatmentStartDate": {
+            "otherSeekTreatmentStartDate": {
               "value": "2020-10",
               "_qId": "c-28-6c6766-0",
               "estimated": true
             },
-            "seekTreatmentEndDate": {
+            "otherSeekTreatmentEndDate": {
               "value": "2020-10",
               "_qId": "c-28-a3a67b-0",
               "estimated": true,
               "present": true
             },
-            "doctorName": {
+            "otherDoctorName": {
               "value": "Lorem ipsum",
               "_qId": "c-28-12bcd1-0"
             },
-            "doctorPhone": {
-              "value": {
-                "countryCode": "1",
-                "number": "2025551234",
-                "type": "Cell",
-                "timeOfDay": "Both",
-                "extension": "",
-                "isDsn": false
-              },
+            "otherDoctorPhone": {
+              "value": "Day: 202-555-1234",
               "_qId": "c-28-242f8d-0"
             },
-            "doctorUsAddress": {
+            "otherDoctorAddressInUs": {
               "value": "Yes",
               "_qId": "c-28-8f55ba-0"
             },
-            "doctorUsStreet": {
+            "otherDoctorInUsStreet": {
               "value": "123 Main Street",
               "_qId": "c-28-1bd1f5-0"
             },
-            "doctorUsCity": {
+            "otherDoctorInUsCity": {
               "value": "Rapid City",
               "_qId": "c-28-19903f-0"
             },
-            "doctorUsState": {
+            "otherDoctorInUsState": {
               "value": "WA",
               "_qId": "c-28-12ae83-0"
             },
-            "doctorUsZipcode": {
+            "otherDoctorInUsZipcode": {
               "value": "Lorem ipsum",
               "_qId": "c-28-7bd0b7-0"
             },
-            "doctorNonUsCity": {
+            "otherDoctorNonUsCity": {
               "value": "Rapid City",
               "_qId": "c-28-12cefd-0"
             },
-            "doctorNonUsCountry": {
-              "value": "AFG",
+            "otherDoctorNonUsCountry": {
+              "value": "CAN",
               "_qId": "c-28-babcef-0"
             }
           }
@@ -11809,38 +11583,38 @@
       "value": "Yes",
       "_qId": "c-29-b4c050-0"
     },
-    "convictionPreviouslyReported": {
-      "value": "Yes",
-      "_qId": "c-29-1b89fa-0"
-    },
-    "convictions": [
+    "convictedWithYearPlusSentence": [
       {
-        "details": {
-          "value": "Sample value",
+        "convictedPreviouslyReported": {
+          "value": "Yes",
+          "_qId": "c-29-1b89fa-0"
+        },
+        "convictedDetail": {
+          "value": "Lorem ipsum",
           "_qId": "c-29-15c01e-0"
         },
-        "dateOfOffense": {
+        "convictedDateofOffense": {
           "value": "2020-10",
           "_qId": "c-29-186f1f-0",
           "estimated": true
         },
-        "involvedDomesticViolence": {
+        "convictedDomesticViolence": {
           "value": "Yes",
           "_qId": "c-29-10300e-0"
         },
-        "involvedFirearms": {
+        "convictedFirearms": {
           "value": "Yes",
           "_qId": "c-29-1c8b5c-0"
         },
-        "involvedExplosives": {
+        "convictedExplosives": {
           "value": "Yes",
           "_qId": "c-29-363e1d-0"
         },
-        "involvedDrugs": {
+        "convictedDrugs": {
           "value": "Yes",
           "_qId": "c-29-6359bf-0"
         },
-        "involvedAlcohol": {
+        "convictedAlcohol": {
           "value": "Yes",
           "_qId": "c-29-282ddb-0"
         },
@@ -11850,104 +11624,102 @@
           "estimated": true,
           "notClosed": true
         },
-        "courtName": {
+        "convictedCourtName": {
           "value": "Lorem ipsum",
           "_qId": "c-29-12bbf2-0"
         },
-        "caseNotClosedReason": {
-          "value": "Sample value",
+        "reasonCaseNotClosed": {
+          "value": "Lorem ipsum",
           "_qId": "c-29-1ec6e8-0"
         },
-        "courtUsStreet": {
+        "convictedCourtInUsStreet": {
           "value": "123 Main Street",
           "_qId": "c-29-a339d3-0"
         },
-        "courtUsCity": {
+        "convictedCourtInUsCIty": {
           "value": "Rapid City",
           "_qId": "c-29-1acea4-0"
         },
-        "courtUsState": {
+        "convictedCourtInUsState": {
           "value": "WA",
           "_qId": "c-29-160d14-0"
         },
-        "courtUsZipcode": {
+        "convictedCourtInUsZipcode": {
           "value": "Lorem ipsum",
           "_qId": "c-29-1cb6f6-0"
         },
-        "courtNonUsCity": {
+        "convictedCourtNonUsCity": {
           "value": "Rapid City",
           "_qId": "c-29-1129ca-0"
         },
-        "courtNonUsCountry": {
-          "value": "AFG",
+        "convictedCourtNonUsCountry": {
+          "value": "CAN",
           "_qId": "c-29-32e9c9-0"
         },
-        "charges": [
+        "multipleCharges": [
           {
-            "charge": {
+            "multipleChargesInConviction": {
               "value": "Lorem ipsum",
               "_qId": "c-29-1b1f36-0"
             },
-            "chargeType": {
+            "TypeOfCharge": {
               "value": "Infraction or Violation",
               "_qId": "c-29-bd1e07-0"
             },
-            "chargeTypeOtherExplanation": {
+            "TypeofChargeOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-29-1c69d4-0"
             },
-            "chargeOutcome": {
+            "ChargeOutcome": {
               "value": "Not guilty",
               "_qId": "c-29-1fdfe9-0"
             },
-            "chargeOutcomeOtherExplanation": {
+            "ChargeOutcomeOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-29-187b54-0"
             },
-            "probationStartDate": {
+            "ChargeOutcomeProbationStartDate": {
               "value": "2020-10",
               "_qId": "c-29-176c36-0",
               "estimated": true
             },
-            "probationEndDate": {
+            "ChargeOutcomeProbationEndDate": {
               "value": "2020-10",
               "_qId": "c-29-ed85ed-0",
               "estimated": true,
               "present": true
             },
-            "convictionDate": {
+            "ChargeOutcomeConvictionDate": {
               "value": "2020-10",
               "_qId": "c-29-420be0-0",
               "estimated": true
             },
-            "sentence": {
-              "value": [
-                "Fined"
-              ],
+            "ChargeOutcomeConvictionSentence": {
+              "value": "Fined",
               "_qId": "c-29-2e84d3-0"
             },
-            "sentenceOtherExplanation": {
+            "ChargeOutcomeConvictionSentenceOtherExplanation": {
               "value": "Lorem ipsum dolor sit amet.",
               "_qId": "c-29-ee8fe7-0"
             },
-            "imprisonmentStartDate": {
+            "ChargeOutcomeImprisonmentStartDate": {
               "value": "2020-10",
               "_qId": "c-29-162a02-0"
             },
-            "imprisonmentEndDate": {
+            "ChargeOutcomeImprisonmentEndDate": {
               "value": "2020-10",
               "_qId": "c-29-161faf-0"
             },
-            "grantedParole": {
+            "ChargeOutcomeParole": {
               "value": "Yes",
               "_qId": "c-29-e86615-0"
             },
-            "paroleStartDate": {
+            "ChargeOutcomeParoleStartDate": {
               "value": "2020-10",
               "_qId": "c-29-7c4c5b-0",
               "estimated": true
             },
-            "paroleEndDate": {
+            "ChargeOutcomeParoleEndDate": {
               "value": "2020-10",
               "_qId": "c-29-dcd436-0",
               "estimated": true,

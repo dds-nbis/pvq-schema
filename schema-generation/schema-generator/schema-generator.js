@@ -1,4 +1,4 @@
-const DEBUG = false;
+//const DEBUG = false;
 
 function parseCSV(csvText) {
     const rows = [];
@@ -62,13 +62,22 @@ function parseDropdownValues(valuesCsv) {
     return output;
 }
 
+/**
+ * Generates the schema's "$defs" section, creating one subschema with enumerated values for every 
+ * dropdown list parsed.
+ * 
+ * @param {Map} ddValues 
+ * @returns 
+ */
 function generateCommonDefs(ddValues) {
+    console.info("Generating common schema defs");
     const output = {
         "debug_question_id": {
             "type": "string",
             "pattern": QUESTION_ID_REGEX
         },
-        "phone_number": {
+        "phone_number_value": {
+            "type": "object",
             "properties": {
                 "countryCode": {
                     "type": "string",
@@ -95,28 +104,43 @@ function generateCommonDefs(ddValues) {
                 }
             },
             "required": ["countryCode", "number", "type", "timeOfDay", "extension", "isDsn"],
-            "additionalProperties": false
         }
     };
+
+    for (const typeName in QUESTION_TYPES) {
+        const instance = QUESTION_TYPES[typeName];
+        const commonDefs = instance.getCommonDefs();
+        verify((typeof commonDefs) == "object", "getCommonDefs returned bad result for %s", typeName);
+        console.debug("Common defs for %s: %o", typeName, Object.keys(commonDefs));
+        for (const defName in commonDefs) {
+            console.debug("Recording common def name=%s", defName);
+            output[defName] = commonDefs[defName];
+        }
+    }
+
     for (const listName of ddValues.keys()) {
         console.assert(/^[A-Z_]+$/.test(listName), "corrupt dropdown list name: %s", listName);
         const values = ddValues.get(listName);
-        const defsKey = `dropdown_${listName}`;
-        output[defsKey] = {
+        const valueDefsKey = `dropdown_values_${listName}`;
+        output[valueDefsKey] = {
             "type": "string",
             "enum": values
         };
-        console.debug("Created common dropdown value schema name=%s", defsKey);
-    }
-    return output;
-}
+        const questionDefsKey = `basic_dropdown_${listName}`;
+        output[questionDefsKey] = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "$ref": `#/$defs/${valueDefsKey}`
+                }
+            },
+            "required": ["value"]
+        };
 
-function coalesce(s, defaultValue) {
-    if (s == null || s.trim().length == 0) {
-        return defaultValue;
-    } else {
-        return s;
+        console.debug("Created common dropdown value schema name=%s", valueDefsKey);
     }
+    console.debug("Final common def names: %o", Object.keys(output));
+    return output;
 }
 
 function parseSection(rawSection) {
@@ -170,7 +194,8 @@ const YEAR_REGEX = "^\\d{4}$";
 const NUMBER_REGEX = "^\\d+(\\.\\d+)?$";
 const QUESTION_ID_REGEX = "^[abcd]-\\d+-[0-9a-z]{6}-\\d+$";
 
-const DEFAULT_MAX_LENGTH = 255;
+const NORMAL_MAX_LENGTH = 255;
+const LONG_MAX_LENGTH = 4000;
 
 class QuestionType {
     constructor(isMultivalue, hasEnumList, requiresValue, valuePattern, schemaFormat, maxLength, isPhoneNumber) {
@@ -184,25 +209,203 @@ class QuestionType {
     }
 }
 
+function makeQuestionDef(maxLength, regex) {
+    let schema = {
+        "type": "object",
+        "properties": {
+            "value": {
+                "type": "string"
+            },
+            "_qId": {
+                "$ref": "#/$defs/debug_question_id"
+            }
+
+        },
+        "required": ["value"],
+        "additionalProperties": false
+    };
+    if (maxLength) {
+        schema.properties.value.maxLength = maxLength;
+    }
+    if (regex) {
+        schema.properties.value.pattern = regex;
+    }
+    return schema;
+}
+
+function addCheckboxes(skeleton, checkboxes) {
+    for (let checkbox of checkboxes) {
+        skeleton.properties[checkbox] = {
+            "type": "boolean"
+        };
+    }
+    return skeleton;
+}
+
+function makeMultivalue(schema) {
+    const valueSpec = schema.properties.value;
+    schema.properties.value = {
+        "type": "array",
+        "items": valueSpec
+    };
+    return schema;
+}
+
+let GOOD_Q_COUNTER = 0;
+let BAD_Q_COUNTER = 0;
+
+class TextQuestionType {
+    constructor(name, maxLength, regex, isMultivalue) {
+        this.name = name;
+        this.maxLength = maxLength || null;
+        this.regex = regex || null;
+        this.isMultivalue = isMultivalue || false;
+        this.commonDefName = "basic_" + this.name;
+    }
+
+    getCommonDefs() {
+        const defs = {};
+        defs[this.commonDefName] = makeQuestionDef(this.maxLength, this.regex);
+        return defs;
+    }
+
+    generateSchema(checkboxes) {
+        if (checkboxes.length == 0 && !this.isMultivalue) {
+            const defPath = `#/$defs/${this.commonDefName}`;
+            GOOD_Q_COUNTER++;
+            return { "$ref": defPath };
+        } else {
+            BAD_Q_COUNTER++;
+            const result = this.getCommonDefs()[this.commonDefName];
+            addCheckboxes(result, checkboxes);
+            if (this.isMultivalue) {
+                makeMultivalue(result);
+            }
+            return result;
+        }
+    }
+}
+
+function getPhoneNumberQuestionSchema() {
+    return {
+        "type": "object",
+        "properties": {
+            "value": {
+                "$ref": "#/$defs/phone_number_value"
+            },
+            "_qId": {
+                "$ref": "#/$defs/debug_question_id"
+            }
+        },
+        "additionalProperties": false
+    };
+}
+
+class PhoneNumberQuestionType {
+
+    constructor(isMultivalue) {
+        this.isMultivalue = isMultivalue;
+    }
+
+    getCommonDefs() {
+        if (this.isMultivalue) {
+            return {};
+        }
+
+        return {
+            "basic_phone_number": getPhoneNumberQuestionSchema()
+        };
+    }
+
+    generateSchema(checkboxes) {
+        if (checkboxes.length == 0 && !this.isMultivalue) {
+            GOOD_Q_COUNTER++;
+            return { "$ref": "#/$defs/basic_phone_number" };
+        } else {
+            BAD_Q_COUNTER++;
+            const result = getPhoneNumberQuestionSchema();
+            addCheckboxes(result, checkboxes);
+            if (this.isMultivalue) {
+                makeMultivalue(result);
+            }
+            return result;
+        }
+    }
+}
+
+class CheckboxesQuestionType {
+    getCommonDefs() {
+        return {};
+    }
+
+    generateSchema(checkboxes) {
+        BAD_Q_COUNTER++;
+        const result = {
+            "type": "object",
+            "properties": {}
+        };
+
+        for (const checkbox of checkboxes) {
+            result.properties[checkbox] = {
+                "type": "boolean"
+            };
+        }
+
+        return result;
+    }
+}
+
+class DropdownQuestionType {
+    constructor(isMultivalue) {
+        this.isMultivalue = isMultivalue;
+    }
+
+    getCommonDefs() {
+        return {};
+    }
+
+    generateSchema(checkboxes, listName) {
+        if (checkboxes.length == 0 && !this.isMultivalue) {
+            GOOD_Q_COUNTER++;
+            return {
+                "$ref": `#/$defs/basic_dropdown_${listName}`
+            };
+        }
+        BAD_Q_COUNTER++;
+
+        const result = {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "$ref": `#/$defs/dropdown_values_${listName}`
+                }
+            }
+        };
+        addCheckboxes(result, checkboxes);
+        if (this.isMultivalue) {
+            makeMultivalue(result);
+        }
+        return result;
+    }
+}
+
 const QUESTION_TYPES = {
-    "text": new QuestionType(false, false, true, null),
-    "long_text": new QuestionType(false, false, true, null, null, 4000),
-    "number": new QuestionType(false, false, true, NUMBER_REGEX),
-    "email": new QuestionType(false, false, true, EMAIL_REGEX),
-    "email_multiple": new QuestionType(true, false, true, EMAIL_REGEX),
-    "phone_number": new QuestionType(false, false, true, null, null, null, true),
-    "phone_number_multiple": new QuestionType(true, false, true, null, null, null, true),
-    "checkboxes": new QuestionType(false, false, false, null),
-    "date": new QuestionType(false, false, true, DATE_REGEX, "date"),
-    "month": new QuestionType(false, false, true, MONTH_REGEX),
-    "year": new QuestionType(false, false, true, YEAR_REGEX),
-    "dropdown": new QuestionType(false, true, true, null),
-    "dropdown_multiple": new QuestionType(true, true, true, null)
+    "text": new TextQuestionType("text", NORMAL_MAX_LENGTH),
+    "long_text": new TextQuestionType("long_text"),
+    "number": new TextQuestionType("number", NORMAL_MAX_LENGTH, NUMBER_REGEX),
+    "email": new TextQuestionType("email", NORMAL_MAX_LENGTH, EMAIL_REGEX),
+    "email_multiple": new TextQuestionType("email", NORMAL_MAX_LENGTH, EMAIL_REGEX, true),
+    "date": new TextQuestionType("date", 20, DATE_REGEX),
+    "month": new TextQuestionType("month", 20, MONTH_REGEX),
+    "year": new TextQuestionType("year", 4, YEAR_REGEX),
+    "phone_number": new PhoneNumberQuestionType(false),
+    "phone_number_multiple": new PhoneNumberQuestionType(true),
+    "checkboxes": new CheckboxesQuestionType(),
+    "dropdown": new DropdownQuestionType(false),
+    "dropdown_multiple": new DropdownQuestionType(true)
 };
 
-const NORMAL_TEXT_PATTERN = /^(ZIP|U\.S\.|[A-Z]\. |[A-Z][a-z]).*/;
-
-function getSampleValue(q) {
+function getSampleValue(q, dropdownValues) {
     const propName = q.propertyName.toLowerCase();
     const dataType = q.dataType;
     if (dataType == "text") {
@@ -251,7 +454,7 @@ function getSampleValue(q) {
         } else if (listName == "STATE_OR_TERRITORY") {
             value = "WA";
         } else {
-            const values = globalThis.dropdownValues.get(listName);
+            const values = dropdownValues.get(listName);
             if (values.indexOf("Yes") >= 0) {
                 value = "Yes";
             } else if (values.indexOf("None") > 0) {
@@ -297,121 +500,24 @@ function getSampleValue(q) {
     }
 }
 
+function verify(condition, ...args) {
+  if (!condition) {
+    console.error(...args);
+    throw new Error("assertion failed");
+  }
+}
+
 function generateSimpleProperty(row) {
     const dataType = row.dataType;
     const questionId = row.questionId;
-    const typeSettings = QUESTION_TYPES[dataType];
-    console.assert(typeSettings, "Unhandled data type type=%s question=%s row=%o", dataType, questionId, row);
-
-    const hasNormalText = NORMAL_TEXT_PATTERN.test(row.questionText);
-    if (!hasNormalText) {
-        console.warn("Weird question text text='%s' questionId=%s", row.questionText, questionId);
-    }
-
-    const hasEnumList = typeSettings.hasEnumList;
-    if (hasEnumList) {
-        console.assert(row.dropdownList, "Dropdown list not defined question=%s type=%s", questionId, dataType);
-    } else {
-        console.assert(!row.dropdownList, "Dropdown list unexpectedly found question=%s type=%s", questionId, dataType);
-    }
-
+    const qType = QUESTION_TYPES[dataType];
+    let checkboxes = row.checkboxes;
     let dropdownList = row.dropdownList;
-
-    const description = `
-Question text: ${row.questionText}
-Data type: ${dataType}
-Question ID: ${questionId}
-`.trim();
-
-    let prop = {
-        "type": "object",
-        "properties": {
-            "value": {
-                "type": "string",
-                "maxLength": DEFAULT_MAX_LENGTH
-            },
-            "_qId": {
-                "$ref": "#/$defs/debug_question_id"
-            }
-
-        },
-        "additionalProperties": false,
-        "title": `Question ${questionId}`,
-        "description": description
-    };
-
-    if (typeSettings.isPhoneNumber) {
-        prop.properties.value = {
-            "$ref": "#/$defs/phone_number"
-        };
-    }
-
-    for (let checkbox of row.checkboxes) {
-        prop.properties[checkbox] = {
-            "type": "boolean"
-        };
-    }
-
-    if (typeSettings.maxLength) {
-        prop.properties.value.maxLength = typeSettings.maxLength;
-    }
-
-    if (typeSettings.requiresValue) {
-        prop.required = ["value"];
-    } else {
-        // no value is required on checkboxes questions, but if provided, it must be an empty string
-        console.assert(row.checkboxes.length > 0, "no checkboxes defined for checkboxes question question=%s", row.questionId);
-        prop.required = [];
-        prop.properties.value.const = "";
-    }
-
-    if (typeSettings.hasEnumList) {
-        const enumValues = globalThis.dropdownValues.get(dropdownList);
-        if (enumValues) {
-            const defsKey = `#/$defs/dropdown_${dropdownList}`;
-            prop.properties.value = {
-                "$ref": defsKey
-            };
-        } else {
-            console.error("unknown dropdown list list=%s questionId=%s", dropdownList, questionId);
-            prop.properties.value.enum = [];
-        }
-    } 
-
-    if (typeSettings.valuePattern) {
-        prop.properties.value.pattern = typeSettings.valuePattern;
-    }
-
-    if (typeSettings.schemaFormat) {
-        prop.properties.value.format = typeSettings.schemaFormat;
-    }
-
-    if (typeSettings.isMultivalue) {
-        const valueSpec = prop.properties.value;
-        prop.properties.value = {
-            "type": "array",
-            "items": valueSpec
-        };
-    }
-
-    return prop;
-}
-
-function stripPrefix(prefix, value) {
-    console.assert(prefix != null, "stripPrefix: prefix is null");
-    console.assert(typeof value == "string", "stripPrefix: value is not a string");
-    console.assert(value.startsWith(prefix), "stripPrefix: bogus input prefix='%s' value='%s'", prefix, value);
-
-    return value.substring(prefix.length);
-}
-
-function substringBefore(s, delim, defaultValue) {
-    const p = s.indexOf(delim);
-    if (p < 0) {
-        return defaultValue;
-    } else {
-        return s.substring(0, p);
-    }
+    verify(qType, "unable to lookup question type question=%s type=%s");
+    let qSchema = qType.generateSchema(checkboxes, dropdownList);
+    verify(qSchema != null, "qSchema was null after question type identification question=%s type=%s",
+        questionId, dataType);
+    return qSchema;
 }
 
 /**
@@ -432,11 +538,27 @@ class PropDeduper {
     }
 }
 
-function findDuplicates(arr) {
-    return arr.filter((e, i, a) => a.indexOf(e) !== i);
+function substringBefore(str, suffix) {
+  if (!str || !suffix || !str.endsWith(suffix)) {
+    return null;
+  }
+  return str.slice(0, -suffix.length);
 }
 
-function processQuestions(schemaContext, sampleContext, contextDepth, questions) {
+function startsWithLowercase(str) {
+  if (!str || str.length === 0) {
+    return false; 
+  }
+
+  const firstChar = str.charAt(0);
+
+  // Check if the first character is NOT a lowercase letter
+  // Lowercase letters in ASCII are from 'a' (97) to 'z' (122)
+  return (firstChar >= 'a' && firstChar <= 'z');
+}
+
+
+function processQuestions(schemaContext, sampleContext, contextDepth, questions, dropdownValues) {
     console.debug("Called processQuestions schemaContext=%o sampleContext=%o contextDepth=%s questions=%o", 
         schemaContext, sampleContext, contextDepth, questions);
     const nestedQuestions = [];
@@ -446,6 +568,8 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions)
     for (const q of questions) {
         const propName = q.propertyName;
         const questionId = q.questionId;
+        verify(startsWithLowercase(propName), "property name doesn't start with lowercase letter question=%s propName=%s", 
+            questionId, propName);
         console.assert(propName != "IGNORE", "Encountered an ignored question q=%o", q);
         const groupPath = q.groupPath.slice(contextDepth);
         const condition = q.condition;
@@ -456,7 +580,7 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions)
                 schemaContext.required.push(propName);
             }
             deduper.record(propName, prop);
-            const sampleValue = getSampleValue(q);
+            const sampleValue = getSampleValue(q, dropdownValues);
             sampleContext[propName] = {
                 "value": sampleValue,
                 "_qId": questionId
@@ -486,7 +610,7 @@ function processQuestions(schemaContext, sampleContext, contextDepth, questions)
         schemaContext.properties[arrayPropName] = prop;
         const sampleArrayValue = {};
         sampleContext[arrayPropName] = [sampleArrayValue];
-        processQuestions(prop.items, sampleArrayValue, contextDepth + 1, children);
+        processQuestions(prop.items, sampleArrayValue, contextDepth + 1, children, dropdownValues);
         deduper.record(arrayPropName, prop);
     }
 }
@@ -508,7 +632,7 @@ function isQuestionApplicable(subjectType, parsedQuestion) {
     }
 }
 
-function generateSchema(questionsCsv, subjectType) {
+function generateSchema(questionsCsv, subjectType, dropdownValues) {
     console.groupCollapsed("Parsing questions CSV");
     const allQuestions = parseCSV(questionsCsv)
         .slice(1) // skip the header row
@@ -543,11 +667,16 @@ function generateSchema(questionsCsv, subjectType) {
     };
 
     console.groupCollapsed("Parsing dropdown values");
-    const commonDefs = generateCommonDefs(globalThis.dropdownValues);
+    const commonDefs = generateCommonDefs(dropdownValues);
+    console.debug("Final common defs: %o", commonDefs);
     output["$defs"] = commonDefs;
     console.groupEnd();
 
     for (const rawSection of questionsBySection.keys()) {
+
+        // if (!rawSection.startsWith("06")) {
+        //     continue;
+        // }
 
         const sectionQuestions = questionsBySection.get(rawSection);
         const [sectionNum, sectionName] = parseSection(rawSection);
@@ -568,9 +697,12 @@ function generateSchema(questionsCsv, subjectType) {
         const sampleSection = {};
         sampleDoc[sectionName] = sampleSection;
 
-        processQuestions(sectionObj, sampleSection, 0, sectionQuestions);
+        processQuestions(sectionObj, sampleSection, 0, sectionQuestions, dropdownValues);
         console.groupEnd();
     }
+
+    console.debug("Finished schema generation for %s goodQuestions=%s badQuestions=%s", 
+            subjectType, GOOD_Q_COUNTER, BAD_Q_COUNTER);
 
     return [output, sampleDoc];
 }
@@ -593,43 +725,3 @@ function readFile(file) {
         reader.readAsText(file);
     });
 }
-
-// Start code for browser-based execution
-
-//const APPLICANT_TYPES = ["NATIONAL_SECURITY", "PUBLIC_TRUST", "LOW_RISK"];
-const APPLICANT_TYPES = ["NATIONAL_SECURITY"];
-
-async function handleSubmit(event) {
-    console.info("Called handleSubmit");
-    event.preventDefault();
-
-    const questionCsvInput = document.getElementById('questionCsv');
-    const dropdownCsvInput = document.getElementById('dropdownCsv');
-
-    const valuesFile = dropdownCsvInput.files[0];
-    const vContent = await readFile(valuesFile);
-    globalThis.dropdownValues = parseDropdownValues(vContent);
-
-    const questionsFile = questionCsvInput.files[0];
-    const qContent = await readFile(questionsFile);
-    globalThis.pvqSchemas = {};
-    globalThis.pvqSamples = {};
-    for (const type of APPLICANT_TYPES) {
-        const [schema, sampleDoc] = generateSchema(qContent, type);
-        globalThis.pvqSchemas[type] = schema;
-        globalThis.pvqSamples[type] = sampleDoc;
-        console.info("Generated schema for applicant type: %s", type);
-    }
-
-    console.info("Saved generated schemas to %cpvqSchemas", "color: blue");
-    console.info("To copy the NATIONAL_SECURITY schema JSON to your clipboard, run %ccopy(JSON.stringify(pvqSchemas.NATIONAL_SECURITY, null, 2))", "color: blue")
-    console.info("To copy the NATIONAL_SECURITY sample JSON to your clipboard, run %ccopy(JSON.stringify(pvqSamples.NATIONAL_SECURITY, null, 2))", "color: blue")
-}
-
-function onLoad() {
-    document.getElementById('schemaForm').addEventListener('submit', handleSubmit);
-}
-
-document.addEventListener('DOMContentLoaded', onLoad);
-
-// End code for browser-based execution
