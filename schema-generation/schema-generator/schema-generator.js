@@ -108,6 +108,38 @@ function generateCommonDefs(ddValues) {
             },
             "required": ["value"]
         },
+        "text_notApplicable_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "maxLength": NORMAL_MAX_LENGTH
+                },
+                "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                },
+                "notApplicable": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["value"]
+        },
+        "text_middleName_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "maxLength": NORMAL_MAX_LENGTH
+                },
+                "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                },
+                "notApplicable": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["value"]
+        },
         "phone_number_value": {
             "type": "object",
             "properties": {
@@ -302,27 +334,36 @@ class TextQuestionType {
     }
 
     generateSchema(checkboxes) {
-        if (checkboxes.length == 0 && !this.isMultivalue) {
-            const defPath = `#/$defs/${this.commonDefName}`;
-            GOOD_Q_COUNTER++;
-            return { "$ref": defPath };
-        } else if (checkboxes.length == 1 && checkboxes[0] == "dontKnow" && !this.isMultivalue) {
-            const defPath = `#/$defs/text_dontKnow_value`;
-            GOOD_Q_COUNTER++;
-            return { "$ref": defPath };
-        } else if (checkboxes.length == 1 && checkboxes[0] == "lettersOnly" && !this.isMultivalue) {
-            const defPath = `#/$defs/text_lettersOnly_value`;
-            GOOD_Q_COUNTER++;
-            return { "$ref": defPath };
-        } else {
-            BAD_Q_COUNTER++;
-            const result = this.getCommonDefs()[this.commonDefName];
-            addCheckboxes(result, checkboxes);
-            if (this.isMultivalue) {
-                makeMultivalue(result);
+        if (!this.isMultivalue) {
+            if (checkboxes.length == 0) {
+                const defPath = `#/$defs/${this.commonDefName}`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
+            } else if (checkboxes.length == 1 && checkboxes[0] == "dontKnow") {
+                const defPath = `#/$defs/text_dontKnow_value`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
+            } else if (checkboxes.length == 1 && checkboxes[0] == "lettersOnly") {
+                const defPath = `#/$defs/text_lettersOnly_value`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
+            } else if (checkboxes.length == 1 && checkboxes[0] == "notApplicable") {
+                const defPath = `#/$defs/text_notApplicable_value`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
+            } else if (checkboxes.length == 2 && checkboxes[0] == "lettersOnly" && checkboxes[1] == "noMiddleName") {
+                const defPath = `#/$defs/text_middleName_value`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
             }
-            return result;
+        } 
+        BAD_Q_COUNTER++;
+        const result = this.getCommonDefs()[this.commonDefName];
+        addCheckboxes(result, checkboxes);
+        if (this.isMultivalue) {
+            makeMultivalue(result);
         }
+        return result;
     }
 }
 

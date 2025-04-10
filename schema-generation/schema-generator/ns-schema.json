@@ -19,26 +19,7 @@
           "$ref": "#/$defs/text_lettersOnly_value"
         },
         "middleName": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "lettersOnly": {
-              "type": "boolean"
-            },
-            "noMiddleName": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_middleName_value"
         },
         "suffix": {
           "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -106,23 +87,7 @@
           "$ref": "#/$defs/basic_dropdown_COUNTRIES"
         },
         "ssn": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "notApplicable": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_notApplicable_value"
         },
         "ssnNotApplicableExplanation": {
           "$ref": "#/$defs/basic_text"
@@ -177,26 +142,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "middleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "suffix": {
                 "type": "object",
@@ -321,26 +267,7 @@
           "$ref": "#/$defs/text_lettersOnly_value"
         },
         "passportCardMiddleName": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "lettersOnly": {
-              "type": "boolean"
-            },
-            "noMiddleName": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_middleName_value"
         },
         "passportCardSuffix": {
           "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -391,26 +318,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "middleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "suffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -453,23 +361,7 @@
           "$ref": "#/$defs/basic_text"
         },
         "usCitizenBornAbroadDocumentSerialNumber": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "notApplicable": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_notApplicable_value"
         },
         "usCitizenBornAbroadDocumentIssueDate": {
           "type": "object",
@@ -507,26 +399,7 @@
           "$ref": "#/$defs/text_lettersOnly_value"
         },
         "usCitizenBornAbroadDocumentMiddleName": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "lettersOnly": {
-              "type": "boolean"
-            },
-            "noMiddleName": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_middleName_value"
         },
         "usCitizenBornAbroadDocumentSuffix": {
           "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -553,26 +426,7 @@
           "$ref": "#/$defs/text_lettersOnly_value"
         },
         "naturalizedCitizenCertificateMiddleName": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "lettersOnly": {
-              "type": "boolean"
-            },
-            "noMiddleName": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_middleName_value"
         },
         "naturalizedCitizenCertificateSuffix": {
           "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -584,23 +438,7 @@
           "$ref": "#/$defs/basic_text"
         },
         "derivedCitizenCertificateNumber": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "notApplicable": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_notApplicable_value"
         },
         "derivedCitizenCertificateLastName": {
           "$ref": "#/$defs/text_lettersOnly_value"
@@ -609,26 +447,7 @@
           "$ref": "#/$defs/text_lettersOnly_value"
         },
         "derivedCitizenCertificateMiddleName": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "lettersOnly": {
-              "type": "boolean"
-            },
-            "noMiddleName": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_middleName_value"
         },
         "derivedCitizenCertificateSuffix": {
           "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -672,43 +491,10 @@
           "$ref": "#/$defs/basic_dropdown_COUNTRIES"
         },
         "nonUsCitizenArn": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "notApplicable": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_notApplicable_value"
         },
         "nonUsCitizenEaCardExpirationDate": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 20,
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "notApplicable": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_notApplicable_value"
         },
         "nonUsCitizenResidencyDocument": {
           "$ref": "#/$defs/basic_dropdown_DOC_VERIFY_LEGALRESIDENCY"
@@ -717,23 +503,7 @@
           "$ref": "#/$defs/basic_text"
         },
         "nonUsCitizenDocumentNumber": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "notApplicable": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_notApplicable_value"
         },
         "nonUsCitizenDocumentIssuedate": {
           "$ref": "#/$defs/basic_date"
@@ -748,26 +518,7 @@
           "$ref": "#/$defs/text_lettersOnly_value"
         },
         "nonUsCitizenDocumentMiddleName": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "lettersOnly": {
-              "type": "boolean"
-            },
-            "noMiddleName": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_middleName_value"
         },
         "nonUsCitizenDocumentSuffix": {
           "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -925,26 +676,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "middleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "suffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -1132,23 +864,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "addressNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "addressNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -1513,23 +1229,7 @@
                       "$ref": "#/$defs/basic_dropdown_YES_NO"
                     },
                     "addressNonUsUsgFacilityName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "notApplicable": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_notApplicable_value"
                     },
                     "addressNonUsUsgFacilityPostcode": {
                       "$ref": "#/$defs/basic_text"
@@ -2053,23 +1753,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "addressNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "addressNonUsUsgFacilityZipcode": {
                 "$ref": "#/$defs/basic_text"
@@ -2108,23 +1792,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "workAddressNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "workAddressNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -2832,42 +2500,10 @@
                 "$ref": "#/$defs/basic_phone_number"
               },
               "companyEmailAddress": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "companyWebAddress": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "companyAddressIsSameAsHome": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
@@ -2903,23 +2539,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "companyAddressNonUsUsgFacilityname": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "companyAddressNonUsUsgFacilityZipcode": {
                 "$ref": "#/$defs/basic_text"
@@ -5944,23 +5564,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "providerAddressNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "providerAddressNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -6173,23 +5777,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "providerNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "providerNonUsAddressUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -7081,23 +6669,7 @@
                 "$ref": "#/$defs/basic_text"
               },
               "propertyType": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "owedAmount": {
                 "type": "object",
@@ -7300,23 +6872,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "locationNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "locationNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -7480,23 +7036,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "locationNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "locationNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -7623,23 +7163,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "locationNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "locationNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -7766,23 +7290,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "locationNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "locationNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -7916,23 +7424,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "locationNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "locationNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -8038,23 +7530,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "locationNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "locationNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -9823,26 +9299,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "partnerMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "partnerSuffix": {
                 "type": "object",
@@ -10182,23 +9639,7 @@
                 "additionalProperties": false
               },
               "partnerSsn": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "partnerHasUsedOtherNames": {
                 "$ref": "#/$defs/basic_dropdown_YES_NO_DONTKNOW"
@@ -10295,23 +9736,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "partnerLiveSameAddressNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "partnerLiveSameAddressNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -10385,26 +9810,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "divorcedPartnerMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "divorcedPartnerSuffix": {
                 "type": "object",
@@ -10612,23 +10018,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "divorcedPartnerNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "divorcedPartnerNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -10640,26 +10030,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "widowedPartnerMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "widowedPartnerSuffix": {
                 "type": "object",
@@ -10704,26 +10075,7 @@
                       "$ref": "#/$defs/text_lettersOnly_value"
                     },
                     "middleName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "lettersOnly": {
-                          "type": "boolean"
-                        },
-                        "noMiddleName": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_middleName_value"
                     },
                     "suffix": {
                       "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -10826,26 +10178,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "middleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "suffix": {
                 "type": "object",
@@ -10947,23 +10280,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO_DONTKNOW"
               },
               "locationNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "locationNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/text_dontKnow_value"
@@ -11456,26 +10773,7 @@
                       "$ref": "#/$defs/text_lettersOnly_value"
                     },
                     "middleName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "lettersOnly": {
-                          "type": "boolean"
-                        },
-                        "noMiddleName": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_middleName_value"
                     },
                     "suffix": {
                       "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -11806,23 +11104,7 @@
           "$ref": "#/$defs/basic_dropdown_YES_NO"
         },
         "creditCounselingServiceAddressNonUsgFacilityName": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 255
-            },
-            "_qId": {
-              "$ref": "#/$defs/debug_question_id"
-            },
-            "notApplicable": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/text_notApplicable_value"
         },
         "creditCounselingServiceAddressNonUsgFacilityPostcode": {
           "$ref": "#/$defs/basic_text"
@@ -11950,26 +11232,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "nameUsedAtFilingMiddle": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "nameUsedAtFilingSuffix": {
                 "type": "object",
@@ -11992,26 +11255,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "administratorNameMiddle": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "administratorNameSuffix": {
                 "type": "object",
@@ -12087,26 +11331,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "recipientMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "recipientSuffix": {
                 "type": "object",
@@ -12245,26 +11470,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "recipientMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "recipientSuffix": {
                 "type": "object",
@@ -12528,26 +11734,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "placedByMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "placedBySuffix": {
                 "type": "object",
@@ -12684,26 +11871,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "foreclosedByMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "foreclosedBySuffix": {
                 "type": "object",
@@ -12848,23 +12016,7 @@
                 "$ref": "#/$defs/basic_text"
               },
               "courtName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "courtUsStreet": {
                 "$ref": "#/$defs/basic_text"
@@ -12982,23 +12134,7 @@
                 "$ref": "#/$defs/basic_text"
               },
               "courtName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "courtUsStreet": {
                 "$ref": "#/$defs/basic_text"
@@ -13038,26 +12174,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "evictedByMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "evictedBySuffix": {
                 "type": "object",
@@ -13213,23 +12330,7 @@
                 "$ref": "#/$defs/basic_text"
               },
               "courtName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "courtUsStreet": {
                 "$ref": "#/$defs/basic_text"
@@ -13350,23 +12451,7 @@
                 "$ref": "#/$defs/basic_text"
               },
               "courtName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "courtUsStreet": {
                 "$ref": "#/$defs/basic_text"
@@ -13427,23 +12512,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO"
               },
               "orgAddressNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "orgAddressNonUsUsgFacilityPostcode": {
                 "$ref": "#/$defs/basic_text"
@@ -13764,26 +12833,7 @@
                       "$ref": "#/$defs/text_lettersOnly_value"
                     },
                     "middleName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "lettersOnly": {
-                          "type": "boolean"
-                        },
-                        "noMiddleName": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_middleName_value"
                     },
                     "suffix": {
                       "type": "object",
@@ -14768,26 +13818,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "familyMemberMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "familyMemberSuffix": {
                 "type": "object",
@@ -14989,26 +14020,7 @@
                       "$ref": "#/$defs/text_lettersOnly_value"
                     },
                     "coOwnersMiddleName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "lettersOnly": {
-                          "type": "boolean"
-                        },
-                        "noMiddleName": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_middleName_value"
                     },
                     "coOwnersSuffix": {
                       "type": "object",
@@ -15082,23 +14094,7 @@
                       "$ref": "#/$defs/basic_dropdown_YES_NO_DONTKNOW"
                     },
                     "coOwnersNonUsUsgFacilityName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "notApplicable": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_notApplicable_value"
                     },
                     "coOwnersNonUsUsgFacilityZipcode": {
                       "$ref": "#/$defs/text_dontKnow_value"
@@ -15148,26 +14144,7 @@
                       "$ref": "#/$defs/text_lettersOnly_value"
                     },
                     "controllerMiddleName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "lettersOnly": {
-                          "type": "boolean"
-                        },
-                        "noMiddleName": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_middleName_value"
                     },
                     "controllerSuffix": {
                       "type": "object",
@@ -15221,23 +14198,7 @@
                       "$ref": "#/$defs/basic_dropdown_YES_NO_DONTKNOW"
                     },
                     "controllerUsMilitaryInstallationName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "notApplicable": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_notApplicable_value"
                     },
                     "controllerNonUsLocationNotKnown": {
                       "type": "object",
@@ -15257,23 +14218,7 @@
                       "$ref": "#/$defs/basic_dropdown_YES_NO_DONTKNOW"
                     },
                     "controllerNonUsUsgFacilityName": {
-                      "type": "object",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "maxLength": 255
-                        },
-                        "_qId": {
-                          "$ref": "#/$defs/debug_question_id"
-                        },
-                        "notApplicable": {
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "value"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/$defs/text_notApplicable_value"
                     },
                     "controllerNonUsUsgFacilityZipcode": {
                       "$ref": "#/$defs/text_dontKnow_value"
@@ -15303,26 +14248,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "onBehalfMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "onBehalfSuffix": {
                 "type": "object",
@@ -15373,26 +14299,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "ownerOfInterestMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "ownerOfInterestSuffix": {
                 "type": "object",
@@ -15457,26 +14364,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "foreignBenefitRecipientMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "foreignBenefitRecipientSuffix": {
                 "type": "object",
@@ -15608,26 +14496,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "eligibleRecipientMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "eligibleRecipientSuffix": {
                 "type": "object",
@@ -15713,26 +14582,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "supportedMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "supportedSuffix": {
                 "type": "object",
@@ -15792,23 +14642,7 @@
                 "$ref": "#/$defs/basic_dropdown_YES_NO_DONTKNOW"
               },
               "supportedNonUsUsgFacilityName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "notApplicable": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_notApplicable_value"
               },
               "supportedNonUsUsgFacilityZipcode": {
                 "$ref": "#/$defs/text_dontKnow_value"
@@ -15904,26 +14738,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "pointOfContactMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "pointOfContactSuffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -16006,26 +14821,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "familyMemberMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "familyMemberSuffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -16037,26 +14833,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "pointOfContactMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "pointOfContactSuffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -16107,26 +14884,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "offererMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "offererSuffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -16273,26 +15031,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "partnerMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "partnerSuffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -16449,26 +15188,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "familyMiddleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "familySuffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -16626,26 +15346,7 @@
                 "$ref": "#/$defs/text_lettersOnly_value"
               },
               "middleName": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "_qId": {
-                    "$ref": "#/$defs/debug_question_id"
-                  },
-                  "lettersOnly": {
-                    "type": "boolean"
-                  },
-                  "noMiddleName": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
+                "$ref": "#/$defs/text_middleName_value"
               },
               "suffix": {
                 "$ref": "#/$defs/basic_dropdown_SUFFIX"
@@ -17770,6 +16471,42 @@
           "$ref": "#/$defs/debug_question_id"
         },
         "lettersOnly": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "text_notApplicable_value": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "maxLength": 255
+        },
+        "_qId": {
+          "$ref": "#/$defs/debug_question_id"
+        },
+        "notApplicable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "text_middleName_value": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "maxLength": 255
+        },
+        "_qId": {
+          "$ref": "#/$defs/debug_question_id"
+        },
+        "notApplicable": {
           "type": "boolean"
         }
       },
