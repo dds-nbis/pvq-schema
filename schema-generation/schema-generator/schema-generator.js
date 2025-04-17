@@ -76,6 +76,70 @@ function generateCommonDefs(ddValues) {
             "type": "string",
             "pattern": QUESTION_ID_REGEX
         },
+        "text_dontKnow_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "maxLength": NORMAL_MAX_LENGTH
+                },
+                "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                },
+                "dontKnow": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["value"]
+        },
+        "text_lettersOnly_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "maxLength": NORMAL_MAX_LENGTH
+                },
+                "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                },
+                "lettersOnly": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["value"]
+        },
+        "text_notApplicable_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "maxLength": NORMAL_MAX_LENGTH
+                },
+                "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                },
+                "notApplicable": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["value"]
+        },
+        "text_middleName_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "maxLength": NORMAL_MAX_LENGTH
+                },
+                "_qId": {
+                    "$ref": "#/$defs/debug_question_id"
+                },
+                "notApplicable": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["value"]
+        },
         "phone_number_value": {
             "type": "object",
             "properties": {
@@ -270,19 +334,36 @@ class TextQuestionType {
     }
 
     generateSchema(checkboxes) {
-        if (checkboxes.length == 0 && !this.isMultivalue) {
-            const defPath = `#/$defs/${this.commonDefName}`;
-            GOOD_Q_COUNTER++;
-            return { "$ref": defPath };
-        } else {
-            BAD_Q_COUNTER++;
-            const result = this.getCommonDefs()[this.commonDefName];
-            addCheckboxes(result, checkboxes);
-            if (this.isMultivalue) {
-                makeMultivalue(result);
+        if (!this.isMultivalue) {
+            if (checkboxes.length == 0) {
+                const defPath = `#/$defs/${this.commonDefName}`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
+            } else if (checkboxes.length == 1 && checkboxes[0] == "dontKnow") {
+                const defPath = `#/$defs/text_dontKnow_value`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
+            } else if (checkboxes.length == 1 && checkboxes[0] == "lettersOnly") {
+                const defPath = `#/$defs/text_lettersOnly_value`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
+            } else if (checkboxes.length == 1 && checkboxes[0] == "notApplicable") {
+                const defPath = `#/$defs/text_notApplicable_value`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
+            } else if (checkboxes.length == 2 && checkboxes[0] == "lettersOnly" && checkboxes[1] == "noMiddleName") {
+                const defPath = `#/$defs/text_middleName_value`;
+                GOOD_Q_COUNTER++;
+                return { "$ref": defPath };
             }
-            return result;
+        } 
+        BAD_Q_COUNTER++;
+        const result = this.getCommonDefs()[this.commonDefName];
+        addCheckboxes(result, checkboxes);
+        if (this.isMultivalue) {
+            makeMultivalue(result);
         }
+        return result;
     }
 }
 
@@ -507,11 +588,18 @@ function verify(condition, ...args) {
   }
 }
 
+const CHECKBOX_COUNTS = new Map();
+
 function generateSimpleProperty(row) {
     const dataType = row.dataType;
     const questionId = row.questionId;
     const qType = QUESTION_TYPES[dataType];
     let checkboxes = row.checkboxes;
+    if (dataType == "text") {
+        let key = checkboxes.join("|");
+        const prevCount = CHECKBOX_COUNTS.get(key) || 0;
+        CHECKBOX_COUNTS.set(key, prevCount + 1);
+    }
     let dropdownList = row.dropdownList;
     verify(qType, "unable to lookup question type question=%s type=%s");
     let qSchema = qType.generateSchema(checkboxes, dropdownList);
@@ -700,6 +788,13 @@ function generateSchema(questionsCsv, subjectType, dropdownValues) {
         processQuestions(sectionObj, sampleSection, 0, sectionQuestions, dropdownValues);
         console.groupEnd();
     }
+
+    const sortedCounts = Array.from(CHECKBOX_COUNTS.entries())
+        .sort((a, b) => b[1] - a[1]); 
+    // Print the sorted results
+    sortedCounts.forEach(([key, count]) => {
+        console.debug(`COUNT FOR ${key}: ${count}`);
+    });        
 
     console.debug("Finished schema generation for %s goodQuestions=%s badQuestions=%s", 
             subjectType, GOOD_Q_COUNTER, BAD_Q_COUNTER);

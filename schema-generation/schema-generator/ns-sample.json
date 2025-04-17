@@ -2819,6 +2819,10 @@
           "_qId": "a-10-1f4fd8-0",
           "dontKnow": true
         },
+        "addressNonUsStreet": {
+          "value": "123 Main Street",
+          "_qId": "a-10-manual-0"
+        },
         "addressNonUsCity": {
           "value": "Rapid City",
           "_qId": "a-10-f212ba-0"
@@ -3721,7 +3725,7 @@
       "value": "Yes",
       "_qId": "a-12-1950f9-0"
     },
-    "haveMisusedPresdcriptionDrugs": {
+    "haveMisusedPrescriptionDrugs": {
       "value": "Yes",
       "_qId": "a-12-1348f2-0"
     },
@@ -4305,6 +4309,10 @@
           "value": "AFB Wakanda",
           "_qId": "a-12-13ea37-0"
         },
+        "providerAddressNonUsStreet": {
+          "value": "123 Main Street",
+          "_qId": "a-12-manual-0"
+        },
         "providerAddressNonUsCity": {
           "value": "Rapid City",
           "_qId": "a-12-1dbdf4-0"
@@ -4751,6 +4759,10 @@
           "_qId": "a-14-ab6b21-0",
           "estimated": true,
           "dontKnow": true
+        },
+        "denialReason": {
+          "value": "Lorem ipsum",
+          "_qId": "a-14-manual-0"
         }
       }
     ],
@@ -5655,7 +5667,7 @@
       }
     ]
   },
-  "assocations": {
+  "associations": {
     "memberInOrgForOverthrowingUsg": {
       "value": "Yes",
       "_qId": "a-18-ef8dfd-0"
@@ -6238,7 +6250,7 @@
     ],
     "actsOfViolenceAgainstGovernmentOfficials": [
       {
-        "targettingReason": {
+        "targetingReason": {
           "value": "Sample value",
           "_qId": "a-18-16b7d6-0"
         },
@@ -6265,7 +6277,7 @@
           "value": "Yes",
           "_qId": "a-18-d87a69-0"
         },
-        "targettingReason": {
+        "targetingReason": {
           "value": "Sample value",
           "_qId": "a-18-1ebcde-0"
         },
